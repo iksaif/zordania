@@ -1,0 +1,61 @@
+
+/* Carte lite */
+#carte_lite, #carte_ajax {
+	position: relative;
+	text-align: left;
+	height: 500px;
+	width: 500px;
+	border: #000 solid 1px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#carte_big {
+	position: relative;
+	height: 1000px;
+	width: 1000px;
+	border: #000 solid 1px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#carte_ajax {
+	position: relative;
+	text-align: left;
+	overflow: hidden;
+}
+
+#carte_lite .tile, #carte_big .tile {
+ 	height: 50px; width: 50px; 
+ 	margin: 0px;
+ 	border: 0px;
+ 	padding: 0px;
+ 	float: left;
+ }
+
+/* rosace par défaut pour la carte */
+div#map{
+  background: transparent url(/img/rosace.png) no-repeat top center;
+}
+/* les boutons de déplacement, carte lite & ajax */
+div#map table{
+	text-align: center;
+	border-collapse: collapse;
+	padding:0;
+	margin-left:auto;
+	margin-right:auto;
+	horizontal-align: center;
+	vertical-align:center;
+}
+div#map tr, div#map td{
+	text-align: center;
+	vertical-align:center;
+	padding:0;
+	margin:0;
+	border:none;
+	background:none;
+}
+div#map td{
+	width:9px;
+	height:9px;
+}

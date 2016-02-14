@@ -1,0 +1,1 @@
+Votre légion est arrivée chez <img src="img/groupes/{vars[mbr_gid]}.png" alt="{groupes[{vars[mbr_gid]}]}" title="{groupes[{vars[mbr_gid]}]}"/>{vars[mbr_pseudo]} !

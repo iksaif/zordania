@@ -1,0 +1,183 @@
+@import url(carte.css);
+
+img {
+    border: 0px;
+}
+
+.overflow
+{
+    overflow: auto;
+}
+
+.titre_module,.menu_module,.retour_module,.center,.titre_news {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.close_popup {
+    position: fixed;
+    bottom: 0em;
+    left: 2px;
+    text-align:center;
+    width: 97%;
+}
+
+/* Infos / Error / OK */
+.bad,.error,.ok,.infos {
+    background-color: #A9A9A9;
+    border-style: solid;
+    border-width: 1px;
+    margin: 3px;
+    padding: 2px;
+}
+.infos {
+    border-color: #666666; color: #000000;
+}
+.error {
+    border-color: #FF0000; color: #FF0000;
+}
+.ok {
+    border-color: #226622; color: #226622;
+}
+
+.red, .bad {
+    color: #FF0000;
+}
+.good {
+    color: #226622;
+}
+
+/* Mise en forme a certains endroits ou <em> et <strong> passent pas */
+.italique{ font-style: italic; }
+.strong{ font-weight: bold; }
+.souligne{ text-decoration: underline; }
+.center{display: block; text-align: center; left-margin: auto; right-margin: auto;}
+.right{float: right;}
+
+/* Permet de faire des espaces, utilisé sur la page des bâtiments et sur l'index */
+.cleaner { clear: both; height: 10px; visibility: hidden; }
+
+.clickable { cursor: pointer;}
+
+/* pub skyscraper */
+#skyscraper {
+    padding-right: 10px;
+    width: 160px;
+    border: 0;
+    float: right;
+}
+
+/* Village (oui, je sais, cette page de sert a rien */
+#village {
+    position: relative;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#village .btc {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+#actbar {
+    text-align:center;
+    float: right;
+    position: relative;
+    bottom: 20px;
+    margin: 1px;
+}
+
+#actbar li {
+    display: inline;
+}
+
+#actbar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.perte{
+	color:#99232C;
+}
+.gain{
+	color:#237199;
+}
+/* code pour le forum */
+.code {
+  font-family: monospace ! important;
+  font-style: normal ! important;
+}
+
+/* Portail */
+
+#thumbBox { /*Outermost DIV for thumbnail viewer*/
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: auto;
+	padding: 10px;
+	padding-bottom: 0;
+	background: #313131;
+	border: 1px solid #000000;
+	visibility: hidden;
+	z-index: 10;
+	cursor: hand;
+	cursor: pointer;
+}
+
+#thumbBox .footerbar { /*Footer DIV of thumbbox that contains "close" link */
+	font: bold 16px Tahoma;
+	letter-spacing: 5px;
+	line-height: 1.1em;
+	color: #000000;
+	padding: 5px 0;
+	text-align: right;
+}
+
+
+#thumbBox #thumbImage { /*DIV within thumbbox that holds the enlarged image */
+	background-color: #FFFFFF;
+	color: #000000;
+	border: 1px solid #000000;
+	font-size: 14px;
+}
+
+#thumbLoading { /*DIV for showing "loading" status while thumbbox is being generated*/
+	position: absolute;
+	visibility: hidden;
+	border: 1px solid #FFFFFF;
+	background-color: #EFEFEF;
+	padding: 5px;
+	z-index: 5;
+}
+
+/* colorisation */
+.html-norm{
+  display: block;
+  border: 1px solid red;
+  background-color: #FFFFFF;
+  font: 10px Tahoma;
+  color: #000000;
+  font-family: monospace ! important;
+}
+.html-tag{
+  /*font-weight: bold;*/
+  color: blue;
+}
+.html-attribut{
+  font-style: italic;
+}
+.html-schar{
+  /*font-weight: bold;*/
+  color: red;
+}
+
+/* Listes triables */
+.sortable, .sortable th{
+	cursor: pointer;
+}
+

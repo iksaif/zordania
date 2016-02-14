@@ -1,0 +1,2 @@
+La recherche <img src="img/{session_user[race]}/src/{vars[histo_var1]}.png" alt="{src[{session_user[race]}][alt][{vars[histo_var1]}]}" title="{src[{session_user[race]}][alt][{vars[histo_var1]}]}" />
+est maintenant effectuée.

@@ -1,0 +1,517 @@
+/**************************
+* General                 *
+**************************/
+
+body {
+	text-align:center;
+	margin: 0px; 
+	font-family: Verdana,Tahoma,Arial,sans-serif; 
+	font-size: 10px; 
+	color: rgb(231, 214, 181); 
+	background-color: rgb(0, 0, 0); 
+}
+
+a{
+	font-size:11px;
+}
+a:link, a:visited, a:active { 
+	text-decoration: none; 
+	color: rgb(246, 239, 226); 
+}
+
+a:hover { 
+	text-decoration: underline; 
+	color: rgb(255, 255, 255); 
+}
+
+a.evidence{
+	color: rgb(226, 219, 206); 
+	font-weight : bold;
+}
+
+a.bonus{
+	color: rgb(220, 219, 200); 
+	font-weight : bold;
+}
+
+
+h1 {
+	color : #FFFFFF;
+	font-size : 150%;
+}
+
+h2 {
+	color :#CCCCCC;
+	font-size : 125%;	
+}
+
+h3, h4, h5, h6 {
+	font-size : 110%;
+}
+
+
+input,select {
+	margin: 2px;
+	background-color: #48402D;
+	color: #000;
+	border: 1px solid #000;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+textarea:focus,input:focus{
+	background-color: #6E6145;
+}
+textarea{
+	background-color: #48402D;
+	color: #000;
+	border: thin solid #000;
+	font-size: 13px;
+}
+
+/*********************************
+* Design - Positionement         *
+*********************************/
+#contenu {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	text-align: left;
+}
+
+#text_logo{
+	font-style: oblique;
+}
+
+#logo img{
+	visibility: hidden;display:none; 
+}
+
+#pub,#espace_stats_pub,#espace_menu_centre,.cleaner { 
+	visibility: hidden;display:none; 
+}
+
+#div_page {
+	background-color:#231e17;
+}
+
+#footer {
+	text-align: center;
+	font-size: 9px;
+	color: #666666;
+}
+
+#footer ul{
+	list-style-type: none;
+}
+
+#footer li {
+ display:inline;
+ margin: 2px;
+}
+
+.menu_gauche{
+	margin-bottom: 20px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #000;
+}
+
+.menu_gauche h1{
+	color: rgb(231, 214, 181); 
+	background-color: rgb(0, 0, 0); 
+	color: white;
+	text-align: center;
+	border-bottom: 1px #000 solid;
+	vertical-align: middle;
+	font-size: 120%;
+	margin: 0;
+}
+
+.menu_gauche ul{
+	background-color: #231e17;
+	margin: 0;
+	padding: 5px;
+	list-style-type: none;
+	list-style-position: inside;
+}
+
+
+.menu_gauche ul li ul li{
+	margin:0px;
+	padding:0px;
+}
+
+.menu_gauche ul li ul li:before{
+	content:"- ";
+}
+
+dl li {
+	padding: 3px;
+	margin: 3px;
+}
+
+dd,dt{
+	margin:1px;
+	padding:2px;
+}
+
+dd{
+	background-color: #352d21;
+}
+
+dt{
+	text-decoration: underline;
+}
+
+.haut,.bas {
+	visibility: hidden;display:none;
+}
+
+.centre {
+	background-color: #231e17;
+}
+
+.contenu {
+	padding-left: 35px;
+}
+
+.haut2 {
+	visibility: hidden;display:none;
+}
+
+.bas2 {
+	visibility: hidden;display:none;
+}
+
+#copy_and_stats
+{
+	color: #FFF;
+}
+#footer img
+{
+	border: #000 1px solid;
+}
+#pub .ok {
+	float: left;
+}
+
+/***************************************
+*    Contenu                           *
+***************************************/
+.border1
+{
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.border1 td,tr {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #000000;
+	background-color:#352d21;
+	padding: 2px;
+}
+
+.border1 th {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #000000;
+	background-color:#332b19;
+}
+
+.allie td,tr
+{
+	border-color: #111111;
+	background-color:#332b19;
+}
+
+.error,.ok,.infos
+{
+	margin: 3px;
+	padding: 2px;
+	border-width: 1px;
+	border-style: solid;
+	background-color: #A9A9A9;
+}
+
+.error {
+	border-color: #FF0000;
+	color: #FF0000;
+}
+
+.ok {
+	border-color: #226622;
+	color: #226622;
+}
+
+.infos {
+	border-color: #666666;
+	color: #000000;
+}
+
+/*** le truc qui permet de fermer le popup ***/
+.close_popup {
+	position: fixed; 
+	bottom: 0em; 
+	left: 2px;
+	text-align:center; 
+	width: 97%; 
+}
+
+/*** les news hein .. ***/
+.news {	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #000;
+	padding: 5px;
+	background-color: #352d21;
+	color: #FFF;
+}
+
+.victoire,.defaite
+{
+	text-align: center;
+	margin: 3px;
+	padding: 2px;
+	border-width: 1px;
+	border-style: solid;
+	font-size: 1.1em;
+}
+.victoire{
+	border-color: #226622;
+	background-color: #CCCCCC;
+	color: #226622;
+}
+
+.defaite{
+	border-color: #FF0000;
+	background-color: #CCCCCC;
+	color: #FF0000;
+}
+
+/*** juste un hr :p ***/
+hr {
+	width:50%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #060609;
+}
+
+/**** div qui sert a metre les listes de recherches, etc .. en cours ***/
+.block_1{
+	padding: 5px;
+	border-style: solid;
+	border-color: #000;
+	border-width: 1px;
+	background-color: #352d21;
+}
+
+th
+{
+	text-align:center;
+	font-weight:bold;
+}
+
+/**** div qui servent a faire des listes ***/
+.list_univ
+{
+	padding : 5px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #060609;
+	margin: 10px;
+}
+.list_univ h2{
+	float: left;
+	margin: 10px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+/*** btc pas constructible ***/
+.disabled{
+	background-color: #101010;
+}
+
+/**** Listes *****/
+
+.width100
+{
+	width:100%;
+}
+
+.list30,.list50
+{
+	border-style: solid;
+	border-color: #000;
+	border-width: 1px;
+	background-color: #352d21;
+	float: left;
+	padding: 5px;
+	margin: 5px;
+}
+
+.list30 {
+	width:28%;
+}
+
+.list50 {
+	width:45%;
+}
+
+.vue_generale{
+	margin: 0px;
+	width: 100%;
+}
+
+.vue_generale li{
+	margin: 0;
+	list-style-type: none;
+	list-style-position: inside;
+}
+
+/******* Carte **********/
+.block_carte{
+width: 500px;
+height: 500px;
+}
+
+.zoom_2 img,.zoom_1 img
+{
+float:left;
+}
+
+.zoom_1 img{
+width: 50px;
+height: 50px;
+}
+
+.zoom_2 img{
+width: 25px;
+height: 25px;
+}
+
+/******** Village ********/
+.village{
+	background:#352d21;
+	background-image: url(../img/marron/bg_village.png);
+	background-repeat: repeat-y repeat-x;
+	border:dotted #642f0f 2px;
+	padding: 2px;
+	margin: 2px;
+}
+
+/*****************************
+* Commun                     *
+*****************************/
+img{
+	border:0px;
+}
+
+.img_left{
+	float:left;
+}
+
+.img_right{
+	float:right;
+}
+
+.titre_module,.menu_module,.retour_module,.center,.titre_news
+{
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.gras{
+	font-weight:bold;
+}
+
+.italique{
+	font-style:italic;
+}
+
+.souligne{
+	text-decoration:underline;
+}
+
+
+.red{
+	color: #FF0000;
+}
+
+.overflow{
+overflow: auto;
+}
+
+/**** Barres ****/
+.barre_rouge,.barre_verte,.barre_grisec,.barre_grisef
+{
+	color: #CCC;
+	height: 12px;
+	float: left;
+	background-repeat: repeat-x;
+}
+
+.barre_rouge{
+	background-image:url(../img/stats/red.png);
+}
+
+.barre_verte{
+	background-image:url(../img/stats/green.png);
+}
+
+.barre_grisec{
+	background-image:url(../img/stats/grisec.png);
+}
+
+.barre_grisef{
+	background-image:url(../img/stats/grisef.png);
+}
+
+.barres_grandes,.barres_moyennes,.barres_petites
+{
+	text-align: center;
+	height: 0px;
+}
+
+.barres_grandes
+{
+	width: 300px;
+}
+
+.barres_moyennes
+{
+	width: 200px;
+}
+
+.barres_petites
+{
+	width: 100px;
+}
+
+fieldset{
+	padding:5px;
+}
+
+/********************
+* Divers            *
+********************/
+
+.mysql{
+text-align:left;
+background-color: #DDD;
+color: #000;
+
+border: 1px #AAA solid;
+}
+.perte{ color:#99232C; }
+.gain{ color:#237199; }
+
+#amour{visibility:hidden;display:none;}
+

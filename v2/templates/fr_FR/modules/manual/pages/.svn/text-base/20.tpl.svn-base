@@ -1,0 +1,18 @@
+<h4>Les Spécificités du Village</h4>
+
+<p>
+Contrairement à l'ancienne version de Zordania, votre village devra obligatoirement être défendu si vous ne voulez pas le voir être réduit en cendre. De plus, les unités au village qui ne sont pas dans des légions se feront massacrer. Pour ce faire vous devrez avoir une légion qui sera sur la case de votre village. Elle aura alors le statut "au village".
+<br>
+Pour qu'elle puisse défendre votre cité, elle doit aussi être "En attente d'ordres". (voir aussi <a href="manual.html?race={man_race}&page=20">Les légions et la carte</a>)
+<br>
+L'immobilité de vos légions sera compensée par le fait qu'elles recevront de nombreux bonus en fonction de vos bâtiments de défense (voir <a href="manual.html?race={man_race}&amp;type=btc">Caractéristiques des bâtiments</a>) mais aussi qu'elles se nourriront désormais sur les réserves du village et non leur propre réserve.
+</p>
+
+
+<p align="center" class="menu_module">
+[ <a href="manual.html?race={man_race}&page=19">Précédent : Les Légions et la Carte</a>  ]
+-
+[ <a href="manual.html?race={man_race}&page=0" title="Accueil du Manuel">Manuel</a> ]
+-
+[ <a href="manual.html?race={man_race}&page=21">Suivant : Attaque des Bâtiments</a> ]
+</p>

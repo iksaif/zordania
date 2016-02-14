@@ -1,0 +1,28 @@
+<!DOCTYPE membre [
+<!ELEMENT membre (pseudo,ressource,population,points,alliance)> 
+<!ELEMENT mid (#PCDATA)> 
+
+<!ELEMENT race (race_id,race_nom)> 
+<!ELEMENT race_id (#PCDATA)> 
+<!ELEMENT race_nom (#PCDATA)> 
+
+<!ELEMENT message (#PCDATA)>
+
+<!ELEMENT pseudo (#PCDATA)> 
+
+<!ELEMENT points (#PCDATA)> 
+
+<!ELEMENT ressource (res_type,res_nom,res_nb)> 
+<!ELEMENT res_type (#PCDATA)> 
+<!ELEMENT res_nom (#PCDATA)> 
+<!ELEMENT res_nb (#PCDATA)> 
+
+<!ELEMENT population (util,max)> 
+<!ELEMENT util (#PCDATA)>
+<!ELEMENT max (#PCDATA)>
+
+<!ELEMENT alliance (al_nom,al_id)> 
+<!ELEMENT al_nom (#PCDATA)>
+<!ELEMENT al_id (#PCDATA)>
+
+]>

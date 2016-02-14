@@ -1,0 +1,53 @@
+<h4>Armes et Armures</h4>
+
+<p>
+Vos unités possèdent toutes un certain type de défense et un certain type d'attaque. Ces deux données sont liées à l'armure portée, à l'arme utilisée et au type de l'unité (infanterie, cavalerie, etc...).
+</p>
+
+<p>
+Vous retrouverez les types d'attaque suivants:
+</p>
+<ul>
+<foreach cond="{_def_atq[1]} as {atq} => {value}">
+	<li><img src="img/atq/{atq}.png" alt="{atq_type[{atq}]}" /> {atq_type[{atq}]}</li>
+</foreach>
+</ul>
+<p>et pour les types de défense:</p>
+<ul>
+<foreach cond="{_def_atq} as {def} => {value}">
+	<li><img src="img/def/{def}.png" alt="{def_type[{def}]}" /> {def_type[{def}]}</li>
+</foreach>
+</ul>
+<p>
+Vous retrouvez toutes ces informations dans le manuel section "Unités - Caractéristiques". Des dessins vous indiquent les types d'arme et de défense de chaque unité. En cas de doute n'hésitez pas à faire apparaître l'infobulle en posant votre curseur sur le dessin, elle vous donnera le renseignement.
+</p>
+<p>
+Une fois la force de frappe calculée (attaque + bonus), en fonction de l'arme des attaquants et de l'armure des défenseurs, cette valeur sera multipliée par le coefficient que vous trouverez dans le tableau suivant. Les dégâts seront donc plus ou moins importants selon les cas.
+</p>
+
+<table class="liste">
+	<thead>
+		<th>Def/Atq</th>
+		<foreach cond="{_def_atq[1]} as {atq} => {value}">
+			<th><img src="img/atq/{atq}.png" alt="{atq_type[{atq}]}" /></th>
+		</foreach>
+	</thead>
+	<tbody>
+	<foreach cond="{_def_atq} as {def} => {atq_value}">
+		<tr>
+		<th><img src="img/def/{def}.png" alt="{def_type[{def}]}" /></th>
+		<foreach cond="{atq_value} as {atq} => {value}">
+			<td><math oper="{value}*100" /> %</td>
+		</foreach>
+		</tr>
+	</foreach>
+	</tbody>
+</table>
+
+<p align="center" class="menu_module">
+[ <a href="manual.html?race={man_race}&page=16" title="Tout sur les combats!">Précédent : Déroulement d'un Combat</a> ]
+-
+[ <a href="manual.html?race={man_race}&page=0" title="Accueil du Manuel">Manuel</a> ]
+-
+[ <a href="manual.html?race={man_race}&page=18" title="La riposte lors d'un combat">Suivant : Riposte</a> ]
+</p>

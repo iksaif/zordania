@@ -1,0 +1,582 @@
+@import url(../imports/base.css);
+
+body {
+/*    background-color: #5E3333;*/
+    background: #C5B397 url(img/fond.png)  repeat;
+ 	font-family: "DejaVu Sans", Verdana,Tahoma,Arial,sans-serif;
+    font-size: 11px; 
+}
+/*
+   Balises HTML
+   */
+a {
+    color: #000;
+}
+
+img {
+    text-decoration: none;
+    border: 0;
+}
+
+a.bonus {
+    color: #7A4D41;
+}
+
+/* Lien votes */
+a.votes{ 
+	color: #CC3300; font-weight: bold;
+}
+
+a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+fieldset {
+    padding: 5px;
+    border: 1px solid #2F2A21;
+}
+
+p {
+    /*margin: 7px 0px 7px 10px;*/
+    padding: 0px;
+}
+
+h1 {
+    color: #ffebd1;
+    margin: 5px 5px 0px 20px;
+    padding-left: 10px;
+    padding: 0px;
+    font-size: 17pt;
+    letter-spacing: 3px;
+    text-decoration: none;
+}
+
+h2 {
+    color: #2F2A21;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    border-bottom: 1px solid #2F2A21;
+    font-size: 14pt;
+}
+h2 a{
+	text-decoration: none;
+}
+
+
+h3 {
+    color: #5A4D41;
+    margin-left: 20px;
+    border-bottom: 1px dashed #2F2A21;
+}
+
+h4 {
+    color: #5A4D41;
+    margin-left: 10px;
+    border-bottom: 1px dashed #2F2A21;
+    font-size: 11pt;
+}
+
+h5 {
+    color: #5A4D41;
+    font-size: 11pt;
+}
+
+dl a, dl a:hover {
+    text-decoration: none;
+}
+
+dt {
+    font-weight: bold;
+    border-bottom: 1px solid #2F2A21;
+    border-left: 1px solid #2F2A21;
+}
+
+dd {
+    margin: 0;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px dashed #2F2A21;
+    border-top: 0;
+}
+
+hr {
+    background-color: #e7dac5;
+    border: #e7dac5 solid 1px;
+    width: 50%;
+}
+
+#module label {
+    font-weight: bold;
+    display: inline ;
+    float: left;
+    /*width: 200px;*/
+    margin-left: 40px;
+}
+
+#module dt label, #module dd label {
+    font-weight: normal;
+    float: none;
+    width: auto;
+    margin: 0;
+}
+
+input,select {
+    margin: 2px;
+    background: #C5B397;
+    border: thin solid #000;
+}
+
+textarea:focus,input:focus
+{
+    background-color: #5A4D41;
+}
+
+textarea
+{
+    background: #C5B397;
+    color: #000;
+    border: thin solid #000;
+}
+
+table {
+   border-collapse: collapse;
+    border-bottom: 3px solid #635A45;
+}
+
+td {
+    vertical-align: top;
+	padding-top: 10px;
+}
+
+.liste td
+{
+    text-align: center;
+}
+.liste tr
+{
+    border-bottom: 1px solid #635A45;
+}
+
+.liste tr:hover {
+    background: #C5B397;
+}
+
+.liste th
+{
+    text-align:center;
+    font-weight:bold;
+    border-bottom: 3px solid #635A45;
+}
+
+
+/*
+   IDs
+   */
+
+
+/* Logo */
+#logo {
+    margin-bottom: 10px;
+    width: 800px;
+}
+
+#logo h1 {
+    background-image: url("img/logo.png");
+    background-repeat: no-repeat;
+    height: 58px; /* for most browsers */
+    margin: 0px;
+    margin-top: 35px;
+}
+
+#logo h1 a {
+    color: #E7DAC5;
+    text-decoration: none;
+    font-size: 0px;
+}
+
+#logo .bas, #logo .haut {
+    display:none;
+}
+
+#text_logo {
+    display: none;
+}
+
+/* Tout ce qui est dans body */
+.close_popup, #popup {
+    border: 1px solid #2F2A21;
+    background: #E7DAC5 /*url("img/header.png") repeat-x*/;
+}
+
+#contenu {
+    padding: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    text-align: left;
+    width: 1100px;
+    border: 1px solid #2F2A21;
+    background: #E7DAC5 url("img/border.png") repeat-x;
+
+}
+
+/* Boite de pub */
+#pub {
+    float: right;
+    width: 528px;
+    margin-top: -75px;
+    margin-right: -30px;
+
+}
+
+/* Boite de stats */
+#stats {
+    float: left;
+    width: 290px;
+}
+
+/* Boite du menu */
+#menu {
+    float: left;
+    width: 180px;
+    margin-right: 10px;
+}
+
+#espace_stats_pub, #espace_menu_centre { display:none; }
+
+#stats ul, #stats li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#connec #log {
+    text-align:center;
+}
+
+#module {
+    float: left;
+    width: 700px;
+    position: relative;
+    bottom: 47px;
+}
+
+#actbar {
+    text-align:center;
+    float: right;
+    position: relative;
+    bottom: 90px;
+    /*border-left: 2px #2F2A21 solid;
+    border-bottom: 2px #2F2A21 solid;
+	border-top: 1px #2F2A21 solid;
+	border-right: 1px #2F2A21 solid;*/
+    padding-left: 5px;
+    margin: 1px;
+    margin-right: 5px;
+}
+
+#actbar li {
+    display: inline;
+	padding-left: 5px;
+padding-right: 5px;
+padding-top: 15px;
+padding-bottom: 5px;
+margin: 2px;
+}
+
+#actbar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#actbar a:hover {
+    background: #C5B397;
+}
+
+#footer {
+    font-size: 0.8em;
+    text-align: center;
+}
+
+#footer li {
+    display: inline;
+}
+
+#footer ul{
+    list-style-type: none;
+    width: 100%;
+}
+
+#donjon ul{
+	padding:0;
+	margin: 0;
+}
+#donjon li{
+	margin: 0;
+	list-style-type: none;
+	list-style-position: inside;
+}
+/*
+   Classes
+   */
+
+.menu_gauche{
+    margin-bottom: 20px;
+	}
+
+.menu_gauche h2{
+
+}
+
+.menu_gauche li a {
+	text-decoration: none;
+	font-size: 11px;
+}
+
+  .menu_gauche li a:hover
+{
+	text-decoration: none;
+ }
+.menu_gauche ul{
+    list-style-position: inside;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+}
+
+.menu_gauche ul li ul
+{
+    margin-left: 5px;
+    list-style-position: outside;
+    list-style-type: disc;
+}
+
+.liste
+{
+    width: 100%;
+    margin-right: 5%;
+}
+
+
+/* Quand c'est un allié dans une liste */
+.allie
+{
+    border:1px solid #2F2A21;
+    background:#C5B397;
+}
+
+/* Barres */
+.barre_rouge,.barre_verte,.barre_grisec,.barre_grisef {
+    float: left;
+    height: 100%;
+}
+
+.barre_rouge {
+    background-image:url(img/red.png);
+}
+
+.barre_verte {
+    background-image:url(img/green.png);
+}
+
+.barre_grisec {
+    background-color: #635A45;
+}
+
+.barre_grisef{
+    background-color: #292722;
+}
+
+.barres_grandes,.barres_moyennes,.barres_petites {
+    border: 1px solid #000000;
+    height: 12px;
+}
+
+.barres_grandes {
+    width: 300px;
+}
+
+.barres_moyennes {
+    width: 200px;
+}
+
+.barres_petites {
+    width: 100px;
+}
+
+/* Infos / Error / OK */
+.error,.infos {
+    border: 1px solid #292722;
+    background: #C5B397;
+    font-weight:bold;
+}
+
+.ok {
+    border-color: #226622;
+    color: #226622;
+	background: #C5B397;
+    font-weight:bold;
+	width: 420px;
+}
+
+.quote, .code
+{
+    width: 90%;
+    border: 1px solid #292722;
+    background: #C5B397;
+    font-style:italic;
+    font-weight:bold;
+    padding:5px;
+}
+
+.code {
+    overflow: auto;
+}
+
+.quote {
+    background-image:url(img/quote.png);
+    background-repeat:no-repeat;
+    padding-top:25px;
+}
+
+.signature
+{
+    border: 1px solid #292722;
+    background: #C5B397;
+    padding:5px;
+}
+
+/* News */
+.news
+{
+	border-bottom: 1px #000 solid;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+/*Forums*/
+
+.forum {
+	background-color: #e7dac5;
+	background-image : url(img/forum.png);	
+	background-repeat: no-repeat ;
+	border-color: #000;
+	border-style: solid;
+	border-width: 1px;
+	color: #000;
+	padding: 5px;
+	margin-top: 10px;
+}
+
+.block_forum {
+	background-color: #d4c7b3;
+	border-color: #000;
+	border-style: solid;
+	border-width: 1px;
+	color: #000;
+	padding: 5px;
+	margin-top: 10px;
+	min-height: 100px;
+}
+
+.forum  h4 a, .block_forum h4 a {
+	Color: #000000;
+	font-family: Papyrus,Tahoma,Arial,sans-serif;
+	font-size: 14px;
+	border-style: hidden;
+}
+
+.forum  h4, .block_forum h4 {
+	border-style: hidden;
+}
+
+.head_forum {
+	border-style: hidden;
+}
+
+.head_forum a{
+	text-decoration: none;
+	}
+	
+.titre {
+	text-decoration: underline;
+    font-weight: bold;
+	font-size: 14px;
+	padding-left: 10px;
+	color: #000000;
+}
+
+.desc {
+	font-style: italic;
+	text-indent: 25px;
+}
+
+.stat {
+	/*background-color: #19120d;*/
+	text-align: right;
+	padding: 2px;
+	width: 400px;
+	margin-left: 180px;
+	margin-top: 5px;
+	margin-bottom: -5px;
+	color: #000;
+	/*border-top: 1px #615f5f solid;
+	border-left: 1px #615f5f solid;*/
+}
+
+.block_forum .signature {
+	margin-bottom: -5px;
+
+}
+
+.post 
+{
+min-height: 50px;
+}
+
+.center {
+	text-align: center;
+}
+/*recherche dans forum*/
+
+.conl {
+	margin: 10px;
+}
+
+#search .news {
+	border: hidden;
+}
+
+.clearb{
+	margin-top: 60px;
+}
+
+/* Tooltip */
+div#toolTip {
+    border: solid 1px  #2F2A21;
+    background: #E7DAC5;
+    font-size: 0.8em;
+    left: 0px;
+    moz-border-radius: 5%;
+    padding: 4px;
+    position: absolute;
+    top: 0px;
+    width: auto;
+    z-index: 20;
+}
+
+div#toolTip p {
+    margin: 0;
+    padding: 0 3px;
+}
+
+.blason {
+    float: right;
+}
+
+/* rosace pour la carte */
+div#map{
+  background: transparent url(img/rosace.png) no-repeat top center;
+}

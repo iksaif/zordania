@@ -1,0 +1,158 @@
+/**************************
+* General                 *
+**************************/
+a{ font-size: 9px; }
+a:link, a:visited, a:active { color: silver; text-decoration: none; }
+a:hover { color: gold; text-decoration: underline; }
+a.bonus{ color: #6f8c3d; font-weight: bold; }
+a.evidence{ color: #E2DBCE; font-weight: bold; }
+body { background-color: rgb(0, 0, 0); background-image:url(../img/dark/neige.png); color: rgb(231, 214, 181); font-family: Verdana,Tahoma,Arial,sans-serif; font-size: 10px; margin: 0px; text-align: center; }
+dd{ background-color: #000000; }
+dd,dt{ margin: 1px; padding: 2px; }
+/***********************
+* NiceTitle            *
+***********************/
+div.nicetitle { background-color: #555555; border-color: #000000; borAder-style: solid; border-width: 0px; color: #FFFFFF; filter: Alpha( Opacity=75, Style=0); font-family: Verdana,  Arial, sans-serif; font-size: 9px; font-weight: bold; left: 0px; -moz-border-radius: 5%; -moz-opacity: 0.75; padding: 5px; position: absolute; top: 0px; width: auto; }
+div.nicetitle p { filter: Alpha( Opacity=100, Style=0); margin: 0; -moz-opacity: 1; padding: 0 3px; }
+dl li { margin: 2px; padding: 2px; }
+dt{ margin-top: 10px; background-color: #453D31; }
+#div_page li {margin: 5px; }
+fieldset, #forums { padding: 5px; }
+h1 { color: #FFFFFF; font-size: 150%; }
+h2 { color: #CCCCCC; font-size: 125%; }
+h3, h4, h5, h6 { font-size: 110%; }
+/*** juste un hr :p ***/
+hr { background-color: #060609; border-color: #666666; border-style: solid; border-width: 1px; width: 50%; }
+/*****************************
+* Commun                     *
+*****************************/
+img{ border: 0px; }
+input,select { background-color: #37373e; border: 1px solid #000000; color: #000000; font-size: 11px; font-weight: bold; margin: 2px; }
+textarea{ background-color: #37373e; border: thin solid #000000; color: #000000; font-size: 13px; }
+textarea:focus,input:focus{ background-color: #5c5c76; }
+/**** div qui sert a metre les listes de recherches, etc .. en cours ***/
+th { font-weight: bold; text-align: center; }
+.allie td,tr { background-color: #00000f; border-color: #111111; }
+.barre_grisec{ background-image: url(../img/dark/stats/grisec.png); }
+.barre_grisef{ background-image: url(../img/dark/stats/grisef.png); }
+.barre_rouge{ background-image: url(../img/dark/stats/red.png); }
+/**** Barres ****/
+.barre_rouge,.barre_verte,.barre_grisec,.barre_grisef { background-repeat: repeat-x; color: #CCCCCC; float: left; height: 12px; }
+.barre_verte{ background-image: url(../img/dark/stats/green.png); }
+.barres_grandes { width: 300px; }
+.barres_grandes,.barres_moyennes,.barres_petites { height: 2px; text-align: center; }
+.barres_moyennes { width: 200px; }
+.barres_petites { width: 100px; }
+.bas { background-color: #000000; height: 15px; }
+.bas2 { background-color: #000000; background-repeat: repeat-x; height: 15px; }
+.block_1, #forums .forum { background-color: #000000; border-color: #ffffff; border-style: solid; border-width: 1px; padding: 5px; }
+/******* Carte **********/
+.block_carte{ height: 500px; width: 500px; }
+/***************************************
+*    Contenu                           *
+***************************************/
+.border1 { margin-left: 5%; margin-right: 5%; width: 90%; }
+.border1 tr { background-color: #000000; }
+.border1 td {  border-color: #979797; border-style: solid; border-width: 1px; padding: 2px; }
+.border1 th { background-color: #191a33; border-color: #979797; border-style: solid; border-width: 1px; }
+.border1 tr { text-align: left; }
+.border1 tr:hover { background-color: #353535; border-color: #111111; }
+.centre { background-color: #000000; background-image: url(../img/dark/centre_vert.png); background-repeat: repeat-y }
+.centre2 { background-color: #000000; background-image: url(../img/dark/centre_vert.png); background-repeat: repeat-y; }
+.cleaner { clear: both; height: 10px; visibility: hidden; }
+/*** le truc qui permet de fermer le popup ***/
+.close_popup { bottom: 0em; left: 2px; position: fixed; text-align: center; width: 97%; }
+.contenu { background-image: url(../img/dark/centre_vert.png) repeat-y right; padding-left: 15px; }
+.contenu2 { background-image: url(../img/dark/centre_vert.png); background-position: right; background-repeat: repeat-y; padding: 5px 25px 5px 25px; }
+.defaite{ background-color: #CCCCCC; border-color: #FF0000; color: #FF0000; }
+/*** btc pas constructible ***/
+.disabled{ background-color: #101010; }
+.error { border-color: #FF0000; color: #FF0000; }
+.error,.ok,.infos { background-color: #A9A9A9; border-style: solid; border-width: 1px; margin: 3px; padding: 2px; }
+.gras{ font-weight: bold; }
+.haut { background-image: url(../img/dark/centre_hor.png); height: 15px; }
+.haut2 { background-image: url(../img/dark/centre_hor.png); background-repeat: repeat-x; height: 15px; }
+.img_right{ float: right;}
+.infos { border-color: #666666; color: #000000; }
+.italique{ font-style: italic; }
+/**** div qui servent a faire des listes ***/
+.list_univ { background-color: #060609; border-color: #666666; border-style: solid; border-width: 1px; margin: 10px; padding: 5px; }
+.list_univ h2{ float: left; margin: 10px; margin-bottom: 20px; margin-top: 20px; }
+.list30 { width: 28%; }
+.list30,.list50 { background-color: #000000; border-color: #979797; border-style: solid; border-width: 1px; float: left; margin: 5px; padding: 5px; }
+.list50 { width: 45%; }
+.menu_gauche{ border-color: #000000; border-style: solid; border-width: 1px; margin-bottom: 20px; }
+.menu_gauche h1{ background-image: url(../img/dark/neige.png); color: #2a405c; color: #7c1909; display: table-cell; font-size: 120%; height: 25px; margin: 0; text-align: center; vertical-align: middle; width: 168px; }
+.menu_gauche li{ margin-left: 30px; }
+.menu_gauche ul{ background-image: url(../img/dark/neige.png); list-style-position: inside; list-style-type: none; margin: 0; padding: 0px; }
+.menu_gauche ul li ul li{ margin: 0px; padding: 0px; }
+.menu_gauche ul li ul li:before{ content: "- "; }
+/********************
+* Divers            *
+********************/
+.mysql{ background-color: #DDDDDD; border: 1px #AAAAAA solid; color: #000000; text-align: left; }
+/*** les news hein .. ***/
+.news { background-color: #000000; border-color: #979797; border-style: solid; border-width: 1px; color: #FFFFFF; padding: 2px; }
+.ok { border-color: #226622; color: #226622; }
+.overflow{ overflow: auto; }
+.quote {  -moz-border-radius: 1%; width:90%; text-align:left; color: #7adcf6; background-color: #191a33;font-style: italic; border: 1px solid #979797; font-family: Verdana, Arial; font-size: 11px; padding: 5px;  margin:10px; }
+.code {  width:90%; text-align:left; color: #7adcf6; background-color: #191a33;font-style: italic; border: 1px solid #979797; font-family: Verdana, Arial; font-size: 11px; padding: 5px;  margin:10px; }
+.red{ color: #FF0000; }
+.souligne{ text-decoration: underline; }
+.titre_module,.menu_module,.retour_module,.center,.titre_news { margin-left: auto; margin-right: auto; text-align: center; }
+.victoire{ background-color: #CCCCCC; border-color: #226622; color: #226622; }
+.victoire,.defaite { border-style: solid; border-width: 1px; font-size: 1.1em; margin: 3px; padding: 2px; text-align: center; }
+/******** Village ********/
+.village{ background: #67533b; background-image: url(../img/dark/bg_village.png); background-repeat: repeat-y repeat-x; border: dotted #642F0F 2px; margin: 2px; padding: 2px; }
+.vue_generale{ margin: 0px; width: 100%; }
+.vue_generale tr { background-color: #000000; }
+.vue_generale td {  border-color: #979797; border-style: solid; border-width: 1px; padding: 2px; }
+.vue_generale th { background-color: #191a33; border-color: #ffffff; border-style: solid; border-width: 1px; }
+.vue_generale ul{ list-style-position: inside; list-style-type: none; padding:0; margin: 0;}
+.vue_generale li{ list-style-position: inside; list-style-type: none; padding:0 0 0 10px; margin: 0;}
+/**** Listes *****/
+.width100 { width: 100%; }
+.zoom_1 img{ height: 50px; width: 50px; }
+.zoom_2 img{ height: 25px; width: 25px; }
+.zoom_2 img,.zoom_1 img, .img_left { float: left; }
+
+.mini_al_logo{ height: 20px; width: 20px; }
+.perte{ color:#99232C; }
+.gain{ color:#237199; }
+/*********************************
+* Design - Positionement         *
+*********************************/
+#contenu { margin-left: auto; margin-right: auto; margin-top: 10px; text-align: left; width: 800px; }
+#copy_and_stats { color: #FFFFFF; }
+#div_page { background-color: #000000; background-image: url(../img/dark/neige.png); float: left; left: 10px; width: 620px; }
+#espace_menu_centre { float: left; visibility: hidden; width: 10px; }
+#espace_stats_pub { float: left; visibility: hidden; width: 47px; }
+#footer { color: #666666; font-size: 9px; text-align: center; }
+#footer img { border: #000000 1px solid; }
+#footer li { display: inline; margin: 2px; }
+#footer ul{ list-style-type: none; width: 100%; }
+#forums .infos_pst { background-color: #303030; margin-bottom: 2px; margin-top: 5px; padding-left: 5px; padding-right: 5px; }
+#forums .pst{ background-color: #000000; border-color: #ffffff; border-style: solid; border-width: 1px; margin: 5px; margin-bottom: 0px; padding: 6px;}
+/********************
+* Forums            *
+********************/
+#forums .topic{ background-color: #000000; border-color: #979797; border-style: solid; border-width: 1px; margin: 5px; padding: 6px; }
+#forums .topic:hover{ background-color: #000000; border-color: #111111; }
+.signature { max-height: 15px; overflow: hidden; background-color: #303030; margin-bottom: 2px; margin-top: 5px; padding-left: 5px; padding-right: 5px; }
+#logo { margin-bottom: 10px; width: 800px; }
+#logo h1
+{
+    padding: 55px 0px 0px 0px;
+    margin: 0px;
+    overflow: hidden;
+    background-image: url(../img/dark/zordania.png); 
+    background-repeat: no-repeat;
+    height: 0px !important; /* for most browsers */
+    height /**/:33px; /* for IE5.5's bad box model */
+}
+#menu { float: left; width: 170px; }
+#pub { float: right; width: 528px; }
+#stats { float: left; width: 222px; }
+#text_logo{ display: none; visibility: hidden; }
+
+#amour{background-color: #352D21;color:#ffffff;padding:3px;border:2px solid #6666666;}

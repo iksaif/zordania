@@ -1,0 +1,1 @@
+[url={cfg_url}member-view.html?mid={_user[mid]}]{_user[pseudo]}[/url] a accepté votre proposition de {dpl_type[{pacte[dpl_type]}]}. Celui-ci deviendra effectif dès que la période probatoire sera terminée.

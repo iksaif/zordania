@@ -1,0 +1,50 @@
+
+Sya Enzaly place : 620 corrigee 630
+Array
+(
+    [12] => 10
+)
+edit de la légion btc aussi...
+temporel place : 830 corrigee 130
+Array
+(
+    [2] => -1
+)
+edit de la légion btc aussi...
+Array
+(
+    [2] => 2
+)
+edit de la légion btc aussi...
+Array
+(
+    [7] => 2
+    [1] => 2
+)
+edit de la légion btc aussi...
+Array
+(
+    [1] => 2
+    [7] => 2
+)
+edit de la légion btc aussi...
+Array
+(
+    [1] => 3
+)
+edit de la légion btc aussi...
+Lyss  Isil place : 230 corrigee 330
+Kora Furu place : 130 corrigee 190
+Lyz'Zz place : 511 corrigee 649
+Splug place : 224 corrigee 326
+Spléndy place : 700 corrigee 1000
+Pschiit place : 572 corrigee 728
+Azrol Tournécrou place : 283 corrigee 343
+Svern Ghoro place : 289 corrigee 343
+golumbia place : 570 corrigee 870
+Grizbizz place : 159 corrigee 207
+Gloubi aux pieds fragiles place : 205 corrigee 241
+chocoboum place : 137 corrigee 173
+Khal place : 660 corrigee 870
+Asork place : 120 corrigee 156
+mode simulation, aucune modification en BDD. Relancer le script avec l'option exec pour MAJ

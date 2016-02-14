@@ -1,0 +1,1 @@
+Votre demande a été refusée par {_user[pseudo]}.

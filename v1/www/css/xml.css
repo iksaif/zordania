@@ -1,0 +1,14 @@
+body{
+background-color:#231e17;
+font-family: Verdana,Tahoma,Arial,sans-serif; 
+font-size: 10px; 
+}
+h1{
+color: #ccc;
+}
+.mid,.pseudo,.race,.population,.ressource,.points,.alliance{
+background-color: #352d21;
+color: #FFF;
+padding : 5px;
+margin: 5px;
+}

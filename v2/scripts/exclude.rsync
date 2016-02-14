@@ -1,0 +1,27 @@
+# fichiers systeme a exclure pour rsync
+/.sshd
+/.subversion
+/.ssh
+/.emacs.d
+/.bash_history
+/.viminfo
+/.mysql_history
+
+# autres repertoires a exclure
+/backup
+/logs
+/cache
+/www/.htaccess
+/conf/zord_conf.inc.php
+/conf/conf.inc.php
+#/crons/cron.php
+/tmp
+/var
+/scripts
+# rep img entier
+# /www/img
+/www/img/al_logo/*.png
+/www/img/mbr_logo/*.png
+/www/img/map/rp-lite
+/www/forums
+.svn

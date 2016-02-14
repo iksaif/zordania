@@ -1,0 +1,13 @@
+-------------------------------IMPORTANT------------------------------
+From JpGraph 1.15 there has been a configuration change.
+
+NOTE 1: All configuration defines has been moved from the file
+'jpgraph.php' to a new separate file 'jpg-config.inc'
+
+NOTE 2: IconPlots has been moved to a separate file 
+jpgraph_iconplot.php which you must include if you plan on creating
+IconPlots
+
+NOTE 3: PlotBands have been moved to a separate file 
+jpgraph_plotband.php which you must add to your scripts if you are 
+using plotbands.

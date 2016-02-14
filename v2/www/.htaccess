@@ -1,0 +1,46 @@
+RewriteEngine off
+RewriteBase /
+
+# forcer le www
+#RewriteCond %{HTTP_HOST} !^www\. [NC]
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+#RewriteCond %{HTTP_HOST} ^zordania\.com [NC]
+#RewriteRule ^(.*)$ http://www.zordania.com/$1 [R=301,L]
+
+#RewriteRule ^zordania\.com(.*)$ http://www.zordania.com/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} !^www\.zordania\.com$ [NC]
+RewriteRule ^(.*)$ http://www.zordania.com/$1 [QSA,R=301,L]
+
+# Cas des xml
+RewriteRule	^([a-zA-Z0-9_]+)-([a-zA-Z0-9_]+).xml$ 	/index.php?display=xml&file=$1&act=$2&%{QUERY_STRING} [L]
+RewriteRule	^([a-zA-Z0-9_]+).xml$			/index.php?display=xml&file=$1&%{QUERY_STRING} [L]
+
+# Cas des display comme popup ou on s'en fout de l'url
+RewriteRule	^([a-zA-Z0-9_]+)--([a-zA-Z0-9_]+)-([a-zA-Z0-9_]+).html$	/index.php?display=$1&file=$2&act=$3&%{QUERY_STRING} [L]
+RewriteRule	^([a-zA-Z0-9_]+)--([a-zA-Z0-9_]+).html$			/index.php?display=$1&file=$2&%{QUERY_STRING} [L]
+
+# Cas des display xhtml normaux
+RewriteRule	^([a-zA-Z0-9_]+)-([a-zA-Z0-9_]+).html$	/index.php?file=$1&act=$2&%{QUERY_STRING} [L]
+RewriteRule	^([a-zA-Z0-9_]+).html$			/index.php?file=$1&%{QUERY_STRING} [L]
+
+RewriteRule	^img/mbr_logo/([0-9]+).png$		/img/mbr_logo/index.php?mid=$1 [L]
+RewriteRule	^img/al_logo/([0-9]+).png$		/img/al_logo/index.php?alid=$1 [L]
+RewriteRule	^img/al_logo/([0-9]+)-thumb.png$	/img/al_logo/index.php?alid=$1&thumb=true [L]
+
+<FilesMatch "\.(gif|jpe?g|png)$">
+	ErrorDocument 404 /img/404.png
+</FilesMatch>
+
+<FilesMatch "([0-9]+)(\-thumb)\.png$">
+	ErrorDocument 404 /img/mbr_logo/0.png
+</FilesMatch>
+
+<FilesMatch "\.(compiled\.php|class\.php|inc|log)$">
+	deny from all
+</FilesMatch>
+
+
+
+Deny from  86.192.20.51

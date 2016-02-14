@@ -1,0 +1,143 @@
+/****************************************************************/
+/* 1. background and text colours */
+/****************************************************************/
+
+/* 1.1 default background colour and text colour */
+
+body {background-image: url("../img/metal/fond.png");background-color: #231E17; }
+
+.pun {color: #f4efe6;}
+
+div.box, .pun blockquote, div.codebox, #adminconsole fieldset th, .rowodd, .roweven {background-color: #231E17; border-color: #555555 }
+
+.pun blockquote { color: #fff; -moz-border-radius: 1%; width:90%; text-align:left; background-color: #212120; border:none;  padding: 5px;  margin:10px; }
+div.codebox {  color: #fff; width:95%; text-align:left; background-color: #212120;    border: none;   padding: 5px;  margin:10px; overflow:auto; }
+
+#adminconsole td, #adminconsole th {border-color: #000000}
+
+
+/* 1. 2 darker background colours */
+
+td.tc2, td.tc3, td.tcmod, #postpreview, #viewprofile dd, div.forminfo,
+#adminconsole fieldset td, div.blockmenu div.box, #adstats dd {background-color: #352D21}
+
+/* 1.3 main headers and navigation bar background and text colour */
+
+.pun h2, #brdmenu {background-color: #060d2b; background-image: url("../img/metal/menu.png"); background-repeat: repeat-x; border-color: #555555 ; color: #e0e0e0; font-style: italic;}
+
+/* 1.4 table header rows */
+
+.pun th { color:#e7d6b5; font-style: blod;}
+
+/* 1.5 fieldset legend text colour */
+
+.pun legend {color: #e7d6b5;}
+
+/* 1.6 highlighted text for various items */
+
+.pun div.blockmenu li.isactive a, #posterror li strong {color: #e7d6b5;}
+
+div .linkst { color: #e7d6b5; }
+div .postlinksb { color: #e7d6b5; }
+div .linksb { color: #e7d6b5; }
+div#brdheader.block { color : #e7d6b5;}
+
+/****************************************************************/
+/* 2. post backgrounds and text */
+/****************************************************************/
+
+/* 2.1 this is the setup for posts. */
+
+
+div.blockpost div.box {background-color: #352D21}
+div.postright, div.postfootright {border-left-color: #231e17;}
+div.postleft, div.postfootleft, div.blockpost label {background-color: #231e17}
+textarea {background-color: #352D21; color: #e7d6b5; }
+
+/* 2.2 background for post headers and text colour for post numbers in viewtopic */
+
+div.blockpost h2 {background-color: #060d2b}
+
+
+/* 2.3 this is the line above the signature in posts. colour and background should be the same */
+
+.pun hr {background-color: #352D21; color:#e7d6b5;}
+
+/****************************************************************/
+/* 3. border colours */
+/****************************************************************/
+
+/* 3.1 all external borders */
+
+div.box {border-color: #101010}
+
+/* 3.2 makes the top border of posts match the colour used for post headers */
+
+div.blockpost div.box {border-color: #101010 }
+
+/* 3.3 table internal borders. by default th is same as background so border is invisible */
+
+.pun td {border-color: #101010}
+.pun th {border-color: #101010}
+
+/* 3.4 creates the inset border for quote boxes, code boxes and form info boxes */
+
+div.forminfo, div.blockpost label {border-color: #101010 #000 #000 #101010}
+
+/* 3.5 gecko's default fieldset borders are really nasty so this gives them a colour
+without interferring with ie's rather nice default */
+
+.pun div>fieldset {border-color: #101010}
+
+textarea {border-color: #101010}
+
+/****************************************************************/
+/* 4. link colours */
+/****************************************************************/
+
+/* 4.1 this is the default for all links */
+
+.pun a:link, .pun a:visited {color: #e0e0e0}
+.pun a:hover {color: #e2d5c3}
+
+/* 4.2 this is the colour for links in header rows and the navigation bar */
+
+.pun h2 a:link, .pun h2 a:visited, #brdmenu a:link, #brdmenu a:visited {color: #fff}
+.pun h2 a:hover, #brdmenu a:hover {color: #fff}
+
+/* 4.3 this is for closed topics and "hot" links */
+
+li.postreport a:link, li.postreport a:visited, tr.iclosed td.tcl a:link, tr.iclosed td.tcl a:visited {color: #e0e0e0}
+li.postreport a:hover {color: silver;} 
+li.maintenancelink a:link, li.maintenancelink a:visited {color: #ae9d8a}
+li.maintenancelink a:hover {color: #ae9d8a}
+
+tr.iclosed td.tcl a:visited,tr.iclosed td.tcl a, tr.iclosed td.tcl a:link {
+color: #fff ;
+} 
+tr.iclosed td.tcl a:hover{ 
+color: #999999 ;
+}
+.pun div.linkst  a:link { color: #e0e0e0;}
+.pun div.linkst  a:visited { color: #e0e0e0;}
+.pun div.linkst  a:hover { color: #e2d5c3;}
+.pun div.linksb div.inbox a:link { color: #e0e0e0;}
+.pun div.linksb div.inbox a:visited { color: #e0e0e0;}
+.pun div.linksb div.inbox a:hover { color: #e2d5c3;}
+.postlinksb a:link, .postlinksb a:visited {color:#e0e0e0}
+.postlinksb a:hover{ color: #e2d5c3;}
+
+/****************************************************************/
+/* 5. post status indicators */
+/****************************************************************/
+
+/* these are the post status indicators which appear at the left of some tables. 
+.inew = new posts, .iredirect = redirect forums, .iclosed = closed topics and
+.isticky = sticky topics. the default is "icon". by default only .inew is different.*/
+
+div.icon { background: url("../img/metal/icons/icon.png")  }
+
+tr.iredirect div.icon {background: url("../img/metal/icons/icon.png"); }
+tr.inew div.icon { background: url("../img/metal/icons/new.png"); }
+tr.iclosed div.icon { background: url("../img/metal/icons/closed.png"); }
+tr.isticky div.icon { background: url("../img/metal/icons/sticky.png"); }

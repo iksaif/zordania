@@ -1,0 +1,199 @@
+/*
+les redéfinitions de balises
+les trucs de positionements
+genre un groupe forum
+un groupe nicetitle
+un groupe barre  
+*/
+
+/**************************
+* General                 *
+**************************/
+a{color:#7c7c7c; font-size:11px; text-decoration:none;} /*Liens sur la page*/
+a:hover { color: #7c7c7c; text-decoration: underline;}/*Mouse over liens sur la page*/
+a.bonus, a.evidence { color: #982e2e; font-weight: bold;}/*Liens importants sur la page*/
+body { background-color:#000000; background-image:url("../img/karnage/backg.png"); color: #676767; font-family: Helvetica,Verdana,Tahoma,Arial,sans-serif; font-size: 10px; margin: 0px; text-align: center;}/*Background*/
+dd{background-color: #cdcdcd; margin: 1px;}
+dt{margin: 1px; padding: 2px;}
+
+/* NiceTitle */
+div#toolTip { background-color: #CCC2AF; border-color: #000000; border-style: solid; border-width: 1px; color: #222222;  font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 9px; font-weight: bold; left: 0px; -moz-border-radius: 5%; padding: 4px; position: absolute; top: 0px; width: auto; }
+div#toolTip p { margin: 0; padding: 0 3px; }
+div#toolTip p em {  display:block;  margin-top:3px;  color:#f60;  font-style:normal;  font-weight:bold; }
+
+dl li { margin: 3px; padding: 3px; }
+dt{ margin-top:10px;  background-color: #BCB29F; }
+#div_page li {margin: 5px; }
+fieldset, #forums { padding: 5px; }
+h1 { color: #222222; font-size: 150%; }
+h2 { color: #333333; font-size: 125%; }
+h3, h4, h5, h6 { font-size: 110%; }
+hr { background-color: #060609; border-color: #666666; border-style: solid; border-width: 1px; width: 50%; }
+
+/*
+back:#ffffff
+1er fore:#cdcdcd
+2e fore:#cccccc
+*/
+
+/*****************************
+* Commun                     *
+*****************************/
+img{border: 0px;}/*Pas de bordure autour des images, trop laid*/
+input,select { background-color: #cccccc; border:1px solid #000000; color: #000000; font-size: 11px; margin: 2px;}/*Champ de formulaire de type input ou select*/
+textarea{background-color: #cccccc; border: 1px solid #000000; color: #000000; font-size: 13px;}/*Textarea*/
+textarea:focus,input:focus{ background-color: #dcdcdc;}/*Focus sur les champs textarea ou input*/
+th { font-weight: bold; text-align: center;}/*Cellules titres des collones de tableau*/
+.allie td,tr { background-color: #B0B5A8; border-color: #111111;}/*Surligne un membre faisant partie de notre alliance*/
+.block_1, #forums .forum { background-color: #4c4c4c; border-color: #000000; border-style: solid; border-width: 1px; padding: 5px; color:#a1a1a1;}/*Block ou sont les actions possibles, informations, affichage des catégories du forum*/
+
+/******* Carte **********/
+.block_carte{height: 500px; width: 500px;}
+/***************************************
+*    Contenu                           *
+***************************************/
+
+.border1 {margin-left: 5%; margin-right: 5%; width: 90%; color:#a1a1a1;}/*Début des informations rtelative à border1*/
+.border1 a:link, a:active { color: #333333; text-decoration: none;}/*Liens sur la page*/
+.border1 a:hover { color: #333333; text-decoration: underline;}/*Mouse over liens sur la page*/
+.border1 tr { background-color: #4c4c4c;}
+.border1 td {border-color: #000000; border-style: solid; border-width: 1px; padding: 2px;}
+.border1 th {background-color: ffffff; border-color: #000000; border-style: solid; border-width: 1px;}
+.border1 tr {text-align: left;}
+.border1 tr:hover { background-color: #5e5e5e; border-color: #000000;}/*Fin des informations rtelative à border1*/
+.centre {background-color:none; background-image: none; background-repeat: repeat-y;}/*Informations rtelative à centre*/
+.centre2 {background-image: none;}/*Informations rtelative à centre2*/
+.cleaner {clear: both; height: 10px; visibility: hidden;}/*Espace libre en fin de page, entre les infos de la page et les notices du bas (footer)*/
+.close_popup {bottom: 0em; left: 2px; position: fixed; text-align: center; width: 97%; }/* le truc qui permet de fermer le popup */
+.contenu {background-color:none; background-image: none; border: none; padding-left: 6px; }/*Header du haut complétement, quelques stats du joueur, et publicité*/
+.contenu2 { background-color: #3B3B3B; background-image: none; border: 1px solid #252525; padding: 5px 25px 5px 25px; }
+.defaite{ background-color: #cccccc; border-color: #FF0000; color: #FF0000; }/*Message affiché lors d'une défaite*/
+
+.disabled{ background-color: #BCB29F;}
+.error { border-color: #FF0000; color: #FF0000;}
+.error,.ok,.infos { background-color: #A9A9A9; border-style: solid; border-width: 1px; margin: 3px; padding: 2px; }
+.gras{ font-weight: bold;}/*Met le texte en gras*/
+.haut2,.bas2,.bas,.haut { display: none;}
+.img_left, .zoom_2 img,.zoom_1 img { float: left;}
+.img_right{ float: right;}
+.infos { border-color: #666666; color: #000000;}
+.italique{ font-style: italic;}/*Met le texte en italique*/
+
+/**** div qui servent a faire des listes ***/
+.list_univ { background-color: #CCC2AF; border-color: #000000; border-style: solid; border-width: 1px; margin: 10px; padding: 5px; }
+.list_univ h2{ float: left; margin: 10px; margin-bottom: 20px; margin-top: 20px; }
+.list30 { width: 28%; }
+.list30,.list50 { background-color: #CCC2AF; border-color: #000000; border-style: solid; border-width: 1px; float: left; margin: 5px; padding: 5px; }
+.list50 { width: 45%; }
+
+/********************
+* Divers            *
+********************/
+.mysql{ background-color: #DDDDDD; border: 1px #AAAAAA solid; color: #000000; text-align: left; }
+/*** les news hein .. ***/
+.news { background-color: #CCC2AF; border-color: #000000; border-style: solid; border-width: 1px; color: #333333; padding: 5px; }
+.ok { border-color: #226622; color: #226622; }
+.overflow{ overflow: auto;}/*Faut couper des fois...overflow par défaut*/
+.quote {  -moz-border-radius: 1%; width:90%; text-align:left; background-color: #DADCDE;font-style: italic; border:none; font-family: Verdana, Arial; font-size: 11px; padding: 5px;  margin:10px; }
+.code {  width:90%; text-align:left; background-color: #DADCDE;  font-style: italic;  border: none;  font-family: Verdana, Arial;  font-size: 11px; padding: 5px;  margin:10px; }
+.red{ color: #FF0000; }
+.souligne{ text-decoration: underline; }
+.titre_module,.retour_module,.center,.titre_news { margin-left: auto; margin-right: auto; text-align: center; }
+
+.menu_module {text-align:center;}
+
+.victoire{ background-color: #CCCCCC; border-color: #226622; color: #226622; }
+.victoire,.defaite { border-style: solid; border-width: 1px; font-size: 1.1em; margin: 3px; padding: 2px; text-align: center; }
+/******** Village ********/
+.village{ background: #352D21; background-image: url(../img/metal/bg_village.png); background-repeat: repeat-y repeat-x; border: dotted #642F0F 2px; margin: 2px; padding: 2px; }
+.vue_generale{ margin: 0px; width: 100%; }
+.vue_generale tr { background-color: #C0BCAE; }
+.vue_generale td {  border-color: #000000; border-style: solid; border-width: 1px; padding: 2px; }
+.vue_generale th { background-color: #B0B5A8; border-color: #000000; border-style: solid; border-width: 1px; }
+.vue_generale ul{ list-style-position: inside; list-style-type: none; padding:0; margin: 0;}
+.vue_generale li{ list-style-position: inside; list-style-type: none; padding:0 0 0 10px; margin: 0;}
+/**** Listes *****/
+.width100 { width: 100%; }
+.zoom_1 img{ height: 50px; width: 50px; }
+.zoom_2 img{ height: 25px; width: 25px; }
+.zoom_2 img,.zoom_1 img, .img_left { float: left; }
+
+.mini_al_logo{ height: 20px; width: 20px; }
+.perte{ color:#99232C; }
+.gain{ color:#237199; }
+/*********************************
+* Design - Positionement         *
+*********************************/
+#contenu {padding:25px; margin-left: auto; margin-right: auto; margin-top:0px; text-align: left; width: 800px;background-color:none; background-image:url("../img/karnage/border.jpg");background-repeat:repeat-y; background-position:center;}
+#copy_and_stats { color: #000000;}
+#div_page {background-color: #D4CCBB; background-image: none; float: left; left: 10px; width: 620px;}
+#espace_menu_centre {float: left; visibility: hidden; width: 10px;}
+#espace_stats_pub {float: left; visibility: hidden; width: 47px;}
+
+#menu { float: left; width: 170px; }
+#stats { float: left; width: 315px; height:130px; border:1px solid #252525; overflow:visible; background-image:url("../img/karnage/img_stats.png"); background-repeat: repeat-y;}
+#text_logo{ float: right; font-style: oblique;}
+
+/* Header */
+#pub { float: right; width: auto;}
+#logo { margin-bottom: 10px; width: 800px; background-image:url("../img/karnage/top.jpg"); background-position:center; background-repeat:no-repeat;height:60px;background-color:none;}
+#logo h1 {background-image: url("../img/classik/logo.png"); background-repeat: no-repeat; height: 0px !important; /* for most browsers */ height: 40px; /* for IE5.5's bad box model */ margin: 0px; overflow: hidden; 	padding: 40px 0px 0px 0px; }
+#amour{background-color: #D4CCBB;color:#ffffff;padding:6px;border:1px solid #666666;border-bottom:0px;}
+
+/* Footer */
+#footer {color: #666666; font-size: 9px; text-align: center;background-color:none;background-image:url("../img/karnage/bottom.jpg");height:60px;background-repeat:no-repeat;background-position:center;}
+#footer img {border: #000000 1px solid;}
+#footer li {display: inline; margin: 2px;}
+#footer ul{list-style-type: none; width: 100%;}
+
+/* Forum */
+#forums .infos_pst { background-color: #4c4c4c; margin-bottom: 2px; margin-top: 5px; padding-left: 5px; padding-right: 5px; }
+.signature { max-height: 15px; overflow: hidden; background-color: #5e5e5e; margin-bottom: 2px; margin-top: 5px; padding-left: 5px; padding-right: 5px; color:#a4a4a4;}
+#forums .pst{ background-color: #4c4c4c; border-color: #000000; border-style: solid; border-width: 1px; margin: 5px; margin-bottom: 0px; padding: 6px; }
+#forums .topic{ background-color: #4c4c4c; border-color: #000000; border-style: solid; border-width: 1px; margin: 5px; padding: 6px; text-align: center; }
+
+/* Barre */
+.barre_grisec{ background-image: url(../img/stats/grisec.png);}
+.barre_grisef{ background-image: url(../img/stats/grisef.png);}
+.barre_rouge{ background-image: url(../img/stats/red.png);}
+.barre_rouge,.barre_verte,.barre_grisec,.barre_grisef { background-repeat: repeat-x; color: #CCCCCC; float: left; height: 12px; }
+.barre_verte{ background-image: url(../img/stats/green.png); }
+.barres_grandes { width: 300px; }
+.barres_grandes,.barres_moyennes,.barres_petites { height: 0px; text-align: center; }
+.barres_moyennes { width: 200px; }
+.barres_petites { width: 100px; }
+
+/* Menu */
+.menu_gauche{border-color: #252525; border-style: solid; border-width: 1px; margin-bottom: 20px;}
+.menu_gauche h1{background:none; background-image: none; color: #fdfbfb; display: table-cell; font-size: 120%; height: 25px; margin: 0; text-align: center; vertical-align: middle; width: 168px;border-bottom: 1px solid #000000;  background-image:url("../img/karnage/img_menu.png");}/*Partie supérieur du menu*/
+.menu_gauche li{padding-left: 30px;}
+.menu_gauche ul{background-color: #c5c1c1; list-style-position: inside; list-style-type: none; margin: 0; padding: 5px;}/*Partie inférieur du menu*/
+.menu_gauche ul li ul li{margin: 0px; padding: 0px;border:1px thin #000000;}
+.menu_gauche ul li ul li:before{content: "- ";}
+
+
+.menu_gauche h1:hover
+{
+background-image:url("../img/karnage/img_menu_over.png");
+color: #fdfbfb;
+}
+
+.menu_gauche ul li:hover
+{
+background-color:#6d6868;
+}
+
+.menu_gauche ul li:hover a
+{
+color:#323232;
+}
+
+.menu_gauche ul ul:hover
+{
+background-color:#6d6868;
+}
+
+.menu_gauche ul li:hover
+{
+color:#323232;
+}

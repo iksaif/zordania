@@ -1,0 +1,722 @@
+@import url(../imports/base.css);
+
+/*
+* Design Général
+*/
+<meta name="viewport" content="width=device-width"/>
+a {
+	font-size: 11px;
+}
+
+a:link, a:visited, a:active {
+	color: silver; text-decoration: none;
+}
+
+a:hover {
+	color: #533721; text-decoration: underline;
+}
+/*adapter a la taille*/
+<meta name="viewport" content="width=device-width"/>
+/* Lien bonus */
+a.bonus{ 
+	color: #6f8c3d; font-weight: bold;
+}
+
+/* Lien votes */
+a.votes{ 
+	color: #CC3300; font-weight: bold;
+}
+
+body {
+	background-color: #000000 ;
+    background-image: url(img/fond.png); 
+    color: rgb(231, 214, 181); 
+	font-family: "DejaVu Sans", Verdana,Tahoma,Arial,sans-serif;
+    font-size: 10px; 
+    margin: 0px; 
+    text-align: center;
+
+}
+
+/* Formulaires */
+fieldset {
+	padding: 5px;
+}
+
+input,select { 
+	background-color: #3B291C; 
+	border: 1px solid #533721; 
+	color: #000000;
+	font-size: 11px; 
+	font-weight: bold;
+	margin: 2px; -moz-border-radius: 3%;
+}
+ 
+textarea {
+	background-color: #91603B;
+	border: thin solid #533721;
+	color: #000000;
+    font-size: 13px; -moz-border-radius: 1%;
+}
+
+textarea:focus,input:focus { 
+    background-color: #91603B;
+}
+
+#formulaire { /* Connexion - Inscription en guestn sur les pages != portail */
+	height: 50px;
+	padding-top: 20px;
+	margin-top: 24px;
+	text-align: center;
+	border: 1px solid #533721;
+	Background-color: #000000;
+}
+/* Titres */
+h1 { 
+	color: #FFFFFF; 
+	font-size: 150%; 
+}
+
+h2 {
+	color: #CCCCCC;
+	font-size: 125%; 
+}
+ 
+h3, h4, h5, h6  {
+	font-size: 110%; 
+}
+ 
+/*** juste un hr :p ***/
+
+hr { 
+	background-color: #060609; 
+	border-color: #666666;
+	border-style: solid;
+	border-width: 1px; 
+	width: 50%; 
+}
+
+/* Utilisé dans le manuel et les listes de bâtiments */
+dd{ 
+	background-color: #000000;
+}
+
+dd,dt{ 
+	margin: 1px; 
+	padding: 2px;
+}
+
+dl li {
+	margin: 3px; 
+	padding: 3px; 
+}
+ 
+dt{ 
+	margin-top: 10px; 
+	background-color: #453D31;
+}
+
+/* Tableaux */
+tr {
+	background-color: #2F2E26;
+	text-align: left;
+}
+
+td {
+	border: #454545 solid 1px;
+	padding: 2px;
+	background-color: #151515;
+}
+
+th {
+	background-color: #49463A;
+	border: #454545 solid 1px;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+/* NiceTitles */
+div#toolTip { 
+    background-color: #555555;
+    border-color: #000000; 
+    border-style: solid;
+    border-width: 0px;
+    color: #B48452; 
+    filter: Alpha( Opacity=75, Style=0);
+    font-family: Verdana, 
+    Arial, sans-serif; 
+    font-size: 9px; 
+    font-weight: bold; 
+    left: 0px; -moz-border-radius: 5%; -moz-opacity: 0.75; 
+    padding: 5px;
+    position: absolute;
+    top: 0px; 
+    width: auto;
+    z-index: 20;
+}
+
+div#toolTip p {
+	margin: 0;
+	padding: 0 3px;
+}
+
+div#toolTip p em { 
+	display:block; 
+	margin-top:3px;
+	color:#f60;
+	font-style:normal;
+	font-weight:bold;
+}
+
+/* Tout ce qu'il y'a dans body */
+#contenu {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
+	text-align: left;
+	width: 1100px;
+}
+
+/* Logo en haut */
+#logo {
+	width: 900px;
+}
+
+#logo h1 {
+    padding: 120px 0px 0px 0px;
+    overflow: hidden;
+    background-image: url(img/banniere.png);
+    background-repeat: no-repeat;
+	height: 0px !important; /* for most browsers */
+    height /**/:33px; /* for IE5.5's bad box model */
+}
+
+/* Y'a écrit "zordania" */
+#text_logo {
+	display: none;
+	visibility: hidden;
+}
+
+/* Boite de pub */
+#pub {
+	float: left; 
+	width: 528px;
+}
+
+/* Boite de stats */
+#stats {
+    float: left;
+	width: 240px;
+}
+
+#comptearebour, #date_rebour {
+  color: #ffffff;
+}
+
+/* Boite du menu */
+#menu {
+	float: left;
+	width: 170px;
+	padding-left:15 px;
+}
+#stats .bas {
+ 	background-image: url(img/bordhorizontal.png); 
+	height: 15px; 
+	margin-bottom: 15px;
+}
+ 
+#stats .haut  {
+ 	background-image: url(img/bordhorizontal.png); 
+	height: 15px;
+}
+
+#stats .centre  {
+    list-style-type: none; 
+	background-color: #000000; 
+	background-image: url(img/bordvertical.png); 
+	background-repeat: repeat-y; 
+	padding-left:10px; 
+	padding-top:0px; 
+}
+
+#stats .contenu {
+	background: url(img/bordvertical.png) repeat-y right; 
+	padding: 6px; 
+	padding-top: 20px;
+	padding-left: 10px;
+	height: 100px;
+}
+
+#stats ul, #stats li {
+	list-style-type: none; 
+	margin: 0;
+	padding: 0;
+}
+
+/* Espace entre les stats et la pub */
+#espace_stats_pub {
+	float: left;
+	width: 70px;
+	visibility: hidden;
+	padding-left: 25px;
+	padding-right: 25px;	
+}
+
+/* Div entre le menu et le centre, permet de les espacer */
+#espace_menu_centre {
+	float: left;
+	visibility: hidden;
+	width: 10px;
+}
+
+
+/* Donjon */
+#donjon { 
+	margin: 0px; 
+	width: 100%; 
+}
+
+#donjon tr  {
+	background-color: #000000;
+}
+ 
+#donjon td {
+	border-color: #979797;
+	border-style: solid;
+	border-width: 1px;
+	padding: 2px; 
+}
+ 
+#donjon th  { 
+	background-color: #191a33;
+	border-color: #533721;
+	border-style: solid;
+	border-width: 1px; 
+}
+ 
+#donjon ul {
+	list-style-position: inside;
+	list-style-type: none;
+	padding:0;
+	margin: 0;
+}
+ 
+#donjon li { 
+	list-style-position: inside;
+	list-style-type: none;
+	padding:0 0 0 10px; 
+	margin: 0;
+}
+
+/* Div qui contient le contenu du centre */
+#module li {
+	margin: 5px;
+}
+
+#connec {
+    background-color: #000000;
+    width: 900px;
+    font-size: 11px;
+}
+
+#connec #log {
+    text-align:center;
+}
+
+#module {
+    background-color: #000000;
+    margin-left: 20px;
+    float: left;
+    width: 700px; 
+}
+
+#connec .bas, #module .bas {
+	background-image: url(img/bordhorizontal.png);
+	background-repeat: repeat-x;
+	height: 15px; 
+}
+#connec .haut, #module .haut {
+	background-image: url(img/bordhorizontal.png);
+	background-repeat: repeat-x;
+	height: 15px;
+}
+
+#connec .centre, #module .centre {
+	background-image: url(img/bordvertical.png); 
+	background-repeat: repeat-y; 
+	list-style-type: none; 
+}
+
+#connec .contenu, #module .contenu {
+	background-image: url(img/bordvertical.png); 
+	background-position: right; 
+	background-repeat: repeat-y; 
+	padding: 15px 35px 15px 35px;
+	list-style-type: none; 
+}
+
+
+
+/* Bas .. pubs, etc */
+#footer {
+	color: #666666;
+	font-size: 9px;
+	text-align: center;
+	padding: 5px;
+}
+
+#footer img {
+	border: #000000 1px solid;
+}
+
+#footer li {
+	display: inline;
+	margin: 2px;
+}
+
+#footer ul{
+	list-style-type: none;
+	width: 100%;
+}
+
+/* Copyright et Stats en bas */
+#copy_and_stats {
+	color: #FFFFFF;
+}
+
+/* Boite de menu */
+
+.menu_gauche {
+	border-color: #533721;
+	border-style: solid; 
+	border-width: 1px; 
+	margin-bottom: 20px;
+	Background-color: #000000;
+	background-repeat: repeat-y ;
+}
+ 
+
+ 
+.menu_gauche h2 { 
+	color: #E6C5A3; 
+	background-image : url(img/menu.png);	
+	background-repeat: repeat-x ;
+	display: table-cell;
+	font-size: 120%;
+	font-style: italic;
+	height: 20px; 
+	margin: 0; 
+	text-align: center; 
+	vertical-align: middle;
+	width: 168px;
+}
+ 
+.menu_gauche li {
+	padding-left: 30px;
+	padding-bottom: 5px;
+
+}
+ 
+.menu_gauche li a:hover {
+
+	color: #ffffff;
+	text-decoration: none;
+
+}
+ 
+.menu_gauche ul { 
+
+	list-style-type: none !important;
+	margin: 0;
+	padding: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px; 
+}
+ 
+#actbar {
+	float: right;
+	margin-top: -65px;
+	margin-bottom: 5px;
+	margin-right: 200px;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 8px;
+	padding-bottom: 5px;
+	border-color: #533721;
+	border-style: solid; 
+	border-width: 1px; 
+	Background-color: #000000;
+	background-repeat: repeat-y ;
+	height: 35px;
+}
+ 
+#actbar li {
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	margin: 2px;
+}
+
+/*Forums*/
+
+.forum {
+	background-color: #151515;
+	background-image : url(img/forum.png);	
+	background-repeat: no-repeat ;
+	border-color: silver;
+	border-style: solid;
+	border-width: 1px;
+	color: #ffffff;
+	padding: 5px;
+	margin-top: 10px;
+}
+
+.block_forum {
+	background-color: #151515;
+	border-color: silver;
+	border-style: solid;
+	border-width: 1px;
+	color: #ffffff;
+	padding: 5px;
+	margin-top: 10px;
+}
+	
+.block_forum  a , .block_forum  a:link, .block_forum  a:hover, .block_forum  a:visited { 
+	color: silver ;
+	text-decoration: none;
+}
+	
+.titre {
+	text-decoration: underline;
+    font-weight: bold;
+	font-size: 14px;
+	padding-left: 10px;
+	color: silver;
+}
+
+.forum h4 a {
+	background-image: none;
+	Color: #b07f4d;
+	font-family: Papyrus,Tahoma,Arial,sans-serif;
+	border: none;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.desc {
+	font-style: italic;
+	text-indent: 25px;
+}
+
+.stat {
+	/*background-color: #19120d;*/
+	text-align: right;
+	padding: 2px;
+	width: 400px;
+	margin-left: 218px;
+	margin-top: 5px;
+	margin-bottom: -5px;
+	/*border-top: 1px #615f5f solid;
+	border-left: 1px #615f5f solid;*/
+}
+
+.block_forum .signature {
+	overflow: hidden;
+	background-color: #303030;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.post {
+min-height: 50px;
+}
+
+/* News */
+.news {
+	background-color: #151515;
+	border-color: silver;
+	border-style: solid;
+	border-width: 1px;
+	color: #ffffff;
+	padding: 5px;
+	margin-top: 10px;
+}
+
+.news h3 {
+	text-align: center;
+	text-decoration: underline; 
+	font-size: 17px;
+	font-weight: lighter;
+	font-style: italic;	
+}
+
+.comment { 
+	background-color: #2C221A; 
+	border-color: #000000; 
+	border-style: solid; 
+	border-width: 1px; 
+	color: #ffffff; 
+	margin-top: 5px; 
+	padding-left: 5px;
+}
+
+/* Block de debug mysql */
+.mysql {
+	background-color: #DDDDDD;
+	border: 1px #AAAAAA solid;
+	color: #000000;
+	text-align: left;
+}
+
+
+/* Signature dans le forum, fiche membre, etc .. */
+.signature {
+	max-height: 15px;
+	overflow: hidden;
+	background-color: #303030;
+	margin-bottom: 2px;
+	margin-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+/* Listes (membres, alliances, etc) */
+.liste  { 
+	margin-left: 5%; 
+	margin-right: 5%; 
+	width: 90%; 
+}
+
+.liste tr:hover {
+	background-color: #353535; 
+	border-color: #111111; 
+}
+
+/* Quand c'est un alliée dans une liste */
+.allie td, .allie tr {
+	background-color: #00000f;
+	border-color: #111111;
+ }
+
+/* Mini logo dans la liste ou sur le forum */
+.mini_al_logo {
+	height: 20px;
+	width: 20px;
+}
+
+.perte {
+	color:#99232C;
+}
+.gain {
+	color:#237199;
+}
+
+.legion, .attaque {
+	background-color: #060609;
+	border: #666666 solid 1px;
+	margin: 10px;
+	padding: 5px;
+}
+
+
+/* Stats */
+.barre_rouge,.barre_verte,.barre_grisec,.barre_grisef {
+	background-repeat: repeat-x;
+	color: #CCCCCC;
+	float: left;
+	height: 12px;
+}
+
+.barre_rouge {
+	background-image: url(img/red.png);
+}
+
+.barre_verte {
+	background-image: url(img/green.png);
+}
+.barres_grandes {
+	width: 300px;
+}
+.barres_moyennes {
+	width: 200px;
+}
+.barres_petites {
+	width: 100px;
+}
+.barres_grandes,.barres_moyennes,.barres_petites {
+	height: 0px;
+	text-align: center;
+}
+
+legend {
+         color: silver;
+}
+
+/* Quelque chose de désactivé */
+.disabled {
+	background-color: #101010;
+}
+
+/* Infos / Error / OK */
+.infos a {
+	color: #98755A;
+}
+
+
+/* Block a metre en valeur */
+.block {
+	background-color: #151515;
+	border: #454545 solid 1px;
+	padding: 5px;
+}
+
+/* Pour le forum, mais pas seulement */
+.quote {
+	-moz-border-radius: 1%;
+	width:90%;
+	text-align:left;
+	background-color: #533721;
+	font-style: italic;
+	border:none;
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	padding: 5px;
+	margin:10px;
+}
+.code {
+	width:90%;
+	text-align:left;
+	background-color: #533721;
+	font-style: italic;
+	border: none;
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	padding: 5px;
+	margin:10px;
+	overflow:auto;
+}
+
+/* Batiment sur la page "Village" */
+.batiment {
+	width: 28%; 
+	background-color: #352D21;
+	border: silver solid 1px;
+	float: left;
+	margin: 5px;
+	padding: 5px;
+}
+
+
+/* Permet de faire des espaces, utilisé sur la page des bâtiments et sur l'index */
+.blason {
+	float: right;
+}
+
+/* rosace pour la carte */
+div#map {
+  background: transparent url(img/rosace.png) no-repeat top center;
+}

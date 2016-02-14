@@ -1,0 +1,1 @@
+Votre légion {var[histo_vars][leg_name]} est arrivée à destination.

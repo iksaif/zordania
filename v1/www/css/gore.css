@@ -1,0 +1,787 @@
+/*******************
+*	GENERAL
+********************/
+
+a
+	{
+	color:#a20000;
+	font-size:11px;
+	text-decoration:none;
+	}
+	
+a:hover
+	{
+	/*color:#5a0000;*/
+	color:#c3000c;
+	/*text-decoration:underline;*/
+	border-top:1px solid #4f0000;
+	border-bottom:1px solid #4f0000;
+	}
+	
+a.bonus,a.evidence
+	{
+	font-weight:bold;
+	}
+	
+body
+	{
+	background-color:#000000;
+	background-image:url(../img/gore/back.png);
+	color:#FFFFFF;
+	font-family:Helvetica,Verdana,Tahoma,Arial,sans-serif;
+	font-size:10px;
+	margin:0px;
+	text-align:center;
+	}
+
+dd
+	{
+	background-color:#d0ae8d;
+	margin:1px;
+	}
+	
+dt
+	{
+	margin:1px;
+	padding:2px;
+	}
+
+/* Nicetitle */
+div#toolTip { 
+	background-color: #d0ae8d;
+	border-color: #000000;
+	border-style: solid;
+	border-width: 1px;
+	color: #222222;
+	 font-family: Verdana, Helvetica, Arial, sans-serif;
+	 font-size: 9px; font-weight: bold;
+	 left: 0px;
+	 -moz-border-radius: 5%;
+	 padding: 4px;
+	 position: absolute;
+	 top: 0px;
+	 width: auto;
+	 }
+div#toolTip p {
+	margin: 0;
+	padding: 0 3px; 
+	}
+div#toolTip p em {
+	display:block;
+	margin-top:3px;
+	color:#f60;
+	font-style:normal;
+	font-weight:bold; 
+	}
+	
+dl li
+	{
+	margin:3px;
+	padding:3px;
+	}
+	
+dt
+	{
+	margin-top:10px;
+	background-color:#BCB29F;
+	}
+	
+#div_page li
+	{
+	margin:5px;
+	}
+	
+fieldset,#forums
+	{
+	padding:5px;
+	}
+	
+h1
+	{
+	color:#FFFFFF;
+	font-size:150%;
+	}
+	
+h2
+	{
+	color:#FFFFFF;
+	font-size:125%;
+	}
+	
+h3,h4,h5,h6
+	{
+	font-size:110%;
+	}
+	
+hr
+	{
+	background-color:#060609;
+	border:#666666 1px solid;
+	width:50%;
+	}
+
+
+/*******************
+*	COMMUN
+********************/
+
+img
+	{
+	border:0px;
+	}
+	
+input,select
+	{
+	background-color:#cccccc;
+	border:1px solid #000000;
+	color:#000000;
+	font-size:11px;
+	margin:2px;
+	}
+	
+textarea
+	{
+	background-color:#cccccc;
+	border:1px solid #000000;
+	color:#000000;
+	font-size:13px;
+	}
+	
+textarea:focus,input:focus
+	{
+	background-color:#ffcaae;
+	}
+	
+th
+	{
+	font-weight:bold;
+	text-align:center;
+	}
+	
+.allie td,tr
+	{
+	background-color:#cf9996;
+	border-color:#111111;
+	}
+	
+.block_1,#forums .forum
+	{
+	background-color:#794c4c;
+	border:#000000 solid 1px;
+	padding:5px;
+	color:#a1a1a1;
+	}
+	
+.block_carte
+	{
+	height:500px;
+	width:500px;
+	}
+	
+
+/***********************************
+*	DESIGN & POSITIONNEMENT
+************************************/
+
+#contenu
+	{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:0px;
+	text-align:left;
+	width:800px;
+	background-color:#000000;
+	background-image:url(../img/gore/border.png);
+	background-repeat:repeat-y; 
+	background-position:center;
+	}
+	
+#copy_and_stats
+	{
+	color:#FFFFFF;
+	}
+	
+#div_page
+	{
+	background-color:#231E17;
+	background-image:url(../img/gore/texture_fond.png);
+	float:right;
+	left:10px;
+	width:620px;
+	}
+	
+#espace_menu_centre
+	{
+	float:left;
+	visibility:hidden;
+	width:10px;
+	}
+	
+#espace_stats_pub
+	{
+	float:left;
+	visibility:hidden;
+	width:47px;
+	}
+	
+#footer
+	{
+	color:#666666;
+	font-size:9px;
+	text-align:center;
+	}
+	
+#footer img
+	{
+	border:#000000 1px solid;
+	}
+	
+#footer li
+	{
+	display:inline;
+	margin:2px;
+	}
+	
+#footer ul
+	{
+	list-style-type:none;
+	width:100%;
+	}
+	
+#forums .infos_pst 
+	{ 
+	background-color:#504436; 
+	margin-bottom:2px; 
+	margin-top:5px; 
+	padding-left:5px; 
+	padding-right:5px; 
+	}
+	
+#forums .pst
+	{ 
+	background-color:#403426; 
+	border-color:#000000; 
+	border-style:solid; 
+	border-width:1px; 
+	margin:5px; 
+	margin-bottom:0px; 
+	padding:6px;
+	}
+	
+#forums .topic
+	{ 
+	background-color:#352D21; 
+	border-color:#000000;
+	border-style:solid; 
+	border-width:1px;
+	margin:5px; 
+	padding:6px; 
+	}
+	
+#forums .topic:hover
+	{ 
+	background-color:#463D32; 
+	border-color:#111111; 
+	}
+	
+.signature 
+	{ 
+	max-height:15px;
+	overflow:hidden; 
+	background-color:#504436; 
+	margin-bottom:2px;
+	margin-top:5px; 
+	padding-left:5px; 
+	padding-right:5px; 
+	}
+	
+#logo
+	{
+	margin-bottom:10px;
+	width:800px;
+	height:100px;
+	}
+	
+#logo h1
+	{
+	padding:33px 0px 0px 0px;
+	margin:0px;
+    overflow:hidden;
+    background-image:url(../img/gore/logo.png); 
+    background-repeat: no-repeat;
+    height: 0px !important; /* for most browsers */
+    height /**/:33px; /* for IE5.5's bad box model */
+	}
+	
+#menu
+	{
+	float:left;
+	width:170px;
+	}
+	
+#stats
+	{
+	float:right;
+	width:250px;
+	height:130px;
+	border:1px solid #252525;
+	}
+	
+#pub
+	{
+	float:left;
+	width:500px;
+	margin-right:10px;
+	}
+	
+#text_logo
+	{
+	display:none; 
+	visibility:hidden;
+	}
+	
+#amour
+	{
+	background-color:#352D21;
+	color:#ffffff;
+	padding:6px;
+	border:2px solid #6666666;
+	}
+	
+
+/*******************
+*	CONTENU
+********************/
+
+.border1 
+	{ 
+	margin-left:5%; 
+	margin-right:5%; 
+	width:90%; 
+	}
+	
+.border1 tr 
+	{ 
+	background-color:#ccc2af; 
+	}
+	
+.border1 td 
+	{  
+	border-color:#000000; 
+	border-style:solid; 
+	border-width:1px; 
+	padding:2px;
+	}
+	
+.border1 th 
+	{ 
+	background-color:#cb9481; 
+	border-color:#000000; 
+	border-style:solid; 
+	border-width:1px; 
+	}
+	
+.border1 tr 
+	{ 
+	text-align: left; 
+	}
+	
+.border1 tr:hover 
+	{ 
+	background-color:#d6c6a4; 
+	border-color:#111111; 
+	}
+	
+.centre
+	{ 
+	background-color:#231E17; 
+	background-image:url(../img/gore/gauche.png); 
+	background-repeat: repeat-y; 
+	}
+	
+.centre2 
+	{ 
+	background-image:url(../img/gore/gauche.png); 
+	background-repeat:repeat-y; 
+	}
+	
+.cleaner 
+	{ 
+	clear:both;
+	height:10px; 
+	visibility:hidden; 
+	}
+	
+.close_popup 
+	{ 
+	bottom:0em; 
+	left:2px; 
+	position:fixed; 
+	text-align:center; 
+	width:97%; 
+	}
+	
+.contenu 
+	{ 
+	background:url(../img/gore/droit.png) repeat-y right; 
+	padding-left:6px; 
+	}
+	
+.contenu2 
+	{ 
+	background-image:url(../img/gore/droit.png); 
+	background-position:right; 
+	background-repeat:repeat-y; 
+	padding:5px 25px 5px 25px; 
+	}
+	
+.defaite
+	{ 
+	background-color:#CCCCCC; 
+	border-color:#FF0000; 
+	color:#FF0000; 
+	}
+	
+.disabled
+	{ 
+	background-color:#101010; 
+	}
+	
+.error 
+	{ 
+	border-color:#FF0000; 
+	color: #FF0000; 
+	}
+	
+.error,.ok,.infos 
+	{ 
+	background-color:#A9A9A9; 
+	border-style:solid; 
+	border-width:1px;
+	margin:3px;
+	padding: 2px; 
+	}
+	
+.gras
+	{ 
+	font-weight: bold;
+	}
+	
+.haut 
+	{ 
+	background-image:url(../img/gore/haut.png); 
+	height:6px; 
+	}
+	
+.haut2 
+	{ 
+	background-image:url(../img/gore/haut.png); 
+	background-repeat:repeat-x; 
+	height:6px; 
+	}
+	
+.bas 
+	{ 
+	background-image:url(../img/gore/bas.png); 
+	height: 6px; 
+	}
+	
+.bas2 
+	{ 
+	background-image:url(../img/gore/bas.png);
+	background-repeat:repeat-x; 
+	height:6px; 
+	}
+	
+.img_right
+	{ 
+	float:right; 
+	}
+	
+.infos 
+	{ 
+	border-color:#666666; 
+	color:#000000; 
+	}
+	
+.italique
+	{ 
+	font-style:italic; 
+	}
+	
+.list_univ 
+	{ 
+	background-color:#060609; 
+	border-color:#666666; 
+	border-style:solid; 
+	border-width:1px; 
+	margin:10px; 
+	padding:5px; 
+	}
+	
+.list_univ h2
+	{ 
+	float:left; 
+	margin:10px; 
+	margin-bottom:20px;
+	margin-top:20px; 
+	}
+	
+.list30 
+	{ 
+	width:28%; 
+	}
+	
+.list30,.list50 
+	{ 
+	background-color:#352D21;
+	border-color:#000000;
+	border-style:solid; 
+	border-width:1px;
+	float:left; 
+	margin:5px; 
+	padding:5px; 
+	}
+	
+.list50 
+	{ 
+	width: 45%; 
+	}
+	
+.menu_gauche
+	{ 
+	border-color:#000000; 
+	border-style:solid; 
+	border-width:1px; 
+	margin-bottom:20px; 
+	}
+	
+.menu_gauche h1
+	{ 
+	background-image:url(../img/gore/texture_fond.png); 
+	color:#E7D6B5; 
+	color:#FFFFFF; 
+	display:table-cell; 
+	font-size:120%; 
+	height:25px; 
+	padding-right:15px;
+	text-align:right; 
+	vertical-align:middle; 
+	width:168px; 
+	}
+	
+.menu_gauche li
+	{ 
+	margin-left:30px; 
+	}
+	
+.menu_gauche ul
+	{ 
+	background-color:#231E17; 
+	list-style-position:inside; 
+	list-style-type:none; 
+	margin:0; 
+	padding:5px; 
+	}
+	
+.menu_gauche ul li ul li
+	{ 
+	margin:0px; 
+	padding:0px; 
+	}
+	
+.menu_gauche ul li ul li:before
+	{ 
+	content:"- "; 
+	}
+	
+	
+/*******************
+*	DIVERS
+********************/
+
+.mysql
+	{ 
+	background-color:#DDDDDD; 
+	border:1px #AAAAAA solid; 
+	color:#000000; 
+	text-align:left; 
+	}
+	
+.news 
+	{ 
+	background-color:#CCC2AF; 
+	border-color:#000000; 
+	border-style:solid; 
+	border-width:1px; 
+	color:#333333; 
+	padding:5px; 
+	}
+	
+.ok 
+	{ 
+	border-color:#226622; 
+	color:#226622; 
+	}
+	
+.overflow
+	{ 
+	overflow:auto;
+	}
+	
+.quote {
+	color: #000;
+	-moz-border-radius: 1%; 
+	width:90%;
+	text-align:left; 
+	background-color: #DADCDE;
+	font-style: italic; 
+	border:none; 
+	font-family: Verdana, Arial; 
+	font-size: 11px; 
+	padding: 5px;  
+	margin:10px; 
+	}
+	
+.code {
+	color: #000;
+	width:90%;
+	text-align:left;
+	background-color: #DADCDE; 
+	font-style: italic;
+	border: none;
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	padding: 5px;
+	margin:10px;
+	}
+	
+.red
+	{ 
+	color:#FF0000; 
+	}
+	
+.souligne
+	{ 
+	text-decoration:underline; 
+	}
+	
+.titre_module,.retour_module,.center,.titre_news 
+	{ 
+	margin-left:auto; 
+	margin-right:auto; 
+	text-align:center; 
+	}
+
+.menu_module 
+	{
+	text-align:center;
+	}
+
+.victoire
+	{ 
+	background-color:#CCCCCC; 
+	border-color:#226622; 
+	color:#226622; 
+	}
+	
+.victoire,.defaite 
+	{ 
+	border-style:solid; 
+	border-width:1px; 
+	font-size:1.1em; 
+	margin:3px; 
+	padding:2px; 
+	text-align:center; 
+	}
+
+.village
+	{ 
+	background:#352D21; 
+	background-image:url(../img/gore/bg_village.png); 
+	background-repeat:repeat-y repeat-x; 
+	border:dotted #642F0F 2px; 
+	margin:2px; 
+	padding:2px; 
+	}
+	
+.vue_generale
+	{ 
+	margin:0px; 
+	width:100%; 
+	}
+	
+.vue_generale tr 
+	{ 
+	background-color:#ccc2af; 
+	}
+	
+.vue_generale td 
+	{  
+	border-color:#000000; 
+	border-style:solid;
+	border-width:1px; 
+	padding:2px; 
+	}
+	
+.vue_generale th 
+	{ 
+	background-color:#b0b5a8; 
+	border-color:#000000;
+	border-style:solid; 
+	border-width:1px; 
+	}
+	
+.vue_generale ul
+	{ 
+	list-style-position:inside; 
+	list-style-type:none; 
+	padding:0; 
+	margin: 0;
+	}
+	
+.vue_generale li
+	{ 
+	list-style-position:inside; 
+	list-style-type:none; 
+	padding:0 0 0 10px; 
+	margin:0;
+	}
+
+.width100 
+	{ 
+	width:100%; 
+	}
+	
+.zoom_1 img
+	{ 
+	height:50px; 
+	width:50px; 
+	}
+	
+.zoom_2 img
+	{ 
+	height:25px; 
+	width:25px; 
+	}
+	
+.zoom_2 img,.zoom_1 img, .img_left 
+	{ 
+	float:left; 
+	}
+
+.mini_al_logo
+	{ 
+	height:20px;
+	width:20px; 
+	}
+	
+.perte
+	{ 
+	color:#99232C; 
+	}
+	
+.gain
+	{ 
+	color:#237199; 
+	}

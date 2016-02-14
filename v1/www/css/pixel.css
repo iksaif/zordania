@@ -1,0 +1,658 @@
+/**************************
+* General                 *
+**************************/
+
+body {
+	text-align:center;
+	margin: 10px; 
+	font-family: Verdana,Tahoma,Arial,sans-serif; 
+	font-size: 10px; 
+	color: rgb(231, 214, 181); 
+	background-color: rgb(0, 0, 0); 
+	background-image: url(../img/pixel/fond.gif); 
+}
+
+a{
+	font-size:11px;
+}
+a:link, a:visited, a:active { 
+	text-decoration: none; 
+	color: #cc0000; 
+}
+
+a:hover { 
+	text-decoration: underline; 
+	color: #ff0000; 
+}
+
+a.evidence{
+	color: #006699; 
+	font-weight : bold;
+}
+
+a.bonus{
+	color: #006699; 
+	font-weight : bold;
+}
+
+
+h1 {
+	color : #dbcfc4;
+	font-size : 150%;
+}
+
+h2 {
+	color :#CCCCCC;
+	font-size : 125%;	
+}
+
+h3, h4, h5, h6 {
+	font-size : 110%;
+}
+
+
+input,select {
+	margin: 2px;
+	background-color: #48402D;
+	color: #000;
+	border: 1px solid #000;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+textarea:focus,input:focus{
+	background-color: #6E6145;
+}
+textarea{
+	background-color: #48402D;
+	color: #000;
+	border: thin solid #000;
+	font-size: 13px;
+}
+
+/* Amour-propre */
+#amour{margin-left:181px;background-color:#ff0000;color:#ffffff;padding:6px;border-bottom:1px solid #bdcfc4;}
+#amour a{color:#ffffff;text-decoration:none;}
+#amour a:hover{color:#ffff00;text-decoration:underline;}
+
+/*********************************
+* Design - Positionement         *
+*********************************/
+#contenu {
+	width: 790px;
+	min-height:1100px;
+	margin: 0 auto 0 auto;
+	text-align: left;
+	background-color: #544734;
+	border: 1px solid #bdcfc4;
+}
+
+
+#logo { margin-bottom: 10px; width: 800px; }
+#logo h1 { 
+	background-image: url("../img/pixel/logo.png"); 
+	background-repeat: no-repeat; height: 0px !important; /* for most browsers */ 
+	height: 40px; /* for IE5.5's bad box model */ 
+	margin: 0px; 
+	margin-left: 50%; 
+	overflow: hidden; 
+	padding: 40px 0px 0px 0px; 
+	}
+
+
+#text_logo{
+	visibility: hidden;display:none; 
+}
+
+#stats {
+	width: 170px;
+	margin-left: -1px;
+	padding: 10px;
+	padding-right: 0px;
+	position: absolute;
+	top: 10px;
+	/*border: 1px solid #000;*/
+	border: 1px solid #bdcfc4;
+	background-color: #dbcfc4;
+	color: #000000;
+}
+
+#date_rebour {
+	line-height: 20px;
+	color: #990000;
+}
+
+#pub {
+	padding: 30px 0 0 170px;
+	height: 60px;
+	text-align:center;
+}
+
+#espace_stats_pub {
+	display:none;
+	/*visibility: hidden;
+	width: 47px;
+	float: left;
+	*/
+}
+
+#espace_menu_centre {
+	display:none;
+	/*visibility: hidden;
+	border:#FF0000;
+	height: 1px;
+	width: 10px;*/
+	float:left;
+}
+.cleaner {
+	display:none;
+	/*clear: both; 
+	visibility: hidden; 
+	height: 10px;*/
+}
+
+#menu {
+	padding: 40px 0 0 11px;
+	width: 170px;
+	float: left;
+}
+
+#div_page {
+	padding: 20px 0 0 0;
+	width: 609px;
+	float: left;
+	margin: 0;
+}
+
+#footer {
+	padding-bottom: 10px;
+	text-align: center;
+	font-size: 9px;
+	color: #666666;
+}
+
+#footer ul{
+list-style-type: none;
+}
+
+#footer li {
+ display:inline;
+ margin: 2px;
+}
+
+.menu_gauche{
+	margin-bottom: 20px;
+	border: 1px solid #000000;
+	color: #000000;
+}
+
+.menu_gauche h1{
+	color: #ffffff; background-color: #cc0000; 
+	width: 168px;
+	padding: 5px 0 5px 0;
+	text-align: center;
+	border-bottom: 1px #000000 solid;
+	font-size: 120%;
+	margin: 0;
+}
+
+.menu_gauche ul{
+	background-color: #dbcfc4;
+	margin: 0;
+	padding: 5px;
+	list-style-type: none;
+	list-style-position: inside;
+}
+
+.menu_gauche li{
+	margin-left:10px;
+}
+
+.menu_gauche ul li ul li{
+	margin: 0px;
+	padding: 0px;
+}
+
+.menu_gauche ul li ul li:before{
+	content:"- ";
+}
+
+dl li {
+	padding: 3px;
+	margin: 3px;
+}
+
+dd,dt{
+	margin:1px;
+	padding:2px;
+}
+
+dd{
+	background-color: #dbcfc4;
+	color:#000;
+}
+
+dt{
+	background-color: #cbbfb4;
+	color:#000;
+	margin-top: 10px;
+}
+
+#div_page li {margin: 5px; }
+
+.haut, .bas, .haut2, .bas2 {
+	display:none;visibility:hidden;
+}
+
+.contenu {
+	padding-left: 10px;
+}
+
+.contenu2 {
+	padding: 0px 25px 5px 25px;
+}
+
+#copy_and_stats
+{
+	color: #ffffff;
+}
+#footer img
+{
+	border: #000 1px solid;
+}
+/***************************************
+*    Contenu                           *
+***************************************/
+.border1
+{
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.border1 td,tr {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #000000;
+	background-color:#352d21;
+	padding: 2px;
+}
+
+.border1 th {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #000000;
+	background-color:#332b19;
+}
+
+.allie td,tr
+{
+	border-color: #111111;
+	background-color:#332b19;
+}
+
+.error,.ok,.infos
+{
+	margin: 3px;
+	padding: 2px;
+	border-width: 1px;
+	border-style: solid;
+	background-color: #A9A9A9;
+}
+
+.error {
+	border-color: #FF0000;
+	color: #FF0000;
+}
+
+.ok {
+	border-color: #226622;
+	color: #226622;
+}
+
+.infos {
+	border-color: #666666;
+	color: #000000;
+}
+
+/*** le truc qui permet de fermer le popup ***/
+.close_popup {
+	position: fixed; 
+	bottom: 0em; 
+	left: 2px;
+	text-align:center; 
+	width: 97%; 
+}
+
+/*** les news hein .. ***/
+.news {	
+	padding: 5px;
+	background-color: #dbcfc4;
+	color: #000000;
+}
+
+.victoire,.defaite
+{
+	text-align: center;
+	margin: 3px;
+	padding: 2px;
+	border-width: 1px;
+	border-style: solid;
+	font-size: 1.1em;
+}
+.victoire{
+	border-color: #226622;
+	background-color: #CCCCCC;
+	color: #226622;
+}
+
+.defaite{
+	border-color: #FF0000;
+	background-color: #CCCCCC;
+	color: #FF0000;
+}
+
+/*** juste un hr :p ***/
+hr {
+	width:50%;
+	height:1px;
+	border:0;
+	color:#ffffff;
+	background-color:#ffffff;
+}
+
+/**** div qui sert a metre les listes de recherches, etc .. en cours ***/
+.block_1{
+	padding: 5px;
+	border-style: solid;
+	border-color: #000;
+	border-width: 1px;
+	background-color: #352d21;
+}
+
+th
+{
+	text-align:center;
+	font-weight:bold;
+}
+
+/**** div qui servent a faire des listes ***/
+.list_univ
+{
+	padding : 5px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #060609;
+	margin: 10px;
+}
+.list_univ h2{
+	float: left;
+	margin: 10px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+/*** btc pas constructible ***/
+.disabled{
+	background-color: #101010;
+}
+
+/**** Listes *****/
+
+.width100
+{
+	width:100%;
+}
+
+.list30,.list50
+{
+	border-style: solid;
+	border-color: #000;
+	border-width: 1px;
+	background-color: #352d21;
+	float: left;
+	padding: 5px;
+	margin: 5px;
+}
+
+.list30 {
+	width:28%;
+}
+
+.list50 {
+	width:45%;
+}
+
+.vue_generale{
+	margin: 0px;
+	width: 100%;
+}
+
+.vue_generale li{
+	margin: 0;
+	list-style-type: none;
+	list-style-position: inside;
+}
+
+/******* Carte **********/
+.block_carte{
+width: 500px;
+height: 500px;
+}
+
+.zoom_2 img,.zoom_1 img
+{
+float:left;
+}
+
+.zoom_1 img{
+width: 50px;
+height: 50px;
+}
+
+.zoom_2 img{
+width: 25px;
+height: 25px;
+}
+
+/******** Village ********/
+.village{
+	background:#352d21;
+	background-image: url(../img/pixel/bg_village.png);
+	background-repeat: repeat-y repeat-x;
+	border:dotted #642f0f 2px;
+	padding: 2px;
+	margin: 2px;
+}
+
+/***********************
+* NiceTitle            *
+***********************/
+
+div#toolTip { background-color: #3f3627; border-color: #000000; border-style: solid; border-width: 1px; color: white;  font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 9px; font-weight: bold; left: 0px; -moz-border-radius: 5%; padding: 4px; position: absolute; top: 0px; width: auto; }
+div#toolTip p { margin: 0; padding: 0 3px; }
+div#toolTip p em {  display:block;  margin-top:3px;  color:#f60;  font-style:normal;  font-weight:bold; }
+
+/*****************************
+* Commun                     *
+*****************************/
+img{
+	border:0px;
+}
+
+.img_left{
+	float:left;
+}
+
+.img_right{
+	float:right;
+}
+
+.titre_module,.menu_module,.retour_module,.center,.titre_news
+{
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.gras{
+	font-weight:bold;
+}
+
+.italique{
+	font-style:italic;
+}
+
+.souligne{
+	text-decoration:underline;
+}
+
+
+.red{
+	color: #FF0000;
+}
+
+.overflow{
+overflow: auto;
+}
+
+/**** Barres ****/
+.barre_rouge,.barre_verte,.barre_grisec,.barre_grisef
+{
+	float: left;
+	height: 100%;
+}
+
+.barre_rouge{
+	background-image:url(../img/stats/red.png);
+}
+
+.barre_verte{
+	background-image:url(../img/stats/green.png);
+}
+
+.barre_grisec{
+	background-color: #cc0000;
+}
+
+.barre_grisef{
+	background-color: #990000;
+}
+
+.barres_grandes,.barres_moyennes,.barres_petites
+{
+	border: 1px solid #000000;
+	height: 12px;
+}
+.barres_petites {
+	width: 100px;
+}
+
+.barres_grandes
+{
+	width: 300px;
+}
+
+.barres_moyennes
+{
+	width: 200px;
+}
+
+.barres_petites
+{
+	width: 100px;
+}
+
+fieldset{
+	padding:5px;
+}
+
+/********************
+* Divers            *
+********************/
+
+.mysql{
+text-align:left;
+background-color: #DDD;
+color: #000;
+
+border: 1px #AAA solid;
+}
+
+/********************
+* Forums            *
+********************/
+#forums{
+	padding: 5px;
+}
+
+#forums .forum{
+	padding: 5px;
+	border-style: solid;
+	border-color: #000;
+	border-width: 1px;
+	background-color: #352d21;
+}
+
+#forums .topic{
+	padding: 6px;
+	margin: 5px;
+	border-style: solid;
+	border-color: #000;
+	border-width: 1px;
+	background-color: #352d21;
+}
+
+#forums .pst{
+	padding: 6px;
+	margin: 5px;
+	margin-bottom:0px;
+	border-style: solid;
+	border-color: #000;
+	border-width: 1px;
+	background-color: #352d21;
+}
+
+#forums .infos_pst
+{
+	margin-bottom:2px;
+	background-color:#352d21;
+	padding-left:5px;
+	padding-right:5px;
+	margin-top:5px;
+}
+	
+.quote {
+	color: #465584;
+	-moz-border-radius: 1%; 
+	width:90%;
+	text-align:left; 
+	background-color: #352d21;
+	font-style: italic; 
+	border:none; 
+	font-family: Verdana, Arial; 
+	font-size: 11px; 
+	padding: 5px;  
+	margin:10px; 
+	}
+	
+.code {
+	color: #465584;
+	width:90%;
+	text-align:left;
+	background-color: #352d21; 
+	font-style: italic;
+	border: none;
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	padding: 5px;
+	margin:10px;
+	}
+	
+.signature { max-height: 15px; overflow: hidden; background-color: #504436; margin-bottom: 2px; margin-top: 5px; padding-left: 5px; padding-right: 5px; }
+
+
+.mini_al_logo{ height: 20px; width: 20px; }
+.perte{ color:#99232C; }
+.gain{ color:#237199; }

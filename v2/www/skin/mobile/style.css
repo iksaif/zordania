@@ -1,0 +1,18 @@
+/* @import url(../imports/base.css); */
+
+
+/* mobile css */
+div#logo {display:none;}
+div#stats {display:none;}
+
+div
+{
+  border: 1px solid #000;
+}
+
+/* Titres */
+h1 
+{ 
+  color: #FFFFFF; 
+  font-size: 150%; 
+}

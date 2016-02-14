@@ -1,0 +1,1 @@
+{vars[mbr_pseudo]} à lancé une attaque sur notre village !

@@ -1,0 +1,38 @@
+
+#Url Rewrite
+
+RewriteEngine on 
+RewriteRule	([a-zA-Z0-9_]+)-([a-zA-Z0-9_]+).html$	/index.php?file=$1&act=$2&%{QUERY_STRING} [L]
+RewriteRule	([a-zA-Z0-9_]+).html$			/index.php?file=$1&%{QUERY_STRING} [L]
+RewriteRule	img/mbr_logo/([0-9]+).png$		/img/mbr_logo/index.php?mid=$1 [L]
+RewriteRule	img/al_logo/([0-9]+).png$		/img/al_logo/index.php?alid=$1 [L]
+RewriteRule     img/al_logo/([0-9]+)-thumb.png$         /img/al_logo/index.php?alid=$1&thumb=true [L]
+RewriteRule	forums/html/emoticons/s([0-9]+).gif$	/img/smile/s$1.gif [L]
+
+RewriteCond %{HTTP_user_agent} MSIE
+RewriteRule     ^templates/(.*)tpl   http://www.zordania.com/ [QSA,L,R=301]
+
+
+#Php
+
+
+<FilesMatch "\.(gif|jpe?g|png)$">
+ErrorDocument 404 /img/404.png
+</FilesMatch>
+
+#IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+#IndexIgnore /modules/*.php */lib* */conf* *.php *.swf
+
+<FilesMatch "\.(compiled\.php|class\.php|inc|log)$">
+deny from all
+</FilesMatch>
+
+
+#deny from 87.89.151.92
+#deny from 195.83.68.13
+deny from 90.32.17.241
+deny from 81.50.1.208
+deny from 81.50.0.7
+deny from 86.201.45.179
+# -FrontPage-
+

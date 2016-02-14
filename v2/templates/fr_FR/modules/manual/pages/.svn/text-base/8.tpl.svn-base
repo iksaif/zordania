@@ -1,0 +1,29 @@
+<h4>Guerres - Introduction</h4>
+<p>
+L'Art de la guerre est la partie du manuel censée vous fournir les bases du système de combat. Cette partie n'a aucune vocation à être complète, ce sera à vous de découvrir toutes les possibilités qu'offre le système. Nous vous donnons simplement la matière nécessaire pour que vous puissiez commencer à vous amuser sans toutefois pouvoir battre tout le monde facilement.
+</p>
+
+<p>
+Une fois que vous aurez lu tout ce qui suit, vous serez capable d'appréhender les nombreuses batailles qui vous attendent. Cependant, le système étant assez complexe, il nécessitera de nombreux tests avant d'être maîtrisé et vous n'en découvrirez peut-être jamais tous les secrets.
+</p>
+<p>
+Dans cette introduction nous allons présenter les choses qui ont motivé ce système, puis nous vous donnerons quelques informations générales.
+</p>
+<p>
+Dans un soucis d'amélioration nous avons ciblé les lacunes du système de combat de la première version de Zordania et nous avons essayé de faire en sorte qu'elles soient atténuées. On peut citer la grande difficulté de gagner en défense (voir sa quasi-impossibilité), le fait que très peu d'unités différentes soient utilisées ou encore le peu de tactique à adopter pour gagner. Nous avons aussi voulu faire en sorte que les légions puissent se battre n'importe où sur la carte et pas uniquement dans les villages, ainsi que créer du mouvement dans les légions, leur donner plus de réalisme et rendre les attaques à plusieurs moins pénibles à subir.
+</p>
+<p>
+Concernant les choses les plus concrètes, sachez que vous ne pouvez pas faire plus de {LEG_MAX_NB} légions et qu'une légion ne peut accueillir qu'entre 1 et <math oper="{LEG_MAX_RANG} * {LEG_MAX_RANG_UNT}" /> unités. Avec la population maximale de {TOTAL_MAX_UNT} unités vous pouvez imaginer faire deux légions complètes tout en ayant un village totalement construit.
+Vous ne pourrez combattre qu'à partir de {ATQ_PTS_MIN} points et vous ne pourrez attaquer ou vous faire attaquer que par des joueurs ayant {ATQ_PTS_DIFF} points de plus ou moins que vous. A partir de {ATQ_LIM_DIFF} points se trouve l'arène. L'arène représente la frontière qui permet à tous ceux qui sont au-dessus de se battre entre eux sans restriction.
+</p>
+
+<p align="center" class="menu_module">
+[ <a href="manual.html?race={man_race}&page=12">Précédent : Guide du Débutant</a> ]
+-
+[ <a href="manual.html?race={man_race}&page=0" title="Accueil du Manuel">Manuel</a> ]
+-
+[ <a href="manual.html?race={man_race}&page=13">Suivant : Les Rangs</a> ]
+</p>
+
+
+  

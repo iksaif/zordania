@@ -1,0 +1,1 @@
+Votre demande a été acceptée par {session_user[pseudo]}.

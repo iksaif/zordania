@@ -1,0 +1,225 @@
+/**************************
+* General                 *
+**************************/
+body { background-color: #000000; background-image: url(../img/ElficNight/background.png); color: #394164; font-family: Verdana,Tahoma,Arial,sans-serif; font-size: 10px; margin: 0px; text-align: center; }
+
+
+dd{background-color: #909090 ; }
+dd,dt{ margin: 1px; padding: 2px; }
+dl li { margin: 3px; padding: 3px; }
+dt{ margin-top: 10px; background-color: #A7A7A7 ;}
+
+/***********************
+* NiceTitle            *
+***********************/
+div#toolTip { background-color: #EAE9EF; border-color: #555555; border-style: solid; border-width: 1px; color: #5B5579;  font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 9px; font-weight: bold; left: 0px; -moz-border-radius: 5%; padding: 4px; position: absolute; top: 0px; width: auto; }
+div#toolTip p { margin: 0; padding: 0 3px; }
+div#toolTip p em {  display:block;  margin-top:3px;  color:#f60;  font-style:normal;  font-weight:bold; }
+
+
+#div_page li {margin: 5px; }
+fieldset, #forums { padding: 5px; }
+
+h1 { color: #394B88; font-size: 150%; }
+h2 { color: #394B88; font-size: 125%; }
+h3, h4, h5, h6 { font-size: 110%; }
+
+hr { background-color: #525369; border-color: #666666; border-style: solid; border-width: 1px; width: 75%; }
+
+/*****************************
+* Commun                     *
+*****************************/
+
+img{ border: 0px; }
+input,select { background-color: #4F4F4F; border: 1px solid #000000; color: #ECECEC; font-size: 11px; font-weight: bold; margin: 2px; }
+textarea{ background-color: #4F4F4F; border: thin solid #ECECEC; color: #ECECEC; font-size: 13px; }
+textarea:focus,input:focus{ background-color: #333333; }
+
+/**** div qui sert a mettre les listes de recherches, etc .. en cours ***/
+th { font-weight: bold; text-align: center; }
+.allie td,tr { background-color: #404040; border-color: #E3E3E3; }
+
+
+/**** Barres ****/
+.barre_rouge,.barre_verte,.barre_grisec,.barre_grisef { background-repeat: repeat-x; color: #CCC; float: left; height: 12px; }
+.barre_verte{ background-image: url(../img/ElficNight/barre2.png); }
+.barre_grisec{ background-image: url(../img/ElficNight/barre1.png); }
+.barre_grisef{ background-image: url(../img/ElficNight/barre2.png); }
+.barre_rouge{ background-image: url(../img/ElficNight/barre1.png); }
+.barres_grandes { width: 300px; }
+.barres_grandes,.barres_moyennes,.barres_petites { height: 0px; text-align: center; }
+.barres_moyennes { width: 200px; }
+.barres_petites { width: 100px; }
+
+.block_1, #forums .forum { background-color: #393939; border-color: #000000; border-style: solid; border-width: 1px; color: #FFFFFF; padding: 5px; }
+.block_1 a:link,.block_1 a:visited,.block_1 a:active { color: #5865AB; text-decoration: none; }
+.block_1 a:hover { color: #F5F5F5; text-decoration: underline; }
+
+/******* Carte **********/
+.block_carte{ height: 500px; width: 500px; }
+
+/***************************************
+*    Contenu                           *
+***************************************/
+.border1 { margin-left: 5%; margin-right: 5%; width: 90%; }
+.border1 tr { background-color: #909090; }
+.border1 td {  background-color: #909090; border-style: solid; border-width: 1px; padding: 2px; }
+.border1 th { background-color: #4F4F4F; color:#FFFFFF; border-color: #000000; border-style: solid; border-width: 1px; }
+.border1 tr { text-align: left; }
+.border1 tr:hover { color: #F5F5F5; border-color: #111111; }
+
+.centre { background-color: #15151A; width: 100%; filter:alpha(opacity=80); -moz-opacity:0.8; opacity: 0.8; }
+.centre2 { padding: 0px; margin: 0px; }
+
+.contenu { border: 1px #AFBDC9 solid; padding: 5px; }
+.contenu2 { padding: 0px 5px 0px 5px; }
+.contenu2 h1 { font-size: 160%; }
+.haut2,.bas2,.bas,.haut { display: none; }
+
+/*** le truc qui permet de fermer le popup ***/
+.close_popup { bottom: 0em; left: 2px; position: fixed; text-align: center; width: 97%; }
+
+/*** btc pas constructible ***/
+.disabled{ background-color: #101010; }
+
+/* panneau message de réponse à une action */
+.ok { border-color: #347A0A; color: #224F06; }
+.error { border-color: #CD320C; color: #CD320C; }
+.infos { border-color: #484848; color: #333333; }
+.error,.ok,.infos { background-color: #A9A9A9; border-style: solid; border-width: 1px; margin: 3px; padding: 2px; }
+
+
+.list_univ { background-color: #393939; border-color: #6783AF; border-style: solid; border-width: 1px; margin: 10px; padding: 5px; }
+.list_univ h2{ float: left; margin: 10px; margin-bottom: 20px; margin-top: 20px; }
+.list30 { width: 28%; }
+.list30,.list50 { background-color: #393939; border-color: #6783AF; border-style: solid; border-width: 1px; float: left; margin: 5px; padding: 5px; }
+.list50 { width: 45%; }
+
+.list_univ, .list30,.list50 { color : #E6EBF2; }
+
+.list30 a:link,.list30 a:visited,.list30 a:active { color: #707BBA; text-decoration: none; }
+.list30 a:hover { color: #F5F5F5; text-decoration: underline; }
+.list50 a:link,.list50 a:visited,.list50 a:active { color: #707BBA; text-decoration: none; }
+.list50 a:hover { color: #F5F5F5; text-decoration: underline; }
+.list_univ a:link,.list_univ a:visited,.list_univ a:active { color: #707BBA; text-decoration: none; }
+.list_univ a:hover { color: #F5F5F5; text-decoration: underline; }
+
+
+.menu_gauche{ border-color: #D6DDE4; border-style: solid; border-width: 1px; margin-bottom: 10px; width: 140px; filter:alpha(opacity=80); -moz-opacity:0.8; opacity: 0.8; }
+.menu_gauche h1{ background-color: #000000; background-image: url(../img/ElficNight/entete.png); border-bottom: 1px #E6EAEE solid; color: white; color: #FCFCFC; display: table-cell; font-size: 130%; height: 25px; margin: 0; text-align: center; vertical-align: middle; width: 140px; }
+.menu_gauche li{ margin-left: 5px; }
+.menu_gauche ul{ background-color: #A7A7A7 ; list-style-position: inside; list-style-type: none; margin: 0; padding: 5px;  }
+.menu_gauche ul li ul li{ margin: 0px; padding: 0px; }
+.menu_gauche ul li ul li:before{ content: '<> '; color: #222222; font-size: 9px; }
+.menu_gauche a:link, .menu_gauche a:visited, .menu_gauche a:active { color: #353862; text-decoration: none; }
+.menu_gauche a:hover { color: #F5F5F5; text-decoration: underline; }
+
+/********************
+* Divers            *
+********************/
+.gras{ font-weight: bold; }
+.italique{ font-style: italic; }
+.souligne{ text-decoration: underline; }
+
+.perte{ color:#99232C; }
+.gain{ color:#237199; }
+.red{ color: #FF0000; }
+
+a{ font-size: 11px; }
+a:link, a:visited, a:active { color: #3E498A; text-decoration: none; }
+a:hover { color: #F5F5F5; text-decoration: underline; }
+
+a.bonus{ color: #DE3E01; font-weight: bold; }
+a.bonus:link, a.bonus:visited, a.bonus:active { color: #394164; text-decoration: none; }
+a.bonus:hover { color: #F5F5F5; text-decoration: underline; }
+
+a.evidence{ color: #5A6D8B; font-weight: bold; }
+a.evidence:link, a.evidence:visited, a.evidence:active { color: #394164; text-decoration: none; }
+a.evidence:hover { color: #F5F5F5; text-decoration: underline; }
+
+.mysql{ background-color: #DDD; border: 1px #AAA solid; color: #000; text-align: left; }
+
+.news { background-color: #393939; border-color: #000; border-style: solid; border-width: 1px; color: #FFF; padding: 5px; }
+.news a:link, .news a:visited, .news a:active { color: #A7D0EF; text-decoration: none; }
+.news a:hover { color: #F5F5F5; text-decoration: underline; }
+
+.overflow{ overflow: auto; }
+
+.titre_module,.menu_module,.retour_module,.center,.titre_news { margin-left: auto; margin-right: auto; text-align: center; }
+
+.victoire{ background-color: #CCCCCC; border-color: #226622; color: #226622; }
+.defaite{ background-color: #CCCCCC; border-color: #FF0000; color: #FF0000; }
+.victoire,.defaite { border-style: solid; border-width: 1px; font-size: 1.1em; margin: 3px; padding: 2px; text-align: center; }
+
+/******** Village ********/
+.village{ background: #393939; background-image: url(../img/ElficNight/bg_village.png); background-repeat: repeat-y repeat-x; border: dotted #5B79A8 2px; margin: 2px; padding: 2px; }
+.village a:link,.village a:visited,.village a:active { color: #5563AE; text-decoration: none; }
+.village a:hover { color: #F5F5F5; text-decoration: underline; }
+
+.vue_generale{ margin: 0px; width: 100%; }
+.vue_generale tr { background-color: #242424; }
+.vue_generale td {  border-color: #000000; color:#FFFFFF; border-style: solid; border-width: 1px; padding: 2px; }
+.vue_generale th { background-color: #242424; border-color: #000000; border-style: solid; border-width: 1px; }
+.vue_generale ul{ list-style-position: inside; list-style-type: none; padding:0; margin: 0;}
+.vue_generale li{ list-style-position: inside; list-style-type: none; padding:0 0 0 10px; margin: 0;}
+
+/**** Listes *****/
+.width100 { width: 100%; }
+.zoom_1 img{ height: 50px; width: 50px; }
+.zoom_2 img{ height: 25px; width: 25px; }
+.zoom_2 img,.zoom_1 img, .img_left { float: left; }
+
+.img_right{ float: right; }
+.cleaner { clear: both; height: 10px; visibility: hidden; }
+
+.mini_al_logo{ height: 20px; width: 20px; }
+
+/*********************************
+* Design - Positionement         *
+*********************************/
+#contenu { margin-left: auto; margin-right: auto; margin-top: 5px; text-align: left; width: 800px; }
+#copy_and_stats { color: #FFFFFF; }
+#div_page { background-color: #CBCBCB; float: left; left: 0px; width: 650px; filter:alpha(opacity=85); -moz-opacity:0.85; opacity: 0.85; margin-left: 10px; }
+#espace_menu_centre { float: left; visibility: hidden; width: 0px; }/**/
+#espace_stats_pub { float: left; visibility: hidden; width: 10px; }
+#footer { color: #666666; font-size: 9px; text-align: center; width: 100%; filter:alpha(opacity=80); -moz-opacity:0.8; opacity: 0.8; }
+#footer img { border: #FFF 1px solid; }
+#footer li { display: inline; margin: 2px; }
+#footer ul{ list-style-type: none; width: 100%; }
+#footer a:link, #footer a:visited, #footer a:active { color: #FFFFFF; text-decoration: none; }
+#footer a:hover { color: #FAD923; text-decoration: none; }
+
+/********************
+* Forums            *
+********************/
+#forums .topic{ background-color: #242424; border-color: #000000; border-style: solid; border-width: 1px; margin: 5px; padding: 6px; }
+#forums .topic a:link, #forums .topic a:visited, #forums .topic a:active { color: #3E498A; text-decoration: none; }
+#forums .topic a:hover { color: #F5F5F5; text-decoration: underline; }
+#forums a:link, #forums a:visited, #forums a:active { color: #4260A4; text-decoration: none; }
+#forums a:hover { color: #F5F5F5; text-decoration: underline; }
+#forums .infos_pst { background-color: #242424; margin-bottom: 2px; margin-top: 5px; padding-left: 5px; padding-right: 5px; }
+#forums .pst{ background-color: #404040; border-color: #000; color: #FFFFFF; border-style: solid; border-width: 1px; margin: 5px; margin-bottom: 0px; padding: 6px; }
+#forums .forum a:link,#forums .forum a:visited,#forums .forum a:active { color: #5178B9; text-decoration: none; }
+#forums .forum a:hover { color: #F5F5F5; text-decoration: underline; }
+
+.quote, .code {   width:90%; text-align:left; background-color: #A4A4A4; font-style: italic; border: 1px solid #000000; font-size: 11px; padding-bottom: 2px; padding-left: 2px; padding-right: 2px; padding-top: 2px; margin-left:20px; color: #374666;  }
+
+
+.signature { max-height: 15px; overflow: hidden; color: #374666;  background-color: #272727; margin-bottom: 0px; margin-top: 5px; padding-left: 5px; padding-right: 5px; }
+.signature a:link,.signature a:visited,.signature a:active { color: #F8CA61; text-decoration: none; }
+.signature a:hover { color: #F5F5F5; text-decoration: underline; }
+
+/* bannière */
+#logo { margin-top: 3px; width: 800px; overflow: hidden; margin-bottom: 10px; }
+#logo h1 { padding: 130px 0px 0px 0px; margin: 0px; overflow: hidden; background-image: url("../img/ElficNight/ban800.png"); background-repeat: no-repeat; height: 0px !important; height :0px; }
+
+#menu { float: left; width: 140px; }
+#pub { float: left; width: 528px; text-align: center }
+
+#stats { float: left; width: 262px; margin: 0px; color: #F5F5F5; }
+#stats a:link, #stats a:visited, #stats a:active { color: #6271A2; text-decoration: none; }
+#stats a:hover { color: #F5F5F5; text-decoration: underline; }
+
+#text_logo{ display: none; visibility: hidden; }
+
+#amour{background-color: #352D21;color:#ffffff;padding:6px;border:1px solid #666666;}// kisssiss C ? :p

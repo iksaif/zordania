@@ -1,0 +1,427 @@
+/****************************************************************/
+/* 1. imported stylesheets */
+/****************************************************************/
+
+/* import the basic setup styles */
+@import url(imports/base.css);
+
+body {
+    font-size: 10pt;
+    background: url(img/zord2/fond.png)  repeat;
+}
+/*
+   Balises HTML
+   */
+a {
+    color: #5A4D41;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+img {
+    text-decoration: none;
+    border: 0;
+}
+
+a:hover {
+    color: #2F2A21;
+    text-decoration: underline;
+}
+
+fieldset {
+    padding: 5px;
+    border: 1px solid #2F2A21;
+}
+
+p {
+    margin: 7px 0px 7px 10px;
+    padding: 0px;
+}
+
+h1 {
+    background: url(img/zord2/logo.png) no-repeat;
+    height: 58px;
+    color: #E7DAC5;
+    font-size: 0px;
+  /*  color: #ffebd1;
+    margin: 5px 5px 0px 20px;
+    padding-left: 10px;
+    padding: 0px;
+    font-size: 17pt;
+    letter-spacing: 3px;
+    text-decoration: none;*/
+}
+
+h2 {
+    color: #2F2A21;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    border-bottom: 1px solid #2F2A21;
+    font-size: 14pt;
+}
+
+
+
+h3 {
+    color: #5A4D41;
+    margin-left: 20px;
+    border-bottom: 1px dashed #2F2A21;
+}
+
+h4 {
+    color: #5A4D41;
+    margin-left: 10px;
+    border-bottom: 1px dashed #2F2A21;
+    font-size: 11pt;
+}
+
+h5 {
+    color: #5A4D41;
+    font-size: 11pt;
+}
+
+dl a, dl a:hover {
+    text-decoration: none;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin: 0;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+hr {
+    background-color: #2F2A21;
+    border: #2F2A21 solid 1px;
+    width: 50%;
+}
+
+input,select {
+    margin: 2px;
+    background: #C5B397;
+    border: thin solid #000;
+}
+
+textarea:focus,input:focus
+{
+    background-color: #5A4D41;
+}
+
+textarea
+{
+    background: #C5B397;
+    color: #000;
+    border: thin solid #000;
+}
+
+table {
+   border-collapse: collapse;
+    border-bottom: 3px solid #635A45;
+}
+
+td {
+    vertical-align: top;
+}
+
+td
+{
+    text-align: center;
+}
+tr
+{
+    border-bottom: 1px solid #635A45;
+}
+
+tr:hover {
+    background: #988C82;
+}
+
+th
+{
+    text-align:center;
+    font-weight:bold;
+    border-bottom: 3px solid #635A45;
+}
+
+
+
+div.icon {
+    float: left;
+    display: block;
+    width: 15px;
+    height: 11px;
+}
+
+/* Icones */
+div.searchposts div.icon { margin-left: 0}
+
+div.icon {background: url("../img/icons/icon.png")  }
+
+tr.iredirect div.icon {background: url("../img/icons/icon.png"); }
+tr.inew div.icon { background: url("../img/icons/new.png"); }
+tr.iclosed div.icon { background: url("../img/icons/closed.png"); }
+tr.isticky div.icon { background: url("../img/icons/sticky.png"); }
+
+/* Menu */
+#brdmenu a:link, #brdmenu a:visited, .blockpost dt a:link, .blockpost dt a:visited, .blockpost h2 a:link,
+.blockpost h2 a:visited, .postlink a:link, .postlink a:visited, .postfootright a:link, .postfootright a:visited,
+.blockmenu a:link, .blockmenu a:visited, h3 a {
+    text-decoration: none
+}
+
+
+#brdmenu a:hover, .blockpost h2 a:hover { text-decoration: underline} }
+
+/* * Bords * */
+div.box, div.forminfo, div.blockpost label {
+    border-style: solid;
+    border-width: 1px
+}
+
+/* 4.2 special settings for the board header. */
+#brdheader div.box {
+    border-top-width: 1px;
+}
+
+/* 4.3 borders for table cells */
+
+.pun td, .pun th {
+    border-bottom: none;
+    border-right: none
+}
+
+.pun .tcl {
+    border-left: none;
+}
+#brdheader div.box {
+    border-top-width: 1px;
+}
+
+/* * Marges * */
+
+/* 5.1 page margins */
+
+html, body {margin: 0; padding: 0}
+#punwrap {margin:12px 20px}
+
+/* 5.2 creates vertical space between main board elements (margins) */
+
+div.blocktable, div.block, div.blockform, div.block2col, #postreview {margin-bottom: 12px}
+#punindex div.blocktable, div.blockpost {margin-bottom: 6px}
+div.block2col div.blockform, div.block2col div.block {margin-bottom: 0px}
+
+/* 5.3 remove space above breadcrumbs, postlinks and pagelinks with a negative top margin */
+
+div.postlinksb, div.linkst, div.linksb {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 8px 6px 3px 6px
+}
+
+/* 5.4 put a 12px gap above the board information box in index because the category tables only
+have a 6px space beneath them */
+
+#brdstats {margin-top: 12px}
+
+/* 6.1 default padding for main items */
+
+div.block div.inbox, div.blockmenu div.inbox {padding: 3px 6px}
+.pun p, .pun ul, .pun dl, div.blockmenu li, .pun label, #announce div.inbox div {padding: 3px 0}
+.pun h2 {padding: 4px 6px}
+
+/* 6.2 special spacing for various elements */
+
+.pun h1 {padding: 3px 0px 0px 0}
+#brdtitle p {padding-top: 0px}
+#brdwelcome, #brdfooter dl a, div.blockmenu li, div.rbox input  {line-height: 1.4em}
+
+
+/* 6.4 create some horizontal spacing for various elements */
+
+#brdmenu li, div.rbox input, div.blockform p input  {margin-right: 12px}
+
+.pun th, .pun td {padding: 4px 6px}
+.pun td p {padding: 5px 0 0 0}
+
+/* 8.1 padding around left and right columns in viewtopic */
+
+div.postleft dl, div.postright {padding: 6px}
+
+/* 8.2 extra spacing for poster contact details and avatar */
+
+dd.usercontacts, dd.postavatar {margin-top: 5px}
+dd.postavatar {margin-bottom: 5px}
+
+/* 8.3 extra top spacing for signatures and edited by */
+
+div.postsignature, div.postmsg p.postedit {padding-top: 15px}
+
+/* 8.4 spacing for code and quote boxes */
+
+div.postmsg h4 {margin-bottom: 10px}
+
+/* 8.5 padding for the action links and online indicator in viewtopic */
+
+div.postfootleft p, div.postfootright ul, div.postfootright div {padding: 10px 6px 5px 6px}
+
+/* 8.6 this is the input on moderators multi-delete view */
+
+div.blockpost input, div.blockpost label {
+	padding: 3px;
+	display: inline
+}
+
+p.multidelete {
+	padding-top: 15px;
+	padding-bottom: 5px
+}
+
+/* 8.7 make sure paragraphs in posts don't get any padding */
+
+div.postmsg p {padding: 0}
+
+
+/* 9.1 padding around fieldsets */
+
+div.blockform form, div.fakeform {padding: 20px 20px 15px 20px}
+div.inform {padding-bottom: 12px}
+
+/* 9.2 padding inside fieldsets */
+
+.pun fieldset {padding: 0px 12px 0px 12px}
+div.infldset {padding: 9px 0px 12px 0}
+.pun legend {padding: 0px 6px}
+
+/* 9.3 the information box at the top of the registration form and elsewhere */
+
+div.forminfo {
+	margin-bottom: 12px;
+	padding: 9px 10px
+}
+
+/* 9.4 bbcode help links in post forms */
+
+ul.bblinks li {padding-right: 20px}
+
+ul.bblinks {padding-bottom: 10px; padding-left: 4px}
+
+/* 9.5 horizontal positioning for the submit button on forms */
+
+div.blockform p input {margin-left: 12px}
+
+/* 10.2 class .tclcon is a div inside the first column of tables with post indicators. the
+margin creates space for the post status indicator */
+
+td div.tclcon {margin-left: 2.3em;}
+
+div.box,  #adminconsole fieldset th, .rowodd, .roweven {background-color: #E7DAC5}
+
+
+#adminconsole td, #adminconsole th {border-color: #C5B397}
+
+
+/* 1. 2 darker background colours */
+
+#postpreview, #viewprofile dd, div.forminfo,
+#adminconsole fieldset td, div.blockmenu div.box, #adstats dd {background-color: #DFD9CD}
+
+/* 1.3 main headers and navigation bar background and text colour */
+
+div.postlinksb, div.linksb, div.linkst, .pun h2, #brdmenu {background-color: #C5B397; border: 1px solid #2F2A21; }
+
+/* 1.4 table header rows */
+
+
+/* 1.5 fieldset legend text colour */
+
+.pun legend {color: #3F4C66}
+
+/* 1.6 highlighted text for various items */
+
+.pun div.blockmenu li.isactive a, #posterror li strong {color: #333}
+
+/****************************************************************/
+/* 2. post backgrounds and text */
+/****************************************************************/
+
+/* 2.1 this is the setup for posts. */
+
+div.blockpost div.box, div.postright, div.postfootright {background-color: #C5B397}
+div.postright, div.postfootright {border-left-color: #DFD9CD}
+div.postleft, div.postfootleft, div.blockpost label {background-color: #DFD9CD}
+
+/* 2.2 background for post headers and text colour for post numbers in viewtopic */
+
+div.blockpost h2 {background-color: #C5B397}
+
+/* 2.3 this is the line above the signature in posts. colour and background should be the same */
+
+.pun hr {background-color: #333; color: #333}
+
+/****************************************************************/
+/* 3. border colours */
+/****************************************************************/
+
+/* 3.1 all external borders */
+
+div.box {    border: 1px solid #2F2A21;}
+
+/* 3.2 makes the top border of posts match the colour used for post headers */
+
+div.blockpost div.box {border-color: #D4CCBB #000000 #000000}
+
+/* 3.3 table internal borders. by default th is same as background so border is invisible */
+
+.pun td {border-color: #C0BCAE}
+.pun th {
+    text-align:center;
+    font-weight:bold;
+    border-bottom: 3px solid #635A45;
+}
+
+/* 3.4 creates the inset border for quote boxes, code boxes and form info boxes */
+
+div.forminfo, div.blockpost label {border-color: #aca899 #fff #fff #aca899}
+
+/* 3.5 gecko's default fieldset borders are really nasty so this gives them a colour
+without interferring with ie's rather nice default */
+
+.pun div>fieldset {border-color: #aca899}
+
+
+/* 4.2 this is the colour for links in header rows and the navigation bar */
+
+
+/* 4.3 this is for closed topics and "hot" links */
+
+li.postreport a:link, li.postreport a:visited, tr.iclosed td.tcl a:link, tr.iclosed td.tcl a:visited {color: #888}
+li.postreport a:hover, tr.iclosed td.tcl a:hover {color: #aaa}
+li.maintenancelink a:link, li.maintenancelink a:visited {color: #4C5C7B}
+li.maintenancelink a:hover {color: #4C5C7B}
+
+.pun blockquote, div.codebox
+{
+    width: 90%;
+    background: #C5B397;
+    font-style:italic;
+    font-weight:bold;
+    padding:5px;
+    border-left: 1px dashed  #2F2A21;
+    border-bottom: 1px dashed  #2F2A21;
+    margin: 5px;
+}
+
+div.codebox {
+    overflow:auto;
+}
+
+.pun blockquote {
+    background-image:url(img/zord2/quote.png);
+    background-repeat:no-repeat;
+    padding-top:25px;
+}
+

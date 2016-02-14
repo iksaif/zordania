@@ -1,0 +1,848 @@
+@import url(../imports/base.css);
+
+/**************************
+* General                 *
+**************************/
+body 
+{ 
+	background-color: #000000; 
+	background-image: url(img/background.png); 
+	color: #394164; 
+	font-family: Verdana,Tahoma,Arial,sans-serif; 
+	font-size: 12px;
+	margin: 0px; 
+	text-align: center;
+ }
+
+a:link, a:visited, a:active 
+{
+ color: #3E498A; 
+ text-decoration: none;
+ }
+ 
+a:hover 
+{ 
+color: #F5F5F5;
+ text-decoration: underline; 
+ }
+ 
+a.bonus
+{ 
+color: #3E498A;
+font-weight: bold;
+ }
+ 
+/* Lien votes */
+a.votes{ 
+	color: #CC3300; font-weight: bold;
+}
+
+a.bonus:link, a.bonus:visited, a.bonus:active 
+{ 
+color: #394164; 
+text-decoration: none;
+ }
+ 
+a.bonus:hover 
+{ 
+color: #F5F5F5; 
+text-decoration: underline;
+ }
+
+a.evidence
+{ 
+color: #5A6D8B; 
+font-weight: bold;
+ }
+ 
+a.evidence:link, a.evidence:visited, a.evidence:active 
+{ 
+color: #394166; 
+text-decoration: none;
+ }
+ 
+a.evidence:hover 
+{ 
+color: #F5F5F5; 
+text-decoration: underline;
+ }
+ 
+dd
+{
+background-color: #909090 ;
+ }
+ 
+dd,dt
+{
+ margin: 1px; 
+ padding: 2px;
+ }
+ 
+dl li 
+{ 
+margin: 3px;
+ padding: 3px;
+ }
+ 
+dt
+{
+ margin-top: 10px; 
+ background-color: #A7A7A7;
+ }
+
+#skyscraper
+{
+  margin-top: -15px;
+  padding-right: 0px;
+}
+
+/***********************
+* NiceTitle            *
+***********************/
+div#toolTip 
+{ 
+background-color: #EAE9EF; 
+border-color: #555555; 
+border-style: solid; 
+border-width: 1px; 
+color: #5B5579; 
+font-family: Verdana, Helvetica, Arial, sans-serif; 
+font-size: 9px; 
+font-weight: bold; 
+left: 0px; -moz-border-radius: 5%;
+padding: 4px;
+position: absolute; 
+top: 0px; 
+width: auto; 
+z-index: 20;
+}
+
+div#toolTip p 
+{ 
+margin: 0; 
+padding: 0 3px; 
+}
+
+div#toolTip p em 
+{  
+display:block;  
+margin-top:3px;  
+color:#f60;  
+font-style:normal;  
+font-weight:bold;
+ }
+
+
+#module li 
+{
+margin: 5px;
+ }
+ 
+fieldset, #forums 
+{
+ padding: 5px; 
+ }
+ 
+h1 
+{
+color: #394B88; 
+font-size: 175%;
+ }
+ 
+h2 
+{ 
+color: #394B88;
+ font-size: 150%; 
+ }
+ 
+h3, h4, h5, h6 
+{
+ font-size: 111%; 
+ }
+ 
+hr 
+{
+ background-color: #525369;
+ border-color: #666666; 
+ border-style: solid; 
+ border-width: 1px; 
+ width: 75%; 
+ }
+ 
+/*****************************
+* Commun                     *
+*****************************/
+
+img
+{ 
+border: 0px;
+ }
+ 
+input,select 
+{ 
+background-color: #4F4F4F; 
+border: 1px solid #555555; 
+color: #ECECEC; 
+font-size: 11px; 
+font-weight: bold; 
+margin: 2px;
+left: 0px; -moz-border-radius: 3%;
+
+ }
+ 
+textarea
+{
+background-color: #4F4F4F; 
+border: thin solid #ECECEC; 
+color: #ECECEC; 
+font-size: 13px;
+left: 0px; -moz-border-radius: 1%;
+
+ }
+ 
+textarea:focus,input:focus
+{ 
+background-color: #192144; 
+}
+
+/**** div qui sert a mettre les listes de recherches, etc .. en cours ***/
+th,th:hover
+{ 
+font-weight: bold; 
+text-align: center;
+background-color: #A7A7A7;
+color: #192144;
+ }
+ 
+ td,td:hover
+{  
+background-color: #909090;
+color: #192144;
+
+ }
+ 
+.allie td,tr 
+{ 
+background-color: #909090;
+border-color: #E3E3E3;
+ }
+
+td a
+{
+	color: #394164; 
+	border-color: #000000;
+}
+	
+td a:hover,td a:active,td a:link,td a:visited
+{
+	color: #ffffff;
+	border-color: #ffffff;
+}
+	
+/**** Barres ****/
+.barre_rouge,.barre_verte,.barre_grisec,.barre_grisef
+ {
+ background-repeat: repeat-x; 
+ color: #CCC; 
+ float: left; 
+ height: 12px; 
+ }
+ 
+.barre_verte{ background-image: url(img/barre2.png); }
+.barre_grisec{ background-image: url(img/barre1.png); }
+.barre_grisef{ background-image: url(img/barre2.png); }
+.barre_rouge{ background-image: url(img/barre1.png); }
+.barres_grandes { width: 300px; }
+.barres_grandes,.barres_moyennes,.barres_petites { height: 0px; text-align: center; }
+.barres_moyennes { width: 200px; }
+.barres_petites { width: 100px; }
+
+.block, #forums .forum 
+{ 
+background-color: #393939; 
+border-color: #000000; 
+border-style: solid; 
+border-width: 1px; 
+color: #FFFFFF; 
+padding: 5px; 
+}
+
+.block a:link,.block a:visited,.block a:active 
+{ 
+color: #5865AB; 
+text-decoration: none; 
+}
+
+.block a:hover 
+{ 
+color: #F5F5F5; 
+text-decoration: underline; 
+}
+
+
+/***************************************
+*    Contenu                           *
+***************************************/
+
+#menu .bas, #stats .bas, #pub .bas  {
+ 	
+ }
+ 
+ #menu .haut, #stats .haut, #pub .haut  {
+ 	
+ }
+
+ #menu .centre, #stats .centre {
+	background-color: #15151A; width: 100%; filter:alpha(opacity=80); -moz-opacity:0.8; opacity: 0.8;
+}
+
+#menu .contenu {
+	border: 1px #AFBDC9 solid; padding: 5px;
+}
+
+#stats .contenu {
+	border: 1px #AFBDC9 solid; padding: 5px;
+	min-height: 110px;
+	padding-top: 15px;
+}
+
+#stats ul, #stats li {
+	list-style-type: none; 
+	margin: 0;
+	padding: 0;
+}
+
+.close_popup, #popup {
+    background-color: #15151A; width: 100%; filter:alpha(opacity=80); -moz-opacity:0.8; opacity: 0.8;
+}
+.haut2,.bas2,.bas,.haut { display: none; }
+
+
+#module .bas {
+height:0px;
+}
+#module .haut {
+height:0px;
+}
+
+#module .centre {
+	width: 100%; filter:alpha(opacity=80); -moz-opacity:0.8; opacity: 0.8;
+}
+
+#module .contenu {
+	border: 1px #AFBDC9 solid; padding: 5px;
+}
+
+
+
+
+/*** btc pas constructible ***/
+.disabled
+{ 
+background-color: #101010; 
+}
+
+/* panneau message de réponse à une action */
+.ok 
+{ 
+border-color: #347A0A; 
+color: #224F06;
+ }
+ 
+.error 
+{
+ border-color: #CD320C; 
+ color: #CD320C; 
+ }
+ 
+.infos 
+{ 
+border-color: #484848;
+ color: #333333;
+ }
+ 
+.error,.ok,.infos 
+{ 
+background-color: #A9A9A9; 
+border-style: solid; 
+border-width: 1px; 
+margin: 3px; 
+padding: 2px; 
+}
+
+.liste { 
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;
+}
+
+.liste tr 
+{
+background-color: #909090; border-style: solid; 
+border-width: 1px; border-color: #000000;
+}
+
+.liste tr:hover {
+ border-color: #ffffff; color: #ffffff;
+}
+
+.menu_gauche
+{ 
+	background-color: #a7a7a7;
+	border-color: #D6DDE4; 
+	border-style: solid; 
+	border-width: 1px; 
+	margin-bottom: 10px; 
+	width: 140px; 
+	filter:alpha(opacity=80); -moz-opacity:0.8; opacity: 0.8;
+	text-align: left;
+ }
+
+ 
+.menu_gauche h2
+{ 
+	background-color: #000000; 
+	background-image: url(img/entete.png); 
+	border-bottom: 1px #E6EAEE solid; 
+	color: white; 
+	color: #FCFCFC; 
+	display: table-cell;
+	font-size: 120%;
+	font-style: italic;
+	height: 20px; 
+	margin: 0; 
+	text-align: center; 
+	vertical-align: middle;
+	width: 140px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+ }
+ 
+.menu_gauche li
+{
+	margin-left: 10px ; 
+	padding-bottom: 3px;
+ }
+ 
+.menu_gauche ul
+{ 
+
+	list-style-type: none !important;
+	margin: 0;
+	padding: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px; 
+ }
+ 
+.menu_gauche ul li ul li
+{ 
+	margin: 0px; 
+	padding: 2px !important; 
+	padding: 1px;
+	padding-bottom: 2px;
+}
+
+
+.menu_gauche ul li ul 
+{ 
+	list-style-position: inside;
+	list-style-image: url("img/tiret.png");
+	color: #222222;
+} 
+
+.menu_gauche a:link, .menu_gauche a:visited, .menu_gauche a:active 
+{ 
+color: #353862;
+text-decoration: none;
+ }
+ 
+.menu_gauche a:hover 
+{ 
+color: #F5F5F5; 
+text-decoration: underline;
+ }
+
+ 
+ 
+ /*Forums*/
+
+.forum {
+	background-color: #a7a7a7;
+	background-image : url(img/forum.png);	
+	background-repeat: no-repeat ;
+	background-position: right top;
+	border-color: #D6DDE4;
+	border-style: solid;
+	border-width: 1px;
+	color: #222222;
+	padding: 5px;
+	margin-top: 10px;
+}
+
+	
+.forum  a , .forum  a:link, .forum  a:hover, .forum  a:visited{ 
+	color: #ffffff ;
+	text-decoration: none;
+}
+
+.block_forum {
+	background-color: #a7a7a7;
+	border-color: #D6DDE4;
+	border-style: solid;
+	border-width: 1px;
+	color: #000000;
+	padding: 5px;
+	margin-top: 10px;
+	}
+	
+.block_forum  a , .block_forum  a:link, .block_forum  a:hover, .block_forum  a:visited{ 
+	color: #222222 ;
+	text-decoration: none;
+}
+	
+.titre {
+	text-decoration: underline;
+    font-weight: bold;
+	font-size: 14px;
+	padding-left: 10px;
+	color: #D6DDE4;
+}
+
+.forum h4 a{
+	background-image: none;
+	Color: #FCFCFC;
+	font-family: Papyrus,Tahoma,Arial,sans-serif;
+	border: none;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.desc {
+	font-style: italic;
+	text-indent: 25px;
+}
+
+.stat {
+	text-align: right;
+	padding: 2px;
+	width: 400px;
+	margin-left: 218px;
+	margin-top: 5px;
+	margin-bottom: -5px;
+}
+
+.block_forum .signature {
+	overflow: hidden;
+	background-color: #303030;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: #ffffff
+}
+
+.post 
+{
+min-height: 50px;
+}
+
+/****/
+.perte
+{
+ color:#99232C;
+ }
+ 
+.gain
+{ 
+color:#237199;
+ }
+ 
+
+.mysql
+{ 
+background-color: #DDD;
+border: 1px #AAA solid; 
+color: #000; 
+text-align: left;
+ }
+ 
+
+.news, .forum 
+{ 
+background-color: #393939; 
+border-color: #000; 
+border-style: solid; 
+border-width: 1px; 
+color: #FFF; 
+padding: 5px;
+margin-bottom: 5px;
+ }
+ 
+.comment 
+{ 
+background-color: #393939; 
+color: #ffffff;
+border-color: #000000; 
+border-style: solid; 
+border-width: 1px; 
+margin-top: 5px; 
+}
+
+.news a:link, .news a:visited, .news a:active 
+{ 
+color: #A7D0EF; 
+text-decoration: none;
+ }
+ 
+.news a:hover 
+{ 
+color: #F5F5F5;
+ text-decoration: underline;
+ }
+
+
+
+/**** Listes *****/
+
+.blason
+{ 
+float: right;
+ }
+
+
+.mini_al_logo
+{ 
+height: 20px;
+ width: 20px;
+ }
+
+/*********************************
+* Design - Positionement         *
+*********************************/
+#contenu 
+{ 
+margin-left: auto; 
+margin-right: auto; 
+margin-top: 5px; 
+text-align: left; 
+width: 990px; 
+
+}
+
+#copy_and_stats 
+{ 
+color: #FFFFFF; 
+}
+
+#module 
+{ 
+background-color: #CBCBCB; 
+float: left;
+width: 640px; 
+filter:alpha(opacity=85); -moz-opacity:0.85; opacity: 0.85; 
+margin-left: 23px; 
+margin-top: -15px;
+border: 1px #fff solid;
+ }
+ 
+#espace_menu_centre
+ { 
+ float: left;
+ visibility: hidden;
+ width: 0px;
+ }
+ 
+#espace_stats_pub 
+{ 
+float: left;
+visibility: hidden; 
+width: 10px; 
+}
+
+#footer 
+{ 
+color: #666666; 
+font-size: 9px; 
+text-align: center; 
+width: 100%; 
+filter:alpha(opacity=80); -moz-opacity:0.8; opacity: 0.8; 
+}
+
+#footer img 
+{ 
+border: #ffffff 1px solid;
+ }
+ 
+#footer li 
+{ 
+display: inline; 
+margin: 2px;
+ }
+ 
+#footer ul
+{ 
+list-style-type: none;
+ width: 100%; 
+ }
+ 
+#footer a:link, #footer a:visited, #footer a:active 
+{ 
+color: #FFFFFF; 
+text-decoration: none;
+ }
+ 
+#footer a:hover 
+{ 
+color: #FAD923; 
+text-decoration: none;
+ }
+
+
+.quote, .code 
+{   
+width:90%;
+text-align:left; 
+background-color: #909090; 
+font-style: italic; 
+border: 1px solid #555555; 
+font-size: 11px; 
+padding-bottom: 2px; 
+padding-left: 2px; 
+padding-right: 2px; 
+padding-top: 2px; 
+margin-left:20px; 
+color: #374666;  
+}
+
+
+.signature 
+{ 
+max-height: 15px; 
+overflow: hidden; 
+color: #5B5579;  
+background-color: #272727; 
+margin-bottom: 0px; 
+margin-top: 5px; 
+padding-left: 5px; 
+padding-right: 5px; 
+}
+
+.signature a:link,.signature a:visited,.signature a:active 
+{ 
+color: #F8CA61; 
+text-decoration: none;
+left: 0px; -moz-border-radius: 2%;
+ }
+ 
+.signature a:hover 
+{ 
+color: #F5F5F5; 
+text-decoration: underline;
+left: 0px; -moz-border-radius: 2%;
+}
+
+/* bannière */
+#logo 
+{ 
+margin-top: 3px; 
+width: 800px; 
+overflow: hidden; 
+margin-bottom: 10px;
+background-color: #15151A;
+border-color: #D6DDE4; 
+border-style: solid; 
+border-width: 1px;
+filter:alpha(opacity=80); -moz-opacity:0.8; opacity: 0.8;
+ }
+ 
+#logo .contenu h1 
+{ 
+padding: 130px 0px 0px 0px; 
+margin: 0px; 
+overflow: hidden; 
+background-image: url(img/ban800.png); 
+background-repeat: no-repeat; 
+height: 0px !important; 
+height :0px; 
+}
+
+#menu 
+{ 
+float: left; 
+width: 135px;
+ }
+ 
+#pub 
+{ 
+float: left; 
+width: 528px;
+height: 86px; 
+text-align: center;
+ }
+
+#stats 
+{ 
+float: left; 
+width: 262px; 
+margin: 0px; 
+color: #F5F5F5; 
+}
+
+#stats a:link, #stats a:visited, #stats a:active 
+{ 
+color: #6271A2; 
+text-decoration: none;
+ }
+ 
+#stats a:hover 
+{ 
+color: #F5F5F5; 
+text-decoration: underline; 
+}
+
+#text_logo
+{ 
+display: none; 
+visibility: hidden; 
+}
+
+
+/* Donjon */
+#donjon{ margin: 0px; width: 100%;  color: #ffffff }
+#donjon tr { background-color: #000000;
+		}
+#donjon td {  border-color: #AFBDC9; border-style: solid; border-width: 1px; padding: 5px; }
+#donjon th { background-color: #15151A; border-color: #000000; border-style: solid; border-width: 1px; }
+#donjon ul{ list-style-position: inside; list-style-type: none; padding:0; margin: 0;}
+#donjon li{ list-style-position: inside; list-style-type: none; padding:0 0 0 15px; margin: 0;}
+
+#actbar {
+	float: right;
+	margin-top: -40px;
+	margin-bottom: 5px;
+	margin-right: 190px;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 8px;
+	padding-bottom: 5px;
+	border-color: #AFBDC9;
+	border-style: solid; 
+	border-width: 1px; 
+	Background-color: #15151A;
+	background-repeat: repeat-y ;
+	height: 35px;
+	filter:alpha(opacity=80); -moz-opacity:0.8; opacity: 0.8;
+	}
+ 
+#actbar li {
+padding-left: 3px;
+padding-right: 3px;
+padding-top: 15px;
+padding-bottom: 5px;
+margin: 2px;
+}
+/* rosace pour la carte */
+div#map{
+  background: transparent url(img/rosace.png) no-repeat top center;
+  filter:alpha(opacity=80); -moz-opacity:0.8; opacity: 0.8;
+}

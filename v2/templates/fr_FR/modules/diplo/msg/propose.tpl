@@ -1,0 +1,1 @@
+[url={cfg_url}member-view.html?mid={_user[mid]}]{_user[pseudo]}[/url] vous propose un pacte avec son[url={cfg_url}alliances-view.html?al_aid={_user[alaid]}] alliance[/url], pour signer ou refuser ce pacte avec votre alliance allez dans le menu Alliances -> Diplomatie.

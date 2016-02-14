@@ -1,0 +1,1 @@
+La réparation de <zimgbtc type="{vars[histo_vars][btc_type]}" race="{_user[race]}" /> est maintenant terminée.
