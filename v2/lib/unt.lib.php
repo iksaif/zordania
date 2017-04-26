@@ -761,7 +761,7 @@ function add_leg($mid, $cid, $etat, $name) {
 	
 	$res = $_sql->query($sql);
 	
-	return mysql_insert_id();
+	return $_sql->insert_id();
 }
 
 function del_leg_unt($mid, $lid = 0) {
@@ -1541,7 +1541,7 @@ function cls_unt($mid) {
 	$sql = "DELETE FROM ".$_sql->prebdd."unt_todo WHERE utdo_mid = $mid";
 	$_sql->query($sql);
 	
-	return mysql_affected_rows() + $nb;
+	return $_sql->affected_rows() + $nb;
 }
 
 function get_leg_nb($mid, $etat = array()) {
@@ -1577,10 +1577,11 @@ function count_pop($mid, $etat = array()) {
 		$sql.= " AND leg_etat IN (". implode(",", $etat) .")";
 	$res = $_sql->query($sql);
 
-	if(!mysql_num_rows($res))
+	$num_rows = $_sql->num_rows();
+	if(!$num_rows)
 		return 0;
 	else
-		return mysql_result($res, 0);
+		return num_rows;
 }
 
 /* les légions dans $leg_array peuvent être attaquées par un joueur ($mid) qui a $points, ($groupe) et ally=$alaid */

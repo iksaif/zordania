@@ -1033,9 +1033,9 @@ CREATE TABLE `zrd_mbr` (
 --
 -- Dumping data for table `zrd_mbr`
 --
-
 LOCK TABLES `zrd_mbr` WRITE;
 /*!40000 ALTER TABLE `zrd_mbr` DISABLE KEYS */;
+INSERT INTO `zrd_mbr` VALUES (1,'guest','guest','77b0f79270730c58dac36afd7895a6f4','webmaster@zordania.com','fr_FR',1,1,'00:00:00',0,0,0,0,0,0,0,'2006-10-28 08:28:00','2007-08-28 06:46:46','2006-10-28 08:28:00','127.0.0.1','','',4,'',0,0,0,0);
 /*!40000 ALTER TABLE `zrd_mbr` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -113,8 +113,9 @@ class session
 		
 		/* Nouveaux messages */
 		if($this->get("login") != "guest") {
-			$sql="SELECT COUNT(*) FROM ".$this->sql->prebdd."msg_rec JOIN ".$this->sql->prebdd."mbr ON mrec_from = mbr_mid WHERE mrec_mid = $mid AND mrec_readed = 0";
-			$this->set("msg", mysql_result($this->sql->query($sql), 0));
+			$sql="SELECT COUNT(*) AS nb FROM ".$this->sql->prebdd."msg_rec JOIN ".$this->sql->prebdd."mbr ON mrec_from = mbr_mid WHERE mrec_mid = $mid AND mrec_readed = 0";
+			$result = $this->sql->make_array_result($sql);
+			$this->set("msg", $result['nb']);
 		}
 	}
 
@@ -401,7 +402,7 @@ function nb_online()
 	$sql = "SELECT COUNT(*) FROM ".$_sql->prebdd."ses ";
 	$sql.= "JOIN ".$_sql->prebdd."mbr ON mbr_mid = ses_mid ";
 	$sql.= "WHERE ses_mid != 1 AND mbr_etat = ".MBR_ETAT_OK;
-	return mysql_result($_sql->query($sql),0);
+	return $_sql->query($sql);
 }
 	
 function is_online($mid) {
@@ -410,7 +411,7 @@ function is_online($mid) {
 	$mid = protect($mid, "uint");
 	
 	$sql = "SELECT COUNT(*) FROM ".$_sql->prebdd."ses WHERE ses_mid = $mid";
-	return mysql_result($_sql->query($sql), 0);
+	return $_sql->query($sql);
 }
 
 /* Liste */

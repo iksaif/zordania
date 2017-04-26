@@ -62,7 +62,7 @@ $_tpl->set('no_cookies',!$_COOKIE);
 /*
 * MySQL
 */
-$_sql = new mysql(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_BASE);
+$_sql = new mysqliext(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_BASE);
 $_sql->set_prebdd(MYSQL_PREBDD);
 $_sql->set_debug(SITE_DEBUG);
 
@@ -74,6 +74,7 @@ if(!$_sql->con) /* Utiliser Display = module */
 	$_tpl->set('page','mysql_error.tpl');
 	if(!$_display != "xml")
 		echo $_tpl->get('index.tpl',1);
+
 	exit;
 }
 
@@ -233,6 +234,7 @@ if($_display == "xml") { /* Sortie en XML */
 	mark('tpl');
 } else {
 	header("Content-Type: text/html; charset=$charset");
+	
 	if($_file != "session") {
 		if($_user['etat'] == MBR_ETAT_ZZZ)
 			$_file = 'zzz';

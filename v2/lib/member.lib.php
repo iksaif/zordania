@@ -20,7 +20,7 @@ function add_mbr($login, $pass, $mail, $lang, $etat, $gid, $decal, $ip, $design,
 	if($_sql->errno) /* Une des clefs unique existe déjà ! */
 		return 0;
 	else {
-		$mid =  mysql_insert_id();
+		$mid =  $_sql->insert_id();
 		$im = imagecreatefrompng(MBR_LOGO_DIR.'0.png');
 		imagepng($im, MBR_LOGO_DIR."$mid.png");
 		//add_frm($mid, $login, $pass, $gid, $lang);

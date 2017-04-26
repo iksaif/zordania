@@ -128,7 +128,7 @@ class mysqliext
 		
 		$req = $this->parse_query($req);
 
-		//if ($explain) $this->log(count($this->queries)." | $req\n");
+		if ($explain) $this->log(count($this->queries)." | $req\n");
 		$res = $this->mysqli->query($req);
 		$this->errno = $this->mysqli->errno;
 		$this->err = $this->mysqli->error;
