@@ -28,12 +28,12 @@ function list_mch($mid = 0,$valide = true)
 	$valide = protect($valide, "bool");
 	$etat = ($valide) ? COM_ETAT_OK : COM_ETAT_ATT;
 	
-	$sql="SELECT COUNT(*),mch_type FROM ".$_sql->prebdd."mch ";
+	$sql="SELECT COUNT(*) AS nb,mch_type FROM ".$_sql->prebdd."mch ";
 	$sql.=" WHERE ";
 	if($mid) $sql.= "mch_mid != $mid AND ";
 	$sql.=" mch_etat = $etat ";
 	$sql.=" GROUP BY mch_type ";
-	$sql.=" ORDER BY mch_type ASC,mch_nb DESC,mch_prix ASC ";
+	$sql.=" ORDER BY mch_type ASC,nb DESC";
 	return $_sql->make_array($sql);	
 }
 

@@ -582,7 +582,7 @@ function add_search_user($search, $ident){// ajouter la recherche dans le cache
 
 	$search_id = mt_rand(1, 2147483647);
 	$_sql->query('INSERT INTO '.MYSQL_PREBDD_FRM.'search_cache (id, ident, search_data) 
-	VALUES('.$search_id.', \''.protect($ident, 'string').'\', \''.mysql_real_escape_string(serialize($search)).'\')');
+	VALUES('.$search_id.', \''.protect($ident, 'string').'\', \''.addslashes(serialize($search)).'\')');
 	return $search_id;
 }
 

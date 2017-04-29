@@ -1,0 +1,6 @@
+v2/tmp/*.compiled.php
+v2/logs/**/*.log
+v2/logs/**/*.csv
+
+# logos membres
+v2/www/img/mbr_logo/*.png

@@ -48,8 +48,11 @@ function mail_chg_pass($cond){ // envoyer un mail de changement de pass
 		$texte = $_tpl->get("modules/inscr/mails/text_edit.tpl",1);
 		if(mailto(SITE_WEBMASTER_MAIL, $mbr_array['mbr_mail'], $objet, $texte))
 			return $mbr_array;
-		else
+		else{
+			if(SITE_DEBUG)
+				echo $texte;
 			return false;
+		}
 	}else
 		return false;// impossible d'ajouter un nouveau changement (?)
 

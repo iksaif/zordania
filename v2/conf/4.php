@@ -114,7 +114,7 @@ var $src = array();
 var $comp = array();
 var $race_cfg = array();
 
-function config4()
+function __construct()
 {
 //<res>
 $this->res=array();

@@ -12,12 +12,23 @@ function parse($txt, $light = false, $html = false)
 		$txt = htmlspecialchars($txt);
 	
 	if(!$light) 
-		$txt = preg_replace( "#\[(code)\](.+?)\[/code\]#ies", "regex_code_tag('\\2','\\1')", $txt );
+		$txt = preg_replace_callback( "#\[(code)\](.+?)\[/code\]#is", function($m){ return regex_code_tag($m[2],$m[1]);}, $txt );
+		//$txt = preg_replace( "#\[(code)\](.+?)\[/code\]#ies", "regex_code_tag('\\2','\\1')", $txt );
+	
+	$txt = preg_replace_callback( "#(^|\s)((http|https|news|ftp)://\w+[^\s\[\]]+)#i",
+		function($m){ return regex_build_url(array('html' => $m[2], 'show' => $m[2], 'st' => $m[1]));} , $txt );
+	//$txt = preg_replace( "#(^|\s)((http|https|news|ftp)://\w+[^\s\[\]]+)#ie", "regex_build_url(array('html' => '\\2', 'show' => '\\2', 'st' => '\\1'))", $txt );
 
-	$txt = preg_replace( "#(^|\s)((http|https|news|ftp)://\w+[^\s\[\]]+)#ie", "regex_build_url(array('html' => '\\2', 'show' => '\\2', 'st' => '\\1'))", $txt );
-	$txt = preg_replace( "#\[url\](\S+?)\[/url\]#ie", "regex_build_url(array('html' => '\\1', 'show' => '\\1'))", $txt );
-	$txt = preg_replace( "#\[url\s*=\s*\&quot\;\s*(\S+?)\s*\&quot\;\s*\](.*?)\[\/url\]#ie" , "regex_build_url(array('html' => '\\1', 'show' => '\\2'))", $txt );
-	$txt = preg_replace( "#\[url\s*=\s*(\S+?)\s*\](.*?)\[\/url\]#ie", "regex_build_url(array('html' => '\\1', 'show' => '\\2'))", $txt );
+	$txt = preg_replace_callback( "#\[url\](\S+?)\[/url\]#i", function($m){return regex_build_url(array('html' => $m[1], 'show' => $m[1]));}, $txt );
+	//$txt = preg_replace( "#\[url\](\S+?)\[/url\]#ie", "regex_build_url(array('html' => '\\1', 'show' => '\\1'))", $txt );
+	
+	$txt = preg_replace_callback( "#\[url\s*=\s*\&quot\;\s*(\S+?)\s*\&quot\;\s*\](.*?)\[\/url\]#i" ,
+		function($m){return regex_build_url(array('html' => $m[1], 'show' => $m[2]));}, $txt );
+	//$txt = preg_replace( "#\[url\s*=\s*\&quot\;\s*(\S+?)\s*\&quot\;\s*\](.*?)\[\/url\]#ie" , "regex_build_url(array('html' => '\\1', 'show' => '\\2'))", $txt );
+
+	$txt = preg_replace_callback( "#\[url\s*=\s*(\S+?)\s*\](.*?)\[\/url\]#i",
+		function($m){return regex_build_url(array('html' => $m[2], 'show' => $m[2]));}, $txt );
+	//$txt = preg_replace( "#\[url\s*=\s*(\S+?)\s*\](.*?)\[\/url\]#ie", "regex_build_url(array('html' => '\\1', 'show' => '\\2'))", $txt );
 
 	$txt = preg_replace("/\[b\](.*?)\[\/b\]/si","<strong>$1</strong>",$txt);
 	$txt = preg_replace("/\[i\](.*?)\[\/i\]/si","<em>$1</em>",$txt);
@@ -28,19 +39,30 @@ function parse($txt, $light = false, $html = false)
 		$txt = preg_replace( "#\[modo\](.*?)\[/modo\]#is", "[color=#1E90FF]\\1[/color]",$txt);
 
 		while(preg_match( "#\[color=([^\]]+)\](.+?)\[/color\]#ies", $txt ))
-			$txt = preg_replace( "#\[color=([^\]]+)\](.+?)\[/color\]#ies"  , "regex_font_attr(array('s'=>'col' ,'1'=>'\\1','2'=>'\\2'))", $txt );
+			$txt = preg_replace_callback( "#\[color=([^\]]+)\](.+?)\[/color\]#is"  ,
+				function($m){ return regex_font_attr(array('s'=>'col' ,'1'=>$m[1],'2'=>$m[2]));}, $txt );
+			//$txt = preg_replace( "#\[color=([^\]]+)\](.+?)\[/color\]#ies"  , "regex_font_attr(array('s'=>'col' ,'1'=>'\\1','2'=>'\\2'))", $txt );
 
 		while(preg_match( "#\n?\[list\](.+?)\[/list\]\n?#ies" , $txt ))
-			$txt = preg_replace( "#\n?\[list\](.+?)\[/list\]\n?#ies", "regex_list('\\1')" , $txt );
-
+			$txt = preg_replace_callback( "#\n?\[list\](.+?)\[/list\]\n?#is", function($m){return regex_list($m[1]);} , $txt );
+			//$txt = preg_replace( "#\n?\[list\](.+?)\[/list\]\n?#ies", "regex_list('\\1')" , $txt );
+			
 		while(preg_match( "#\n?\[list=(a|A|i|I|1)\](.+?)\[/list\]\n?#ies" , $txt ))
-			$txt = preg_replace( "#\n?\[list=(a|A|i|I|1)\](.+?)\[/list\]\n?#ies", "regex_list('\\2','\\1')" , $txt );
+			$txt = preg_replace_callback( "#\n?\[list=(a|A|i|I|1)\](.+?)\[/list\]\n?#is",
+				function($m){return regex_list($m[2],$m[1]);} , $txt );
+			//$txt = preg_replace( "#\n?\[list=(a|A|i|I|1)\](.+?)\[/list\]\n?#ies", "regex_list('\\2','\\1')" , $txt );
 
-		$txt = preg_replace( "#\[quote=(.*?)\](.*?)\[/quote\]#ies" , "regex_parse_quotes('\\2','\\1')"  , $txt );
+		$txt = preg_replace_callback( "#\[quote=(.*?)\](.*?)\[/quote\]#is" ,
+			function($m){return regex_parse_quotes($m[2],$m[1]);}  , $txt );
+		//$txt = preg_replace( "#\[quote=(.*?)\](.*?)\[/quote\]#ies" , "regex_parse_quotes('\\2','\\1')"  , $txt );
 
-		$txt = preg_replace( "#\[quote\](.*?)\[/quote\]#ies" , "regex_parse_quotes('\\1')"  , $txt );
+		$txt = preg_replace_callback( "#\[quote\](.*?)\[/quote\]#is" ,
+			function($m){return regex_parse_quotes($m[1]);}  , $txt );
+		//$txt = preg_replace( "#\[quote\](.*?)\[/quote\]#ies" , "regex_parse_quotes('\\1')"  , $txt );
 
-		$txt = preg_replace( "#\[img\](.+?)\[/img\]#ie" , "regex_check_image('\\1')", $txt );
+		$txt = preg_replace_callback( "#\[img\](.+?)\[/img\]#i" ,
+			function($m){return regex_check_image($m[1]);}, $txt );
+		//$txt = preg_replace( "#\[img\](.+?)\[/img\]#ie" , "regex_check_image('\\1')", $txt );
 
 
 		$txt = preg_replace( "#\[!\](.*?)\[/!\]#is", "[color=#FFC800]\\1[/color]",$txt);

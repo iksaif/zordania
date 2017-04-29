@@ -113,8 +113,9 @@ class session
 		
 		/* Nouveaux messages */
 		if($this->get("login") != "guest") {
-			$sql="SELECT COUNT(*) FROM ".$this->sql->prebdd."msg_rec JOIN ".$this->sql->prebdd."mbr ON mrec_from = mbr_mid WHERE mrec_mid = $mid AND mrec_readed = 0";
-			$this->set("msg", mysql_result($this->sql->query($sql), 0));
+			$sql="SELECT COUNT(*) AS nb FROM ".$this->sql->prebdd."msg_rec JOIN ".$this->sql->prebdd."mbr ON mrec_from = mbr_mid WHERE mrec_mid = $mid AND mrec_readed = 0";
+			$result = $this->sql->make_array_result($sql);
+			$this->set("msg", $result['nb']);
 		}
 	}
 
@@ -398,10 +399,10 @@ function nb_online()
 {
 	global $_sql;
 	
-	$sql = "SELECT COUNT(*) FROM ".$_sql->prebdd."ses ";
+	$sql = "SELECT COUNT(*) AS nb FROM ".$_sql->prebdd."ses ";
 	$sql.= "JOIN ".$_sql->prebdd."mbr ON mbr_mid = ses_mid ";
 	$sql.= "WHERE ses_mid != 1 AND mbr_etat = ".MBR_ETAT_OK;
-	return mysql_result($_sql->query($sql),0);
+	return $_sql->make_array_result($sql)['nb'];
 }
 	
 function is_online($mid) {
@@ -409,8 +410,8 @@ function is_online($mid) {
 	
 	$mid = protect($mid, "uint");
 	
-	$sql = "SELECT COUNT(*) FROM ".$_sql->prebdd."ses WHERE ses_mid = $mid";
-	return mysql_result($_sql->query($sql), 0);
+	$sql = "SELECT COUNT(*) AS nb FROM ".$_sql->prebdd."ses WHERE ses_mid = $mid";
+	return $_sql->make_array_result($sql)['nb'];
 }
 
 /* Liste */
@@ -424,7 +425,7 @@ function get_liste_online($limite1, $limite2)
 	$sql = "SELECT ";
 	$sql.= "mbr_etat,mbr_gid,mbr_mid,mbr_pseudo,mbr_mapcid,mbr_race,mbr_population,mbr_place,";
 	$sql.= "mbr_gid,ses_ip,ses_lact, mbr_points,mbr_pts_armee, ses_mid,mbr_lang,";
-	$sql.= "DATE_FORMAT(MAX(ses_ldate) + INTERVAL '".$_sql->decal."' HOUR_SECOND,'".$_sql->dateformat."') as ses_ldate,";
+	$sql.= "DATE_FORMAT(ses_ldate + INTERVAL '".$_sql->decal."' HOUR_SECOND,'".$_sql->dateformat."') as ses_ldate,";
 	$sql.= " ambr_etat, IF(ambr_etat=".ALL_ETAT_DEM.", 0, IFNULL(ambr_aid,0)) as ambr_aid, ";
 	$sql.= " IF(ambr_etat=".ALL_ETAT_DEM.", NULL, al_name) as al_name  ";
 	$sql.= " FROM ".$_sql->prebdd."ses ";	
@@ -432,7 +433,6 @@ function get_liste_online($limite1, $limite2)
 	$sql.= " LEFT JOIN ".$_sql->prebdd."al_mbr ON mbr_mid = ambr_mid ";
 	$sql.= " LEFT JOIN ".$_sql->prebdd."al ON al_aid = ambr_aid ";
 	$sql.= "WHERE mbr_mid != 1 AND mbr_etat = ".MBR_ETAT_OK." ";
-	$sql.= "GROUP BY ses_mid ";
 	$sql.= "ORDER BY ses_ldate DESC LIMIT $limite1, $limite2";
 
 	return $_sql->make_array($sql);

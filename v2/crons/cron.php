@@ -45,7 +45,7 @@ require_once(SITE_DIR . "lib/btc.lib.php");
 require_once(SITE_DIR . "lib/rec.lib.php");
 mark('lib');
 
-$_sql = new mysql(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_BASE);
+$_sql = new mysqliext(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_BASE);
 $_sql->set_prebdd(MYSQL_PREBDD);
 $_sql->set_debug(SITE_DEBUG);
 $_sql->env = 'cron';

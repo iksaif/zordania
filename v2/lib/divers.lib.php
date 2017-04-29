@@ -223,7 +223,7 @@ function protect($var, $type = "unknown")
 
 	/* Protection si ce n'est pas un entier */
 	if (is_string($var)) {
-		$var = mysql_real_escape_string($var);
+		$var = addslashes($var); // mysql_real_escape_string($var);
 	}
 	return $var;
 }
@@ -588,14 +588,16 @@ function error_handler($errno, $errstr, $errfile, $errline, $errcontext)
 
 	$error = array('errno' => $errno, 'errstr' => $errstr, 'errfile' => $errfile, 'errline' => $errline, 'errcontext' => $errcontext, 
 		'errmsg' => sprintf('File: %s[%03d]', pathinfo($errfile, PATHINFO_FILENAME), $errline), 'callstack' => callstack());
-	if(SITE_DEBUG)
-		echo "<div style=\"border:1px #000 solid;text-align:left; font-family: monospace;\">"
+	if(SITE_DEBUG){
+		echo "<div style=\"border:1px #000 solid;text-align:left; font-family: monospace; background-color:#CCC\">"
 			.nl2br(error_print($error))."</div>";
+		//var_dump($error);
+	}
 	$_error[] = $error;
 }
 
 function error_print($error) {
-	$errmsg = array(
+	$errlvl = array(
 		E_ERROR        => 'Fatal Error',
 		E_WARNING      => 'Warning',
 		E_NOTICE       => 'Notice',
@@ -604,8 +606,10 @@ function error_print($error) {
 		E_USER_NOTICE  => 'User Notice'
 	);
 	$txt = '';
-	if(isset($errmsg[$error['errno']]))
-		$txt .= '<strong>'.$errmsg[$error['errno']]."</strong> : ".$error['errstr']."\n";
+	if(isset($errlvl[$error['errno']]))
+		$txt .= '<strong>'.$errlvl[$error['errno']]."</strong> : ".$error['errstr']."\n";
+	else
+		$txt .= '<strong>ERREUR('.$error['errno'].')</strong> : '.$error['errstr']."\n";
 	if(CRON)
 		$txt .= "CRON: ".$_SERVER['PHP_SELF']."\n";
 	else

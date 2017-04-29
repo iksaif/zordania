@@ -8,7 +8,7 @@ function add_nte($mid, $titre, $texte, $import)
 	$texte = protect($texte, "bbcode");
 	$import = protect($import, "uint");
 	
-	$sql = "INSERT INTO ".$_sql->prebdd."ntes VALUES ('',$mid,'$titre',NOW(),'$texte','$import')";
+	$sql = "INSERT INTO ".$_sql->prebdd."ntes VALUES (NULL,$mid,'$titre',NOW(),'$texte','$import')";
 	return $_sql->query($sql);
 }
 	
