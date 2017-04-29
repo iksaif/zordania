@@ -6,7 +6,7 @@ class tpl {
 */
 class Template
 {
-	function Template() //constructeur
+	function __construct() //constructeur
 	{
 		$this->var = new stdClass();
 		$this->var->tpl = new stdClass();

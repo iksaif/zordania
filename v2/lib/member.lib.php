@@ -717,11 +717,11 @@ function get_nb_mbr($cond = array()) {
 	global $_sql;
 
 	
-	$sql = "SELECT COUNT(*) ";
+	$sql = "SELECT COUNT(*) as nb ";
 	$sql.= "FROM ".$_sql->prebdd."mbr ";
 	
-	$res = $_sql->query($sql);
-	return  mysql_result($res, 0);
+	$ret = $_sql->make_array_result($sql)['nb'];
+	return  $ret;
 }
 
 function calc_dst($x1, $y1, $x2, $y2) {

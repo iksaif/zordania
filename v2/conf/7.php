@@ -108,7 +108,7 @@ var $src = array();
 var $comp = array();
 var $race_cfg = array();
 
-function config7()
+function __construct()
 {
  
 /*

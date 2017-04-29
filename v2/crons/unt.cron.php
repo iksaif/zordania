@@ -65,13 +65,11 @@ function mbr_unt(&$_user) {
 
 	/* Nourriture */
 	$bouf = $_user["res"][GAME_RES_BOUF];
-	$sql = "SELECT SUM(unt_nb) ";
+	$sql = "SELECT SUM(unt_nb) AS nb ";
 	$sql.= "FROM ".$_sql->prebdd."unt ";
 	$sql.= "JOIN ".$_sql->prebdd."leg ON leg_id = unt_lid ";
 	$sql.= "WHERE leg_etat IN (".LEG_ETAT_VLG.",".LEG_ETAT_BTC.") AND leg_mid = $mid";
-	$res = $_sql->query($sql);
-	$nb = $_sql->result($res, 0);
-	$_sql->free_result($res);
+	$nb = $_sql->make_array_result($sql)['nb'];
 
 	if($bouf < $nb) { /* On tue des gens */
 		$sql = "SELECT unt_type, unt_nb, leg_name FROM ".$_sql->prebdd."unt ";
@@ -123,7 +121,7 @@ function glob_unt() {
 	$sql = "DELETE FROM ".$_sql->prebdd."unt WHERE unt_nb <= 0";
 	$_sql->query($sql);
 
-	$sql="UPDATE ".$_sql->prebdd."mbr SET mbr_population = (SELECT SUM(unt_nb) FROM ".$_sql->prebdd."leg JOIN ".$_sql->prebdd."unt ON leg_id = unt_lid WHERE leg_mid = mbr_mid)";
+	$sql="UPDATE ".$_sql->prebdd."mbr SET mbr_population = IFNULL((SELECT SUM(unt_nb) FROM ".$_sql->prebdd."leg JOIN ".$_sql->prebdd."unt ON leg_id = unt_lid WHERE leg_mid = mbr_mid),0)";
 	$_sql->query($sql);
 
 	$sql="UPDATE ".$_sql->prebdd."hero SET hro_bonus = 0 WHERE hro_bonus_to < NOW()";

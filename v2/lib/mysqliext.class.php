@@ -172,8 +172,9 @@ class mysqliext
 		$text = '**** '.date("H:i:s d/m/Y").' '.$this->env." ***\n";
 		$text .= $this->errno." | ".$this->err."\n";
 		$text .= $this->errno." | ".$req."\n\n";
-		echo "$text";
 		$this->log($text);
+		if($this->debug)
+			$this->log("CALLSTACK:\n".implode("\n", callstack()));
 	}
 
 	function log($text) {
