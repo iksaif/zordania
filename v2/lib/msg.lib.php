@@ -173,7 +173,7 @@ function add_sign ($msgid,$com){ // signaler un message
 	global $_sql;
 	
 	$sql = "INSERT INTO ".$_sql->prebdd."sign (sign_id, sign_msgid, sign_debut,sign_com) ";
-	$sql .= "VALUES ('', '$msgid', NOW(),'$com') ";
+	$sql .= "VALUES (NULL, '$msgid', NOW(),'$com') ";
 	$_sql->query($sql);
 	$sql= "UPDATE ".$_sql->prebdd."msg_rec";
 	$sql.= " SET msg_sign = 1";

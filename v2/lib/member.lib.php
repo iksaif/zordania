@@ -815,7 +815,7 @@ function add_surv($mid, $mid_admin, $type, $cause){
 	global $_sql;
 	
 	$sql = "INSERT INTO ".$_sql->prebdd."surv (surv_id, surv_mid, surv_admin, surv_debut, surv_etat, surv_type, surv_cause) ";
-	$sql .= "VALUES ('', '$mid', '$mid_admin', NOW(), '".SURV_OK."', '$type', '$cause') ";
+	$sql .= "VALUES (NULL, '$mid', '$mid_admin', NOW(), '".SURV_OK."', '$type', '$cause') ";
 	
 	return $_sql->query($sql);
 }
