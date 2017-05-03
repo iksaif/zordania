@@ -1,9 +1,9 @@
 <?php
 /* === Configuration Serveur === */
-define('MYSQL_BASE', 'zordv2');
+define('MYSQL_BASE', 'zorddev');
 define('MYSQL_HOST', 'localhost');
-define('MYSQL_USER', 'zordania');
-define('MYSQL_PASS', 'xxxxxx');
+define('MYSQL_USER', 'root');
+define('MYSQL_PASS', '');
 define('MYSQL_PREBDD', 'zrd_');
 define('MYSQL_PREBDD_FRM', MYSQL_PREBDD.'frm_');
 
@@ -13,7 +13,7 @@ define('ZORD_SPEED_VFAST', 0.16667); // 1 Tour toutes les 30sec
 define('ZORD_SPEED_FAST', 5); // 1 Tour toutes les 5 minutes
 define('ZORD_SPEED_NORMAL', 30); // 1 Tour par demie heure
 define('ZORD_SPEED_SLOW',60); // 1 Tour par heures
-define('ZORD_SPEED', ZORD_SPEED_NORMAL);
+define('ZORD_SPEED', ZORD_SPEED_VFAST);
 
 /* === Configuration IRC === */
 define('IRC_SERVER','irc.quakenet.org');
@@ -201,12 +201,12 @@ $_races_aly = array(
 		10 => array(10 => 12),
 );
 
-$_css = array(14,4,3,2,1,10,11,15,16);
-$_forum_css = array(1 => "marron", 2 => "metal", 3 => "classik", 4 => "zord2",
+$_css = array(14,4,3,2,1,10,11,15,16,5);
+$_forum_css = array(1 => "marron", 2 => "metal", 3 => "classik", 4 => "zord2",5 => "mobile",
 		    10 => "elficnight", 11 => "elfpower", 14 => "brown_underground",
 		    15 => "last_hope");
 $_adsense_css = array(1 => '9107849390', 2 => '2158156650', 3 => '2158156650', 
-	4 => '2158156650', 10 => '2087210871', 11 => '2087210871', 14 => '0166103822', 
+	4 => '2158156650',5 => '9107849390', 10 => '2087210871', 11 => '2087210871', 14 => '0166103822', 
 	15 => '6454056819');
 
 
@@ -258,7 +258,7 @@ $_votes[VOTES_RPG] = array('img' => 'http://www.rpg-paradize.com/vote.gif',
 $_votes[VOTES_TOP] = array('img' => 'http://www.xtremeTop100.com/votenew.jpg', 
 		'url' => 'http://www.xtremetop100.com/in.php?site=1132344203', 'delay' => 24);
 
-define('SITE_DEBUG',false);
+define('SITE_DEBUG',true);
 define('SITE_TRAVAUX',false);
 // CRON ou INTERNET ?
 define('CRON', substr(php_sapi_name(), 0, 3) == 'cli');
