@@ -17,6 +17,10 @@ div#espace_menu_centre {display:none;}
 div#skyscraper {display:none;}
 .cleaner {display:none;}
 
+a{
+	text-decoration: none;
+	font-weight: bold;
+}
 
 /*
  * #actbar et #menu sont la navigation du site
@@ -29,6 +33,10 @@ div#actbar {
 	border: 1px solid #222;
 	background-color:#EEE;
 	width:92%;
+}
+div#actbar ul{
+	position:relative;
+	z-index:2; /* devant div#menu */
 }
 
 div#actbar li{
@@ -52,6 +60,7 @@ div#menu {
 	border: none;
 	padding-top:38px;
 	position:fixed;
+	z-index:1; /* derrière div#actbar */
 	max-height:0px;
 	max-width:36px;
 	overflow: hidden;
@@ -130,8 +139,29 @@ div#contenu{
 	width:100%;
 	border:none;
 }
+div#contenu li{
+	margin-left:40px;
+	list-style:circle;
+}
+div#contenu li ul{
+	border: 1px solid #222;
+}
+div#contenu dt{
+	border: 1px solid #222;
+}
+div#contenu dd, div#contenu dd{
+  background-color:#EEE;
+  padding:5px;
+  margin:5px;
+}
+div#contenu dd, div#contenu dd *{
+  font-size: 12px;
+}
+div#contenu dt img{
+	vertical-align:middle;
+}
 
-div.block_forum{
+.block_forum{
 	border: 1px solid #222;
 	padding:2px;
 }
@@ -140,8 +170,68 @@ div.block_forum p:last-child, div.block_forum p:last-child *{
 	font-style: italic;
 }
 
+.menu_module{
+	margin:2px;
+	padding:2px;
+	text-align: center;
+	color: #DDD;
+}
+.menu_module a{
+	border: 1px solid #222;
+	text-decoration: none;
+	background-color:#DDD;
+}
+div.forum, form{
+	border: 1px solid #222;
+	background-color:#DDD;
+	margin:2px;
+	padding:2px;
+}
+div.forum .stat, div.forum .stat a{
+	font-size: 12px;
+	font-style: italic;
+	
+}
 
+input, button, textarea{
+	border: 1px solid #222;
+	background-color:#EEE;
+	margin:2px;
+	padding:2px;
+	font-weight: bold;
+	border-radius: 4px;
+}
 
+.infos, .infos *{
+	font-size: 12px;
+	font-style: italic;
+
+}
+
+.right{float: right;}
+
+table tr{
+	border: 1px solid #222;
+	margin:2px;
+	padding:2px;	
+}
+table tr:nth-child(even){
+	background-color:#DDD;
+	
+}
+table tr:nth-child(odd){
+	background-color:#EEE;
+
+}
+table *{
+	font-size: 14px;
+	
+}
+
+/* footer */
+div#footer{
+	margin-top:10px;
+}
 div#footer ul{
 	display: none;
 }

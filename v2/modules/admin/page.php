@@ -1,6 +1,12 @@
 <?php
 //Verif
-if(!defined("_INDEX_") or !can_d(DROIT_ADM)){ exit; }
+if(!defined("_INDEX_")){ exit; }
+
+if(!can_d(DROIT_SITE))
+	$_tpl->set("need_to_be_loged",true);
+else if(!can_d(DROIT_ADM))
+	$_tpl->set("cant_view_this",true);
+else {
 
 $module = request("module", "string", "get");
 
@@ -17,5 +23,6 @@ else {
 	}
 	closedir($handle);
 	$_tpl->set("admin_array",$pages);
+}
 }
 ?>
