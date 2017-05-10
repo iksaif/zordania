@@ -757,7 +757,7 @@ function add_leg($mid, $cid, $etat, $name) {
 	$name = protect($name, "string");
 	
 	$sql = "INSERT INTO ".$_sql->prebdd."leg (leg_id, leg_mid, leg_cid, leg_etat, leg_name)" .
-		"VALUES ('',$mid, $cid, $etat, '$name') ";
+		"VALUES (NULL,$mid, $cid, $etat, '$name') ";
 	
 	$res = $_sql->query($sql);
 	
@@ -1496,7 +1496,7 @@ function scl_unt($mid, $unt) {
 	foreach($unt as $type => $nb) {
 		$type = protect($type, "uint");
 		$nb = protect($nb, "uint");
-		$sql.= " ('', $mid, $type, $nb), ";
+		$sql.= " (NULL, $mid, $type, $nb), ";
 	}
 	
 	$sql = substr($sql, 0, strlen($sql)-2); /* On vire la virgule en trop */

@@ -131,7 +131,10 @@ div.haut, div.bas{
 }
 
 div#module {
+	margin-left: auto;
+	margin-right: auto;
 	padding-top:95px;
+	width:98%;
 }
 
 div#contenu{
@@ -165,11 +168,17 @@ div#contenu dt img{
 	border: 1px solid #222;
 	padding:2px;
 }
-div.block_forum p:last-child, div.block_forum p:last-child *{
+div.block_forum p.edited, div.block_forum p.edited *{
 	font-size: 12px;
 	font-style: italic;
 }
-
+div.block_forum p.author, div.block_forum p.author *{
+	font-size: 12px;
+}
+.signature, .signature *{
+	font-size: 12px;
+	font-style: italic;
+}
 .menu_module{
 	margin:2px;
 	padding:2px;
@@ -193,16 +202,65 @@ div.forum .stat, div.forum .stat a{
 	
 }
 
+/* Stats */
+.barre_rouge,.barre_verte,.barre_grisec,.barre_grisef {
+	color: #CCCCCC;
+	float: left;
+	height: 12px;
+}
+
+.barre_rouge {
+	background-color: #FF0000;
+}
+
+.barre_verte {
+	background-color: #226622;
+}
+.barres_grandes {
+	width: 300px;
+	border-radius: 5px;
+}
+.barres_moyennes {
+	width: 200px;
+	border-radius: 4px;
+}
+.barres_petites {
+	width: 100px;
+	border-radius: 2px;
+}
+.barres_grandes,.barres_moyennes,.barres_petites {
+	height: 10px;
+	text-align: center;
+}
+
+/* formulaires */
 input, button, textarea{
-	border: 1px solid #222;
 	background-color:#EEE;
 	margin:2px;
 	padding:2px;
 	font-weight: bold;
 	border-radius: 4px;
 }
+ 
+textarea {
+	border: thin solid #533721;
+	width: 90%;
+}
 
-.infos, .infos *{
+textarea:focus,input:focus { 
+    background-color: #DDD;
+}
+
+.error {
+	border: 1px solid #FF0000;
+    color: #FF0000;
+}
+.ok {
+	border: 1px solid #226622;
+    color: #226622;
+}
+
+.infos, .infos > *{
 	font-size: 12px;
 	font-style: italic;
 
@@ -225,7 +283,7 @@ table tr:nth-child(odd){
 }
 table *{
 	font-size: 14px;
-	
+
 }
 
 /* footer */
@@ -249,7 +307,6 @@ div.block dd,div.block dt,div.block ul{
 	border: 1px solid #222;
 	font-size: 8px;
 }
-div.block *,div.block *{
-	overflow-x:scroll;
-	font-size: 8px;
+div.block, div.block *{
+	font-size: 10px;
 }

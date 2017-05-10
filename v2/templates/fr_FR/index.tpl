@@ -131,9 +131,9 @@ google_ad_width = 160;
 google_ad_height = 600;
 //-->
 </script>
-<script type="text/javascript"
+<!-- script type="text/javascript"
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
+</script -->
 </div>
 
 	<div class="cleaner">&nbsp;</div>
@@ -164,15 +164,17 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <if cond="isset({sv_site_debug})"><include file="debug.tpl" cache="1" /></if>
 
 <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+//var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+//document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 
 <script type="text/javascript">
+/*
 try {
 var pageTracker = _gat._getTracker("UA-6710160-1");
 pageTracker._trackPageview();
 } catch(err) {}
+*/
 
 /* jQuery: masquer tous les éléments 'toggle' */
 $(".toggle").each(function(){

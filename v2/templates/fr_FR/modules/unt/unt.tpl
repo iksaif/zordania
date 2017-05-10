@@ -4,17 +4,17 @@
 	<if cond='isset({unt_type})'>
 		<h3>Gérer les {unt[{_user[race]}][alt][{unt_type}]}</h3>
 		Actions possibles :
-		<form method="post" action="unt-pend.html?unt_type={unt_type}">
+		<form id="untPendre" class="ajax" method="post" action="unt-pend.html?unt_type={unt_type}">
 			<fieldset><legend>Pendaison.</legend>
-				<img class="left" src="img/{_user[race]}/div/pendre.png" alt="Pendre" />
+				<zimgunt race="{_user[race]}" type="{unt_type}"  /><img class="left" src="img/{_user[race]}/div/pendre.png" alt="Pendre" />
 				<label for="nb">Nombre</label>
 				<input type="text" name="unt_nb" id="nb" />
 				<input type="submit" value="Pendez-les !!!" />
 			</fieldset>
 		</form>
-		<form method="post" action="btc-use.html?btc_type={btc_type}&amp;sub=add_unt">
+		<form id="untFormer" class="ajax" method="post" action="btc-use.html?btc_type={btc_type}&amp;sub=add_unt">
 			<fieldset><legend>Former/Entraîner.</legend>
-				<img class="left" src="img/{_user[race]}/btc/{btc_type}.png" alt="{btc[{_user[race]}][alt][{btc_type}]}" title="{btc[{_user[race]}][alt][{btc_type}]}" />
+				<zimgbtc race="{_user[race]}" type="{btc_type}"  />
 				<label for="nb">Nombre</label>
 				<input type="hidden" name="type" value="{unt_type}" />
 				<input type="text" name="nb" id="nb" />
@@ -22,9 +22,10 @@
 			</fieldset>
 		</form>
 	</if>
-	<if cond='isset({unt_dispo})'>
+	<if cond='isset({unt_dispo}) && {_display}!="ajax"'>
+		<div id="output"></div>
 		<p class="infos">Les unités "disponibles" sont celles qui ne travaillent pas dans un bâtiment et qui ne sont pas dans une légion, "Total" indique la somme des unités disponibles et de celles qui ne le sont pas.</p> 
-		<table class="liste">
+		<table class="liste" id="showUntForm">
 			<tr>
 				<th>Type</th>
 				<th>Disponibles</th>
@@ -35,7 +36,7 @@
 				<tr>
 					<td>
 						<a href="unt.html?unt_type={unt_id}" title="Gérer les {unt[{_user[race]}][alt][{unt_id}]}">
-							<img src="img/{_user[race]}/unt/{unt_id}.png" alt="{unt[{_user[race]}][alt][{unt_id}]}"  />
+							<zimgunt race="{_user[race]}" type="{unt_id}"  />
 						</a>
 						{unt[{_user[race]}][alt][{unt_id}]}
 					</td>
@@ -53,6 +54,7 @@
 				</tr>
 			</foreach>
 		</table>
+		<div class="retour_module">[ <a href="unt.html" title="Retour">Retour</a> ]</div>
 	</if>
 </if>
 <elseif cond='{unt_act} == "pend"'>
@@ -63,5 +65,3 @@
 		<p class="ok">Ok, ils ont bien été pendus !</p>
 	</elseif>
 </elseif>
-	
-<div class="retour_module">[ <a href="unt.html" title="Retour">Retour</a> ]</div>

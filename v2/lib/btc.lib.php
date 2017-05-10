@@ -57,7 +57,7 @@ function add_btc($mid, $btc) {
 		else
 			$vie = get_conf("btc", $type, "vie");
 
-		$sql.= "('', $mid, $type, $vie, $etat), ";
+		$sql.= "(NULL, $mid, $type, $vie, $etat), ";
 	}
 	
 	$sql = substr($sql, 0, strlen($sql)-2);

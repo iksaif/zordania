@@ -8,9 +8,9 @@ google_ad_width = 468;
 google_ad_height = 60;
 //-->
 </script>
-<script type="text/javascript"
+<!-- script type="text/javascript"
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
+</script -->
 	<if cond="{_user[loged]} && {rand} >= 95">
 		<div class="ok">Le site fonctionne grâce à la pub, pensez-y une fois par jour !</div>
 	</if>

@@ -29,19 +29,56 @@ $(document).ready(  function()
 			function(txt){ $("#preview").html(txt); }
 		);
 	});
+	
+	// module unt, formation des unités
+	$("table#showUntForm a").each(function(){
+		var url = $(this).attr('href');
+		console.log(url);
+		$(this).click(function(){
+			jqShowMod(url, 'output');
+			return false;
+		});
+	});
 
+	traiterFormulaires();
 });
+
+function traiterFormulaires(){
+	$("form.ajax").each(function(){
+		$(this).submit(function(event){
+			// Stop form from submitting normally
+			event.preventDefault();
+
+			// Get some values from elements on the page:
+			var $form = $( this ),
+			term = $form.serialize(),
+			url = "ajax--" + $form.attr( "action" );
+			console.log("#"+$form.attr("id") + "=" + url);
+
+			$form.attr("action", url);
+			// Send the data using post
+			$.post( url, term, function(data){
+				$("#output").html(data);
+			});
+
+
+		});
+	});
+}
 
 /*
 * jQuery ajax get
 * variable globale = cfg_url
-* GET, pas de data, la réponse est renvoyée dans un id "output"
+* module = url cible de la requete ajax
+* GET, pas de data, la réponse est renvoyée dans un div id "output"
 */
 function jqShowMod(module, output) {
 	$.ajax({
 		url: cfg_url+"ajax--"+module,
 		success: function(html) {
 			$("#"+output).html(html);
+			// gérer les nouveaux formulaires
+			traiterFormulaires();
 		}
 	});
 	return false;
@@ -69,4 +106,3 @@ function showMapInfo() {
 	jqShowMod(url,'carte_infos');
 	return false;
 }
-

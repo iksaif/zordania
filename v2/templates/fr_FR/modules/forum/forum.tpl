@@ -16,29 +16,6 @@
 
 	<!-- formulaire de réponse / topic / édit -->
 
-<script type="text/javascript">
-<!--
-$(document).ready(function()
-{
-	// preview cf js/jquery.zordania.js
-	// citer un message précédent
-	$('a.jqquote').click(function ()
-	{
-		$.ajax({
-			url: cfg_url+"forum.xml",
-			data: "pid="+$(this).attr('pid'),
-			dataType: "xml",
-			success: function(xml){
-				var jqxml=$(xml);
-				emoticon('[quote='+jqxml.find('username')[0].firstChild.data+']'
-				+jqxml.find('message')[0].firstChild.data+'[/quote]', 'message');
-			}
-		});
-		return false;
-	});
-});
-// -->
-</script>
 	<form class="center" action="{form_url}" method="post" id="newpost">
 		<if cond='{new} == "topic"'>
 			<label for="pst_titre">Sujet : <input id="pst_titre" name="pst_titre" type="text" size="60" /></label>
@@ -213,7 +190,7 @@ $(document).ready(function()
 		</p>
 
 		<if cond="isset({arr_pge})">
-			<p>
+			<p class="pages">
 			<foreach cond="{arr_pge} as {i}">
 				<if cond='{i} == {pge} || {i} == "..."'> {i} </if>
 				<else> <a href="forum-post.html?tid={tpc[tid]}&p={i}" title="page {i}">{i}</a> </else>
@@ -228,10 +205,10 @@ $(document).ready(function()
 
 				<p class="post"><math oper="parse({post[message]})" /></p>
 				<if cond='{post[edited]}'>
-					<p><em>édité par {post[edited_by]} le {post[edited]}</em></p>
+					<p class="edited"><em>édité par {post[edited_by]} le {post[edited]}</em></p>
 				</if>
 
-				<p>
+				<p class="author">
 				<a href="forum-rep.html?tid={tpc[tid]}&qt={post[pid]}"><img src="img/forum/post.png"  title="citer"/></a>
 				<if cond='{is_modo} || ({mid} == {post[poster_id]})'>
 					<a href="forum-post.html?sub=conf&pid={post[pid]}">
