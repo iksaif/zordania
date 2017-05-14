@@ -30,10 +30,12 @@ $ally = false;
 if($_user['aetat'] != ALL_ETAT_NULL){
 	if($_act != 'view'){ // infos sur mon ally
 		$ally = allyFactory::getAlly($_user['alaid']);
-		$al_array = $ally->getInfos();
-		//$al_mbr   = $ally->getMembers();
-		$droits['diplo'] = $ally->isAccesOk($_user['mid'],'diplo');
-		$_tpl->set('droits', $droits);
+		if($ally){
+			$al_array = $ally->getInfos();
+			//$al_mbr   = $ally->getMembers();
+			$droits['diplo'] = $ally->isAccesOk($_user['mid'],'diplo');
+			$_tpl->set('droits', $droits);
+		}
 	}
 }
 

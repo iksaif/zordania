@@ -965,6 +965,7 @@ function get_leg_gen($cond) {
 		$sql.= "ORDER BY leg_stop, unt_rang ";
 	else
 		$sql.= "ORDER BY leg_stop ";
+
 	return $_sql->make_array($sql);
 }
 

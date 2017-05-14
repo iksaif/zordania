@@ -38,7 +38,7 @@ if(!$_act || $_act == "new") {
 	$_tpl->set("mbr_lang", $lang);
 	$_tpl->set("mbr_decal", $decal);
 	$_tpl->set("mbr_date", date("H:i:s"));
-	$_tpl->set("ayah_html_form", $ayah->getPublisherHTML());
+	//$_tpl->set("ayah_html_form", $ayah->getPublisherHTML());
 
 
 	$questions = request("questions", "array", "post");

@@ -202,6 +202,7 @@ function get_regions_infos($regions) {
 	$infos = $_sql->make_array($sql);
 
 	$sum = array('total' => 0);
+	// faire un TCD $sum[region_id][race] et $sum[total]
 	foreach($infos as $value) {
 		$sum['total'] += $value['mbr_nb'];
 
@@ -216,8 +217,8 @@ function get_regions_infos($regions) {
 			$sum[$value['map_region']][$value['mbr_race']] += $value['mbr_nb'];
 	}
 
-
 	$libre = array();
+	// TCD du nb de places libres par région / race
 	foreach($_regions as $rid => $val) {
 		$total = isset($sum[$rid]) ? $sum[$rid]['total'] : 0;
 		foreach($_races as $race => $visible) {
@@ -226,7 +227,7 @@ function get_regions_infos($regions) {
 			else if(!$total)
 				$libre[$rid][$race] = 1;
 			else
-				$libre[$rid][$race] = ceil($total * $_regions[$rid][$race] / 100);
+				$libre[$rid][$race] = isset($_regions[$rid][$race]) ? ceil($total * $_regions[$rid][$race] / 100) : 0;
 		}
 	}
 

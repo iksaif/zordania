@@ -72,7 +72,7 @@ class allyFactory {
 			else
 				$sql .= "LIMIT $limite1 ";
 		}
-
+		
 		self::$table = $_sql->make_array($sql);
 		$result = array();
 		foreach(self::$table as $row){

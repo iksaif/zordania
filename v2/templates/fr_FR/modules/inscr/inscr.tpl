@@ -102,7 +102,7 @@
 		<select id="question6" name="questions[]"><option value="0">oui</option><option value="1">non</option></select></p>
 
 		<!-- formulaire Are You a Human -->
-		{ayah_html_form}
+		<# commentaire tpl // {ayah_html_form} #>
 
 		<input type="submit" value="Envoyer" name="submit" />
 		</form>

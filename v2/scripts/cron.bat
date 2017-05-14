@@ -12,3 +12,5 @@ set ZPATH=%CD%
 
 echo passage du tour %mydate% ...
 %REP_PHP% -f %ZPATH%\crons\cron.php >> %ZPATH%\logs\crons\out\out_%mydate%.log
+
+cd scripts

@@ -35,7 +35,9 @@ if($_act == "pend") {
 }
 
 if(!$_act) {
+	// config des unités: vie/group/role/prix_res/in_btc/need_btc ...
 	$conf_unt = get_conf("unt");
+	// lister les besoins btc/src/unt/res
 	$need_btc = array();
 	$need_src = array();
 	$need_unt = array();
@@ -58,6 +60,7 @@ if(!$_act) {
 	$need_unt = array_unique($need_unt); asort($need_unt);
 	$need_src = array_unique($need_src); asort($need_src);
 
+	// en cache tous les bat/src/res déjà fait
 	$cache = array();
 	$cache['btc'] = get_nb_btc_done($_user['mid'], $need_btc);
 	$cache['btc'] = index_array($cache['btc'], "btc_type");
@@ -65,8 +68,10 @@ if(!$_act) {
 	$cache['src'] = index_array($cache['src'], "src_type");
 	$cache['res'] = clean_array_res(get_res_done($_user['mid'], $need_res));
 	$cache['res'] = $cache['res'][0];
+	// et aussi les unt, et unt_todo
 	$cache['unt_todo'] = array();
 	$cache['unt_leg'] = array();
+	$cache['unt'] = array();
 	$cond = array('mid' => $_user['mid'], 'unt' => array(), 'leg' => true);
 	$unt_tmp = get_leg_gen($cond);
 	foreach($unt_tmp as $value) {

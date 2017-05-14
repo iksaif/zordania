@@ -6,12 +6,12 @@ function get_msg_rec($mid, $msgid = 0) {
 	$mid = protect($mid, "uint");
 
 	$req = "SELECT mrec_titre,mrec_id,mrec_from,mrec_readed,";
-	$req.= "_DATE_FORMAT(mrec_date) as mrec_date_formated, msg_sign,";
-	$req.= "IFNULL(mbr_pseudo,mold_pseudo) AS mbr_pseudo,ifnull(mbr_gid,1) AS mbr_gid,IFNULL(mbr_sign,'membre disparus') AS mbr_sign";
+	$req.= "_DATE_FORMAT(mrec_date) as mrec_date_formated, rec.msg_sign,";
+	$req.= "IFNULL(mbr_pseudo,mold_pseudo) AS mbr_pseudo,ifnull(mbr_gid,1) AS mbr_gid,IFNULL(mbr.mbr_sign,'membre disparus') AS mbr_sign";
 	if($msgid)
 		$req.= ",mrec_texte";
-	$req.= " FROM ".$_sql->prebdd."msg_rec LEFT JOIN ";
-	$req.= $_sql->prebdd."mbr ON mbr_mid = mrec_from ";
+	$req.= " FROM ".$_sql->prebdd."msg_rec rec LEFT JOIN ";
+	$req.= $_sql->prebdd."mbr mbr ON mbr_mid = mrec_from ";
 	$req.= " LEFT JOIN ";
 	$req.= $_sql->prebdd."mbr_old ON mold_mid = mrec_from ";
 	$req.= "WHERE mrec_mid = $mid ";
