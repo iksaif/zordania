@@ -1,9 +1,9 @@
 <?php
 /* === Configuration Serveur === */
-define('MYSQL_BASE', 'zorddev');
+define('MYSQL_BASE', 'zordania');
 define('MYSQL_HOST', 'localhost');
-define('MYSQL_USER', 'root');
-define('MYSQL_PASS', '');
+define('MYSQL_USER', 'zordania');
+define('MYSQL_PASS', 'zordania');
 define('MYSQL_PREBDD', 'zrd_');
 define('MYSQL_PREBDD_FRM', MYSQL_PREBDD.'frm_');
 
@@ -13,7 +13,7 @@ define('ZORD_SPEED_VFAST', 0.16667); // 1 Tour toutes les 30sec
 define('ZORD_SPEED_FAST', 5); // 1 Tour toutes les 5 minutes
 define('ZORD_SPEED_NORMAL', 30); // 1 Tour par demie heure
 define('ZORD_SPEED_SLOW',60); // 1 Tour par heures
-define('ZORD_SPEED', ZORD_SPEED_VFAST);
+define('ZORD_SPEED', ZORD_SPEED_FAST);
 
 /* === Configuration IRC === */
 define('IRC_SERVER','irc.quakenet.org');
@@ -28,7 +28,7 @@ define('SITE_MAX_INSCRITS', 10000);
 
 $host = (isset($_SERVER['HTTP_HOST'])) ? $_SERVER['HTTP_HOST'] : "www.zordania.com";
 define('SITE_URL', "http://".$host."/");
-define('SITE_DIR', str_replace('conf','',dirname(__FILE__))."/");
+define('SITE_DIR', str_replace('conf','',dirname(__FILE__)));
 define('WWW_DIR', SITE_DIR . "www/");
 define('ZORDLOG_URL', 'archives.zordania.com'); // URL des archives
 

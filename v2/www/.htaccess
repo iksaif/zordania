@@ -1,4 +1,4 @@
-RewriteEngine off
+RewriteEngine on
 RewriteBase /
 
 # forcer le www
@@ -9,9 +9,6 @@ RewriteBase /
 #RewriteRule ^(.*)$ http://www.zordania.com/$1 [R=301,L]
 
 #RewriteRule ^zordania\.com(.*)$ http://www.zordania.com/$1 [R=301,L]
-
-RewriteCond %{HTTP_HOST} !^www\.zordania\.com$ [NC]
-RewriteRule ^(.*)$ http://www.zordania.com/$1 [QSA,R=301,L]
 
 # Cas des xml
 RewriteRule	^([a-zA-Z0-9_]+)-([a-zA-Z0-9_]+).xml$ 	/index.php?display=xml&file=$1&act=$2&%{QUERY_STRING} [L]
