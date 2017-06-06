@@ -1161,8 +1161,8 @@ function can_unt($mid, $type, $nb, $cache = array()) {
 			$t_etat = $value['leg_etat'];
 			if($t_etat == LEG_ETAT_VLG) {
 				if(!isset($have_unt[$t_type]))
-					$have_unt[$t_type] = 0;
-				$have_unt[$t_type] += $t_nb;
+					$have_unt[$t_type]['unt_nb'] = 0;
+				$have_unt[$t_type]['unt_nb'] += $t_nb;
 			} else {
 				if(!isset($have_unt_leg[$t_type]))
 					$have_unt_leg[$t_type] = 0;
@@ -1170,6 +1170,7 @@ function can_unt($mid, $type, $nb, $cache = array()) {
 			}
 		}
 	} else {
+		var_dump($cache['unt']);
 		$have_unt = $cache['unt'];
 		$have_unt_leg = $cache['unt_leg'];
 	}
@@ -1211,13 +1212,15 @@ function can_unt($mid, $type, $nb, $cache = array()) {
 		if(!isset($have_btc[$btc_type]))
 			$bad_btc[] = $cond_btc;
 	}
-	
+
 	/* La limite */
 	$unt_nb = 0;
-	if(isset($have_unt[$type]))
-		$unt_nb += $have_unt[$type];
+	if(isset($have_unt[$type])){
+		var_dump($have_unt[$type]);
+		$unt_nb += $have_unt[$type]['unt_nb'];
+	}
 	if(isset($have_unt_leg[$type]))
-		$unt_nb += $have_unt_leg[$type];
+		$unt_nb += $have_unt_leg[$type]['unt_nb'];
 	if(isset($have_unt_todo[$type]['utdo_nb']))
 		$unt_nb += $have_unt_todo[$type]['utdo_nb'];
 

@@ -287,25 +287,11 @@ function get_btc_gen($cond, $btc = array()) {
 	}
 	
 	if($btc) {
-		if($mid) $sql.= "AND btc_type IN (";
-		foreach($btc as $type) {
-			$type = protect($type, "uint");
-			$sql.= "$type,";
-		}
-		
-		$sql = substr($sql, 0, strlen($sql) - 1); /* On vire le OR en trop */
-		$sql.= ") ";
+		if($mid) $sql.= "AND btc_type IN (".implode(',', protect($btc, array('uint'))).') ';
 	}
 	
 	if($etat) {
-		if($mid || $btc) $sql .= "AND btc_etat IN (";
-		foreach($etat as $id) {
-			$id = protect($id, "uint");
-			$sql.= "$id,";
-		}
-		
-		$sql = substr($sql, 0, strlen($sql) - 1); /* On vire le OR en trop */
-		$sql.= ") ";
+		if($mid || $btc) $sql .= "AND btc_etat IN (".implode(',', protect($etat, array('uint'))).') ';
 	}
 	
 	if($count) {

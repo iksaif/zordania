@@ -61,13 +61,15 @@
 					</foreach>
 					</div>
 				</if>
+				<pre>Callstack:
+				<math oper='implode("<br/>",{values[callstack]})' /></pre>
 				Temps: <math oper="round({values[time]}*1000,2)" /> ms
 			</li>
 			</foreach>
 			</if>
 			</ol>
-			Au total: <math oper='round({sv_total_sql_time},4)' /> sur <eval oper='round(mtime()-{sv_diff},4)' /> secondes<br/>
-			Donc: <eval oper='round({sv_total_sql_time} /  (mtime()-{sv_diff}) * 100,2)' /> % du temps.
+			Au total: <math oper='round({sv_total_sql_time},4)' /> sur <math oper='round(mtime()-{sv_diff},4)' /> secondes<br/>
+			Donc: <math oper='round({sv_total_sql_time} /  (mtime()-{sv_diff}) * 100,2)' /> % du temps.
 		</dd>
 </if>
 	</dl>

@@ -59,6 +59,8 @@
 						<br/>
 					</foreach>
 					</div>
+				<pre>Callstack:
+				<math oper='implode("<br/>",{values[callstack]})' /></pre>
 				</if>
 				Temps: <math oper="round({values[time]}*1000,2)" /> ms
 			</li>

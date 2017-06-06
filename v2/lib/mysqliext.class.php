@@ -149,7 +149,8 @@ class mysqliext
 								'err'	=> $this->err,
 								'time'=> $this->getmicrotime()-$debut,
 								'infos' => $this->mysqli->info,
-								'num' => $num
+								'num' => $num,
+								'callstack'=>callstack()
 								);
 
 			if(strstr($req,'SELECT') && !strstr($req,'EXPLAIN') && !strstr($req,'INSERT') && !strstr($req,'UPDATE') && !strstr($req,'DELETE'))
@@ -159,7 +160,7 @@ class mysqliext
 			}
 		}
 		if($explain) $this->total_time += $this->getmicrotime()-$debut;
-		
+
 		return $res;
 	}
 	
