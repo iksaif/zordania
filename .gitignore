@@ -1,9 +1,7 @@
 v2/tmp/*.compiled.php
 v2/logs/**/*
-
-# on ignore la v1
+v2/cache/*.php
 v1/**/*
-
-# logos membres et ally
 v2/www/img/mbr_logo/*.png
 v2/www/img/al_logo/*.png
+v1

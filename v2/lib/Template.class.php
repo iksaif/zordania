@@ -1,9 +1,5 @@
 <?php
-/*
-class tpl {
-	function tpl() {}
-}
-*/
+
 class Template
 {
 	function __construct() //constructeur
@@ -275,6 +271,8 @@ class Template
 	function file_write($file, $data) //ecrit en ecrasant dans un fichier
 	{
 		$data = "<?php\n $data \n ?>";
+        // linux only: default mask if creating new log file: rw-rw-
+        if(!is_file($file)) umask(0117);
 		$fopen = fopen($file, 'w+') or die('Cannot open or create the file : '.$file);
 		$return = fwrite($fopen, $data);
 		fclose($fopen);

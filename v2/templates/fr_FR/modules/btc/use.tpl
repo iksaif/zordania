@@ -122,7 +122,7 @@
 </elseif>
 <elseif cond='{btc_act} == "no_btc"'>
 	<br />
-	<p class="infos">Vous ne possédez pas encore le bâtiment pour effectuer cette action ({btc[{_user[race]}][alt][{btc_id}]}).
+	<p class="error">Vous ne possédez pas encore le bâtiment pour effectuer cette action ({btc[{_user[race]}][alt][{btc_id}]}).
 		<br/>Il est aussi possible que ce bâtiment soit en réparation ou inactif.</p>
 </elseif>
 <if cond='isset({btc_tpl})'>

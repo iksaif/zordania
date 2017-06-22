@@ -333,6 +333,19 @@ function array_ksum(&$arr1, $arr2, $factor = 1) {
 			$arr1[$key] = $value * $factor;
 }
 
+/* compter les items par clé - ex: compter les batiments */
+function array_key_sum($arr, $k1, $k2 = 'nb'){
+    $result = array();
+    foreach($arr as $key => $value){
+        if(isset($result[$value[$k1]]))
+            $result[$value[$k1]][$k2]++;
+        else
+            $result[$value[$k1]] = array_merge($value, array($k2=>1));
+    }
+    return $result;
+}
+
+
 /* comparer $arr2 à $arr1 par clé et donner le "manque" dans un 3eme */
 function array_compare($arr1, $arr2) {
 	$return = array();

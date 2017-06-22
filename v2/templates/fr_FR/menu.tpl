@@ -53,10 +53,10 @@
 		<a href="https://twitter.com/Zordania" title="Twittes pour Zordania!">Twitter</a>
 	</li>
 	<li>
-		<a href="http://www.finestown.com" title="Finestown.com - Construis ta ville.">Finestown</a>
+		<a href="https://www.facebook.com/zordania2015" title="Facebook pour Zordania!">facebook</a>
 	</li>
-	<li>
-		<a href="http://www.guerredesgangs.com/frompartenaire-3" title="La Guerre des Gangs.">Guerre des Gangs</a>
+    <li>
+		<a href="https://github.com/pifou25/zordania" title="Code OpenSource participez!">GitHub</a>
 	</li>
 </ul>
 </div>

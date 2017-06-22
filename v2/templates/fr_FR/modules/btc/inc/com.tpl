@@ -163,21 +163,6 @@
 	</elseif>
 </elseif>
 <elseif cond='{btc_act} == "ach"'>
-	<script type="text/javascript">
-	// achat d'une ressource
-	$(document).ready(  function()
-	{
-		// Lorsqu'un lien a.com est cliqué
-		$("a.com").click(   function () 
-		{
-			var url_module = $(this).attr('href');
-			var elt_parent = $(this).parents("tr:first");
-			elt_parent.html('<td colspan="5" id="td'+elt_parent.attr('id')+'"></td>');
-			showModule(url_module,'td'+elt_parent.attr('id'));
-			return false;
-		});
-	});
-	</script>
 
 	<if cond="isset({cpt_nego})"><p class="ok">La compétence <zimgcomp race="{_user[race]}" type="{CP_GENIE_COMMERCIAL}" /> vous procure un bonus supplémentaire à l'achat tant que le bonus est actif. Profitez-en !</p></if>
 

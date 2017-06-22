@@ -152,7 +152,7 @@ define('HISTO_DEL_LOG_ALLY', 15); // 15 jours
 
 /* Commerce */
 define('MCH_ACCEPT',4); //Nombre de tours avant acceptation (avec un petit rand() dans le cron)
-define('MCH_MAX',300); //Nombre de tours max
+define('MCH_MAX',30000); //Nombre de tours max
 define('MCH_COURS_MIN',1);
 define('MCH_OLD',30); //calcul des cours du marché sur NB jours (les ventes plus vieilles sont supprimées)
 

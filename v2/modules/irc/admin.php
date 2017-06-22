@@ -19,6 +19,7 @@ if($_act == "kill")
 }
 else if($_act == "go")
 {
+    //exec("php ".SITE_DIR."/tools/ircbot.php > ".SITE_DIR."/logs/irc/irc.log &", $lres);
 	exec("php ".SITE_DIR."/tools/ircbot.php > /dev/null &", $lres);
 	$_tpl->set('lres', $lres);
 }

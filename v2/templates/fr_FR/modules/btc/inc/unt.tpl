@@ -5,7 +5,7 @@
 	<elseif cond='isset({btc_no_nb})'>
 		<p class="infos">Il faut choisir un nombre d'unités à annuler.</p>
 		<form action="btc-use.html?btc_type={btc_id}&sub=cancel_unt&uid={btc_uid}" method="post">
-			<input type="text" name="nb" size="1" maxlength="2"  />
+			<input type="number" name="nb" size="1" maxlength="2" style="width:3em" />
 			<input type="submit" value="Annuler" />
 		</form>
 	</elseif>
@@ -65,8 +65,6 @@
 	</if>
 	<else><p id="unt_infos_toggle" class="infos" style="display: none;">Aucune unité utile disponible.</p></else>
 
-	<br/>
-
 	<if cond='{unt_dispo}'>
 
 <script type="text/javascript">
@@ -117,7 +115,7 @@ $(document).ready(function()
 					<span class="bad">{res_nb} <zimgres race="{_user[race]}" type="{res_type}" /></span>
 				</if>
 				<else>{res_nb} <zimgres race="{_user[race]}" type="{res_type}" /></else>
-			</foreach><br/>
+			</foreach>
 		</if>
 
 		<if cond="isset({unt_array[conf][prix_unt]})">
@@ -126,6 +124,12 @@ $(document).ready(function()
 					<span class="bad">{unt_nb}<zimgunt race="{_user[race]}" type="{unt_type}" /></span>
 				</if>
 				<else>{unt_nb}<zimgunt race="{_user[race]}" type="{unt_type}" /></else>
+			</foreach>
+		</if>
+
+		<if cond="isset({unt_array[conf][need_src]})">
+			<foreach cond='{unt_array[conf][need_src]} as {src_type}'>
+				<zimgsrc race="{_user[race]}" type="{src_type}" />
 			</foreach><br/>
 		</if>
 
@@ -164,7 +168,7 @@ $(document).ready(function()
 		<else>
 			<form action="btc-use.html?btc_type={btc_id}&sub=add_unt" method="post">
 			<input type="hidden" name="type" value="{unt_id}" />
-			<input type="text" name="nb" size="1" maxlength="2"  />
+			<input type="number" name="nb" size="1" maxlength="2" style="width:3em" />
 			<input type="submit" value="{btcopt[{_user[race]}][{btc_id}][unt]}" />
 			</form>
 		</else>				

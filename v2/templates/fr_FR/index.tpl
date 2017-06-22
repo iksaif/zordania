@@ -160,6 +160,9 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	</if>
 </else>
 
+<# div pour popup jquery #>
+<div id="dialog-modal" title="Titre" style="display:none;">
+</div>
 
 <if cond="isset({sv_site_debug})"><include file="debug.tpl" cache="1" /></if>
 

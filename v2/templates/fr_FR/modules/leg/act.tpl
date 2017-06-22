@@ -20,9 +20,6 @@
 		- [ <a href="war-make_atq.html?lid1={leg[leg_id]}" id="make_atq">attaquer</a> ]
 	</if>
 
-<div id="dialog-modal" title="A L'attaque !" style="display:none;">
-<p>Souhaitez vous lancer votre armée à l'attaque ?</p>
-</div>
 
 <script langage="javascript">
 // ce script pilote le popup de confirmation

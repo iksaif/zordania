@@ -32,7 +32,7 @@ require_once("conf/conf.inc.php");
 ini_set("include_path", SITE_DIR);
 
 require_once("lib/divers.lib.php");
-require_once("cache/global.cache.php");
+$_cache = new cache('global');
 /*  infos admin en cache : variable globale */
 $admin_cache = new cache('admin');
 
@@ -55,7 +55,7 @@ $_tpl->set_ref("_races", $_races);
 $_tpl->set_ref("_races_aly", $_races_aly);
 $_tpl->set_ref("_def_atq", $_def_atq);
 $_tpl->set_ref("_langues", $_langues);
-$_tpl->set_ref("_cache", $_cache);
+$_tpl->set("_cache", $_cache->get_array());
 
 $_tpl->set('no_cookies',!$_COOKIE);
 

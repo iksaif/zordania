@@ -22,35 +22,6 @@ a{
 	font-weight: bold;
 }
 
-/*
- * #actbar et #menu sont la navigation du site
- */
-
-div#actbar {
-	position:fixed;
-	padding-left:35px;
-	margin:1;
-	border: 1px solid #222;
-	background-color:#EEE;
-	width:92%;
-}
-div#actbar ul{
-	position:relative;
-	z-index:2; /* devant div#menu */
-}
-
-div#actbar li{
-	list-style: none;
-	display: inline;
-}
-div#actbar li > img{
-	display: none;
-}
-/* masquer les icones au dela de 8 */
-div#actbar li:nth-child(n+8){
-	display:none;
-}
-
 /* 1er niveau de menu */
 div#menu {
 	width: 80%;
@@ -164,6 +135,37 @@ div#contenu dt img{
 	vertical-align:middle;
 }
 
+
+/*
+ * #actbar et #menu sont la navigation du site
+ */
+
+div#actbar {
+	position:fixed;
+	padding-left:35px;
+	margin:1;
+	border: 1px solid #222;
+	background-color:#EEE;
+	width:92%;
+}
+div#actbar ul{
+	position:relative;
+	z-index:2; /* devant div#menu */
+}
+
+div#actbar li{
+	list-style: none;
+	display: inline;
+    margin-left: 4px;
+}
+div#actbar li > img{
+	display: none;
+}
+/* masquer les icones au dela de 8 */
+div#actbar li:nth-child(n+8){
+	display:none;
+}
+
 .block_forum{
 	border: 1px solid #222;
 	padding:2px;
@@ -251,7 +253,7 @@ textarea:focus,input:focus {
     background-color: #DDD;
 }
 
-.error {
+.error, .bad {
 	border: 1px solid #FF0000;
     color: #FF0000;
 }

@@ -73,7 +73,7 @@ Le grenier de votre allié ne peut pas stocker plus de cette ressource, ou bien 
 			<td><if cond="{res_id} != 1">{_limite_grenier[{res_id}]}</if>
 		        <else>Infini</else>
 			</td>
-		    <td><input type="text" name="res_nb[{res_id}]" value="0" /></td>
+		    <td><input type="number" name="res_nb[{res_id}]" value="0" style="width:5em" /></td>
 			<if cond='{al_act} == "res"'>
 			<td>&nbsp;<if cond="isset({have_res[{res_id}]})">
 				<zimgres type="{res_id}" race="{_user[race]}" /> &nbsp;{have_res[{res_id}]}</if>

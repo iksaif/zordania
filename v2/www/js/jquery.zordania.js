@@ -30,18 +30,40 @@ $(document).ready(  function()
 		);
 	});
 	
+    // réponse ajax dans la page
 	// module unt, formation des unités
 	$("table#showUntForm a").each(function(){
-		var url = $(this).attr('href');
-		console.log(url);
 		$(this).click(function(){
-			jqShowMod(url, 'output');
+            $(".jqBlock").remove(); // virer l'ancienne requete ajax
+            var url = $(this).attr('href');
+            var output = $(this).parents('tr');
+            var len = output.children('td').length;
+            output.after('<tr class="jqBlock"><td id="ajaxContent" colspan="' + len + '"></td></tr>');
+			jqShowMod(url, $('#ajaxContent'));
 			return false;
 		});
 	});
 
+    // Commerce - achat : module/fr/btc/inc/com.tpl - Lorsqu'un lien a.com est cliqué
+    $("table#showComForm a").each(function(){
+		$(this).click(function(){
+            var url = $(this).attr('href');
+            var output = $(this).parents('tr');
+            var len = output.children('td').length;
+            output.html('<td colspan="' + len + '"></td>');
+			jqShowMod(url, output.children());
+			return false;
+		});
+	});
+        
+        
 	traiterFormulaires();
+    
+    // réponse ajax dans une popup
+    traiterZrdPopUp();
+    
 });
+
 
 function traiterFormulaires(){
 	$("form.ajax").each(function(){
@@ -53,7 +75,6 @@ function traiterFormulaires(){
 			var $form = $( this ),
 			term = $form.serialize(),
 			url = "ajax--" + $form.attr( "action" );
-			console.log("#"+$form.attr("id") + "=" + url);
 
 			$form.attr("action", url);
 			// Send the data using post
@@ -70,15 +91,16 @@ function traiterFormulaires(){
 * jQuery ajax get
 * variable globale = cfg_url
 * module = url cible de la requete ajax
-* GET, pas de data, la réponse est renvoyée dans un div id "output"
+* GET, pas de data, la réponse est renvoyée dans le html du jquery ouput
 */
 function jqShowMod(module, output) {
 	$.ajax({
 		url: cfg_url+"ajax--"+module,
 		success: function(html) {
-			$("#"+output).html(html);
-			// gérer les nouveaux formulaires
+            output.html(html);
+			// gérer les nouveaux formulaires & popup
 			traiterFormulaires();
+            traiterZrdPopUp();
 		}
 	});
 	return false;
@@ -103,6 +125,37 @@ function showMapInfo() {
 		var url = "carte-view.html?map_cid=" + cid;
 	}
 
-	jqShowMod(url,'carte_infos');
+	jqShowMod(url,$('#carte_infos'));
 	return false;
+}
+
+// ce script pilote les popup ajax
+// unt.html
+function traiterZrdPopUp() {
+    
+    $(".zrdPopUp").each(function(){
+        
+        $(this).click(function(){ // au clic sur le lien
+
+            var url = $(this).attr('href');
+            var title = $(this).attr('title');
+            console.log('popup ' + title + ' vers url=' + url);
+            var output = $("#dialog-modal");
+            $.ajax({
+                url: cfg_url+"ajax--"+url,
+                success: function(html) {
+                    output.html(html);
+                    output.dialog({ // popup
+                        buttons: [{
+                            text: "Fermer", // bouton annuler
+                            click: function() {
+                            $( this ).dialog( "close" );}
+                        }],
+                        title: title
+                    });
+                }
+            });
+            return false;
+        });
+    });
 }

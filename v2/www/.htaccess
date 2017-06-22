@@ -38,6 +38,3 @@ RewriteRule	^img/al_logo/([0-9]+)-thumb.png$	/img/al_logo/index.php?alid=$1&thum
 	deny from all
 </FilesMatch>
 
-
-
-Deny from  86.192.20.51

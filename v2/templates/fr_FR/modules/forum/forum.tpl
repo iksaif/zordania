@@ -1,9 +1,9 @@
 <p class="menu_module">
-[<a href="forum.html" title="Sommaire du forum"> Sommaire </a>]
-- [<a href="forum-search.html" title="Rechercher"> Rechercher </a>]
-- [<a href="forum-search.html?action=show_new" title="Nouvaux messages depuis la dernière connexion"> Nouveaux </a>]
-- [<a href="forum-search.html?action=show_24h" title="Nouvaux messages depuis hier"> 24H </a>]
-- [<a href="a_propos.html" title="Equipe de modération"> Modérateurs </a>]
+<a href="forum.html" title="Sommaire du forum"> Sommaire </a>
+<a href="forum-search.html" title="Rechercher"> Rechercher </a>
+<a href="forum-search.html?action=show_new" title="Nouvaux messages depuis la dernière connexion"> Nouveaux </a>
+<a href="forum-search.html?action=show_24h" title="Nouvaux messages depuis hier"> 24H </a>
+<a href="a_propos.html" title="Equipe de modération"> Modérateurs </a>
 </p>
 
 
@@ -65,10 +65,6 @@
 
 	<div id="preview"></div>
 
-	<p class="infos">
-		Merci de ne pas écrire en langage sms, d'éviter les fautes, de respecter l'ambiance médiévale du jeu (les téléphones portables n'existaient pas etc...), d'utiliser un langage courant ou soutenu, de rédiger vos phrases et d'utiliser la ponctuation à bon escient.<br/>
-		Merci de respecter ces quelques règles de rp. Plongez-vous dans le jeu, faites comme si vous y étiez.
-	</p>
 		<if cond='isset({messages})'>	
 		<h3>Derniers Posts :</h3>
 		<foreach cond='{messages} as {post}'>
@@ -402,7 +398,7 @@
 	<if cond="count({cat_array})>1">
 	<!-- ancres des catégories -->
 		<h3><foreach cond="{cat_array} as {cid} => {cat}">
-		[ <a href="#cid{cid}" title="{cat[cat_name]}">{cat[cat_name]}</a> ]
+		<a href="#cid{cid}" title="{cat[cat_name]}">{cat[cat_name]}</a>
 		</foreach></h3>
 	</if>
 
@@ -413,14 +409,16 @@
 		<div class="forum">
 			<h4><a href="forum-topic.html?fid={forum[fid]}" title="{forum[forum_name]}">{forum[forum_name]}</a></h4>
 			<p class="desc">{forum[forum_desc]}</p>
-			<p class="stat">{forum[num_topics]} sujets - {forum[num_posts]} messages<br/>
-			<if cond='{lu_forum_ldate} <= {forum[last_post_unformat]}'><img src='img/forum/non_lu.png' title='Nouveau' alt='Nouveau' /></if>
-			<else><img src='img/forum/lu.png' title='Nouveau' alt='Nouveau' /></else>
-			Dernier message : <a href="forum-<math oper="str2url({forum[last_subject]})"/>.html?pid={forum[last_post_id]}#{forum[last_post_id]}" title="Dernier message">{forum[last_subject]}</a> le {forum[last_post]} par 
-			<if cond="isset({forum[mbr_mid]})">
-				<zurlmbr gid="{forum[mbr_gid]}" mid="{forum[mbr_mid]}" pseudo="{forum[last_poster]}"/>
-			</if>
-			<else>{forum[last_poster]}</else></p>
+            <if cond="{forum[num_topics]}>0">
+                <p class="stat">{forum[num_topics]} sujets - {forum[num_posts]} messages<br/>
+                <if cond='{lu_forum_ldate} <= {forum[last_post_unformat]}'><img src='img/forum/non_lu.png' title='Nouveau' alt='Nouveau' /></if>
+                <else><img src='img/forum/lu.png' title='Nouveau' alt='Nouveau' /></else>
+                Dernier message : <a href="forum-<math oper="str2url({forum[last_subject]})"/>.html?pid={forum[last_post_id]}#{forum[last_post_id]}" title="Dernier message">{forum[last_subject]}</a> le {forum[last_post]} par 
+                <if cond="isset({forum[mbr_mid]})">
+                    <zurlmbr gid="{forum[mbr_gid]}" mid="{forum[mbr_mid]}" pseudo="{forum[last_poster]}"/>
+                </if>
+                <else>{forum[last_poster]}</else></p>
+            </if><else><p class="stat">aucun message</p></else>
 		</div>
 	</foreach>
 	</foreach>
