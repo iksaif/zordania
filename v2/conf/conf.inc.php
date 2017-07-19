@@ -202,9 +202,17 @@ $_races_aly = array(
 );
 
 $_css = array(14,4,3,2,1,10,11,15,16,5);
-$_forum_css = array(1 => "marron", 2 => "metal", 3 => "classik", 4 => "zord2",5 => "mobile",
-		    10 => "elficnight", 11 => "elfpower", 14 => "brown_underground",
-		    15 => "last_hope");
+$_forum_css = array(
+	1 => "marron"
+	, 2 => "metal"
+	, 3 => "classik"
+	, 4 => "zord2"
+	, 5 => "mobile"
+	, 10 => "elficnight"
+	, 11 => "elfpower"
+	, 14 => "brown_underground"
+	, 15 => "last_hope"
+);
 $_adsense_css = array(1 => '9107849390', 2 => '2158156650', 3 => '2158156650', 
 	4 => '2158156650',5 => '9107849390', 10 => '2087210871', 11 => '2087210871', 14 => '0166103822', 
 	15 => '6454056819');

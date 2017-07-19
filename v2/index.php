@@ -288,7 +288,7 @@ if($_display == "xml") { /* Sortie en XML */
 	mark('tpl');
 
 	if(SITE_DEBUG) {
-		echo '<div style="text-align:left" class="block"><ul>';
+		echo '<div class="debug"><ul>';
 		foreach(mark(true) as $title => $time)
 		{
 			if(!isset($prev_time))

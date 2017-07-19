@@ -594,17 +594,21 @@ function array_to_json( $array ){
 function error_handler($errno, $errstr, $errfile, $errline, $errcontext)
 {
 	global $_error;
-
+	
 	/* Ignore error, @ */
 	if (error_reporting() === 0)
-	   return ;
-
-	$error = array('errno' => $errno, 'errstr' => $errstr, 'errfile' => $errfile, 'errline' => $errline, 'errcontext' => $errcontext, 
-		'errmsg' => sprintf('File: %s[%03d]', pathinfo($errfile, PATHINFO_FILENAME), $errline), 'callstack' => callstack());
+		return ;
+	
+	$error = array(
+		'errno' => $errno
+		, 'errstr' => $errstr
+		, 'errfile' => $errfile
+		, 'errline' => $errline
+		, 'errcontext' => $errcontext
+		, 'errmsg' => sprintf('File: %s[%03d]', pathinfo($errfile, PATHINFO_FILENAME), $errline), 'callstack' => callstack()
+	);
 	if(SITE_DEBUG){
-		echo "<div style=\"border:1px #000 solid;text-align:left; font-family: monospace; background-color:#CCC\">"
-			.nl2br(error_print($error))."</div>";
-		//var_dump($error);
+		echo '<div style="border:1px #000 solid; text-align:left; font-family:monospace; background-color:#CCC; color:#000;">'.nl2br(error_print($error)).'</div>';
 	}
 	$_error[] = $error;
 }

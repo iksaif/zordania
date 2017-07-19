@@ -1,4 +1,4 @@
-<div style="text-align:left" class="block">
+<div class="debug">
 	<h1>Debug</h1>
 	<dl>
 		<if cond="false"><math oper="print_debug()" /></if>
@@ -42,7 +42,7 @@
 			<if cond="{sv_queries}">
 			<foreach cond='{sv_queries} as {values}'>
 			<li>
-				<math oper="htmlspecialchars({values[req]})" /><br/>
+				<div class="mysql"><math oper="htmlspecialchars({values[req]})" /></div>
 				Err: {values[errno]} {values[err]} <br/>
 				<if cond="{values[infos]}">
 				Infos: {values[infos]} <br/>
