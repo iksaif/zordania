@@ -26,7 +26,16 @@
 		</if>
 		<if cond="{_files}">
 		<dt>_FILES</dt>
-		<dd><foreach cond="{_files} as {key} => {value}">[{key}] => {value}<br/></foreach></dd>
+		<dd>
+			<foreach cond="{_files} as {key} => {value}">
+				[{key}] =>
+				<ul>
+				 <foreach cond="{value} as {key2} => {value2}">
+					<li>[{key2}] => {value2}</li>
+				</foreach>
+				</ul>
+			</foreach>
+		</dd>
 		</if>
 		<if cond="{_cookie}">
 		<dt>_COOKIE</dt>
