@@ -193,6 +193,11 @@ class mysql
 		return $var;
 	}
 
+	function escape($str)
+	{
+		return mysql_real_escape_string($str, $this->con);
+	}
+
 	function close()
 	{
 		if($this->con)

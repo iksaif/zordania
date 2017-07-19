@@ -185,7 +185,9 @@ function genstring($longueur) //genere une chaine a x caracteres aleatoirement
 	
 /* protège une chaine avant de la mettre dans mysql */
 function protect($var, $type = "unknown")
-{	
+{
+	global $_sql;
+	
 	if(is_array($type)){
 		if(is_array($var))
 			foreach($var as $key => $value)
@@ -223,7 +225,7 @@ function protect($var, $type = "unknown")
 
 	/* Protection si ce n'est pas un entier */
 	if (is_string($var)) {
-		$var = addslashes($var); // mysql_real_escape_string($var);
+		$var = $_sql->escape($var);
 	}
 	return $var;
 }

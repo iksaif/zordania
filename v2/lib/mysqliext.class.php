@@ -219,6 +219,11 @@ class mysqliext
 		return $var;
 	}
 
+	function escape($str)
+	{
+		return $this->mysqli->real_escape_string($str);
+	}
+
 	function close()
 	{
 		if($this->con)
