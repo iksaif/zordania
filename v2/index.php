@@ -178,7 +178,7 @@ if(preg_match("/(http|ftp|\/|\.)/i",$_file))
 	$_file = "404";
 
 /* header utf-8 pour tout le site */
-$charset = "utf-8"; // iso-8859-1
+$charset = SITE_CHARSET; // iso-8859-1, utf-8, ...
 $_tpl->set("charset", $charset);
 
 if($_display == "xml") { /* Sortie en XML */

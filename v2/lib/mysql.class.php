@@ -24,9 +24,7 @@ class mysql
 			mysql_select_db($base, $this->con);
 
 		$this->total_time = $this->getmicrotime() - $debut;
-		mysql_query("SET character_set_results = 'UTF8';");
-		//mysql_query("SET character_set_connection = 'UTF8';");
-		mysql_query("SET character_set_client = 'UTF8';");
+		mysql_set_charset(MYSQL_CHARSET, $this->con);
 		return $this->con;
 	}
 	function __destruct() {

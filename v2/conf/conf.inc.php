@@ -6,6 +6,7 @@ define('MYSQL_USER', 'zordania');
 define('MYSQL_PASS', 'zordania');
 define('MYSQL_PREBDD', 'zrd_');
 define('MYSQL_PREBDD_FRM', MYSQL_PREBDD.'frm_');
+define('MYSQL_CHARSET', 'utf8'); // latin1, utf8, ...
 
 /* === Configuration Site === */
 define('ZORD_VERSION',"2.1.2");
@@ -32,12 +33,13 @@ define('SITE_DIR', str_replace('conf','',dirname(__FILE__)));
 define('WWW_DIR', SITE_DIR . "www/");
 define('ZORDLOG_URL', 'archives.zordania.com'); // URL des archives
 
-define('SITE_WEBMASTER_MAIL','webmaster@zordania.com');
+define('SITE_WEBMASTER_MAIL', 'webmaster@zordania.com');
+define('SITE_CHARSET', 'utf-8'); // iso-8859-1, utf-8, ...
 
-define('GEN_LENGHT',6); /* Taille des chaines générées aléatoirement (pass, etc ...) */
+define('GEN_LENGHT', 6); /* Taille des chaines générées aléatoirement (pass, etc ...) */
 
 /* ==== Utilisateurs === */
-define('SITE_FLOOD_TIME',30); /* Temps en seconde pour écrire deux messages a la suite */
+define('SITE_FLOOD_TIME', 30); /* Temps en seconde pour écrire deux messages a la suite */
 define('TAILLE_MAX_LOGIN', 50); /* Nombre de caractères max d'un login : limité par les caractéristiques du champ correspondant dans la BDD */
 define('TAILLE_MAX_PSEUDO', 50); /* Nombre de caractères max d'un pseudo : limité par les caractéristiques du champ correspondant dans la BDD */
 define('TAILLE_MAX_MAIL', 50); /* Nombre de caractères max d'une adresse mail : limité par les caractéristiques du champ correspondant dans la BDD */
