@@ -20,11 +20,12 @@ class mysql
 
 		$this->nbreq = 0;
 		$this->con = mysql_connect($host,$login,$pass);
-		if($this->con)
+		if($this->con) {
 			mysql_select_db($base, $this->con);
+			mysql_set_charset(MYSQL_CHARSET, $this->con);
+		}
 
 		$this->total_time = $this->getmicrotime() - $debut;
-		mysql_set_charset(MYSQL_CHARSET, $this->con);
 		return $this->con;
 	}
 	function __destruct() {
