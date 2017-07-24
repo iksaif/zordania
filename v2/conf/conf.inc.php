@@ -1,12 +1,5 @@
 <?php
-/* === Configuration Serveur === */
-define('MYSQL_BASE', 'zordania');
-define('MYSQL_HOST', 'localhost');
-define('MYSQL_USER', 'zordania');
-define('MYSQL_PASS', 'zordania');
-define('MYSQL_PREBDD', 'zrd_');
-define('MYSQL_PREBDD_FRM', MYSQL_PREBDD.'frm_');
-define('MYSQL_CHARSET', 'utf8'); // latin1, utf8, ...
+require_once('secret_parameters.php');
 
 /* === Configuration Site === */
 define('ZORD_VERSION',"2.1.2");
@@ -15,14 +8,6 @@ define('ZORD_SPEED_FAST', 5); // 1 Tour toutes les 5 minutes
 define('ZORD_SPEED_NORMAL', 30); // 1 Tour par demie heure
 define('ZORD_SPEED_SLOW',60); // 1 Tour par heures
 define('ZORD_SPEED', ZORD_SPEED_FAST);
-
-/* === Configuration IRC === */
-define('IRC_SERVER','irc.quakenet.org');
-define('IRC_PORT',6667);
-define('IRC_CHAN', '#zordania');
-define('IRC_PSEUDO', 'Barnabe');
-define('IRC_PASS', 'xxxxxx');
-define('IRC_USER', 'zordania');
 
 define('SITE_MAX_CONNECTED', 300);
 define('SITE_MAX_INSCRITS', 10000);
