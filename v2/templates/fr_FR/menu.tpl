@@ -2,7 +2,8 @@
 <if cond='{ses_can_play} AND {ses_mbr_etat_ok}'>
 
 <div class="menu_gauche">
-<h2>Village</h2>
+<h2><label for="menu1">Village</label></h2>
+<input id="menu1" name="menu" type="radio" />
 	<ul>
 	<foreach cond='{stats_prim_btc[vil]} as {btc_menu_type} => {btc_menu_array}'>
 		<foreach cond='{btc_menu_array} as {btc_menu_sub}'>
@@ -25,7 +26,8 @@
 </if>
 
 <div class="menu_gauche">
-<h2>Zordania</h2>
+<h2><label for="menu2">Zordania</label></h2>
+<input id="menu2" name="menu" type="radio" />
 	<ul>
 		<li><a href="news.html" title="Voir les dernières news.">News</a></li>
 		<li><a href="manual.html?race={_user[race]}" title="Comment jouer ?">Manuel</a> (<a href="http://www.zordania.com/forum-post.html?tid=2925" title="Foire aux Questions.">FAQ</a>)</li>
@@ -44,7 +46,8 @@
 </div>
 
 <div class="menu_gauche">
-<h2>Liens</h2>
+<h2><label for="menu3">Liens</label></h2>
+<input id="menu3" name="menu" type="radio" />
 <ul>
 	<li>
 		<a href="http://www.tourdejeu.net/annu/fichejeu.php?id=9167" title="Notes Zordania!">tourdejeu.net</a>
@@ -53,10 +56,10 @@
 		<a href="https://twitter.com/Zordania" title="Twittes pour Zordania!">Twitter</a>
 	</li>
 	<li>
-		<a href="https://www.facebook.com/zordania2015" title="Facebook pour Zordania!">facebook</a>
+		<a href="http://www.finestown.com" title="Finestown.com - Construis ta ville.">Finestown</a>
 	</li>
-    <li>
-		<a href="https://github.com/pifou25/zordania" title="Code OpenSource participez!">GitHub</a>
+	<li>
+		<a href="http://www.guerredesgangs.com/frompartenaire-3" title="La Guerre des Gangs.">Guerre des Gangs</a>
 	</li>
 </ul>
 </div>

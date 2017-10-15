@@ -1,7 +1,9 @@
 #!/bin/bash
 # déploiement de la version xxx svn vers le rep zord (par défaut)
-LOCALPATH=/home/nicolas/Documents/zordania
-LOCALPROD=/home/nicolas/Documents/zrd-prod
+# rep GIT
+LOCALPATH=/home/pi/github/zordania/zordania/v2
+# rep FTP
+LOCALPROD=/home/pi/github/zordania/master/zordania/v2
 DATE=$(date "+%d_%m_%Y.%H")
 if [ $# -ge 2 ] # si nb d'arguments >= 2
 then
@@ -10,26 +12,26 @@ then
 		echo origine et source identique
 	else
 		case "$1" in
-		"cvs")
+		"git")
 		SRC=$LOCALPATH/  ;;
-		"cvsprd")
+		"gitm")
 		SRC=$LOCALPROD/ ;;
 		"zordania")
-		SRC=zordania@www.zordania.com:/home/zordania/v2/ ;;
-		"zorddev")
-		SRC=zorddev@www.zordania.com:/home/zorddev/ ;;
+		SRC=zordania@zordania.fr:/ ;;
+#		"zorddev")
+#		SRC=zorddev@zordania.fr:/home/zorddev/ ;;
 		*)
 		SRC="" ;;
 		esac
 		case "$2" in
-		"cvs") 
+		"git") 
 		DEST=$LOCALPATH ;;
-		"cvsprd")
+		"gitm")
 		DEST=$LOCALPROD ;;
 		"zordania")
-		DEST=zordania@www.zordania.com:/home/zordania/v2 ;;
-		"zorddev")
-		DEST=zorddev@www.zordania.com:/home/zorddev ;;
+		DEST=zordania@zordania.fr:/ ;;
+#		"zorddev")
+#		DEST=zorddev@www.zordania.com:/home/zorddev ;;
 		*)
 		DEST="" ;;
 		esac
@@ -37,9 +39,9 @@ then
 		if [ "$SRC" = "" -o "$DEST" = "" ]
 		then
 			echo usage: $0 TO FROM [force]
-			echo valeurs possibles:
-			echo "- cvs (local cvs dev)"
-			echo "- cvsprd (local cvs prod)"
+			echo valeurs possibles pour TO et FROM:
+			echo "- git (local git branche dev)"
+			echo "- gitm (local git branche master)"
 			echo "- zordania (zordania prod)"
 			echo "- zorddev (zordania dev)"
 		elif [ $# = 3 ]

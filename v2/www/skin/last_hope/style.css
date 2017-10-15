@@ -30,7 +30,7 @@ body {
     background-image: url(img/fond.png); 
     color: silver; 
 	font-family: Verdana,Tahoma,Arial,sans-serif;
-    font-size: 11px; 
+    font-size: 12px; 
     margin: 0px; 
     text-align: center;
 
@@ -139,7 +139,7 @@ div#toolTip {
     filter: Alpha( Opacity=75, Style=0);
     font-family: Verdana, 
     Arial, sans-serif; 
-    font-size: 9px; 
+    font-size: 10px; 
     font-weight: bold; 
     left: 0px; -moz-border-radius: 5%; -moz-opacity: 0.75; 
     padding: 5px;

@@ -22,6 +22,7 @@
 
 	<link rel="stylesheet" type="text/css" media="screen" title="{css[{_user[design]}][1]}" href="skin/{css[{_user[design]}][0]}/style.css" />
 	<link type="text/css" href="skin/jquery/jquery-ui-1.10.0.custom.min.css" rel="stylesheet" />
+	<link rel="stylesheet" media="all and (max-width: 800px)" href="skin/imports/mobile.css" />
 	
 	<script type="text/javascript">
 	var cfg_url = '{cfg_url}';

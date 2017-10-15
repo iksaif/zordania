@@ -2,6 +2,33 @@
 
 $(document).ready(  function()
 {
+
+	/* forcer les valeurs du menu avec celles du fond 
+	 * 	$('.menu_gauche').css('background-color', $('body').css('background-color'));
+	 * 	$('.menu_gauche ul').css('background-color', $('#module').css('background-color'));
+	 * */
+	 
+	var isMenuOpen = false;
+
+	$('#openmenulat').click(function()
+	{
+		if (isMenuOpen == false)
+		{
+			$("#menu").clearQueue().animate({
+				left : '2px'
+			})
+			isMenuOpen = true;
+		}
+		else
+		{
+			$("#menu").clearQueue().animate({
+				left : '-260px'
+			})
+			isMenuOpen = false;
+		}
+	});
+	
+
 	/* un élément avec id et classe 'toggle' permet
      * d'afficher / masquer un élément 'id_toggle'
 	 * tous sont masqués au chargement (fin du index.tpl)

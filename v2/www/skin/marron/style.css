@@ -4,7 +4,7 @@
 * Design G?n?ral
 */
 a{
-	font-size: 11px;
+	font-size: 12px;
 }
 a:link, a:visited, a:active {
 	 color: rgb(246, 239, 226); 
@@ -31,7 +31,7 @@ body {
  background-image: url(img/bg1.png); 
  color: rgb(231, 214, 181);
  font-family: Verdana,Tahoma,Arial,sans-serif; 
- font-size: 10px; 
+ font-size: 12px; 
  margin: 0px; 
  text-align: center;
  }

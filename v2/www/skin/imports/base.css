@@ -15,6 +15,17 @@ img {
     text-align: center;
 }
 
+.menu_module a,.retour_module a {
+    margin: 2px;
+    padding: 2px;
+    border-left: solid 1px #e7d6b5;
+    border-right: solid 1px #e7d6b5;
+    border-radius: 3px;
+}
+.menu_gauche input[type="radio"],
+.menu_gauche input[type="checkbox"] {
+    display: none
+}
 .close_popup {
     position: fixed;
     bottom: 0em;
@@ -98,6 +109,10 @@ img {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+/* masquer le 1er icone */
+div#actbar li:nth-child(1){
+	display: none;
 }
 
 .perte{

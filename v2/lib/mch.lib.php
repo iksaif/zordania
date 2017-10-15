@@ -193,7 +193,7 @@ function mch_get_cours_sem($res = 0, $jours) // cours entre J et J+7
 	if($res) $sql.=" WHERE msem_res = $res ";
 	if($debut) $sql.= ($res ? "AND" : "WHERE")." msem_date BETWEEN (NOW() - INTERVAL $fin DAY) AND (NOW() - INTERVAL $debut DAY)";
 	else	   $sql.= ($res ? "AND" : "WHERE")." msem_date BETWEEN (NOW() - INTERVAL 7 DAY) AND (NOW())";
-	$sql.=" ORDER BY msem_res ASC,msem_date ASC LIMIT 112";
+	$sql.=" ORDER BY msem_res ASC,msem_date ASC LIMIT 112";
 	return $_sql->make_array($sql);
 }
 	
