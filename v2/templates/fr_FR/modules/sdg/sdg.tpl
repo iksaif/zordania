@@ -80,4 +80,4 @@
 	</else>
 </else>
 
-<div class="menu_module"> [ <a href="sdg.html">Retour</a> ] </div>
+<div class="menu_module"><a href="sdg.html">Retour</a></div>

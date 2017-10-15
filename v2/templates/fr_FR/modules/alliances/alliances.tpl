@@ -1,14 +1,14 @@
 <p class="menu_module">
 <if cond='{_user[alaid]} AND {al_act} != "view"'>
-[ <a href="alliances-admin.html" title="Gestion de l'Alliance">Gestion</a> ]
+<a href="alliances-admin.html" title="Gestion de l'Alliance">Gestion</a>
 -
-[ <a href="alliances-my.html" title="Discuter, etc ...">Table ronde</a> ]
+<a href="alliances-my.html" title="Discuter, etc ...">Table ronde</a>
 -
-[ <a href="alliances-descr_rules.html" title="Decriptifs et Règles ...">Règles</a> ]
+<a href="alliances-descr_rules.html" title="Decriptifs et Règles ...">Règles</a>
 -
-[ <a href="alliances-res.html" title="Stocks de ressources ...">Grenier</a> ]
+<a href="alliances-res.html" title="Stocks de ressources ...">Grenier</a>
 -
-[ <a href="diplo-my.html" title="Gestion de la diplomatie ...">Diplomatie</a> ]
+<a href="diplo-my.html" title="Gestion de la diplomatie ...">Diplomatie</a>
 </if>
 </p>
 <hr />
@@ -136,4 +136,6 @@
 	</div>
 </elseif>
 
-<p class="retour_module">[ <a href="alliances<if cond='{al_act} == "admin" || {al_act} == "my"'>-{al_act}</if>.html">Retour</a> ]</p>
+<p class="retour_module">
+	<a href="alliances<if cond='{al_act} == "admin" || {al_act} == "my"'>-{al_act}</if>.html">Retour</a>
+</p>

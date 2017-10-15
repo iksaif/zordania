@@ -1,5 +1,5 @@
 <p class="menu_module">
-[ <a href="bonus.html" OnClick="goOpener(this.href);return false;" title="Gagner des ressources !" class="bonus">Gagner des ressources</a> ]
+<a href="bonus.html" OnClick="goOpener(this.href);return false;" title="Gagner des ressources !" class="bonus">Gagner des ressources</a>
 </p>
 
 <if cond='is_array({res_dispo})'>

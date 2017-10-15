@@ -2,8 +2,10 @@
 	<set name="url" value="module--carte.html"/>
 </if>
 <else>
-	<div class="menu_module">[ <a href="module--carte.html?map_y={map_y}&map_x={map_x}" title="Voir la carte en grand">Zoom</a> ] - 
-[ <a href="carte.html?map_cid=94800" title="Egeria sur la carte">Egeria</a> ]</div>
+	<div class="menu_module">
+		<a href="module--carte.html?map_y={map_y}&map_x={map_x}" title="Voir la carte en grand">Zoom</a> - 
+		<a href="carte.html?map_cid=94800" title="Egeria sur la carte">Egeria</a>
+	</div>
 
 	<set name="url" value="carte.html" />
 </else>

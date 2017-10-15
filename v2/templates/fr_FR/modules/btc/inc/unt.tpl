@@ -30,8 +30,8 @@
 	
 	<p class="infos">Les unités "disponibles" sont les unités formées qui ne travaillent pas dans un bâtiment, "Total" indique la somme des unités disponibles et de celles qui ne le sont pas.</p> 
 	
-	<p class="menu_module">[ <a id="unt_infos" class="toggle" href="#">Unités Disponibles</a> ] -
-	[ <a id="res_infos" class="toggle" href="#">Ressources Disponibles</a> ]</p>
+	<p class="menu_module"><a id="unt_infos" class="toggle" href="#">Unités Disponibles</a> -
+	<a id="res_infos" class="toggle" href="#">Ressources Disponibles</a></p>
 
 	<if cond='{res_utils}'>
 	<table id="res_infos_toggle" class="liste" style="display: none;">

@@ -131,26 +131,26 @@
 	{btc[{_user[race]}][descr][{btc_id}]} <hr />
 	<br/>
 	<p class="menu_module">
-		[  <a href="btc-use.html?btc_type={btc_id}">Infos</a> ]
+		<a href="btc-use.html?btc_type={btc_id}">Infos</a>
 		<if cond="isset({btc_conf[prod_src]})">
-			- [ <a href="btc-use.html?btc_type={btc_id}&amp;sub=src">{btcopt[{_user[race]}][{btc_id}][src]}</a>  ]
+			- <a href="btc-use.html?btc_type={btc_id}&amp;sub=src">{btcopt[{_user[race]}][{btc_id}][src]}</a>
 		</if>
 		<if cond="isset({btc_conf[prod_unt]})">
-			- [ <a href="btc-use.html?btc_type={btc_id}&amp;sub=unt">{btcopt[{_user[race]}][{btc_id}][unt]}</a> ]
+			- <a href="btc-use.html?btc_type={btc_id}&amp;sub=unt">{btcopt[{_user[race]}][{btc_id}][unt]}</a>
 		</if>
 		<if cond="isset({btc_conf[prod_res]})">
-			- [ <a href="btc-use.html?btc_type={btc_id}&amp;sub=res">{btcopt[{_user[race]}][{btc_id}][res]}</a> ]
+			- <a href="btc-use.html?btc_type={btc_id}&amp;sub=res">{btcopt[{_user[race]}][{btc_id}][res]}</a>
 		</if>
 		<if cond="isset({btc_conf[com]})">
-			- [  <a href="btc-use.html?btc_type={btc_id}&amp;sub=my">Vos Ventes</a> 
-			] - [
+			- <a href="btc-use.html?btc_type={btc_id}&amp;sub=my">Vos Ventes</a> 
+			-
 			<a href="btc-use.html?btc_type={btc_id}&amp;sub=ven">Vendre</a> 
-			] - [
+			-
 			<a href="btc-use.html?btc_type={btc_id}&amp;sub=ach">Acheter</a> 
-			] - [
+			-
 			<a href="btc-use.html?btc_type={btc_id}&amp;sub=cours" title="Cours moyens">Cours</a>
-			] - [
-			<a href="btc-use.html?btc_type={btc_id}&amp;sub=cours_sem" title="Cours sur la semaine">Cours de la Semaine</a> ]
+			-
+			<a href="btc-use.html?btc_type={btc_id}&amp;sub=cours_sem" title="Cours sur la semaine">Cours de la Semaine</a>
 		</if>
 	</p>
 	<include file="{btc_tpl}" cache="1" />
