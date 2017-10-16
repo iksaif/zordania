@@ -112,6 +112,7 @@ hr {
     float: left;
     /*width: 200px;*/
     margin-left: 40px;
+	padding-top:5px;
 }
 
 #module dt label, #module dd label {
@@ -259,7 +260,7 @@ td {
     float: left;
     width: 700px;
     position: relative;
-    bottom: 47px;
+    margin-top: -47px;
 }
 
 #actbar {
@@ -324,7 +325,8 @@ margin: 2px;
 
 .menu_gauche{
     margin-bottom: 20px;
-	}
+	background: #E7DAC5
+}
 
 .menu_gauche h2{
 
@@ -353,13 +355,17 @@ margin: 2px;
     list-style-type: disc;
 }
 
+.menu_module a, .retour_module a {
+    border-left: solid 1px #635a45;
+    border-right: solid 1px #635a45;
+    border-radius: 4px;
+}
+
 .liste
 {
     width: 100%;
     margin-right: 5%;
 }
-
-
 /* Quand c'est un allié dans une liste */
 .allie
 {

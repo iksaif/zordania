@@ -234,8 +234,5 @@
 	</form>
 	
 	</else>
-	<p class="retour_module">
-	[ <a href="member.html">Retour</a>
-	]
-	</p>
+	<p class="retour_module"><a href="member.html">Retour</a></p>
 </elseif>

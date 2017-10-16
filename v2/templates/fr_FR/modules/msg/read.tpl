@@ -11,9 +11,9 @@
 
 	<if cond="isset({msg_infos[mrec_id]})">
 		<p class="menu_module">
-		[ <a href="msg-new.html?mbr_mid={msg_infos[mrec_from]}&amp;mrec_id={msg_infos[mrec_id]}" title="Répondre à ce message"><img src="img/reply.png"/> Répondre</a> ]
-		- [ <a href="msg-del_rec.html?msg_id={msg_infos[mrec_id]}" title="Effacer ce message"> <img src="img/drop.png"/> Effacer</a> ]
-		- [	<a href="msg-fsign.html?msgid={msg_infos[mrec_id]}" title="signaler ce message"><img src="img/surv.png"/> Signaler</a> ]
+		<a href="msg-new.html?mbr_mid={msg_infos[mrec_from]}&amp;mrec_id={msg_infos[mrec_id]}" title="Répondre à ce message"><img src="img/reply.png"/> Répondre</a>
+		- <a href="msg-del_rec.html?msg_id={msg_infos[mrec_id]}" title="Effacer ce message"> <img src="img/drop.png"/> Effacer</a>
+		- <a href="msg-fsign.html?msgid={msg_infos[mrec_id]}" title="signaler ce message"><img src="img/surv.png"/> Signaler</a>
 		</p>
 	</if>
 </if>

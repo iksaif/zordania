@@ -50,16 +50,13 @@
 <input id="menu3" name="menu" type="radio" />
 <ul>
 	<li>
-		<a href="http://www.tourdejeu.net/annu/fichejeu.php?id=9167" title="Notes Zordania!">tourdejeu.net</a>
-	</li>
-	<li>
 		<a href="https://twitter.com/Zordania" title="Twittes pour Zordania!">Twitter</a>
 	</li>
 	<li>
-		<a href="http://www.finestown.com" title="Finestown.com - Construis ta ville.">Finestown</a>
+		<a href="https://fr-fr.facebook.com/zordania2015" title="Facebook">Facebook</a>
 	</li>
 	<li>
-		<a href="http://www.guerredesgangs.com/frompartenaire-3" title="La Guerre des Gangs.">Guerre des Gangs</a>
+		<a href="http://www.tourdejeu.net/annu/fichejeu.php?id=9167" title="Notes Zordania!">tourdejeu.net</a>
 	</li>
 </ul>
 </div>

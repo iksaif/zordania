@@ -1,13 +1,7 @@
 <p class="menu_module">
-[
 <a href="notes.html" title="Notes">Notes</a>
-] - [
-<a href="notes-edit.html" title="Ajouter une note">Nouvelle Note</a>
-] - [
-<a href="notes-del.html?nid=0" title="Vider">
-<img src="img/drop.png" alt="Vider" /> Vider 
-</a>
-]
+- <a href="notes-edit.html" title="Ajouter une note">Nouvelle Note</a>
+- <a href="notes-del.html?nid=0" title="Vider"><img src="img/drop.png" alt="Vider" /> Vider</a>
 </p>
 
 <if cond='{nte_act} == "edit"'>
@@ -84,4 +78,4 @@
 			<p class="infos">Aucune note.</p>
 		</else>
 </elseif>
-<p class="retour_module">[ <a href="notes.html" title="Retour">Retour</a> ]</p>
+<p class="retour_module"><a href="notes.html" title="Retour">Retour</a></p>

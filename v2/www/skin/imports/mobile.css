@@ -31,6 +31,7 @@ div#menu {
 	overflow: hidden;
 	transition: 1s max-height 0.3s;
 	transition: 1s max-width 0.3s;
+	z-index:99;
 }
 
 div#menu ul{
@@ -98,6 +99,7 @@ div.haut, div.bas{
 div#module {
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 0px;
 	padding-top:30px;
 	width:100%;
 }
@@ -130,7 +132,9 @@ div#contenu dt img{
 #module .contenu{
 	padding:15px;
 }
-
+#module label{
+	margin-left:0px;
+}
 /*
  * #actbar et #menu sont la navigation du site
  */
@@ -241,18 +245,32 @@ div.forum .stat, div.forum .stat a{
 }
 
 /* formulaires */
-input, button, textarea{
+input, button, textarea, select{
 	margin:2px;
 	padding:2px;
 	font-weight: bold;
 	border-radius: 4px;
 }
- 
+#formulaire input{
+	width:120px;
+}
 textarea {
 	border: thin solid #533721;
 	width: 90%;
 }
 
+#formulaire .menu_module a{
+	border: 1px solid #222;
+    border-radius: 4px;
+    background-color:#C5B397;
+    padding-left:4px;
+    padding-right:4px;
+    font-size:12px;
+}
+#formulaire .menu_module input{
+	font-size:12px;
+	width:auto;
+}
 
 .error, .bad {
 	border: 1px solid #FF0000;
