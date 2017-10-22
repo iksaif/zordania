@@ -469,16 +469,8 @@ margin: 2px;
 	border-width: 1px;
 	color: #FFFFFF;
 	padding: 5px;
-	margin-top: 5px; }
-
-/* Block de debug mysql */
-.mysql{
-	background-color: #DDDDDD;
-	border: 1px #AAAAAA solid;
-	color: #000000;
-	text-align: left;
+	margin-top: 5px;
 }
-
 
 /* Signature dans le forum, fiche membre, etc .. */
 .signature {
@@ -612,7 +604,7 @@ margin: 2px;
 	background-image: url(img/quote1.png)
 	width:90%;
 	text-align:left;
-	background-color: #332B19;
+	background-color: #45391C;
 	font-style: italic;
 	border:none;
 	font-family: Verdana, Arial;
@@ -623,14 +615,31 @@ margin: 2px;
 .code {
 	width:90%;
 	text-align:left;
-	background-color: #332B19;
+	background-color: #45391C;
 	font-style: italic;
 	border: none;
 	font-family: Verdana, Arial;
 	font-size: 11px;
 	padding: 5px;
-	margin:10px;
-	overflow:auto;
+	margin: 10px 0;
+	overflow: auto;
+}
+
+/* Block de debug */
+.debug{
+	text-align: left;
+	background-color: #000000;
+	color: #fff;
+	border: #ffffff solid 1px;
+	padding: 5px;
+}
+.mysql{
+	background-color: #DDDDDD;
+	border: 1px #AAAAAA solid;
+	color: #000000;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0;
 }
 
 /* Batiment sur la page "Village" */

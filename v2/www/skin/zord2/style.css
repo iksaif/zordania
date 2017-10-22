@@ -432,19 +432,22 @@ margin: 2px;
     width: 90%;
     border: 1px solid #292722;
     background: #C5B397;
-    font-style:italic;
-    font-weight:bold;
-    padding:5px;
+	color: #000;
+    font-style: italic;
+    font-weight: bold;
+    padding: 5px;
+	margin: 10px;
 }
 
 .code {
     overflow: auto;
+	margin: 10px 0;
 }
 
 .quote {
-    background-image:url(img/quote.png);
-    background-repeat:no-repeat;
-    padding-top:25px;
+    background-image: url(img/quote.png);
+    background-repeat: no-repeat;
+    padding-top: 25px;
 }
 
 .signature
@@ -452,6 +455,23 @@ margin: 2px;
     border: 1px solid #292722;
     background: #C5B397;
     padding:5px;
+}
+
+/* Block de debug */
+.debug{
+	text-align: left;
+	background-color: #000000;
+	color: #fff;
+	border: #ffffff solid 1px;
+	padding: 5px;
+}
+.mysql{
+	background-color: #DDDDDD;
+	border: 1px #AAAAAA solid;
+	color: #000000;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0;
 }
 
 /* News */

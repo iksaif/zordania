@@ -20,13 +20,12 @@ class mysql
 
 		$this->nbreq = 0;
 		$this->con = mysql_connect($host,$login,$pass);
-		if($this->con)
+		if($this->con) {
 			mysql_select_db($base, $this->con);
+			mysql_set_charset(MYSQL_CHARSET, $this->con);
+		}
 
 		$this->total_time = $this->getmicrotime() - $debut;
-		mysql_query("SET character_set_results = 'UTF8';");
-		//mysql_query("SET character_set_connection = 'UTF8';");
-		mysql_query("SET character_set_client = 'UTF8';");
 		return $this->con;
 	}
 	function __destruct() {
@@ -191,6 +190,11 @@ class mysql
 
 		$this->free_result($res);
 		return $var;
+	}
+
+	function escape($str)
+	{
+		return mysql_real_escape_string($str, $this->con);
 	}
 
 	function close()

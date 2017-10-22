@@ -2,14 +2,19 @@
 	<p class="infos">C'est votre première venue ? <a href="a_propos-whatiszord.html">C'est quoi Zordania ?</a></p>
 </if>
 
-<h3 class="head_forum"><a href="forum.html">Forums</a> <img src="img/right.png" /> <a href="forum.html?cid={frm[cid]}">{frm[cat_name]}</a> <img src="img/right.png" /> <a href="forum-topic.html?fid={frm[fid]}">{frm[forum_name]}</a> <img src="img/right.png" />
-
+<h3 class="head_forum">
+	<a href="forum.html">Forums</a>
+	<if cond="isset({frm})">
+		<img src="img/right.png" /> <a href="forum.html?cid={frm[cid]}">{frm[cat_name]}</a>
+		<img src="img/right.png" /> <a href="forum-topic.html?fid={frm[fid]}">{frm[forum_name]}</a>
 <if cond="isset({arr_pge})">
+			<img src="img/right.png" />
 	<foreach cond="{arr_pge} as {i}">
 		<if cond='{i} == {pge} || {i} == "..."'> {i} </if>
 		<else> <a href="news.html?p={i}" title="page {i}">{i}</a> </else>
 	</foreach>
 </if>
+	</if>
 </h3>
 
 <if cond='isset({nws_array}) AND is_array({nws_array})'>
@@ -59,7 +64,7 @@
 		</p>
 	</if>
 
-</elseif>
+</if>
 
 <else>
 	<p class="error">Il n'y a pas de news pour le moment.</p>

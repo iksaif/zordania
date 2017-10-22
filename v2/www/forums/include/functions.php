@@ -39,8 +39,8 @@ function check_cookie(&$pun_user)
 		$zrd = request("zrd", "array", "cookie");
 		$infos = array();
 		if(count($zrd) == 2) {
-			$cookie['login'] = protect($zrd[0], "string");
-			$cookie['password'] = protect($zrd[1], "string");
+			$cookie['login'] = $db->escape($zrd[0]);
+			$cookie['password'] = $db->escape($zrd[1]);
 		}
 	}
 

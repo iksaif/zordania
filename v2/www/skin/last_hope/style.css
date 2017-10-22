@@ -554,14 +554,6 @@ min-height: 50px;
 	padding-left: 5px;
 }
 
-/* Block de debug mysql */
-.mysql{
-	background-color: #DDDDDD;
-	border: 1px #AAAAAA solid;
-	color: #000000;
-	text-align: left;
-}
-
 /* Signature dans le forum, fiche membre, etc .. */
 .signature {
 	background-color: #303030;
@@ -690,27 +682,44 @@ background-color: #00000f;
 /* Pour le forum, mais pas seulement */
 .quote {
 	-moz-border-radius: 1%;
-	width:90%;
-	text-align:left;
-	background-color: #4D5E7F;
-	font-style: italic;
-	border:none;
-	font-family: Verdana, Arial;
-	font-size: 11px;
-	padding: 5px;
-	margin:10px;
-}
-.code {
-	width:90%;
-	text-align:left;
+	width: 90%;
+	text-align: left;
 	background-color: #4D5E7F;
 	font-style: italic;
 	border: none;
 	font-family: Verdana, Arial;
 	font-size: 11px;
 	padding: 5px;
-	margin:10px;
-	overflow:auto;
+	margin: 10px;
+}
+.code {
+	width: 90%;
+	text-align: left;
+	background-color: #4D5E7F;
+	font-style: italic;
+	border: none;
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	padding: 5px;
+	margin: 10px 0;
+	overflow: auto;
+}
+
+/* Block de debug */
+.debug{
+	text-align: left;
+	background-color: #000000;
+	color: #fff;
+	border: #ffffff solid 1px;
+	padding: 5px;
+}
+.mysql{
+	background-color: #DDDDDD;
+	border: 1px #AAAAAA solid;
+	color: #000000;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0;
 }
 
 /* Batiment sur la page "Village" */

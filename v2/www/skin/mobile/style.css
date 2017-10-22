@@ -299,16 +299,43 @@ div#footer *{
 	font-size: 8px;
 }
 
-/* debug zone */
-div.block{
-	max-width:100%;
-	border:none;
+/* Pour le forum, mais pas seulement */
+.quote {
+	-moz-border-radius: 1%;
+	width: 90%;
+	text-align: left;
+	font-style: italic;
+	border: 1px solid;
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	padding: 5px;
+	margin: 10px;
 }
-div.block dd,div.block dt,div.block ul{
-	overflow-x:scroll;
-	border: 1px solid #222;
-	font-size: 8px;
+.code {
+	width: 90%;
+	text-align: left;
+	font-style: italic;
+	border: 1px solid;
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	padding: 5px;
+	margin: 10px 0;
+	overflow: auto;
 }
-div.block, div.block *{
-	font-size: 10px;
+
+/* Block de debug */
+.debug{
+	text-align: left;
+	background-color: #000000;
+	color: #fff;
+	border: #ffffff solid 1px;
+	padding: 5px;
+}
+.mysql{
+	background-color: #DDDDDD;
+	border: 1px #AAAAAA solid;
+	color: #000000;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0;
 }

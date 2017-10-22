@@ -455,9 +455,6 @@ min-height: 50px;
 
 .comment { background-color: #352d21; border-color: #000000; border-style: solid; border-width: 1px; color: #FFF; margin-top: 5px; }
 
-/* Block de debug mysql */
-.mysql{ background-color: #DDDDDD; border: 1px #AAAAAA solid; color: #000000; text-align: left; }
-
 /* Signature dans le forum, fiche membre, etc .. */
 .signature {  max-height: 15px; overflow: hidden; background-color: #504436; margin-bottom: 2px; margin-top: 5px; padding-left: 5px; padding-right: 5px; }
 
@@ -549,8 +546,25 @@ background-color: #352d21; border-color: #000; border-style: solid; border-width
 }
 
 /* Pour le forum, mais pas seulement */
-.quote { -moz-border-radius: 1%; width:90%; text-align:left; background-color: #332B19;font-style: italic; border:none; font-family: Verdana, Arial; font-size: 11px; padding: 5px;  margin:10px; }
-.code {  width:90%; text-align:left; background-color: #332B19;  font-style: italic;  border: none;  font-family: Verdana, Arial;  font-size: 11px; padding: 5px;  margin:10px; }
+.quote { -moz-border-radius: 1%; width:90%; text-align:left; background-color: #4A3E23;font-style: italic; border:none; font-family: Verdana, Arial; font-size: 11px; padding: 5px;  margin:10px; }
+.code {  width:90%; text-align:left; background-color: #4A3E23;  font-style: italic;  border: none;  font-family: Verdana, Arial;  font-size: 11px; padding: 5px;  margin:10px 0; }
+
+/* Block de debug */
+.debug{
+	text-align: left;
+	background-color: #000000;
+	color: #fff;
+	border: #ffffff solid 1px;
+	padding: 5px;
+}
+.mysql{
+	background-color: #DDDDDD;
+	border: 1px #AAAAAA solid;
+	color: #000000;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0;
+}
 
 /* Batiment sur la page "Village" */
 .batiment { width: 28%; background-color: #463D32; border-color: #000000; border-style: solid; border-width: 1px; float: left; margin: 5px; padding: 5px; }
