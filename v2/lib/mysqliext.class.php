@@ -35,12 +35,10 @@ class mysqliext
 		// Fonctionne depuis PHP 5.2.9 et 5.3.0.
 		if ($this->mysqli->connect_error) {
 			echo('Erreur de connexion : ' . $this->mysqli->connect_error);
-		}
-		else {
+		} else
 			$this->con = true;
-			if (!$this->mysqli->set_charset(MYSQL_CHARSET)) {
-				printf("Erreur lors du chargement du jeu de caractères ".MYSQL_CHARSET." : %s\n", $this->mysqli->error);
-			}
+		if (!$this->mysqli->set_charset("utf8")) {
+		    printf("Erreur lors du chargement du jeu de caractères utf8 : %s\n", $this->mysqli->error);
 		}
 
 		$this->total_time = $this->getmicrotime() - $debut;
@@ -219,11 +217,6 @@ class mysqliext
 
 		$this->free_result($res);
 		return $var;
-	}
-
-	function escape($str)
-	{
-		return $this->mysqli->real_escape_string($str);
 	}
 
 	function close()

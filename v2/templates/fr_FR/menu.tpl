@@ -29,6 +29,9 @@
 <h2><label for="menu2">Zordania</label></h2>
 <input id="menu2" name="menu" type="radio" />
 	<ul>
+		<if cond='!{ses_can_play} OR !{ses_mbr_etat_ok}'>
+		<li><a href="presentation.html" title="Présentation.">Accueil</a></li>
+		</if>
 		<li><a href="news.html" title="Voir les dernières news.">News</a></li>
 		<li><a href="manual.html?race={_user[race]}" title="Comment jouer ?">Manuel</a> (<a href="http://www.zordania.com/forum-post.html?tid=2925" title="Foire aux Questions.">FAQ</a>)</li>
 		<li><a href="forum.html" title="Participer à la vie de la communauté.">Forums</a></li>
@@ -56,7 +59,10 @@
 		<a href="https://fr-fr.facebook.com/zordania2015" title="Facebook">Facebook</a>
 	</li>
 	<li>
-		<a href="http://www.tourdejeu.net/annu/fichejeu.php?id=9167" title="Notes Zordania!">tourdejeu.net</a>
+		<a href="http://www.tourdejeu.net/annu/fichejeu.php?id=9167" title="tourdejeu">tourdejeu.net</a>
+	</li>
+	<li>
+		<a href="http://www.jeux-web.com/" title="La communauté des joueurs de jeux en ligne alternatifs">Jeux-Web.com</a>
 	</li>
 </ul>
 </div>

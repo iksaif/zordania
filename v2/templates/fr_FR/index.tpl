@@ -19,6 +19,7 @@
 	<meta name="description" content="Jeu de Gestion/Stratégie dans un univers Médiéval-Fantastique. Fondez un village, construisez des bâtiments pour produire des ressources, érigez votre armée et partez à la conquête du monde !" />
 	<meta name="keywords" content="zordania;jeu;php;medieval;orc;humain;nain;drow;elfe" />
 	<meta name="author" content="CHARY Corentin" />
+	<link rel="browser-game-info" href="http://www.zordania.com/xml/info.xml" />
 
 	<link rel="stylesheet" type="text/css" media="screen" title="{css[{_user[design]}][1]}" href="skin/{css[{_user[design]}][0]}/style.css" />
 	<link type="text/css" href="skin/jquery/jquery-ui-1.10.0.custom.min.css" rel="stylesheet" />

@@ -1,9 +1,9 @@
-<div class="debug">
+<div style="text-align:left" class="block">
 	<h1>Debug</h1>
 	<dl>
 		<math oper="print_debug({debugvars})" />
 		{debugvars}
-		<dt>_user</dt>
+		<dt>User</dt>
 		<dd>
 		<foreach cond="{_user} as {key} => {value}">
 			[{key}] => 
@@ -11,25 +11,25 @@
 		</foreach>
 		</dd>
 		<if cond="{_get}">
-		<dt>_GET</dt>
+		<dt>GET</dt>
 		<dd><foreach cond="{_get} as {key} => {value}">
 			[{key}] => 
 			<if cond="is_array({value})">( array )</if><else>{value}</else><br/>
 		</foreach></dd>
 		</if>
 		<if cond="{_post}">
-		<dt>_POST</dt>
+		<dt>POST</dt>
 		<dd><foreach cond="{_post} as {key} => {value}">
 			[{key}] => 
 			<if cond="is_array({value})">( array )</if><else>{value}</else><br/>
 		</foreach></dd>
 		</if>
 		<if cond="{_files}">
-		<dt>_FILES</dt>
+		<dt>FILES</dt>
 		<dd><foreach cond="{_files} as {key} => {value}">[{key}] => {value}<br/></foreach></dd>
 		</if>
 		<if cond="{_cookie}">
-		<dt>_COOKIE</dt>
+		<dt>COOKIE</dt>
 		<dd><foreach cond="{_cookie} as {key} => {value}">
 			[{key}] => 
 			<if cond="is_array({value})">( array )</if><else>{value}</else><br/>
@@ -41,7 +41,7 @@
 			<if cond="{sv_queries}">
 			<foreach cond='{sv_queries} as {values}'>
 			<li>
-				<div class="mysql">{values[req]}</div>
+				{values[req]}<br/>
 				Err: {values[errno]} {values[err]} <br/>
 				<if cond="{values[infos]}">
 				Infos: {values[infos]} <br/>

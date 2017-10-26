@@ -8,7 +8,8 @@
 		<p class="menu_module">
 			<input type="submit" value="Connexion" />
 			<a href="inscr-new.html" title="S'inscrire">Inscription</a>
-			<a href="inscr-newpass.html" title="Récupérer son mot de passe">Mot de Passe</a>
+			<a href="inscr-newpass.html" title="Récupérer son mot de passe">Mot&nbsp;de&nbsp;Passe</a>
+			<a id="openmenulat" href="#" title="afficher / masquer le menu">Menu</a>
 		</p>
 	</form>
 </div>

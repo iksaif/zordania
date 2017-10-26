@@ -1,4 +1,4 @@
-<div class="debug">
+<div style="text-align:left" class="block">
 	<h1>Debug</h1>
 	<dl>
 		<if cond="false"><math oper="print_debug()" /></if>
@@ -26,16 +26,7 @@
 		</if>
 		<if cond="{_files}">
 		<dt>_FILES</dt>
-		<dd>
-			<foreach cond="{_files} as {key} => {value}">
-				[{key}] =>
-				<ul>
-				 <foreach cond="{value} as {key2} => {value2}">
-					<li>[{key2}] => {value2}</li>
-				</foreach>
-				</ul>
-			</foreach>
-		</dd>
+		<dd><foreach cond="{_files} as {key} => {value}">[{key}] => {value}<br/></foreach></dd>
 		</if>
 		<if cond="{_cookie}">
 		<dt>_COOKIE</dt>
@@ -51,7 +42,7 @@
 			<if cond="{sv_queries}">
 			<foreach cond='{sv_queries} as {values}'>
 			<li>
-				<div class="mysql"><math oper="htmlspecialchars({values[req]})" /></div>
+				<math oper="htmlspecialchars({values[req]})" /><br/>
 				Err: {values[errno]} {values[err]} <br/>
 				<if cond="{values[infos]}">
 				Infos: {values[infos]} <br/>

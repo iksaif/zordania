@@ -6,3 +6,6 @@ v2/www/img/mbr_logo/*.png
 v2/www/img/al_logo/*.png
 v1
 /v2/conf/secret_parameters.php
+v2/.ftpquota
+v2/scripts/cron.sh
+v2/scripts/cron.sh
