@@ -469,8 +469,9 @@ margin: 2px;
 	border-width: 1px;
 	color: #FFFFFF;
 	padding: 5px;
-	margin-top: 5px;
+	margin-top: 5px; 
 }
+
 
 /* Signature dans le forum, fiche membre, etc .. */
 .signature {
@@ -604,7 +605,7 @@ margin: 2px;
 	background-image: url(img/quote1.png)
 	width:90%;
 	text-align:left;
-	background-color: #45391C;
+	background-color: #332B19;
 	font-style: italic;
 	border:none;
 	font-family: Verdana, Arial;
@@ -615,14 +616,14 @@ margin: 2px;
 .code {
 	width:90%;
 	text-align:left;
-	background-color: #45391C;
+	background-color: #332B19;
 	font-style: italic;
 	border: none;
 	font-family: Verdana, Arial;
 	font-size: 11px;
 	padding: 5px;
-	margin: 10px 0;
-	overflow: auto;
+	margin:10px;
+	overflow:auto;
 }
 
 /* Block de debug */
@@ -640,6 +641,8 @@ margin: 2px;
 	text-align: left;
 	padding: 5px;
 	margin: 10px 0;
+	margin:10px;
+	overflow:auto;
 }
 
 /* Batiment sur la page "Village" */

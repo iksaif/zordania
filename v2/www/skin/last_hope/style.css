@@ -682,27 +682,27 @@ background-color: #00000f;
 /* Pour le forum, mais pas seulement */
 .quote {
 	-moz-border-radius: 1%;
-	width: 90%;
-	text-align: left;
+	width:90%;
+	text-align:left;
 	background-color: #4D5E7F;
 	font-style: italic;
-	border: none;
+	border:none;
 	font-family: Verdana, Arial;
 	font-size: 11px;
 	padding: 5px;
-	margin: 10px;
+	margin:10px;
 }
 .code {
-	width: 90%;
-	text-align: left;
+	width:90%;
+	text-align:left;
 	background-color: #4D5E7F;
 	font-style: italic;
 	border: none;
 	font-family: Verdana, Arial;
 	font-size: 11px;
 	padding: 5px;
-	margin: 10px 0;
-	overflow: auto;
+	margin:10px;
+	overflow:auto;
 }
 
 /* Block de debug */
@@ -720,6 +720,8 @@ background-color: #00000f;
 	text-align: left;
 	padding: 5px;
 	margin: 10px 0;
+	margin:10px;
+	overflow:auto;
 }
 
 /* Batiment sur la page "Village" */

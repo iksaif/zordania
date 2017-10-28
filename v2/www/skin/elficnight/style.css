@@ -697,6 +697,7 @@ color: #FAD923;
 text-decoration: none;
  }
 
+
 .quote, .code 
 {   
 width:90%;
@@ -709,12 +710,10 @@ padding-bottom: 2px;
 padding-left: 2px; 
 padding-right: 2px; 
 padding-top: 2px; 
-	margin: 10px; 
-	color: #182a51;  
+margin-left:20px; 
+color: #374666;  
 }
-.code {
-	margin: 10px 0;
-}
+
 
 .signature 
 { 
@@ -741,7 +740,6 @@ color: #F5F5F5;
 text-decoration: underline;
 left: 0px; -moz-border-radius: 2%;
 }
-
 /* Block de debug */
 .debug{
 	text-align: left;

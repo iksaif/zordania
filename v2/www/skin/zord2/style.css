@@ -432,22 +432,19 @@ margin: 2px;
     width: 90%;
     border: 1px solid #292722;
     background: #C5B397;
-	color: #000;
-    font-style: italic;
-    font-weight: bold;
-    padding: 5px;
-	margin: 10px;
+    font-style:italic;
+    font-weight:bold;
+    padding:5px;
 }
 
 .code {
     overflow: auto;
-	margin: 10px 0;
 }
 
 .quote {
-    background-image: url(img/quote.png);
-    background-repeat: no-repeat;
-    padding-top: 25px;
+    background-image:url(img/quote.png);
+    background-repeat:no-repeat;
+    padding-top:25px;
 }
 
 .signature
