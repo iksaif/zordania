@@ -1,8 +1,8 @@
 <div class="infos">Ce journal est régulièrement vidé pour ne pas encombrer la base de données du site</div>
 <div class="menu_module">
-	[ <a href="war-histo.html?sub=atq" title="Attaques de vos légions sur les autres joueurs">Attaque</a> ]
+	<a href="war-histo.html?sub=atq" title="Attaques de vos légions sur les autres joueurs">Attaque</a>
 	- 
-	[ <a href="war-histo.html?sub=def" title="Attaques des autres joueurs sur vos légions">Défense</a> ]
+	<a href="war-histo.html?sub=def" title="Attaques des autres joueurs sur vos légions">Défense</a>
 </div>
 
 <if cond='{war_sub} == "def"'>
