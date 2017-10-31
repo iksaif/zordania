@@ -15,7 +15,7 @@
 	<else>
 		<p class="error">Ces unités n'existent pas ou vous tentez d'en annuler plus qu'il n'y en a en cours.</p>
 	</else>
-</elseif>
+</if>
 
 <elseif cond='{btc_act} == "unt"'>
 	<div class="block" id="unt_todo">
@@ -87,99 +87,92 @@ $(document).ready(function()
 // -->
 </script>
 
-	<!-- liste des unités disponibles à la formation -->
-	<foreach cond='{unt_dispo} as {unt_id} => {unt_array}'>			
-
-	<if cond='!isset({current_group}) OR {current_group} != {unt_array[conf][group]}'>
-		<if cond='isset({current_group})'>
-			</tr>
-		</table>
-		</if>
-		<set name="group_open" value="1"/>
-		<set name="current_group" value="{unt_array[conf][group]}" />
+	<foreach cond='{unt_dispo} as {group} => {unt_dispo1}'>			
 		<table class="liste">
-	</if>
+			<tr>
 
-	<td>
-		<img src="img/plus.png" id="unt_{unt_id}" class="toggle" />
-		<zimgunt race="{_user[race]}" type="{unt_id}" /> - {unt[{_user[race]}][alt][{unt_id}]} <br/>
-		
-		Disponibles :
-		<if cond='isset({unt_done[vlg][{unt_id}]})'>{unt_done[vlg][{unt_id}]}</if><else>0</else>/
-		<if cond='isset({unt_done[tot][{unt_id}]})'>{unt_done[tot][{unt_id}]}</if><else>0</else><br/>
+		<!-- liste des unités disponibles à la formation -->
+		<foreach cond='{unt_dispo1} as {unt_id} => {unt_array}'>			
 
-		<if cond='isset({unt_array[conf][prix_res]})'>
-			Prix :
-			<foreach cond='{unt_array[conf][prix_res]} as {res_type} => {res_nb}'>
-				<if cond="isset({unt_array[bad][prix_res][{res_type}]})">
-					<span class="bad">{res_nb} <zimgres race="{_user[race]}" type="{res_type}" /></span>
-				</if>
-				<else>{res_nb} <zimgres race="{_user[race]}" type="{res_type}" /></else>
-			</foreach>
-		</if>
+		<td>
+			<img src="img/plus.png" id="unt_{unt_id}" class="toggle" />
+			<zimgunt race="{_user[race]}" type="{unt_id}" /> - {unt[{_user[race]}][alt][{unt_id}]} <br/>
+			
+			Disponibles :
+			<if cond='isset({unt_array[vlg]})'>{unt_array[vlg]}</if><else>0</else>/
+			<if cond='isset({unt_array[tot]})'>{unt_array[tot]}</if><else>0</else><br/>
 
-		<if cond="isset({unt_array[conf][prix_unt]})">
-			<foreach cond='{unt_array[conf][prix_unt]} as {unt_type} => {unt_nb}'>
-				<if cond="isset({unt_array[bad][prix_unt][{unt_type}]})">
-					<span class="bad">{unt_nb}<zimgunt race="{_user[race]}" type="{unt_type}" /></span>
-				</if>
-				<else>{unt_nb}<zimgunt race="{_user[race]}" type="{unt_type}" /></else>
-			</foreach>
-		</if>
-
-		<if cond="isset({unt_array[conf][need_src]})">
-			<foreach cond='{unt_array[conf][need_src]} as {src_type}'>
-				<zimgsrc race="{_user[race]}" type="{src_type}" />
-			</foreach><br/>
-		</if>
-
-		<if cond="isset({unt_array[conf][limite]})">
-			Limite: 
-			<if cond="{unt_array[bad][limit_unt]}"><span class="bad">{unt_array[bad][limit_unt]}</span></if>
-			<else>{unt_array[bad][limit_unt]}</else>
-		</if>
-
-		<p id="unt_{unt_id}_toggle">
-			<if cond="isset({unt_array[conf][vit]})">
-				<if cond='isset({unt_array[conf][atq_unt]}) OR isset({unt_array[conf][atq_btc]}) OR isset({unt_array[conf][def]})'>
-		[ <if cond='isset({unt_array[conf][atq_unt]})'>{unt_array[conf][atq_unt]} <img src="img/{_user[race]}/div/atq.png" alt="Attaque Unité" /></if>
-		<if cond="isset({unt_array[conf][atq_btc]})"> - {unt_array[conf][atq_btc]} <img src="img/{_user[race]}/div/atq_btc.png" alt="Attaque Bâtiment" /></if>
-		<if cond="isset({unt_array[conf][def]})">  - {unt_array[conf][def]} <img src="img/{_user[race]}/div/def.png" alt="Défense" /></if> ]</if><br/>
-              <if cond="isset({unt_array[conf][vie]})"> Vie: {unt_array[conf][vie]}<br /></if>
-              <if cond="isset({unt_array[conf][vit]})"> Vitesse: {unt_array[conf][vit]} <br /> </if> 
-			       <if cond='isset({unt_array[conf][bonus]})'>
-				    Bonus: 
-				    <if cond='isset({unt_array[conf][bonus][atq]})'>{unt_array[conf][bonus][atq]} <img src="img/{_user[race]}/div/atq.png" alt="Bonus atq" /></if>
-				    <if cond='isset({unt_array[conf][bonus][def]})'>{unt_array[conf][bonus][def]} <img src="img/{_user[race]}/div/def.png" alt="Bonus def" /></if>
-					<if cond='isset({unt_array[conf][bonus][vie]})'>{unt_array[conf][bonus][vie]} <img src="img/{_user[race]}/div/tir.png" alt="Vie" /></if>
-				    <br />
-			       </if>
-
+			<if cond='isset({unt_array[conf][prix_res]})'>
+				Prix :
+				<foreach cond='{unt_array[conf][prix_res]} as {res_type} => {res_nb}'>
+					<if cond="isset({unt_array[bad][prix_res][{res_type}]})">
+						<span class="bad">{res_nb} <zimgres race="{_user[race]}" type="{res_type}" /></span>
+					</if>
+					<else>{res_nb} <zimgres race="{_user[race]}" type="{res_type}" /></else>
+				</foreach>
 			</if>
-			{unt[{_user[race]}][descr][{unt_id}]}
-		</p>
 
-		<if cond='{unt_array[conf][role]} == {TYPE_UNT_HEROS}'>
-			<if cond="{_user[hro_id]}">Vous avez déjà un héros.</if>
+			<if cond="isset({unt_array[conf][prix_unt]})">
+				<foreach cond='{unt_array[conf][prix_unt]} as {unt_type} => {unt_nb}'>
+					<if cond="isset({unt_array[bad][prix_unt][{unt_type}]})">
+						<span class="bad">{unt_nb}<zimgunt race="{_user[race]}" type="{unt_type}" /></span>
+					</if>
+					<else>{unt_nb}<zimgunt race="{_user[race]}" type="{unt_type}" /></else>
+				</foreach>
+			</if>
+
+			<if cond="isset({unt_array[conf][need_src]})">
+				<foreach cond='{unt_array[conf][need_src]} as {src_type}'>
+					<zimgsrc race="{_user[race]}" type="{src_type}" />
+				</foreach><br/>
+			</if>
+
+			<if cond="isset({unt_array[conf][limite]})">
+				Limite: 
+				<if cond="{unt_array[bad][limit_unt]}"><span class="bad">{unt_array[bad][limit_unt]}</span></if>
+				<else>{unt_array[bad][limit_unt]}</else>
+			</if>
+
+			<p id="unt_{unt_id}_toggle">
+				<if cond="isset({unt_array[conf][vit]})">
+					<if cond='isset({unt_array[conf][atq_unt]}) OR isset({unt_array[conf][atq_btc]}) OR isset({unt_array[conf][def]})'>
+			[ <if cond='isset({unt_array[conf][atq_unt]})'>{unt_array[conf][atq_unt]} <img src="img/{_user[race]}/div/atq.png" alt="Attaque Unité" /></if>
+			<if cond="isset({unt_array[conf][atq_btc]})"> - {unt_array[conf][atq_btc]} <img src="img/{_user[race]}/div/atq_btc.png" alt="Attaque Bâtiment" /></if>
+			<if cond="isset({unt_array[conf][def]})">  - {unt_array[conf][def]} <img src="img/{_user[race]}/div/def.png" alt="Défense" /></if> ]</if><br/>
+				  <if cond="isset({unt_array[conf][vie]})"> Vie: {unt_array[conf][vie]}<br /></if>
+				  <if cond="isset({unt_array[conf][vit]})"> Vitesse: {unt_array[conf][vit]} <br /> </if> 
+					   <if cond='isset({unt_array[conf][bonus]})'>
+						Bonus: 
+						<if cond='isset({unt_array[conf][bonus][atq]})'>{unt_array[conf][bonus][atq]} <img src="img/{_user[race]}/div/atq.png" alt="Bonus atq" /></if>
+						<if cond='isset({unt_array[conf][bonus][def]})'>{unt_array[conf][bonus][def]} <img src="img/{_user[race]}/div/def.png" alt="Bonus def" /></if>
+						<if cond='isset({unt_array[conf][bonus][vie]})'>{unt_array[conf][bonus][vie]} <img src="img/{_user[race]}/div/tir.png" alt="Vie" /></if>
+						<br />
+					   </if>
+
+				</if>
+				{unt[{_user[race]}][descr][{unt_id}]}
+			</p>
+
+			<if cond='{unt_array[conf][role]} == {TYPE_UNT_HEROS}'>
+				<if cond="{_user[hro_id]}">Vous avez déjà un héros.</if>
+				<else>
+					<a href="leg-hero.html?sub=form&id_hro={unt_id}" title="Former un héros !" />Former un héros !</a>
+				</else>
+			</if>
 			<else>
-				<a href="leg-hero.html?sub=form&id_hro={unt_id}" title="Former un héros !" />Former un héros !</a>
-			</else>
-		</if>
-		<else>
-			<form action="btc-use.html?btc_type={btc_id}&sub=add_unt" method="post">
-			<input type="hidden" name="type" value="{unt_id}" />
-			<input type="number" name="nb" size="1" maxlength="2" style="width:3em" />
-			<input type="submit" value="{btcopt[{_user[race]}][{btc_id}][unt]}" />
-			</form>
-		</else>				
-	</td>
-	</foreach>
+				<form action="btc-use.html?btc_type={btc_id}&sub=add_unt" method="post">
+				<input type="hidden" name="type" value="{unt_id}" />
+				<input type="number" name="nb" size="1" maxlength="2" style="width:3em" />
+				<input type="submit" value="{btcopt[{_user[race]}][{btc_id}][unt]}" />
+				</form>
+			</else>				
+		</td>
+		</foreach>
 
-	<!-- fin liste unités disponibles -->
-	<if cond="{group_open}">
 			</tr>
 		</table>
-	</if>
+	</foreach>
+	
  	</if>
 
 </elseif>

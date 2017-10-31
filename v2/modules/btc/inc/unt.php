@@ -65,18 +65,25 @@ if($_sub == "cancel_unt")
 	}
 	
 	$unt_array = array();
+    $unt_done = $mbr->nb_unt();
+	$vlg = $mbr->unt_leg(LEG_ETAT_VLG);
 	foreach($unt_tmp as $uid => $array) {
-		if($array['bad']['need_src'] || $array['bad']['need_btc']) continue;
-		$unt_array[$uid] = $array;// on ne garde que les unités dont on a tous les batiments et recherches
+		// on ne garde que les unités dont on a tous les batiments et recherches
+		if($array['bad']['need_src'] || $array['bad']['need_btc']) 
+			continue;
+		// regrouper par group (cf la conf)
+		$group = isset($array['conf']['group']) ? $array['conf']['group'] : 0;
+		$unt_array[$group][$uid] = $array;
+		// nb unt dispo et total
+		$unt_array[$group][$uid]['tot'] = $mbr->nb_unt($uid);
+		$unt_array[$group][$uid]['vlg'] = isset($vlg[$uid]) ? $vlg[$uid] : 0;
 	}
 	
 	unset($unt_tmp);
-    $unt_done = array();
-
+	
 	$_tpl->set("unt_dispo", $unt_array);// unités possibles à former
 	$_tpl->set("res_utils", $mbr->res());
 	$_tpl->set("unt_utils", $mbr->nb_unt_done());
-	$_tpl->set("unt_done", $unt_done);
 	
 	$_tpl->set("unt_conf", $conf_unt);
 	$_tpl->set("btc_pop_used", $_user['population']);
