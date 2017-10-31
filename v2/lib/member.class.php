@@ -120,6 +120,7 @@ class member{
 	
     function nb_unt($type = null){
         if(!$this->nb_unt_load){
+			$tmp = array();
             foreach($this->unt() as $value){
                 if(isset($tmp[$value['unt_type']]))
                     $tmp[$value['unt_type']] += $value['unt_nb'];
