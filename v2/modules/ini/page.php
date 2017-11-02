@@ -16,7 +16,7 @@ else {
 	$vld = get_vld($_user['mid']);
 
 	if($_user['etat'] == MBR_ETAT_INI)
-		$reini = true;
+		$ini = true; // initialisation
 	else if($vld){
 		// rechercher une validation d'initialisation ou réinitialisation
 		foreach($vld as $value)
@@ -139,9 +139,9 @@ if($reini || $ini) { /* N'importe qui ne peut pas venir ici */
 					$_ses->set("race", $race); /* Il faut absolument changer la race ! */
 					$_ses->set("mapcid", $cid);
 
-					if($reini)
+					if($reini){
 						reini_mbr($_user['mid'], $pseudo, $vlg , $race, $cid, $oldcid, $_user['groupe'], $sexe);
-					else {
+					} else {
 						ini_mbr($_user['mid'], $pseudo, $vlg, $race, $cid, GRP_JOUEUR, $sexe);
 						/* envoyer le message de bienvenue */
 						$msg = nl2br($_tpl->get("modules/inscr/msg/welcome.txt.tpl",1));
