@@ -85,11 +85,12 @@ div#actbar li:nth-child(1){
 div#menu {
 	position:fixed;
     top: 50px;
-    height: 34px;
+    /*height: 34px;*/
     text-align: left;
 	font-size: 90%;
 	opacity: 0.8;
 	margin-left:10px;
+	background-color: #e7a22b;
 }
 .menu_gauche{
 	/*border: 1px solid #222;*/

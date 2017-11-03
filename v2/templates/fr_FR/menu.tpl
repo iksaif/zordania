@@ -17,7 +17,7 @@
 		<a href="member-liste.html" title="Liste des Joueurs.">Joueurs</a>
 		(<a href="member-liste_online.html" title="Joueurs connectés.">online</a>)
 	</li>
-	<li><a href="bonus.html" title="Gagner des ressources !" class="bonus">Bonus</a></li>
+	<# <li><a href="bonus.html" title="Gagner des ressources !" class="bonus">Bonus</a></li> #>
 	<li><a href="votes.html" title="Votez pour Zordania !" class="votes">Votes</a></li>
 	</ul>
 </div>
@@ -33,17 +33,12 @@
 		<li><a href="presentation.html" title="Présentation.">Accueil</a></li>
 		</if>
 		<li><a href="news.html" title="Voir les dernières news.">News</a></li>
-		<li><a href="manual.html?race={_user[race]}" title="Comment jouer ?">Manuel</a> (<a href="http://www.zordania.com/forum-post.html?tid=2925" title="Foire aux Questions.">FAQ</a>)</li>
-		<li><a href="forum.html" title="Participer à la vie de la communauté.">Forums</a></li>
-		<li><a href="irc.html" title="Discuter directement entre Zordaniens !">Chat</a></li>
+		<li><a href="manual.html?race={_user[race]}" title="Comment jouer ?">Manuel</a></li>
+		<li><a href="forum.html" title="Participer à la vie de la communauté.">Forums</a> (<a href="irc.html" title="Discuter directement entre Zordaniens !">Chat</a>)</li>
 		<li><a href="sdg.html" title="Faites connaître votre avis !">Sondages</a></li>
-		<li><a href="a_propos.html" title="A propos du site.">A propos</a></li>
-		<li><a href="http://{ZORDLOG_URL}" title="Lieu du savoir et de la mémoire.">Archives</a></li>
+		<# <li><a href="http://{ZORDLOG_URL}" title="Lieu du savoir et de la mémoire.">Archives</a></li> #>
 		<if cond='{ses_loged}'>
-		<li><a href="stat.html" title="Zordania en chiffres.">Statistiques</a></li>
-		<li>---</li>
-		<li><a href="member.html" title="Modifier mes informations personnelles ou Supprimer mon compte.">Mon compte</a></li>
-		<li><a href="session-logout.html?display=module" title="Se déconnecter...">Déconnexion</a></li>
+		<li><a href="member.html" title="Modifier mes informations personnelles ou Supprimer mon compte.">Mon compte</a> (<a href="session-logout.html?display=module" title="Se déconnecter...">Quit</a>)</li>
 		</if>
 	</ul>
 </div>

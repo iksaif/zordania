@@ -219,7 +219,7 @@ td {
     width: 1100px;
     border: 1px solid #2F2A21;
     background: #E7DAC5 url("img/border.png") repeat-x;
-
+	overflow:hidden;
 }
 
 /* Boite de pub */
@@ -424,7 +424,6 @@ margin: 2px;
     color: #226622;
 	background: #C5B397;
     font-weight:bold;
-	width: 420px;
 }
 
 .quote, .code

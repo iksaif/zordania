@@ -23,7 +23,7 @@ a{
 /* 1er niveau de menu */
 div#menu {
 	width: 260px;
-	left: -260px;
+	left: -270px;
 	top: 58px;
 	border: none;
 	padding-top:0px;
@@ -55,7 +55,7 @@ div#menu li{
   -moz-transition: all .3s; /* Firefox (plus trop nécessaire) */
   transition: all .3s; /* syntaxe officielle */
   display:block;
-  width:100%;
+  /*width:100%;*/
   padding-top:2px;
   padding-bottom:2px;
   font-size: 125%; 
@@ -72,7 +72,8 @@ div#menu li{
     border: none;
     opacity: 0;
     height: 0;
-    padding: 0;
+    padding: 0px;
+	margin: 0px;
     transition: all 0.25s ease-in-out;
 }
 .menu_gauche input:checked + ul li {
@@ -102,6 +103,7 @@ div#module {
 	margin-top: 0px;
 	padding-top:30px;
 	width:100%;
+	overflow:hidden;
 }
 
 div#contenu{
@@ -278,7 +280,12 @@ textarea {
 .ok {
 	border: 1px solid #226622;
 }
-
+.error, .bad, .ok, .infos {
+	margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+	width:initial;
+}
 .infos, .infos > *{
 	font-size: 12px;
 	font-style: italic;
