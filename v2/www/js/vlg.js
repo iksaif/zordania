@@ -1,6 +1,6 @@
 /* Javascript pour afficher le village */
-var decX = 135;
-var decY = 5;
+var decX = 0;
+var decY = 0;
 
 var Vlg = {
 	w: 500,

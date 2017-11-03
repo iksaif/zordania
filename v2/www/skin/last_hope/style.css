@@ -4,7 +4,7 @@
 * Design Général
 */
 a{ 
-	font-size: 10px;
+	font-size: 12px;
 }
 
 a:link, a:visited, a:active {
@@ -44,7 +44,7 @@ fieldset {
 input,select { 
 background-color: #37373e; 
 border: 1px solid #4D5E7F; 
-color: #000000;
+color: #FFFFFF;
  font-size: 11px; 
  font-weight: bold;
  margin: 2px; 
@@ -52,7 +52,7 @@ color: #000000;
 textarea{
     background-color: #37373e;
     border: thin solid #4D5E7F;
-   color: #000000;
+   color: #FFFFFF;
    font-size: 13px; 
 }
 textarea:focus,input:focus{ 
@@ -303,10 +303,10 @@ color: #ffffff;
 
 #actbar {
     position: absolute;
-    top: 312px;
+    top: 258px;
     height: 40px;
     text-align: right;
-    left: 230px;
+    left: 290px;
     z-index: 15;
 }
 #actbar ul {
@@ -317,7 +317,7 @@ color: #ffffff;
     padding-bottom: 4px;
 }
 #actbar a {
-    margin: 0 5px 2px 5px;
+    margin: 0 1px 2px 1px;
 }
 
 #actbar li {

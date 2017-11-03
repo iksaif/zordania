@@ -5,13 +5,14 @@ body {
 	background-repeat:repeat-x;
 	background-image: url(img/header.png);
  	font-family: "DejaVu Sans", Verdana,Tahoma,Arial,sans-serif;
-    font-size: 11px; 
+    font-size: 12px; 
+	color:#fff;
 }
 /*
    Balises HTML
    */
 a {
-    color: #000;
+    color: #dde;
 }
 
 img {
@@ -29,7 +30,7 @@ a.votes{
 }
 
 a:hover {
-    color: #000;
+    color: #eeb;
     text-decoration: underline;
 }
 
@@ -54,10 +55,10 @@ h1 {
 }
 
 h2 {
-    color: #000000;
+    color: #ffebd1;
     margin-top: 5px;
     margin-bottom: 3px;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #fff;
     font-size: 14pt;
 }
 h2 a{
@@ -66,12 +67,12 @@ h2 a{
 
 
 h3 {
-    color: #000000;
+    color: #fff;
 	font-size: 14px;
 }
 
 h4 {
-    color: #000000;
+    color: #fff;
     margin-left: 10px;
     font-size: 11pt;
 }
@@ -135,7 +136,7 @@ textarea:focus,input:focus
 textarea
 {
     background: #3B372C;
-    color: #000;
+    color: #fff;
     border: thin solid #000;
 }
 
@@ -324,13 +325,8 @@ td {
     margin-bottom: 20px;
 	}
 
-.menu_gauche h2{
-	color: #000000;
-}
-
 .menu_gauche li a {
 	text-decoration: none;
-	font-size: 11px;
 }
 
   .menu_gauche li a:hover
