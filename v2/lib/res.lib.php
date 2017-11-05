@@ -12,7 +12,7 @@ function scl_res($mid, $res) {
 	foreach($res as $type => $nb) {
 		$type = protect($type, "uint");
 		$nb = protect($nb, "uint");
-		$sql.= " ('', $mid, $type, $nb), ";
+		$sql.= " (NULL, $mid, $type, $nb), ";
 	}
 	
 	$sql = substr($sql, 0, strlen($sql)-2); /* On vire la virgule en trop */
