@@ -10,8 +10,13 @@
 <if cond='{frm_act} == "rep"'>
 	<if cond="isset({no_perm})"><p class="error">Catégorie introuvabe, ou permission refusée pour cette catégorie</p></if>
 	<else>
-	<h3 class="head_forum"><a href="forum.html">Forums</a> <img src="img/right.png" /> <a href="forum-cat.html?cid={frm[cid]}"> {frm[cat_name]} </a><img src="img/right.png" /><a href="forum-topic.html?fid={frm[fid]}".html>{frm[forum_name]}</a>
-		<if cond='{new} != "topic"'><img src="img/right.png" /> <a href="forum-<math oper="str2url({pst[subject]})"/>.html?tid={pst[tid]}">{pst[subject]}</a></if>
+	<h3 class="head_forum">
+		<a href="forum.html">Forums</a>
+		<img src="img/right.png" /> <a href="forum-cat.html?cid={frm[cid]}">{frm[cat_name]}</a>
+		<img src="img/right.png" /> <a href="forum-topic.html?fid={frm[fid]}".html>{frm[forum_name]}</a>
+		<if cond='{new} != "topic"'>
+			<img src="img/right.png" /> <a href="forum-<math oper="str2url({pst[subject]})"/>.html?tid={pst[tid]}">{pst[subject]}</a>
+		</if>
 	</h3>
 
 	<!-- formulaire de réponse / topic / édit -->

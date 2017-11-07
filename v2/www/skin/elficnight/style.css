@@ -693,27 +693,28 @@ text-decoration: none;
  
 #footer a:hover 
 { 
-color: #FAD923; 
-text-decoration: none;
- }
-
+	color: #FAD923; 
+	text-decoration: none;
+}
 
 .quote, .code 
 {   
-width:90%;
-text-align:left; 
-background-color: #909090; 
-font-style: italic; 
-border: 1px solid #555555; 
-font-size: 11px; 
-padding-bottom: 2px; 
-padding-left: 2px; 
-padding-right: 2px; 
-padding-top: 2px; 
-margin-left:20px; 
-color: #374666;  
+	width: 90%;
+	text-align: left; 
+	background-color: #909090; 
+	font-style: italic; 
+	border: 1px solid #555555; 
+	font-size: 11px; 
+	padding-bottom: 2px; 
+	padding-left: 2px; 
+	padding-right: 2px; 
+	padding-top: 2px; 
+	margin: 10px; 
+	color: #182a51;  
 }
-
+.code {
+	margin: 10px 0;
+}
 
 .signature 
 { 
@@ -739,6 +740,23 @@ left: 0px; -moz-border-radius: 2%;
 color: #F5F5F5; 
 text-decoration: underline;
 left: 0px; -moz-border-radius: 2%;
+}
+
+/* Block de debug */
+.debug{
+	text-align: left;
+	background-color: #a7a7a7;
+	color: #000;
+	border: #ffffff solid 1px;
+	padding: 5px;
+}
+.mysql{
+	background-color: #DDDDDD;
+	border: 1px #AAAAAA solid;
+	color: #000000;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0;
 }
 
 /* bannière */

@@ -1,11 +1,5 @@
 <?php
-/* === Configuration Serveur === */
-define('MYSQL_BASE', 'zordania');
-define('MYSQL_HOST', 'localhost');
-define('MYSQL_USER', 'zordania');
-define('MYSQL_PASS', 'zordania');
-define('MYSQL_PREBDD', 'zrd_');
-define('MYSQL_PREBDD_FRM', MYSQL_PREBDD.'frm_');
+require_once('secret_parameters.php');
 
 /* === Configuration Site === */
 define('ZORD_VERSION',"2.1.2");
@@ -14,14 +8,6 @@ define('ZORD_SPEED_FAST', 5); // 1 Tour toutes les 5 minutes
 define('ZORD_SPEED_NORMAL', 30); // 1 Tour par demie heure
 define('ZORD_SPEED_SLOW',60); // 1 Tour par heures
 define('ZORD_SPEED', ZORD_SPEED_FAST);
-
-/* === Configuration IRC === */
-define('IRC_SERVER','irc.quakenet.org');
-define('IRC_PORT',6667);
-define('IRC_CHAN', '#zordania');
-define('IRC_PSEUDO', 'Barnabe');
-define('IRC_PASS', 'xxxxxx');
-define('IRC_USER', 'zordania');
 
 define('SITE_MAX_CONNECTED', 300);
 define('SITE_MAX_INSCRITS', 10000);
@@ -32,12 +18,13 @@ define('SITE_DIR', str_replace('conf','',dirname(__FILE__)));
 define('WWW_DIR', SITE_DIR . "www/");
 define('ZORDLOG_URL', 'archives.zordania.com'); // URL des archives
 
-define('SITE_WEBMASTER_MAIL','webmaster@zordania.com');
+define('SITE_WEBMASTER_MAIL', 'webmaster@zordania.com');
+define('SITE_CHARSET', 'utf-8'); // iso-8859-1, utf-8, ...
 
-define('GEN_LENGHT',6); /* Taille des chaines générées aléatoirement (pass, etc ...) */
+define('GEN_LENGHT', 6); /* Taille des chaines générées aléatoirement (pass, etc ...) */
 
 /* ==== Utilisateurs === */
-define('SITE_FLOOD_TIME',30); /* Temps en seconde pour écrire deux messages a la suite */
+define('SITE_FLOOD_TIME', 30); /* Temps en seconde pour écrire deux messages a la suite */
 define('TAILLE_MAX_LOGIN', 50); /* Nombre de caractères max d'un login : limité par les caractéristiques du champ correspondant dans la BDD */
 define('TAILLE_MAX_PSEUDO', 50); /* Nombre de caractères max d'un pseudo : limité par les caractéristiques du champ correspondant dans la BDD */
 define('TAILLE_MAX_MAIL', 50); /* Nombre de caractères max d'une adresse mail : limité par les caractéristiques du champ correspondant dans la BDD */
@@ -202,9 +189,17 @@ $_races_aly = array(
 );
 
 $_css = array(14,4,3,2,1,10,11,15,16,5);
-$_forum_css = array(1 => "marron", 2 => "metal", 3 => "classik", 4 => "zord2",5 => "mobile",
-		    10 => "elficnight", 11 => "elfpower", 14 => "brown_underground",
-		    15 => "last_hope");
+$_forum_css = array(
+	1 => "marron"
+	, 2 => "metal"
+	, 3 => "classik"
+	, 4 => "zord2"
+	, 5 => "mobile"
+	, 10 => "elficnight"
+	, 11 => "elfpower"
+	, 14 => "brown_underground"
+	, 15 => "last_hope"
+);
 $_adsense_css = array(1 => '9107849390', 2 => '2158156650', 3 => '2158156650', 
 	4 => '2158156650',5 => '9107849390', 10 => '2087210871', 11 => '2087210871', 14 => '0166103822', 
 	15 => '6454056819');
