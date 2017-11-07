@@ -39,7 +39,7 @@
 				{btc[{_user[race]}][alt][{btc_vars[btc_type]}]} 
 			</label>
 
-			[ <a href="btc-use.html?btc_type={btc_vars[btc_type]}" title="{btc[{_user[race]}][alt][{btc_vars[btc_type]}]}">Liste
+			<a href="btc-use.html?btc_type={btc_vars[btc_type]}" title="{btc[{_user[race]}][alt][{btc_vars[btc_type]}]}">Liste
 			</a> - <a href="btc-use.html?btc_bid={btc_bid}&amp;sub=det" title="Détruire le Bâtiment et récupérer la moitié des ressources">Détruire</a>
 			<if cond="{btc_vars[btc_etat]} == {BTC_ETAT_OK}">
 				- <a href="btc-use.html?btc_bid={btc_bid}&amp;sub=des" title="Désactiver le Bâtiment">Désactiver</a>
@@ -50,7 +50,6 @@
 			<if cond="{btc_vars[btc_vie]} - {btc_vie} != 0 AND {btc_vars[btc_etat]} != {BTC_ETAT_REP}">
 				- <a href="btc-use.html?btc_bid={btc_bid}&amp;sub=rep" title="Réparer le Bâtiment (le rend inutilisable durant la réparation)">Réparer</a>
 			</if>
-			]
 			Solidité : <math oper='round(({btc_vars[btc_vie]} / ({btc_vie})*100))' /> % | Etat : {btc_etat[{btc_vars[btc_etat]}]}
 
 			<zimgba2 per="{btc_vars[btc_vie]}" max="{btc_vie}" />&nbsp;<em>{btc_vars[btc_vie]}/{btc_vie}</em>
@@ -131,26 +130,26 @@
 	{btc[{_user[race]}][descr][{btc_id}]} <hr />
 	<br/>
 	<p class="menu_module">
-		[  <a href="btc-use.html?btc_type={btc_id}">Infos</a> ]
+		<a href="btc-use.html?btc_type={btc_id}">Infos</a>
 		<if cond="isset({btc_conf[prod_src]})">
-			- [ <a href="btc-use.html?btc_type={btc_id}&amp;sub=src">{btcopt[{_user[race]}][{btc_id}][src]}</a>  ]
+			- <a href="btc-use.html?btc_type={btc_id}&amp;sub=src">{btcopt[{_user[race]}][{btc_id}][src]}</a>
 		</if>
 		<if cond="isset({btc_conf[prod_unt]})">
-			- [ <a href="btc-use.html?btc_type={btc_id}&amp;sub=unt">{btcopt[{_user[race]}][{btc_id}][unt]}</a> ]
+			- <a href="btc-use.html?btc_type={btc_id}&amp;sub=unt">{btcopt[{_user[race]}][{btc_id}][unt]}</a>
 		</if>
 		<if cond="isset({btc_conf[prod_res]})">
-			- [ <a href="btc-use.html?btc_type={btc_id}&amp;sub=res">{btcopt[{_user[race]}][{btc_id}][res]}</a> ]
+			- <a href="btc-use.html?btc_type={btc_id}&amp;sub=res">{btcopt[{_user[race]}][{btc_id}][res]}</a>
 		</if>
 		<if cond="isset({btc_conf[com]})">
-			- [  <a href="btc-use.html?btc_type={btc_id}&amp;sub=my">Vos Ventes</a> 
-			] - [
+			- <a href="btc-use.html?btc_type={btc_id}&amp;sub=my">Vos Ventes</a> 
+			-
 			<a href="btc-use.html?btc_type={btc_id}&amp;sub=ven">Vendre</a> 
-			] - [
+			-
 			<a href="btc-use.html?btc_type={btc_id}&amp;sub=ach">Acheter</a> 
-			] - [
+			-
 			<a href="btc-use.html?btc_type={btc_id}&amp;sub=cours" title="Cours moyens">Cours</a>
-			] - [
-			<a href="btc-use.html?btc_type={btc_id}&amp;sub=cours_sem" title="Cours sur la semaine">Cours de la Semaine</a> ]
+			-
+			<a href="btc-use.html?btc_type={btc_id}&amp;sub=cours_sem" title="Cours sur la semaine">Cours de la Semaine</a>
 		</if>
 	</p>
 	<include file="{btc_tpl}" cache="1" />
@@ -174,14 +173,12 @@
 <br />
 
 <p class="retour_module">
-	[ <a href="btc-use.html" title="Retour Au Village">Retour</a>
-	]  
+	<a href="btc-use.html" title="Retour Au Village">Retour</a>
 	<if cond="!isset({btc_id})">
-		- [ <a href="btc-use.html?sub=list" title="Liste complète de tous les bâtiments">Liste complète</a> ]
+		- <a href="btc-use.html?sub=list" title="Liste complète de tous les bâtiments">Liste complète</a>
 	</if>
 	<else>
- 		- [ <a href="btc-use.html?btc_type={btc_id}&amp;sub=list" title="Liste complète des bâtiments de ce type">Liste</a> ]
+ 		- <a href="btc-use.html?btc_type={btc_id}&amp;sub=list" title="Liste complète des bâtiments de ce type">Liste</a>
 	</else>
-	- [ <a href="btc-use.html?sub=vue" title="Vue générale">Vue générale</a>
-	]
+	- <a href="btc-use.html?sub=vue" title="Vue générale">Vue générale</a>
 </p>

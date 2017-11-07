@@ -28,7 +28,7 @@ class member{
     ["leg_stop"]=>
     */
 	private $unt; // unt civiles & militaires
-	private $unt_leg; // unt en legion seulement
+	private $unt_leg; // toutes unités par etat (vlg btc ou liste des legions)
 	private $unt_load = false;
 	private $unt_todo;
 	private $unt_todo_load = false;
@@ -100,26 +100,36 @@ class member{
 	function unt(){
 		if(!$this->unt_load){
 			$this->unt = get_leg_gen(array('mid' => $this->mid, 'unt' => true, 'leg'=>true));
-			$this->unt_leg = array();
+			
+			$tmp = array();
 			foreach($this->unt as $value) {
-				if($value['leg_etat'] != LEG_ETAT_VLG) {
-                    $this->unt_leg[] = $value;
-				}
+
+				if(isset($tmp[$value['leg_etat']][$value['unt_type']]))
+					$tmp[$value['leg_etat']][$value['unt_type']] += $value['unt_nb'];
+				else
+					$tmp[$value['leg_etat']][$value['unt_type']] = $value['unt_nb'];
+
 			}
+            $this->unt_leg = $tmp;
 			$this->unt_load = true;
 		}
+
 		return $this->unt;
 	}
 	
-	function unt_leg(){
+	function unt_leg($type = null){
 		if(!$this->unt_load){
 			$this->unt();
 		}
-		return $this->unt_leg;
+		if($type != null)
+			return isset($this->unt_leg[$type]) ? $this->unt_leg[$type] : array();
+		else
+			return $this->unt_leg;
 	}
 	
     function nb_unt($type = null){
         if(!$this->nb_unt_load){
+			$tmp = array();
             foreach($this->unt() as $value){
                 if(isset($tmp[$value['unt_type']]))
                     $tmp[$value['unt_type']] += $value['unt_nb'];
@@ -130,7 +140,7 @@ class member{
             $this->nb_unt_load = true;
         }
         
-        if($type === null)
+		if($type === null)
             return $this->nb_unt;
         else if (isset($this->nb_unt[$type]))
             return $this->nb_unt[$type];

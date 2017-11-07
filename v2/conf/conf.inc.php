@@ -7,7 +7,7 @@ define('ZORD_SPEED_VFAST', 0.16667); // 1 Tour toutes les 30sec
 define('ZORD_SPEED_FAST', 5); // 1 Tour toutes les 5 minutes
 define('ZORD_SPEED_NORMAL', 30); // 1 Tour par demie heure
 define('ZORD_SPEED_SLOW',60); // 1 Tour par heures
-define('ZORD_SPEED', ZORD_SPEED_FAST);
+define('ZORD_SPEED', ZORD_SPEED_VFAST);
 
 define('SITE_MAX_CONNECTED', 300);
 define('SITE_MAX_INSCRITS', 10000);
@@ -174,7 +174,7 @@ $cst_ratio_def = array(0 => 1, 1 => 0.5, 2 => 0.33);
 /* Langues disponibles */
 $_langues = array('unknown' => 'fr_FR', 'fr' => 'fr_FR');
 /* Races id => visible */
-$_races = array(1=>true, 2=>true, 3=>true, 4=>true, 5=>true, 6=>false, 7=>true, 8=>false, 10=>false);
+$_races = array(1=>true, 2=>true, 3=>true, 4=>true, 5=>true, 6=>false, 7=>true, 8=>false);
 /* quotas de race par alliances: race du chef => (race=>nb max) */
 $_races_aly = array(
 		1 => array(1 => 12, 2 => 12, 3 => 12, 4 => 12, 5 => 12, 7=> 12, 8=>12),
@@ -185,16 +185,16 @@ $_races_aly = array(
 		6 => array(6 => 12),
 		7 => array(1 => 12, 2 => 12, 3 => 12, 4 => 12, 5 => 12, 7=> 12, 8=>12),
 		8 => array(1 => 12, 2 => 12, 3 => 12, 4 => 12, 5 => 12, 7=> 12, 8=>12),
-		10 => array(10 => 12),
 );
 
-$_css = array(14,4,3,2,1,10,11,15,16,5);
+$_css = array(14,4,3,2,1,10,11,15,16,5,6);
 $_forum_css = array(
 	1 => "marron"
 	, 2 => "metal"
 	, 3 => "classik"
 	, 4 => "zord2"
 	, 5 => "mobile"
+	, 6 => "selendia"
 	, 10 => "elficnight"
 	, 11 => "elfpower"
 	, 14 => "brown_underground"
@@ -202,7 +202,7 @@ $_forum_css = array(
 );
 $_adsense_css = array(1 => '9107849390', 2 => '2158156650', 3 => '2158156650', 
 	4 => '2158156650',5 => '9107849390', 10 => '2087210871', 11 => '2087210871', 14 => '0166103822', 
-	15 => '6454056819');
+	15 => '6454056819', 6 => '');
 
 
 $_regions = array(1=> array(1=>0, 2=>0, 3=>0, 4=>0, 5=>0, 6=>0, 7=>0, 8=>0),

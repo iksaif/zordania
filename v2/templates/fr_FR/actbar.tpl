@@ -1,6 +1,9 @@
 <a name="actbar"></a>
 <ul>
     <li>
+        <a href="#" id="openmenulat" title="Menu."><img src="img/acts/menu_bg.png" /></a>
+    </li>
+    <li>
         <a href="forum.html" title="Forum."><img src="img/acts/codu.png" /></a>
     </li>
 	<if cond='{_user[alaid]} != 0'>

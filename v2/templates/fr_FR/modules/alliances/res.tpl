@@ -15,8 +15,8 @@
 	<em>Dépôt minimal: {ALL_MIN_DEP}. Une taxe de {ALL_TAX}% est prélevée sur ce que vous déposez au grenier.</em>
 	</div>
 	<div class="menu_module">
-	[ <a href="alliances-reslog.html" title="Historique">Voir tout l'historique</a> -
-	<a href="alliances-ressyn.html" title="Synthèse">Voir la synthèse</a> ]
+	<a href="alliances-reslog.html" title="Historique">Voir tout l'historique</a> -
+	<a href="alliances-ressyn.html" title="Synthèse">Voir la synthèse</a>
 	</div>
 </else>
 
@@ -121,6 +121,6 @@ Le grenier de votre allié ne peut pas stocker plus de cette ressource, ou bien 
 </foreach>
 </ul>
 <div class="menu_module">
-[ <a href="alliances-reslog.html" title="Historique">Voir tout l'historique</a> -
-<a href="alliances-ressyn.html" title="Synthèse">Voir la synthèse</a> ]
+<a href="alliances-reslog.html" title="Historique">Voir tout l'historique</a> -
+<a href="alliances-ressyn.html" title="Synthèse">Voir la synthèse</a>
 </div>

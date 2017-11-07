@@ -7,13 +7,13 @@
 	<if cond="isset({frm})">
 		<img src="img/right.png" /> <a href="forum.html?cid={frm[cid]}">{frm[cat_name]}</a>
 		<img src="img/right.png" /> <a href="forum-topic.html?fid={frm[fid]}">{frm[forum_name]}</a>
-		<if cond="isset({arr_pge})">
+<if cond="isset({arr_pge})">
 			<img src="img/right.png" />
-			<foreach cond="{arr_pge} as {i}">
-				<if cond='{i} == {pge} || {i} == "..."'>{i} </if>
-				<else><a href="news.html?p={i}" title="page {i}">{i}</a> </else>
-			</foreach>
-		</if>
+	<foreach cond="{arr_pge} as {i}">
+		<if cond='{i} == {pge} || {i} == "..."'> {i} </if>
+		<else> <a href="news.html?p={i}" title="page {i}">{i}</a> </else>
+	</foreach>
+</if>
 	</if>
 </h3>
 

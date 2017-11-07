@@ -154,7 +154,7 @@
                 </tbody>
 			</foreach>
 		</table>
-		<div class="retour_module">[ <a href="unt.html" title="Retour">Retour</a> ]</div>
+		<div class="retour_module"><a href="unt.html" title="Retour">Retour</a></div>
 	</if>
 </if>
 

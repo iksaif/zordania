@@ -13,7 +13,7 @@
 	<img src="img/al_logo/{al_array[al_aid]}-thumb.png" class="mini_al_logo" alt="{al_array[al_name]}" title="{al_array[al_name]}"/>{al_array[al_name]}</a> :
 	<br/>
 	<foreach cond="{_races_aly[{al_chef[mbr_race]}]} as {race_id} => {nb}">
-		<if cond="{nb}">
+		<if cond="{_races[{race_id}]} && {nb}">
 			[ {al_stat[{race_id}]}/{nb} <img src="img/{race_id}/{race_id}.png" alt="{race[{race_id}]}" title="{race[{race_id}]}" /> ]
 		</if>
 	</foreach>

@@ -1,8 +1,8 @@
 <div class="menu_module">
-[ <a href="carte-rp.html?sub=rp" title="Carte normale">Normale</a> ] -
-[ <a href="carte-rp.html?sub=pts" title="Carte des points">Points</a> ] -
-[ <a href="carte-rp.html?sub=pop" title="Carte de la population">Population</a> ] - 
-[ <a href="carte.html?map_cid=94800" title="Egeria sur la carte">Egeria</a> ]
+<a href="carte-rp.html?sub=rp" title="Carte normale">Normale</a> -
+<a href="carte-rp.html?sub=pts" title="Carte des points">Points</a> -
+<a href="carte-rp.html?sub=pop" title="Carte de la population">Population</a> - 
+<a href="carte.html?map_cid=94800" title="Egeria sur la carte">Egeria</a>
 </div>
 <br/>
 <div id="carte_lite">

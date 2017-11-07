@@ -216,7 +216,7 @@ class ally {
 
 			$sql = "UPDATE ".$_sql->prebdd."al_mbr ";
 			$sql.= "SET ambr_etat = CASE ambr_mid ".implode(' ',$arr_sql) ." ELSE ambr_etat END, ambr_date = NOW() ";
-			$sql.= "WHERE ambr_aid = $aid";
+			$sql.= "WHERE ambr_aid = $aid AND ambr_mid IN (".implode(array_keys( $edit), ',') .")";
 			$_sql->query($sql);
 
 			// recompter le nombre de membres parce que ça se met pas à jour

@@ -26,14 +26,13 @@ if($_act == "pend") {
 		$_tpl->set('no_heros',false);
 	} else {
 		$_tpl->set('unt_act','pend');
-		$unt_array = $mbr_>unt_done($_user['mid'], array($unt_type));
-		if(!$unt_array || $unt_nb > $unt_array[0]['unt_nb'])
+		if($unt_nb > $mbr->nb_unt($unt_type))
 			$_tpl->set('unt_sub','paspossible');
 		else  {
 			edit_unt_vlg($_user['mid'], array($unt_type => $unt_nb), -1);
 			edit_mbr($_user['mid'], array('population' => count_pop($_user['mid'])));
 			// on rembourse 50% du prix de ressources
-			mod_res($_user['mid'], $mbr_>get_conf("unt", $unt_type, "prix_res"), 0.5 * $unt_nb);
+			mod_res($_user['mid'], $mbr->get_conf("unt", $unt_type, "prix_res"), 0.5 * $unt_nb);
 			$_tpl->set('unt_sub','ok');
 
 		}
@@ -43,11 +42,6 @@ if($_act == "pend") {
 if(!$_act) {
 	// config des unités: vie/group/role/prix_res/in_btc/need_btc ...
 	$conf_unt = $mbr->get_conf("unt");
-
-	$cache = array();
-	// en cache les unt
-	$cache['unt_leg'] = $mbr->unt_leg();
-	$cache['unt'] = $mbr->unt();
 
 	$unt_tmp = array();
 
@@ -69,12 +63,12 @@ if(!$_act) {
 	}
 	unset($unt_tmp);
 
-	$unt_tmp = $mbr->unt();
 	$unt_done = array();
 	$nb = $mbr->get_conf("race_cfg", "unt_nb");
 	for($i = 1; $i <= $nb; ++$i)
 		$unt_done['tot'][$i] = $unt_done['vlg'][$i] = $unt_done['btc'][$i] = 0;
 
+	$unt_tmp = $mbr->unt();
 	foreach($unt_tmp as $value) {
 		if($value['leg_etat'] == LEG_ETAT_VLG)
 			$unt_done['vlg'][$value['unt_type']] = $value['unt_nb'];

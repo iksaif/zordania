@@ -4,7 +4,7 @@
 * Design G?n?ral
 */
 a{
-	font-size: 11px;
+	font-size: 12px;
 }
 a:link, a:visited, a:active {
 	 color: rgb(246, 239, 226); 
@@ -27,14 +27,14 @@ a.votes{
 }
 
 body { 
-	background-color: rgb(0, 0, 0); 
-	background-image: url(img/bg1.png); 
-	color: rgb(231, 214, 181);
-	font-family: Verdana,Tahoma,Arial,sans-serif; 
-	font-size: 10px; 
-	margin: 0px; 
-	text-align: center;
-}
+ background-color: rgb(0, 0, 0); 
+ background-image: url(img/bg1.png); 
+ color: rgb(231, 214, 181);
+ font-family: Verdana,Tahoma,Arial,sans-serif; 
+ font-size: 12px; 
+ margin: 0px; 
+ text-align: center;
+ }
 
 /* Formulaires */
 fieldset {
@@ -455,6 +455,9 @@ min-height: 50px;
 
 .comment { background-color: #352d21; border-color: #000000; border-style: solid; border-width: 1px; color: #FFF; margin-top: 5px; }
 
+/* Block de debug mysql */
+.mysql{ background-color: #DDDDDD; border: 1px #AAAAAA solid; color: #000000; text-align: left; }
+
 /* Signature dans le forum, fiche membre, etc .. */
 .signature {  max-height: 15px; overflow: hidden; background-color: #504436; margin-bottom: 2px; margin-top: 5px; padding-left: 5px; padding-right: 5px; }
 
@@ -546,8 +549,8 @@ background-color: #352d21; border-color: #000; border-style: solid; border-width
 }
 
 /* Pour le forum, mais pas seulement */
-.quote { -moz-border-radius: 1%; width:90%; text-align:left; background-color: #4A3E23;font-style: italic; border:none; font-family: Verdana, Arial; font-size: 11px; padding: 5px;  margin:10px; }
-.code {  width:90%; text-align:left; background-color: #4A3E23;  font-style: italic;  border: none;  font-family: Verdana, Arial;  font-size: 11px; padding: 5px;  margin:10px 0; }
+.quote { -moz-border-radius: 1%; width:90%; text-align:left; background-color: #332B19;font-style: italic; border:none; font-family: Verdana, Arial; font-size: 11px; padding: 5px;  margin:10px; }
+.code {  width:90%; text-align:left; background-color: #332B19;  font-style: italic;  border: none;  font-family: Verdana, Arial;  font-size: 11px; padding: 5px;  margin:10px; }
 
 /* Block de debug */
 .debug{

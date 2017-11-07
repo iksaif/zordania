@@ -53,7 +53,7 @@ $(document).ready(function()
 	</div>
 
 	<p class="menu_module">
-		[ <a id="res_infos" href="#" class="toggle">Ressources Disponibles</a> ]
+		<a id="res_infos" href="#" class="toggle">Ressources Disponibles</a>
 	</p>
 	<if cond='{res_utils}'>
 		<table class="liste" id="res_infos_toggle">

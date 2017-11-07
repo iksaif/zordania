@@ -267,12 +267,12 @@
 
 	<hr />
 	<div class="menu_module">
-	[ Jour : <a href="btc-use.html?btc_type={btc_id}&sub=cours_sem&amp;jour=<math oper='{stq_jour}-1'/>&amp;mois={stq_mois}&amp;annee={stq_annee}" title="Précédent"><img src="img/left.png"/></a> 
-	{stq_jour} <a href="btc-use.html?btc_type={btc_id}&sub=cours_sem&amp;jour=<math oper='{stq_jour}+1'/>&amp;mois={stq_mois}&amp;annee={stq_annee}" title="Suivant"><img src="img/right.png"/></a> ] - 
-	[ Mois : <a href="btc-use.html?btc_type={btc_id}&sub=cours_sem&amp;mois=<math oper='{stq_mois}-1'/>&amp;jour={stq_jour}&amp;annee={stq_annee}" title="Précédent"><img src="img/left.png"/></a> 
-	{stq_mois} <a href="btc-use.html?btc_type={btc_id}&sub=cours_sem&amp;mois=<math oper='{stq_mois}+1'/>&amp;jour={stq_jour}&amp;annee={stq_annee}" title="Suivant"><img src="img/right.png"/></a> ] -
-	[ Année : <a href="btc-use.html?btc_type={btc_id}&sub=cours_sem&amp;annee=<math oper='{stq_annee}-1'/>&amp;jour={stq_jour}&amp;mois={stq_mois}" title="Précédent"><img src="img/left.png"/></a> 
-	{stq_annee} <a href="btc-use.html?btc_type={btc_id}&sub=cours_sem&amp;annee=<math oper='{stq_annee}+1'/>&amp;mois={stq_mois}&amp;mois={stq_mois}" title="Suivant"><img src="img/right.png"/></a> ]
+	Jour : <a href="btc-use.html?btc_type={btc_id}&sub=cours_sem&amp;jour=<math oper='{stq_jour}-1'/>&amp;mois={stq_mois}&amp;annee={stq_annee}" title="Précédent"><img src="img/left.png"/></a> 
+	{stq_jour} <a href="btc-use.html?btc_type={btc_id}&sub=cours_sem&amp;jour=<math oper='{stq_jour}+1'/>&amp;mois={stq_mois}&amp;annee={stq_annee}" title="Suivant"><img src="img/right.png"/></a> - 
+	Mois : <a href="btc-use.html?btc_type={btc_id}&sub=cours_sem&amp;mois=<math oper='{stq_mois}-1'/>&amp;jour={stq_jour}&amp;annee={stq_annee}" title="Précédent"><img src="img/left.png"/></a> 
+	{stq_mois} <a href="btc-use.html?btc_type={btc_id}&sub=cours_sem&amp;mois=<math oper='{stq_mois}+1'/>&amp;jour={stq_jour}&amp;annee={stq_annee}" title="Suivant"><img src="img/right.png"/></a> -
+	Année : <a href="btc-use.html?btc_type={btc_id}&sub=cours_sem&amp;annee=<math oper='{stq_annee}-1'/>&amp;jour={stq_jour}&amp;mois={stq_mois}" title="Précédent"><img src="img/left.png"/></a> 
+	{stq_annee} <a href="btc-use.html?btc_type={btc_id}&sub=cours_sem&amp;annee=<math oper='{stq_annee}+1'/>&amp;mois={stq_mois}&amp;mois={stq_mois}" title="Suivant"><img src="img/right.png"/></a>
 	</div>
 
 	<if cond="{mch_cours}">

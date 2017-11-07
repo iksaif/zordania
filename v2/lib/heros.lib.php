@@ -20,7 +20,7 @@ function add_hero($mid, $name, $type) {
 	$prix_res = get_conf('unt', $type, 'prix_res');
 	// ajouter le héros, l'unité et payer le prix
 	$sql = "INSERT INTO ".$_sql->prebdd."hero ";
-	$sql .= "VALUES ('',$mid, '$name', $type, $lid, 0,'$vie' ,0, 0, 0)";
+	$sql .= "VALUES (NULL,$mid, '$name', $type, $lid, 0,'$vie' ,0, NULL, NULL)";
 	$res = $_sql->query($sql);
 	$edit_unt[$type] = -1; // ajouter le héros comme unité
 	edit_unt_gen($mid, LEG_ETAT_VLG, $edit_unt, -1); // prix unités & héros

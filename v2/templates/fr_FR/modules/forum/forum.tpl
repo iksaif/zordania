@@ -430,6 +430,6 @@
 </else>
 
 <p class="menu_module">
-[<a href="forum.html"> Retour </a>]
-<if cond="{is_admin}">- [ <a href="/forums/admin_index.php" title="administrer le forum"> Administration </a> ]</if>
+<a href="forum.html"> Retour </a>
+<if cond="{is_admin}">- <a href="/forums/admin_index.php" title="administrer le forum"> Administration </a></if>
 </p>

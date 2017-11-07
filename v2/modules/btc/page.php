@@ -146,7 +146,7 @@ if($_act == 'btc')
 	$_tpl->set("module_tpl","modules/btc/use.tpl");
 	$btc_type = request("btc_type", "uint", "get");
 	
-	if($btc_type && !$mbr->get_conf("btc", $btc_type))
+	if($btc_type && !get_conf("btc", $btc_type))
 		$btc_type = 0;
 		
 	//On liste les batiments d'un type - ou tous

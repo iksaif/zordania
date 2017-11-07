@@ -12,9 +12,8 @@
 		</p>	
 	</foreach>
 	<div class="menu_module">
-		[ <a href="histo-all.html" title="Afficher tout">Tout</a> ]
-		-
-		[ <a href="histo.xml?mid={_user[mid]}&amp;key={histo_key}">Flux Rss</a> ]
+		<a href="histo-all.html" title="Afficher tout">Tout</a>
+		- <a href="histo.xml?mid={_user[mid]}&amp;key={histo_key}">Flux Rss</a>
 	</div>
 </if>
 <else>

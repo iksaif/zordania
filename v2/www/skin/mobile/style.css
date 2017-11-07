@@ -311,6 +311,19 @@ div#footer *{
 	padding: 5px;
 	margin: 10px;
 }
+/* debug zone */
+div.block{
+	max-width:100%;
+	border:none;
+}
+div.block dd,div.block dt,div.block ul{
+	overflow-x:scroll;
+	border: 1px solid #222;
+	font-size: 8px;
+}
+div.block, div.block *{
+	font-size: 10px;
+}
 .code {
 	width: 90%;
 	text-align: left;

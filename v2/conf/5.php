@@ -423,6 +423,7 @@ $this->btc[B5_BIBLIOTHEQUE]=array(
 		"prix_unt"		=>	array(U5_SERVITEUR => 1),
 		"limite"		=>	1,
 		"prod_src"	=>	true,
+		"prod_unt"	=>	true,
 );
 
 //Demeure,

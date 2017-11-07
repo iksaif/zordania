@@ -1,10 +1,10 @@
 <p class="menu_module">
-[<a href="a_propos.html" title="les membres de l'équipe"> L'équipe </a>]
-- [<a href="a_propos-rec.html" title="Les récompenses"> Récompenses </a>]
-- [<a href="a_propos-roi.html" title="Les rois"> Les rois de Zordania! </a>]
-- [<a href="a_propos-le_site.html" title="l'évolution du site"> Le site </a>]
-- [<a href="a_propos-boutons.html" title="Les boutons"> Boutons </a>]
-- [<a href="a_propos-legal.html" title="Mentions légales"> Mentions légales </a>]
+<a href="a_propos.html" title="les membres de l'équipe"> L'équipe </a>
+- <a href="a_propos-rec.html" title="Les récompenses"> Récompenses </a>
+- <a href="a_propos-roi.html" title="Les rois"> Les rois de Zordania! </a>
+- <a href="a_propos-le_site.html" title="l'évolution du site"> Le site </a>
+- <a href="a_propos-boutons.html" title="Les boutons"> Boutons </a>
+- <a href="a_propos-legal.html" title="Mentions légales"> Mentions légales </a>
 </p>
 
 
@@ -12,9 +12,9 @@
 	<h1>Les Récompenses</h1>
 	<foreach cond='{rec_array} as {rec} => {rec_mbr}'>
 		<h4><img src="img/rec/{rec}.png" title="{recompense[{rec}]}" alt="{recompense[{rec}]}" />{recompense[{rec}]}</h4>
-		<p>
+		<p class="menu_module">
 		<foreach cond='{rec_mbr} as {mbr}'>
-		[ <a href="member-view.html?mid={mbr[mbr_mid]}" title="Infos sur {mbr[mbr_pseudo]}">{mbr[mbr_pseudo]}</a> ] 
+		<a href="member-view.html?mid={mbr[mbr_mid]}" title="Infos sur {mbr[mbr_pseudo]}">{mbr[mbr_pseudo]}</a>
 		</foreach>	
 		</p>	
 	</foreach>
@@ -23,9 +23,9 @@
 	<h1>Les rois ou reines  de Zordania!</h1>
 	<foreach cond='{rec_array} as {rec_rois} => {rec_mbr}'>
 		<h4><img src="img/rec/{rec_rois}.png" title="{recompense[{rec_rois}]}" alt="{recompense[{rec_rois}]}" />{recompense[{rec_rois}]}</h4>
-		<p>
+		<p class="menu_module">
 		<foreach cond='{rec_mbr} as {mbr}'>
-		[ <a href="member-view.html?mid={mbr[mbr_mid]}" title="Infos sur {mbr[mbr_pseudo]}">{mbr[mbr_pseudo]}</a> ] 
+		<a href="member-view.html?mid={mbr[mbr_mid]}" title="Infos sur {mbr[mbr_pseudo]}">{mbr[mbr_pseudo]}</a>
 		</foreach>	
 		</p>	
 	</foreach>
@@ -139,12 +139,12 @@ $("input[type=text]").focus(function(){
 </elseif>
 <else>
 	<h1>L'Equipe</h1>
-	<p>
+	<p class="menu_module">
 	<foreach cond="{team_order} as {grp} => {mbr_array}">
 		<h4><img src="img/groupes/{grp}.png" alt="{groupes[{grp}]}" title="{groupes[{grp}]}" /> {groupes[{grp}]}</h4>
 	
 		<foreach cond="{mbr_array} as {mbr}">
-	[ <a href="member-view.html?mid={mbr[mbr_mid]}" title="Infos sur {mbr[mbr_pseudo]}">{mbr[mbr_pseudo]}</a> ] 
+	<a href="member-view.html?mid={mbr[mbr_mid]}" title="Infos sur {mbr[mbr_pseudo]}">{mbr[mbr_pseudo]}</a>
 		</foreach>
 	</foreach>
 </else>

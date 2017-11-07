@@ -15,6 +15,17 @@ img {
     text-align: center;
 }
 
+.menu_module a,.retour_module a {
+    margin: 2px;
+    padding: 2px;
+    border-left: solid 1px #e7d6b5;
+    border-right: solid 1px #e7d6b5;
+    border-radius: 3px;
+}
+.menu_gauche input[type="radio"],
+.menu_gauche input[type="checkbox"] {
+    display: none
+}
 .close_popup {
     position: fixed;
     bottom: 0em;
@@ -99,6 +110,10 @@ img {
     margin: 0;
     padding: 0;
 }
+/* masquer le 1er icone */
+div#actbar li:nth-child(1){
+	display: none;
+}
 
 .perte{
 	color:#99232C;
@@ -113,46 +128,41 @@ img {
 }
 
 /* Portail */
-
-#thumbBox { /*Outermost DIV for thumbnail viewer*/
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: auto;
-	padding: 10px;
-	padding-bottom: 0;
-	background: #313131;
-	border: 1px solid #000000;
-	visibility: hidden;
-	z-index: 10;
-	cursor: hand;
-	cursor: pointer;
+#thumbBox{ /*Outermost DIV for thumbnail viewer*/
+position: absolute;
+left: 0;
+top: 0;
+width: auto;
+padding: 10px;
+padding-bottom: 0;
+background: #313131;
+visibility: hidden;
+z-index: 10;
+cursor: hand;
+cursor: pointer;
 }
 
-#thumbBox .footerbar { /*Footer DIV of thumbbox that contains "close" link */
-	font: bold 16px Tahoma;
-	letter-spacing: 5px;
-	line-height: 1.1em;
-	color: #000000;
-	padding: 5px 0;
-	text-align: right;
+#thumbBox .footerbar{ /*Footer DIV of thumbbox that contains "close" link */
+font: bold 16px Tahoma;
+letter-spacing: 5px;
+line-height: 1.1em;
+color: white;
+padding: 5px 0;
+text-align: right;
 }
 
 
-#thumbBox #thumbImage { /*DIV within thumbbox that holds the enlarged image */
-	background-color: #FFFFFF;
-	color: #000000;
-	border: 1px solid #000000;
-	font-size: 14px;
+#thumbBox #thumbImage{ /*DIV within thumbbox that holds the enlarged image */
+background-color: white;
 }
 
-#thumbLoading { /*DIV for showing "loading" status while thumbbox is being generated*/
-	position: absolute;
-	visibility: hidden;
-	border: 1px solid #FFFFFF;
-	background-color: #EFEFEF;
-	padding: 5px;
-	z-index: 5;
+#thumbLoading{ /*DIV for showing "loading" status while thumbbox is being generated*/
+position: absolute;
+visibility: hidden;
+border: 1px solid black;
+background-color: #EFEFEF;
+padding: 5px;
+z-index: 5;
 }
 
 /* colorisation */

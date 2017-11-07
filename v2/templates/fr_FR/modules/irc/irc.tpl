@@ -37,9 +37,8 @@
 	-->
 	</script>
 	<div class="menu_module">
-	[ <a href="#" onclick="openChat('webchat');" title="Aucune installation nécessaire !">Utiliser l'interface web</a> ]
-	-
-	[ <a href="irc://irc.quakenet.org/zordania" title="Rejoindre le chat avec mon logiciel habituel">Utiliser mon logiciel habituel</a> ]
+	<a href="#" onclick="openChat('webchat');" title="Aucune installation nécessaire !">Utiliser l'interface web</a>
+	- <a href="irc://irc.quakenet.org/zordania" title="Rejoindre le chat avec mon logiciel habituel">Utiliser mon logiciel habituel</a>
 	</div>
 </if>
 

@@ -1,10 +1,8 @@
 <p class="menu_module">
 	<foreach cond="{race} as {race_id} => {race_name}">
-	[
 	<a href="admin.html?module=btc&amp;race={race_id}">
 		<img src="img/{race_id}/{race_id}.png" alt="{race_name}" title="{race_name}" /> {race_name}
 	</a>
-	]
 	<load file="race/{race_id}.config" />
 	<load file="race/{race_id}.descr.config" />
 	</foreach>

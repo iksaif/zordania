@@ -85,7 +85,7 @@
 </table>
 
 <if cond='{act} != "histo"'>
-	<p class="menu_module">[ <a href="diplo-histo.html" title="Anciens pactes de l'alliance">Anciens pactes</a> ]</p>
+	<p class="menu_module"><a href="diplo-histo.html" title="Anciens pactes de l'alliance">Anciens pactes</a></p>
 </if>
 
 <p class="infos">Seul le chef d'alliance peut proposer un pacte à une autre alliance. Il doit pour cela passer par la <a href="alliances.html" title="Liste des Alliances">Liste des Alliances</a>.</p>
