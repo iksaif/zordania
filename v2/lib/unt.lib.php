@@ -757,11 +757,11 @@ function add_leg($mid, $cid, $etat, $name) {
 	$name = protect($name, "string");
 	
 	$sql = "INSERT INTO ".$_sql->prebdd."leg (leg_id, leg_mid, leg_cid, leg_etat, leg_name)" .
-		"VALUES ('',$mid, $cid, $etat, '$name') ";
+		"VALUES (NULL,$mid, $cid, $etat, '$name') ";
 	
 	$res = $_sql->query($sql);
 	
-	return mysql_insert_id();
+	return $_sql->insert_id();
 }
 
 function del_leg_unt($mid, $lid = 0) {
@@ -965,6 +965,7 @@ function get_leg_gen($cond) {
 		$sql.= "ORDER BY leg_stop, unt_rang ";
 	else
 		$sql.= "ORDER BY leg_stop ";
+
 	return $_sql->make_array($sql);
 }
 
@@ -1091,139 +1092,8 @@ function get_unt_todo($mid, $cond = array()) {
 	}
 	
 	$sql.= " ORDER BY utdo_id ASC ";
-	return $_sql->make_array($sql);
-}
-
-/* Verifie qu'on peut faire $nb unités du type $type */
-function can_unt($mid, $type, $nb, $cache = array()) {
-	$mid = protect($mid, "uint");
-	$type = protect($type, "uint");
-	$cache = protect($cache, "array");
-
-	$bad_src = array();
-	$bad_res = array();
-	$bad_btc = array();
-	$bad_unt = array();
-	$limit_unt = 0;
-
-	if(!get_conf("unt", $type))
-		return array("do_not_exist" => true);
-	
-	/* Bâtiments */
-	$need_btc = get_conf("unt", $type, "need_btc");
-	$cond_btc = $need_btc;
-	
-	if(!isset($cache['btc'])) {
-		$have_btc = get_nb_btc_done($mid, $cond_btc);
-		$have_btc = index_array($have_btc, "btc_type");
-	} else
-		$have_btc = $cache['btc'];
-	
-	/* Recherches */
-	$cond_src = array($type);
-
-	$need_src = get_conf("unt", $type, "need_src");
-	$cond_src = $need_src;
-
-	if(!isset($cache['src'])) {
-		$have_src = get_src_done($mid, $cond_src);
-		$have_src = index_array($have_src, "src_type");
-	} else
-		$have_src = $cache['src'];
-	
-	
-	/* Ressources */
-	$prix_res = get_conf("unt", $type, "prix_res");
-	$cond_res = array_keys($prix_res);
-	
-	if(!isset($cache['res'])) {
-		$have_res = get_res_done($mid, $cond_res);
-		$have_res = clean_array_res($have_res);
-		$have_res = $have_res[0];
-	} else
-		$have_res = $cache['res'];
-		
-	/* Unités */
-	$prix_unt = get_conf("unt", $type, "prix_unt");
-	$cond_unt = array_keys($prix_unt);
-	
-	$limite = get_conf("unt", $type, "limite");
-	if($limite)
-		$cond_unt += array($type);
-	
-	if(!isset($cache['unt'])) {
-		$cond = array('mid' => $mid, 'unt' => array(), 'leg' => true);
-		$unt_tmp = get_leg_gen($cond);
-		foreach($unt_tmp as $value) {
-			$t_type = $value['unt_type'];
-			$t_nb = $value['unt_nb'];
-			$t_etat = $value['leg_etat'];
-			if($t_etat == LEG_ETAT_VLG) {
-				if(!isset($have_unt[$t_type]))
-					$have_unt[$t_type] = 0;
-				$have_unt[$t_type] += $t_nb;
-			} else {
-				if(!isset($have_unt_leg[$t_type]))
-					$have_unt_leg[$t_type] = 0;
-				$have_unt_leg[$t_type] += $t_nb;
-			}
-		}
-	} else {
-		$have_unt = $cache['unt'];
-		$have_unt_leg = $cache['unt_leg'];
-	}
-
-	if(!isset($cache['unt_todo'])) {
-		$have_unt_todo = get_unt_todo($mid, $type);
-		$have_unt_todo = index_array($have_unt_todo, "unt_todo");
-	} else
-		$have_unt_todo = $cache['unt_todo'];
-		
-	/* Les recherches qu'il faut avoir */
-	foreach($need_src as $src_type) {
-		if(!isset($have_src[$src_type]))
-			$bad_src['need_src'][] = $src_type;
-	}
-
-	/* Vérifications ressources */
-	foreach($prix_res as $res_type => $nombre) {
-		$diff =  $nombre * $nb - $have_res[$res_type];
-		if($diff > 0) {
-			$bad_res[$res_type] =  $diff;
-		}
-	}
-
-	/* Les unités */
-	foreach($prix_unt as $unt_type => $nombre) {
-		if(!isset($have_unt[$unt_type]))
-			$diff = $nombre * $nb;
-		else
-			$diff = $nombre * $nb - $have_unt[$unt_type];
-
-		if($diff > 0) {
-			$bad_unt[$unt_type] =  $diff;
-		}
-	}
-	
-	/* Verifications Bâtiments */
-	foreach($need_btc as $btc_type) {
-		if(!isset($have_btc[$btc_type]))
-			$bad_btc[] = $cond_btc;
-	}
-	
-	/* La limite */
-	$unt_nb = 0;
-	if(isset($have_unt[$type]))
-		$unt_nb += $have_unt[$type];
-	if(isset($have_unt_leg[$type]))
-		$unt_nb += $have_unt_leg[$type];
-	if(isset($have_unt_todo[$type]['utdo_nb']))
-		$unt_nb += $have_unt_todo[$type]['utdo_nb'];
-
-	if($limite && $unt_nb >= $limite)
-		$limit_unt = $limite;
-
-	return array('need_src' => $bad_src, 'need_btc' => $bad_btc, 'prix_res' => $bad_res,  'prix_unt' => $bad_unt, 'limit_unt' => $limit_unt);
+    $result = $_sql->make_array($sql);
+	return $result;
 }
 
 /* vérifications pour renommer une légion */
@@ -1243,7 +1113,8 @@ function can_ren_leg($mid, $lid, $leg_name){
 	//$sql .= " AND leg_name LIKE CONVERT( _utf8 '$leg_name' USING latin1 ) COLLATE latin1_swedish_ci";
 
 	$res = $_sql->query($sql);
-	return ($_sql->result($res, 0, 'leg_cnt') == 0);
+    $val = $_sql->result($res, 0, 'leg_cnt');
+	return ($val == 0);
 
 }
 
@@ -1496,7 +1367,7 @@ function scl_unt($mid, $unt) {
 	foreach($unt as $type => $nb) {
 		$type = protect($type, "uint");
 		$nb = protect($nb, "uint");
-		$sql.= " ('', $mid, $type, $nb), ";
+		$sql.= " (NULL, $mid, $type, $nb), ";
 	}
 	
 	$sql = substr($sql, 0, strlen($sql)-2); /* On vire la virgule en trop */
@@ -1541,7 +1412,7 @@ function cls_unt($mid) {
 	$sql = "DELETE FROM ".$_sql->prebdd."unt_todo WHERE utdo_mid = $mid";
 	$_sql->query($sql);
 	
-	return mysql_affected_rows() + $nb;
+	return $_sql->affected_rows() + $nb;
 }
 
 function get_leg_nb($mid, $etat = array()) {
@@ -1552,14 +1423,16 @@ function get_leg_nb($mid, $etat = array()) {
 	foreach($etat as $k => $v)
 		$etat[$k] = protect($v, "uint");
 
-	$sql = "SELECT COUNT(*) FROM ".$_sql->prebdd."leg ";
+	$sql = "SELECT COUNT(*) as nb FROM ".$_sql->prebdd."leg ";
 	$sql.= "WHERE leg_mid = $mid ";
 	if($etat) {
 		$sql.= "AND leg_etat IN (";
 		$sql.= implode($etat, ",");
 		$sql.= ")";
 	}
-	return $_sql->result($_sql->query($sql), 0);
+	$res = $_sql->query($sql);
+    $val = $_sql->result($res, 0, 'nb');
+	return $val;
 }
 
 /* Retourne la population */
@@ -1569,18 +1442,16 @@ function count_pop($mid, $etat = array()) {
 	$mid = protect($mid, "uint");
 	$etat = protect($etat, "array");
 
-	$sql = "SELECT SUM(unt_nb) ";
+	$sql = "SELECT SUM(unt_nb) AS nb ";
 	$sql.= "FROM ".$_sql->prebdd."leg ";
 	$sql.= "JOIN ".$_sql->prebdd."unt ON leg_id = unt_lid ";
 	$sql.= "WHERE leg_mid = $mid ";
 	if($etat)
 		$sql.= " AND leg_etat IN (". implode(",", $etat) .")";
-	$res = $_sql->query($sql);
 
-	if(!mysql_num_rows($res))
-		return 0;
-	else
-		return mysql_result($res, 0);
+	$res = $_sql->query($sql);
+    $val = $_sql->result($res, 0, 'nb');
+	return $val;
 }
 
 /* les légions dans $leg_array peuvent être attaquées par un joueur ($mid) qui a $points, ($groupe) et ally=$alaid */

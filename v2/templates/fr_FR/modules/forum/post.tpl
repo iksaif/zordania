@@ -5,8 +5,8 @@
 		<h4><a href="forum-post.html?tid={tid}&pid={post[id]}#{post[id]}" title="post {post[id]}">{post[subject]}</a></h4>
 
 		<p class="post">{post[message]}</p>
-		<if cond='isset({post[edited]})'><p><em>&eacute;dit&eacute; par {post[edited_by]} le {post[edited]}</em></p></if>
-		<p>
+		<if cond='isset({post[edited]})'><p class="edited"><em>&eacute;dit&eacute; par {post[edited_by]} le {post[edited]}</em></p></if>
+		<p class="author">
 		<a href="#">le {post[posted]}</a> par <zurlmbr gid="{post[mbr_gid]}" mid="{post[poster_id]}" pseudo="{post[username]}"/>
 		<if cond='isset({post[al_aid]})'>
 			- <a href="alliances-view.html?al_aid={post[al_aid]}" title="Infos sur {post[al_name]}">

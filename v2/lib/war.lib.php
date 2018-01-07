@@ -12,7 +12,7 @@ function add_atq($mid1, $mid2, $lid1, $lid2, $bilan, $cid) {
 	$bilan = protect($bilan, "serialize");
 
 	$sql = "INSERT INTO ".$_sql->prebdd."atq VALUES ";
-	$sql.= "('',$mid1, $mid2, $lid1, $lid2, ".ATQ_TYPE_ATQ.", NOW(), $cid, '$bilan')";
+	$sql.= "(NULL,$mid1, $mid2, $lid1, $lid2, ".ATQ_TYPE_ATQ.", NOW(), $cid, '$bilan')";
 
 	if ($_sql->query($sql)) // récupérer l'identifiant créé
 		return $_sql->insert_id();
@@ -140,7 +140,7 @@ function get_atq_gen($cond) { /* mid = attaquant, mid2 = defenseur */
 		$count = protect($cond['count'], "bool");
 
 	if($count)
-		$sql = "SELECT COUNT(*) ";
+		$sql = "SELECT COUNT(*) AS nbatq ";
 	else {
 		$sql = "SELECT atq_aid, _DATE_FORMAT(atq_date) as atq_date_formated, ";
 		if(!$lite)
@@ -188,7 +188,7 @@ function get_atq_gen($cond) { /* mid = attaquant, mid2 = defenseur */
 		else
 			$sql .= " LIMIT $limite1 ";
 	if($count)
-		return $_sql->result($_sql->query($sql), 0);
+		return $_sql->result($_sql->query($sql), 0, 'nbatq');
 	else {
 		if($lite)
 			return $_sql->make_array($sql);

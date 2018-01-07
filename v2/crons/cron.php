@@ -28,8 +28,8 @@ mark('start');
 //require_once("/home/zorddev/conf/conf.inc.php");
 require_once(str_replace('crons','',dirname(__FILE__))."/conf/conf.inc.php");
 
-require_once(SITE_DIR . "cache/global.cache.php");
 require_once(SITE_DIR . "lib/divers.lib.php");
+$_cache = new cache('global', true);
 
 /* Gestion des erreurs : fonctions dans lib/divers.lib.php */
 $_error = array();
@@ -45,7 +45,7 @@ require_once(SITE_DIR . "lib/btc.lib.php");
 require_once(SITE_DIR . "lib/rec.lib.php");
 mark('lib');
 
-$_sql = new mysql(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_BASE);
+$_sql = new mysqliext(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_BASE);
 $_sql->set_prebdd(MYSQL_PREBDD);
 $_sql->set_debug(SITE_DEBUG);
 $_sql->env = 'cron';
@@ -59,9 +59,9 @@ $_s = (int) date('s');
 $_c = "";
 
 /* Calcul du tours courant, sachant qu'il y a 24 tours par cycle, et 4 * 5 périodes par cycle */
-$_t = $_cache['tour'];
-$_ts = $_cache['tours'];
-$_p = $_cache['period'];
+$_t = $_cache->tour;
+$_ts = $_cache->tours;
+$_p = $_cache->period;
 if(ZORD_SPEED == ZORD_SPEED_VFAST || !($_m % ZORD_SPEED)) {
 	$_ts++;
 	$_t = $_ts % 24;

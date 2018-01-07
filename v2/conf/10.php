@@ -41,7 +41,7 @@ var $src = array();
 var $comp = array();
 var $race_cfg = array();
 
-function config10()
+function __construct()
 {
  
 $this->res = array();

@@ -19,9 +19,11 @@
 	<meta name="description" content="Jeu de Gestion/Stratégie dans un univers Médiéval-Fantastique. Fondez un village, construisez des bâtiments pour produire des ressources, érigez votre armée et partez à la conquête du monde !" />
 	<meta name="keywords" content="zordania;jeu;php;medieval;orc;humain;nain;drow;elfe" />
 	<meta name="author" content="CHARY Corentin" />
+	<link rel="browser-game-info" href="http://www.zordania.com/xml/info.xml" />
 
 	<link rel="stylesheet" type="text/css" media="screen" title="{css[{_user[design]}][1]}" href="skin/{css[{_user[design]}][0]}/style.css" />
 	<link type="text/css" href="skin/jquery/jquery-ui-1.10.0.custom.min.css" rel="stylesheet" />
+	<link rel="stylesheet" media="all and (max-width: 800px)" href="skin/imports/mobile.css" />
 	
 	<script type="text/javascript">
 	var cfg_url = '{cfg_url}';
@@ -96,21 +98,25 @@
 			  <p class="infos">Calculs des tours en cours, patientez quelques minutes, puis actualisez la page ...</p>
 			  <div class="block">{cron_lock}</div>
 			  </if>
+			  <if cond='{no_cookies} == true'>
+			  <p class="infos">Il faut activer les cookies pour pouvoir profiter du site !</p>
+			  </if>
 			  <if cond='{SITE_TRAVAUX} == true'>
 			  <p class="error">Site en pause ... Travaux en cours ... Accès autorisé ...</p>
 			  </if>
 			  <if cond='isset({need_to_be_loged})'>
 			  <p class="infos">Il faut se connecter pour accéder à cette partie du site.</p>
+			  <include file="modules/session/connect.tpl" cache="1" />
 			  </if>
-			  <if cond='{no_cookies} == true'>
-			  <p class="infos">Il faut activer les cookies pour pouvoir profiter du site !</p>
-			  </if>
-			  <if cond='{cant_view_this} == true'>
+			  <elseif cond='{cant_view_this} == true'>
 			  <p class="infos">Vous n'avez pas les droits nécessaires pour voir cette partie du site.</p>
-			  </if>
+			  </elseif>
 			  <elseif cond='isset({module_tpl})'>
 			  <h2 class="titre_module">{pages[{module}]}</h2>
-			  <include file="{module_tpl}" cache="1" />
+				<if cond='{_user[mid]} == 1'>
+					<include file="modules/session/connect.tpl" cache="1" />
+				</if>
+				<include file="{module_tpl}" cache="1" />
 			  </elseif>
 
 		    	</div>
@@ -127,9 +133,9 @@ google_ad_width = 160;
 google_ad_height = 600;
 //-->
 </script>
-<script type="text/javascript"
+<!-- script type="text/javascript"
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
+</script -->
 </div>
 
 	<div class="cleaner">&nbsp;</div>
@@ -156,19 +162,24 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	</if>
 </else>
 
+<# div pour popup jquery #>
+<div id="dialog-modal" title="Titre" style="display:none;">
+</div>
 
 <if cond="isset({sv_site_debug})"><include file="debug.tpl" cache="1" /></if>
 
 <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+//var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+//document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 
 <script type="text/javascript">
+/*
 try {
 var pageTracker = _gat._getTracker("UA-6710160-1");
 pageTracker._trackPageview();
 } catch(err) {}
+*/
 
 /* jQuery: masquer tous les éléments 'toggle' */
 $(".toggle").each(function(){

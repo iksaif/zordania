@@ -4,7 +4,7 @@
 * Design Général
 */
 a{ 
-	font-size: 10px;
+	font-size: 12px;
 }
 
 a:link, a:visited, a:active {
@@ -30,7 +30,7 @@ body {
     background-image: url(img/fond.png); 
     color: silver; 
 	font-family: Verdana,Tahoma,Arial,sans-serif;
-    font-size: 11px; 
+    font-size: 12px; 
     margin: 0px; 
     text-align: center;
 
@@ -44,7 +44,7 @@ fieldset {
 input,select { 
 background-color: #37373e; 
 border: 1px solid #4D5E7F; 
-color: #000000;
+color: #FFFFFF;
  font-size: 11px; 
  font-weight: bold;
  margin: 2px; 
@@ -52,7 +52,7 @@ color: #000000;
 textarea{
     background-color: #37373e;
     border: thin solid #4D5E7F;
-   color: #000000;
+   color: #FFFFFF;
    font-size: 13px; 
 }
 textarea:focus,input:focus{ 
@@ -139,7 +139,7 @@ div#toolTip {
     filter: Alpha( Opacity=75, Style=0);
     font-family: Verdana, 
     Arial, sans-serif; 
-    font-size: 9px; 
+    font-size: 10px; 
     font-weight: bold; 
     left: 0px; -moz-border-radius: 5%; -moz-opacity: 0.75; 
     padding: 5px;
@@ -303,10 +303,10 @@ color: #ffffff;
 
 #actbar {
     position: absolute;
-    top: 312px;
+    top: 258px;
     height: 40px;
     text-align: right;
-    left: 230px;
+    left: 290px;
     z-index: 15;
 }
 #actbar ul {
@@ -317,7 +317,7 @@ color: #ffffff;
     padding-bottom: 4px;
 }
 #actbar a {
-    margin: 0 5px 2px 5px;
+    margin: 0 1px 2px 1px;
 }
 
 #actbar li {
@@ -554,14 +554,6 @@ min-height: 50px;
 	padding-left: 5px;
 }
 
-/* Block de debug mysql */
-.mysql{
-	background-color: #DDDDDD;
-	border: 1px #AAAAAA solid;
-	color: #000000;
-	text-align: left;
-}
-
 /* Signature dans le forum, fiche membre, etc .. */
 .signature {
 	background-color: #303030;
@@ -709,6 +701,25 @@ background-color: #00000f;
 	font-family: Verdana, Arial;
 	font-size: 11px;
 	padding: 5px;
+	margin:10px;
+	overflow:auto;
+}
+
+/* Block de debug */
+.debug{
+	text-align: left;
+	background-color: #000000;
+	color: #fff;
+	border: #ffffff solid 1px;
+	padding: 5px;
+}
+.mysql{
+	background-color: #DDDDDD;
+	border: 1px #AAAAAA solid;
+	color: #000000;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0;
 	margin:10px;
 	overflow:auto;
 }

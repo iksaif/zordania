@@ -20,7 +20,7 @@ function add_mbr($login, $pass, $mail, $lang, $etat, $gid, $decal, $ip, $design,
 	if($_sql->errno) /* Une des clefs unique existe déjà ! */
 		return 0;
 	else {
-		$mid =  mysql_insert_id();
+		$mid =  $_sql->insert_id();
 		$im = imagecreatefrompng(MBR_LOGO_DIR.'0.png');
 		imagepng($im, MBR_LOGO_DIR."$mid.png");
 		//add_frm($mid, $login, $pass, $gid, $lang);
@@ -717,11 +717,11 @@ function get_nb_mbr($cond = array()) {
 	global $_sql;
 
 	
-	$sql = "SELECT COUNT(*) ";
+	$sql = "SELECT COUNT(*) as nb ";
 	$sql.= "FROM ".$_sql->prebdd."mbr ";
 	
-	$res = $_sql->query($sql);
-	return  mysql_result($res, 0);
+	$ret = $_sql->make_array_result($sql)['nb'];
+	return  $ret;
 }
 
 function calc_dst($x1, $y1, $x2, $y2) {
@@ -815,7 +815,7 @@ function add_surv($mid, $mid_admin, $type, $cause){
 	global $_sql;
 	
 	$sql = "INSERT INTO ".$_sql->prebdd."surv (surv_id, surv_mid, surv_admin, surv_debut, surv_etat, surv_type, surv_cause) ";
-	$sql .= "VALUES ('', '$mid', '$mid_admin', NOW(), '".SURV_OK."', '$type', '$cause') ";
+	$sql .= "VALUES (NULL, '$mid', '$mid_admin', NOW(), '".SURV_OK."', '$type', '$cause') ";
 	
 	return $_sql->query($sql);
 }

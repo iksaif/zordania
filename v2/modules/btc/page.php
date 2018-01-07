@@ -4,32 +4,29 @@ if(!defined("_INDEX_")) exit;
 if(!can_d(DROIT_PLAY))
 	$_tpl->set("need_to_be_loged",true); 
 else {
+    
+$mbr = new member($_user['mid']);
+
 require_once("lib/btc.lib.php");
 require_once("lib/src.lib.php");
 require_once("lib/unt.lib.php");
 require_once("lib/res.lib.php");
 require_once("lib/trn.lib.php");
 require_once("lib/member.lib.php");
-/*
-$_tpl->set('BTC_ETAT_TODO', BTC_ETAT_TODO);
-$_tpl->set('BTC_ETAT_OK', BTC_ETAT_OK);
-$_tpl->set('BTC_ETAT_DES', BTC_ETAT_DES);
-$_tpl->set('BTC_ETAT_REP', BTC_ETAT_REP);
-$_tpl->set('BTC_ETAT_BRU', BTC_ETAT_BRU);
-*/
+
+// construction des batiments
 if($_act == 'btc')
 {
 	$_tpl->set("module_tpl","modules/btc/btc.tpl");
 
 	/* Nombre de travailleurs */
-	$trav = get_unt_done($_user['mid'], array(1));
-	$trav = $trav ? $trav[0] : 0;
-	$_tpl->set("btc_trav",$trav['unt_nb']);
+	$_tpl->set("btc_trav", $mbr->nb_unt_done(1));
 	$_tpl->set("btc_act",false);
 
 	// tous les batiments
 	$cache['btc_done'] = get_nb_btc($_user['mid']); // get_nb_btc_done($_user['mid']);
 	// seulement les batiments en construction
+    /* le cache est $mbr
 	$cache['btc_todo'] = get_nb_btc($_user['mid'], array(), array(BTC_ETAT_TODO));
 	$cache['src'] = get_src_done($_user['mid']);
 	$cache['src'] = index_array($cache['src'], "src_type");
@@ -39,12 +36,13 @@ if($_act == 'btc')
 	$cache['trn'] = $cache['trn'][0];
 	$cache['unt'] = get_unt_done($_user['mid']);
 	$cache['unt'] = index_array($cache['unt'], "unt_type");
-
+    */
+    
 	if($_sub == 'btc') {// construire un nouveau bâtiment $type
 		$_tpl->set("btc_act","btc");
 		$type = request("type", "uint", "get");
 		
-		$btc_todo = $cache['btc_todo'];
+		$btc_todo = $mbr->nb_btc(array(), array(BTC_ETAT_TODO)); // $cache['btc_todo'];
 		$btc_nb = 0;
 		foreach($btc_todo as $btc_type)
 			$btc_nb += $btc_type['btc_nb'];
@@ -98,7 +96,7 @@ if($_act == 'btc')
 				$cache['btc_todo'] = get_nb_btc($_user['mid'], array(), array(BTC_ETAT_TODO));
 			}
 		}
-	}// else {
+	}
 
 	/* Y'en a en construction ? */
 	$btc_todo = get_btc($_user['mid'], array(), array(BTC_ETAT_TODO));
@@ -143,16 +141,15 @@ if($_act == 'btc')
 	$_tpl->set_ref("btc_bad",$btc_bad);
 	$_tpl->set_ref("btc_limit",$btc_limit);
 
-		//}
-	//}
 } elseif($_act == 'use')  {
+    // recherche ou formation ou ressources
 	$_tpl->set("module_tpl","modules/btc/use.tpl");
 	$btc_type = request("btc_type", "uint", "get");
 	
 	if($btc_type && !get_conf("btc", $btc_type))
 		$btc_type = 0;
 		
-	//On liste les batiments d'un type
+	//On liste les batiments d'un type - ou tous
 	if($_sub == 'list')
 	{
 		$_tpl->set("btc_act","list2");
@@ -209,6 +206,7 @@ if($_act == 'btc')
 			$_tpl->set('btc_ok',false);
 		
 	} elseif($_sub == 'des' OR $_sub == 'act' OR $_sub == 'rep') {
+        // désactiver / activer / réparer un bat
 		if(!empty($_POST))
 			$arr_bid = request('bid', 'array', 'post');
 		else{
@@ -260,11 +258,12 @@ if($_act == 'btc')
 		$_tpl->set("src_conf", get_conf("src"));
 		$_tpl->set("src_array", get_src_done($_user['mid']));
 		$_tpl->set("btc_array", $btc_array);
-	//Gérer : formation / recherche dispo dans le bâtiment
+        
+	//Gérer : formation / recherche / ressources dispo dans le bâtiment
 	} else {
 		$_tpl->set("btc_act", "use");
 		// lister les bâtiments de ce type disponibles
-		$btc_array = get_btc($_user['mid'], array($btc_type), array(BTC_ETAT_OK, BTC_ETAT_DES, BTC_ETAT_REP, BTC_ETAT_BRU));
+		$btc_array = $mbr->btc(array($btc_type), array(BTC_ETAT_OK, BTC_ETAT_DES, BTC_ETAT_REP, BTC_ETAT_BRU));
 		$btc_nb_total = count($btc_array);
 		$btc_nb = 0;
 		foreach($btc_array as $value) {
@@ -284,16 +283,23 @@ if($_act == 'btc')
 			$_tpl->set("btc_conf", $btc_conf);
 			$_tpl->set("btc_nb",$btc_nb);
 			$_tpl->set("btc_nb_total",$btc_nb_total);
-			$_tpl->set("btc_tpl","modules/btc/".$_user['race']."/".$btc_type.".tpl");// vide sauf donjon (btc_type=1)
+            // un template spécifique par race & batiment - vide sauf donjon (btc_type=1)
+			$_tpl->set("btc_tpl","modules/btc/".$_user['race']."/".$btc_type.".tpl");
 			
 			/* Principal */
-			include(SITE_DIR."modules/btc/" .$_user['race']."/".$btc_type.".php");// vide sauf donjon (btc_type=1)
+            // un include spécifique par race & batiment - vide sauf donjon (btc_type=1)
+			include(SITE_DIR."modules/btc/" .$_user['race']."/".$btc_type.".php");
 			
 			/* Autres trucs, en fonction de la conf */
+            // former unité, liste des unités, annuler une formation
 			if(isset($btc_conf['prod_unt'])) include("modules/btc/inc/unt.php");
+            // liste recherches, nouvelle recherche, annuler recherche en cours
 			if(isset($btc_conf['prod_src'])) include("modules/btc/inc/src.php");
+            // idem ressources
 			if(isset($btc_conf['prod_res'])) include("modules/btc/inc/res.php");
+            // tout le commerce (marché achat vente cours ...)
 			if(isset($btc_conf['com'])) include("modules/btc/inc/com.php");
+            // la page "info" du bat
 			include("modules/btc/inc/info.php");
 
 			if($_display == "ajax"){

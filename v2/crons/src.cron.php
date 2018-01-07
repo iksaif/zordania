@@ -21,10 +21,8 @@ function mbr_src(&$_user) {
 		if(get_conf_gen($race, "btc", $i, "prod_src"))
 			$need_btc[] = $i;
 
-	$sql = "SELECT COUNT(btc_type) FROM ".$_sql->prebdd."btc WHERE btc_mid = $mid AND btc_type IN (".implode(',', $need_btc).")";
-	$res = $_sql->query($sql);
-	$speed = $_sql->result($res, 0);
-	$_sql->free_result($res);
+	$sql = "SELECT COUNT(btc_type) AS nb FROM ".$_sql->prebdd."btc WHERE btc_mid = $mid AND btc_type IN (".implode(',', $need_btc).")";
+	$speed = $_sql->make_array_result($sql)['nb'];
 
 	$sql="UPDATE ".$_sql->prebdd."src_todo SET stdo_tours = CASE ";
 	foreach($src_todo as $src_info)  /* Toutes les recherches de ce type là */

@@ -1,13 +1,13 @@
 <if cond='{_user[alaid]} AND {act} != "" and {act} != "histo" '>
-<p class="menu_module">[ <a tip="Gestion de l'Alliance" href="alliances-admin.html">Gestion</a> ]
+<p class="menu_module"><a tip="Gestion de l'Alliance" href="alliances-admin.html">Gestion</a>
 	-
-	[ <a tip="Discuter, ect." href="alliances-my.html">Table ronde</a> ]
+	<a tip="Discuter, ect." href="alliances-my.html">Table ronde</a>
 	-
-	[ <a tip="Decriptifs et Règles" href="alliances-descr_rules.html">Règles</a> ]
+	<a tip="Decriptifs et Règles" href="alliances-descr_rules.html">Règles</a>
 	-
-	[ <a tip="Stocks de Ressources" href="alliances-res.html">Grenier</a> ]
+	<a tip="Stocks de Ressources" href="alliances-res.html">Grenier</a>
 	-
-	[ <a tip="Gestion de la Diplomatie" href="diplo-my.html">Diplomatie</a> ]
+	<a tip="Gestion de la Diplomatie" href="diplo-my.html">Diplomatie</a>
 </p>
 </if>
 

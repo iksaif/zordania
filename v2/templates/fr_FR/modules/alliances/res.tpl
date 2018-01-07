@@ -15,8 +15,8 @@
 	<em>Dépôt minimal: {ALL_MIN_DEP}. Une taxe de {ALL_TAX}% est prélevée sur ce que vous déposez au grenier.</em>
 	</div>
 	<div class="menu_module">
-	[ <a href="alliances-reslog.html" title="Historique">Voir tout l'historique</a> -
-	<a href="alliances-ressyn.html" title="Synthèse">Voir la synthèse</a> ]
+	<a href="alliances-reslog.html" title="Historique">Voir tout l'historique</a> -
+	<a href="alliances-ressyn.html" title="Synthèse">Voir la synthèse</a>
 	</div>
 </else>
 
@@ -73,7 +73,7 @@ Le grenier de votre allié ne peut pas stocker plus de cette ressource, ou bien 
 			<td><if cond="{res_id} != 1">{_limite_grenier[{res_id}]}</if>
 		        <else>Infini</else>
 			</td>
-		    <td><input type="text" name="res_nb[{res_id}]" value="0" /></td>
+		    <td><input type="number" name="res_nb[{res_id}]" value="0" style="width:5em" /></td>
 			<if cond='{al_act} == "res"'>
 			<td>&nbsp;<if cond="isset({have_res[{res_id}]})">
 				<zimgres type="{res_id}" race="{_user[race]}" /> &nbsp;{have_res[{res_id}]}</if>
@@ -121,6 +121,6 @@ Le grenier de votre allié ne peut pas stocker plus de cette ressource, ou bien 
 </foreach>
 </ul>
 <div class="menu_module">
-[ <a href="alliances-reslog.html" title="Historique">Voir tout l'historique</a> -
-<a href="alliances-ressyn.html" title="Synthèse">Voir la synthèse</a> ]
+<a href="alliances-reslog.html" title="Historique">Voir tout l'historique</a> -
+<a href="alliances-ressyn.html" title="Synthèse">Voir la synthèse</a>
 </div>

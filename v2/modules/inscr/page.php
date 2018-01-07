@@ -28,7 +28,7 @@ if(!$_act || $_act == "new") {
 			$parrain = 0;
 	}
 
-	$ayah = new AYAH();
+	//$ayah = new AYAH();
 	// If the PlayThru does not work correctly, enable debug mode.
 	//$ayah->debug_mode(TRUE);
 
@@ -38,7 +38,7 @@ if(!$_act || $_act == "new") {
 	$_tpl->set("mbr_lang", $lang);
 	$_tpl->set("mbr_decal", $decal);
 	$_tpl->set("mbr_date", date("H:i:s"));
-	$_tpl->set("ayah_html_form", $ayah->getPublisherHTML());
+	//$_tpl->set("ayah_html_form", $ayah->getPublisherHTML());
 
 
 	$questions = request("questions", "array", "post");
@@ -66,7 +66,7 @@ if(!$_act || $_act == "new") {
 		$_tpl->set("mbr_questionaire_faux",true);
 	} else { // verifier si humain
 		// Use the AYAH object to get the score.
-		$score = $ayah->scoreResult();
+		$score = true; //$ayah->scoreResult();
 		// Check the score to determine what to do.
 		if ($score)
 		{

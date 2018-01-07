@@ -6,12 +6,12 @@ function get_msg_rec($mid, $msgid = 0) {
 	$mid = protect($mid, "uint");
 
 	$req = "SELECT mrec_titre,mrec_id,mrec_from,mrec_readed,";
-	$req.= "_DATE_FORMAT(mrec_date) as mrec_date_formated, msg_sign,";
-	$req.= "IFNULL(mbr_pseudo,mold_pseudo) AS mbr_pseudo,ifnull(mbr_gid,1) AS mbr_gid,IFNULL(mbr_sign,'membre disparus') AS mbr_sign";
+	$req.= "_DATE_FORMAT(mrec_date) as mrec_date_formated, rec.msg_sign,";
+	$req.= "IFNULL(mbr_pseudo,mold_pseudo) AS mbr_pseudo,ifnull(mbr_gid,1) AS mbr_gid,IFNULL(mbr.mbr_sign,'membre disparus') AS mbr_sign";
 	if($msgid)
 		$req.= ",mrec_texte";
-	$req.= " FROM ".$_sql->prebdd."msg_rec LEFT JOIN ";
-	$req.= $_sql->prebdd."mbr ON mbr_mid = mrec_from ";
+	$req.= " FROM ".$_sql->prebdd."msg_rec rec LEFT JOIN ";
+	$req.= $_sql->prebdd."mbr mbr ON mbr_mid = mrec_from ";
 	$req.= " LEFT JOIN ";
 	$req.= $_sql->prebdd."mbr_old ON mold_mid = mrec_from ";
 	$req.= "WHERE mrec_mid = $mid ";
@@ -55,8 +55,8 @@ function flood_msg($mid) {
 
 	$mid = protect($mid, "uint");
 
-	$sql="SELECT COUNT(*) FROM ".$_sql->prebdd."msg_env WHERE menv_mid = '$mid' AND menv_date > (NOW() - INTERVAL ".MSG_FLOOD_TIME." SECOND)";
-	return (bool) mysql_result($_sql->query($sql), 0);
+	$sql="SELECT COUNT(*) AS nb FROM ".$_sql->prebdd."msg_env WHERE menv_mid = '$mid' AND menv_date > (NOW() - INTERVAL ".MSG_FLOOD_TIME." SECOND)";
+	return (bool) ($_sql->make_array_result($sql)['nb'] == 0);
 }
 
 function send_msg($mid, $mid2, $titre, $text, $copy = true) {
@@ -69,13 +69,13 @@ function send_msg($mid, $mid2, $titre, $text, $copy = true) {
 	$copy = protect($copy, "bool");
 
 	$sql = "INSERT INTO ".$_sql->prebdd."msg_rec VALUES ";
-	$sql.= "('',$mid2,$mid,NOW(),'$titre','$text',0,'')";
+	$sql.= "(NULL,$mid2,$mid,NOW(),'$titre','$text',0,0)";
 	$_sql->query($sql);
 		
 	$mrec_id = $_sql->insert_id();
 		
 	$sql = "INSERT INTO ".$_sql->prebdd."msg_env VALUES";
-	$sql.= " ('',$mid,'$mid2','$mrec_id',NOW(),'$titre','$text')";
+	$sql.= " (NULL,$mid,'$mid2','$mrec_id',NOW(),'$titre','$text')";
 	$_sql->query($sql);
 }
 	
@@ -95,7 +95,7 @@ function del_msg_env($mid, $msgid = 0)
 		$sql.=" AND menv_id IN ($msgid)";
 
 	$_sql->query($sql);
-	return mysql_affected_rows();
+	return $_sql->affected_rows();
 }
 
 
@@ -114,7 +114,7 @@ function del_msg_rec($mid, $msgid = 0)
 		$sql.=" AND mrec_id IN ($msgid)";
 
 	$_sql->query($sql);
-	$return = mysql_affected_rows();
+	$return = $_sql->affected_rows();
 	
 	/* avec le msg reçu on supprime aussi les signalements */
 	$sql="DELETE FROM ".$_sql->prebdd."sign ";
@@ -122,7 +122,7 @@ function del_msg_rec($mid, $msgid = 0)
 		$sql.=" WHERE sign_msgid IN ($msgid)";
 	else
 		$sql.=" WHERE sign_msgid IN (SELECT mrec_id FROM zrd_msg_rec WHERE mrec_mid = $mid)";
-	return $return + mysql_affected_rows();
+	return $return + $_sql->affected_rows();
 }
 
 function mark_msg_as_readed($mid,$msgid = 0)
@@ -137,7 +137,7 @@ function mark_msg_as_readed($mid,$msgid = 0)
 	if($_sql)
 		$sql.= "AND mrec_id = $msgid";
 	$_sql->query($sql);
-	return mysql_affected_rows();
+	return $_sql->affected_rows();
 }
 
 function cls_msg($mid) {
@@ -160,7 +160,7 @@ function send_to_all($mid, $titre, $text, $grp = array()) {
 
 	$mrec_id = $_sql->insert_id();
 	$sql = "INSERT INTO ".$_sql->prebdd."msg_env VALUES";
-	$sql.= " ('',$mid,'$mid','$mrec_id',NOW(),'$titre','$text')";
+	$sql.= " (NULL,$mid,'$mid','$mrec_id',NOW(),'$titre','$text')";
 	$_sql->query($sql);
 }
 
@@ -173,7 +173,7 @@ function add_sign ($msgid,$com){ // signaler un message
 	global $_sql;
 	
 	$sql = "INSERT INTO ".$_sql->prebdd."sign (sign_id, sign_msgid, sign_debut,sign_com) ";
-	$sql .= "VALUES ('', '$msgid', NOW(),'$com') ";
+	$sql .= "VALUES (NULL, '$msgid', NOW(),'$com') ";
 	$_sql->query($sql);
 	$sql= "UPDATE ".$_sql->prebdd."msg_rec";
 	$sql.= " SET msg_sign = 1";

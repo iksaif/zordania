@@ -29,6 +29,7 @@ function list_comp($hro_type) { // liste des comp du héros
 	return $result;
 }
 
+$member = new member($_user['mid']);
 
 switch($_act) {
 case "move":
@@ -324,7 +325,8 @@ case "hero":
 		$name = request("hro_name", "string", "post");
 
 		if($id_hro) { // vérifier qu'on peut le payer
-			$bad = $legions->legs[$legions->vlg_lid]->can_unt($id_hro, 1);
+			//$bad = $legions->legs[$legions->vlg_lid]->can_unt($id_hro, 1);
+			$bad = $member->can_unt($id_hro, 1);
 			foreach($bad as $key => $value) if (empty($value)) unset($bad[$key]);
 			if (!empty($bad)) // trop cher
 				$_tpl->set("no_res_hro", $bad);				

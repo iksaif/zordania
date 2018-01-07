@@ -50,7 +50,7 @@ class histo
 		foreach($this->histos as $mid => $mid_array) {
 			foreach($mid_array as $value) {
 				$vars = protect($value['vars'], "serialize");
-				$sql.="('',NOW(),'$mid','".$value['mid2']."','".$value['type']."', '$vars'),";
+				$sql.="(NULL,NOW(),'$mid','".$value['mid2']."','".$value['type']."', '$vars'),";
 			}
 		}
 		

@@ -32,7 +32,7 @@ body {
     background-image: url(img/fond.png); 
     color: rgb(231, 214, 181); 
 	font-family: "DejaVu Sans", Verdana,Tahoma,Arial,sans-serif;
-    font-size: 10px; 
+    font-size: 11px; 
     margin: 0px; 
     text-align: center;
 
@@ -564,15 +564,6 @@ min-height: 50px;
 	padding-left: 5px;
 }
 
-/* Block de debug mysql */
-.mysql {
-	background-color: #DDDDDD;
-	border: 1px #AAAAAA solid;
-	color: #000000;
-	text-align: left;
-}
-
-
 /* Signature dans le forum, fiche membre, etc .. */
 .signature {
 	max-height: 15px;
@@ -696,8 +687,25 @@ legend {
 	font-family: Verdana, Arial;
 	font-size: 11px;
 	padding: 5px;
-	margin:10px;
-	overflow:auto;
+	margin: 10px 0;
+	overflow: auto;
+}
+
+/* Block de debug */
+.debug{
+	text-align: left;
+	background-color: #000000;
+	color: #fff;
+	border: #ffffff solid 1px;
+	padding: 5px;
+}
+.mysql{
+	background-color: #DDDDDD;
+	border: 1px #AAAAAA solid;
+	color: #000000;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0;
 }
 
 /* Batiment sur la page "Village" */

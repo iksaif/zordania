@@ -59,17 +59,6 @@ UPDATE zrd_map SET map_type=5 WHERE map_x=6 AND map_y=146;
 
 
 
-17047
-39466
-70293
-71304
-73297
-73796
-75801
-84048
-100265
-121281
-
 -- déplacer Mal (mid=5707) (cid=39466) vers son ancienne position (cid=27361)
 -- 1: déplacer d'abord les légions au village de 223x333 vers 225x328
 UPDATE zrd_leg SET leg_cid=27361 WHERE leg_mid=5707
@@ -92,4 +81,25 @@ WHERE mbr_mid=2757;
 -- 2: initialiser la nouvelle case à l'état village
 UPDATE zrd_map SET map_type=7 WHERE map_x=225 AND map_y=328;
 
--- vérifier aussi pour mid 2585 et 2994
+-- update stats du forum
+update zrd_frm_forums f 
+inner join 
+ (select num_topics, num_posts, p2.last_post, t1.posted, t1.poster, subject , forum_id
+  from zrd_frm_posts t1 inner join zrd_frm_topics p1 on t1.topic_id = p1.id
+  inner join (
+    select count(id) as num_topics, sum(num_replies)+count(id) as num_posts, max(last_post_id) as last_post
+    from zrd_frm_topics  group by forum_id) p2 on t1.id = p2.last_post
+) p3 on f.id = p3.forum_id
+set
+  f.num_topics = p3.num_topics,
+  f.num_posts = p3.num_posts,
+  f.last_post = p3.posted,
+  f.last_post_id = p3.last_post,
+  f.last_poster = p3.poster,
+  f.last_subject = p3.subject;
+-- si besoin de vider un forum vide... passer cette requete en 1er 
+update zrd_frm_forums f 
+set
+  f.num_topics = 0,  f.num_posts = 0,  f.last_post = 0, f.last_post_id = 0,
+  f.last_poster = '(anonyme)',  f.last_subject = '(vide)';
+where not exists (select 1 from zrd_frm_topics where forum_id = id);

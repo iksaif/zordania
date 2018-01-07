@@ -1,4 +1,4 @@
-<table class="liste">
+<table class="liste" id="showComForm">
 <tr>
 	<th>Nombre</th>
 	<th>Prix</th>

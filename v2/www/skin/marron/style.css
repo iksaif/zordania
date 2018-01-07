@@ -4,7 +4,7 @@
 * Design G?n?ral
 */
 a{
-	font-size: 11px;
+	font-size: 12px;
 }
 a:link, a:visited, a:active {
 	 color: rgb(246, 239, 226); 
@@ -31,7 +31,7 @@ body {
  background-image: url(img/bg1.png); 
  color: rgb(231, 214, 181);
  font-family: Verdana,Tahoma,Arial,sans-serif; 
- font-size: 10px; 
+ font-size: 12px; 
  margin: 0px; 
  text-align: center;
  }
@@ -551,6 +551,23 @@ background-color: #352d21; border-color: #000; border-style: solid; border-width
 /* Pour le forum, mais pas seulement */
 .quote { -moz-border-radius: 1%; width:90%; text-align:left; background-color: #332B19;font-style: italic; border:none; font-family: Verdana, Arial; font-size: 11px; padding: 5px;  margin:10px; }
 .code {  width:90%; text-align:left; background-color: #332B19;  font-style: italic;  border: none;  font-family: Verdana, Arial;  font-size: 11px; padding: 5px;  margin:10px; }
+
+/* Block de debug */
+.debug{
+	text-align: left;
+	background-color: #000000;
+	color: #fff;
+	border: #ffffff solid 1px;
+	padding: 5px;
+}
+.mysql{
+	background-color: #DDDDDD;
+	border: 1px #AAAAAA solid;
+	color: #000000;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0;
+}
 
 /* Batiment sur la page "Village" */
 .batiment { width: 28%; background-color: #463D32; border-color: #000000; border-style: solid; border-width: 1px; float: left; margin: 5px; padding: 5px; }

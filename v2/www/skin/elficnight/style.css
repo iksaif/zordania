@@ -740,6 +740,22 @@ color: #F5F5F5;
 text-decoration: underline;
 left: 0px; -moz-border-radius: 2%;
 }
+/* Block de debug */
+.debug{
+	text-align: left;
+	background-color: #a7a7a7;
+	color: #000;
+	border: #ffffff solid 1px;
+	padding: 5px;
+}
+.mysql{
+	background-color: #DDDDDD;
+	border: 1px #AAAAAA solid;
+	color: #000000;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0;
+}
 
 /* bannière */
 #logo 

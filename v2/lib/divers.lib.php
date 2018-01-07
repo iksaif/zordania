@@ -185,7 +185,9 @@ function genstring($longueur) //genere une chaine a x caracteres aleatoirement
 	
 /* protège une chaine avant de la mettre dans mysql */
 function protect($var, $type = "unknown")
-{	
+{
+	global $_sql;
+	
 	if(is_array($type)){
 		if(is_array($var))
 			foreach($var as $key => $value)
@@ -223,7 +225,7 @@ function protect($var, $type = "unknown")
 
 	/* Protection si ce n'est pas un entier */
 	if (is_string($var)) {
-		$var = mysql_real_escape_string($var);
+		$var = $_sql->escape($var);
 	}
 	return $var;
 }
@@ -332,6 +334,19 @@ function array_ksum(&$arr1, $arr2, $factor = 1) {
 		else
 			$arr1[$key] = $value * $factor;
 }
+
+/* compter les items par clé - ex: compter les batiments */
+function array_key_sum($arr, $k1, $k2 = 'nb'){
+    $result = array();
+    foreach($arr as $key => $value){
+        if(isset($result[$value[$k1]]))
+            $result[$value[$k1]][$k2]++;
+        else
+            $result[$value[$k1]] = array_merge($value, array($k2=>1));
+    }
+    return $result;
+}
+
 
 /* comparer $arr2 à $arr1 par clé et donner le "manque" dans un 3eme */
 function array_compare($arr1, $arr2) {
@@ -581,21 +596,27 @@ function array_to_json( $array ){
 function error_handler($errno, $errstr, $errfile, $errline, $errcontext)
 {
 	global $_error;
-
+	
 	/* Ignore error, @ */
 	if (error_reporting() === 0)
-	   return ;
-
-	$error = array('errno' => $errno, 'errstr' => $errstr, 'errfile' => $errfile, 'errline' => $errline, 'errcontext' => $errcontext, 
-		'errmsg' => sprintf('File: %s[%03d]', pathinfo($errfile, PATHINFO_FILENAME), $errline), 'callstack' => callstack());
-	if(SITE_DEBUG)
-		echo "<div style=\"border:1px #000 solid;text-align:left; font-family: monospace;\">"
-			.nl2br(error_print($error))."</div>";
+		return ;
+	
+	$error = array(
+		'errno' => $errno
+		, 'errstr' => $errstr
+		, 'errfile' => $errfile
+		, 'errline' => $errline
+		, 'errcontext' => $errcontext
+		, 'errmsg' => sprintf('File: %s[%03d]', pathinfo($errfile, PATHINFO_FILENAME), $errline), 'callstack' => callstack()
+	);
+	if(SITE_DEBUG){
+		echo '<div style="border:1px #000 solid; text-align:left; font-family:monospace; background-color:#CCC; color:#000;">'.nl2br(error_print($error)).'</div>';
+	}
 	$_error[] = $error;
 }
 
 function error_print($error) {
-	$errmsg = array(
+	$errlvl = array(
 		E_ERROR        => 'Fatal Error',
 		E_WARNING      => 'Warning',
 		E_NOTICE       => 'Notice',
@@ -604,8 +625,10 @@ function error_print($error) {
 		E_USER_NOTICE  => 'User Notice'
 	);
 	$txt = '';
-	if(isset($errmsg[$error['errno']]))
-		$txt .= '<strong>'.$errmsg[$error['errno']]."</strong> : ".$error['errstr']."\n";
+	if(isset($errlvl[$error['errno']]))
+		$txt .= '<strong>'.$errlvl[$error['errno']]."</strong> : ".$error['errstr']."\n";
+	else
+		$txt .= '<strong>ERREUR('.$error['errno'].')</strong> : '.$error['errstr']."\n";
 	if(CRON)
 		$txt .= "CRON: ".$_SERVER['PHP_SELF']."\n";
 	else

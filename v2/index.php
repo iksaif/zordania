@@ -32,7 +32,7 @@ require_once("conf/conf.inc.php");
 ini_set("include_path", SITE_DIR);
 
 require_once("lib/divers.lib.php");
-require_once("cache/global.cache.php");
+$_cache = new cache('global');
 /*  infos admin en cache : variable globale */
 $admin_cache = new cache('admin');
 
@@ -55,14 +55,14 @@ $_tpl->set_ref("_races", $_races);
 $_tpl->set_ref("_races_aly", $_races_aly);
 $_tpl->set_ref("_def_atq", $_def_atq);
 $_tpl->set_ref("_langues", $_langues);
-$_tpl->set_ref("_cache", $_cache);
+$_tpl->set("_cache", $_cache->get_array());
 
 $_tpl->set('no_cookies',!$_COOKIE);
 
 /*
 * MySQL
 */
-$_sql = new mysql(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_BASE);
+$_sql = new mysqliext(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_BASE);
 $_sql->set_prebdd(MYSQL_PREBDD);
 $_sql->set_debug(SITE_DEBUG);
 
@@ -74,6 +74,7 @@ if(!$_sql->con) /* Utiliser Display = module */
 	$_tpl->set('page','mysql_error.tpl');
 	if(!$_display != "xml")
 		echo $_tpl->get('index.tpl',1);
+
 	exit;
 }
 
@@ -177,7 +178,7 @@ if(preg_match("/(http|ftp|\/|\.)/i",$_file))
 	$_file = "404";
 
 /* header utf-8 pour tout le site */
-$charset = "utf-8"; // iso-8859-1
+$charset = SITE_CHARSET; // iso-8859-1, utf-8, ...
 $_tpl->set("charset", $charset);
 
 if($_display == "xml") { /* Sortie en XML */
@@ -233,6 +234,7 @@ if($_display == "xml") { /* Sortie en XML */
 	mark('tpl');
 } else {
 	header("Content-Type: text/html; charset=$charset");
+	
 	if($_file != "session") {
 		if($_user['etat'] == MBR_ETAT_ZZZ)
 			$_file = 'zzz';
@@ -286,7 +288,7 @@ if($_display == "xml") { /* Sortie en XML */
 	mark('tpl');
 
 	if(SITE_DEBUG) {
-		echo "<ul>";
+		echo '<div class="debug"><ul>';
 		foreach(mark(true) as $title => $time)
 		{
 			if(!isset($prev_time))
@@ -303,7 +305,7 @@ if($_display == "xml") { /* Sortie en XML */
 		echo "<li>Templates: ".$templ."</li>";
 		echo "<li>Php: ".$php."</li>";
 		echo "<li>Total: ".$total."</li>";
-		echo "</ul>";
+		echo "</ul></div>";
 	}
 }
 

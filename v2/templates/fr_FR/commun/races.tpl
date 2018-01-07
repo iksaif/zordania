@@ -18,22 +18,22 @@ include générique :
 <else>
 <p class="menu_module">
 
-<if cond="{general}">[ 
-	<if cond="{select} != 0"><a href="{url}&amp;race=0" title="Général">Général</a></if>
-	<else>Général</else>
-]</else>
+    <if cond="{general}">
+        <if cond="{select} != 0"><a href="{url}&amp;race=0" title="Général">Général</a></if>
+        <else>Général</else>
+    </else>
 
-<foreach cond="{race} as {race_id} => {race_name}">
-<if cond="{race_id} != 0 and (isset({_races[{race_id}]}) or {admin})">[
-<if cond="{select} != {race_id}">
-	<a href="{url}&amp;race={race_id}">
-		<img src="img/{race_id}/{race_id}.png" alt="{race_name}" title="{race_name}" /> {race_name}
-	</a>
-</if>
-<else>
-	<img src="img/{race_id}/{race_id}.png" alt="{race_name}" title="{race_name}" /> <strong>{race_name}</strong>
-</else>]
-</if></foreach>
+    <foreach cond="{race} as {race_id} => {race_name}">
+    <if cond="{race_id} != 0 and (isset({_races[{race_id}]}) or {admin})">
+    <if cond="{select} != {race_id}">
+        <a href="{url}&amp;race={race_id}">
+            <img src="img/{race_id}/{race_id}.png" alt="{race_name}" title="{race_name}" /> {race_name}
+        </a>
+    </if>
+    <else>
+        <img src="img/{race_id}/{race_id}.png" alt="{race_name}" title="{race_name}" /> <strong>{race_name}</strong>
+    </else>
+    </if></foreach>
 </p>
 
 </else>

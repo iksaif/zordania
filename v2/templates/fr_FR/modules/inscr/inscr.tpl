@@ -30,22 +30,22 @@
 		<form method="post" action="inscr-new.html">
 		<p><label for="pseudo">Login : </label>
 		<input type="text" id="login" name="login" value="{mbr_login}" maxlength="{TAILLE_MAX_LOGIN}" /></p>
-		<p class="infos">Le <strong>login est différent du pseudo</strong>, le login n'est utilisé que pour vous connecter. Il ne doit contenir que des chiffres et des lettres. Le pseudo sera choisi <strong>plus tard</strong> !</p>
+		<p class="infos">Le login n'est utilisé que pour vous connecter. Il ne doit contenir que des chiffres et des lettres. Un nom RP sera choisi plus tard.</p>
 		
 		<p><label for="pass">Mot de Passe : </label>
 		<input type="password" id="pass" name="pass" /></p>
 		
 		<p><label for="pass2">Confirmation :</label> 
 		<input type="password" id="pass2" name="pass2" /></p>
-		<p class="infos">Evitez de mettre un mot de passe de moins de 6 caractères, et veillez à utiliser trois identifiants différents les uns des autres.</p>
+		<p class="infos">Conseil: 6 caractères minimum, et mélanger lettres et chiffres.</p>
 		
 		<p><label for="mail">Email :</label> 
 		<input type="text" id="mail" name="mail" maxlength="{TAILLE_MAX_MAIL}" /></p>
 		
-		</p><label for="mail2">Confirmation de l'email :</label>
+		</p><label for="mail2">Confirmation :</label>
 		<input type="text" id="mail2" name="mail2" maxlength="{TAILLE_MAX_MAIL}" /></p>
 		<p class="infos">
-		Attention, l'adresse doit être valide ! Les adresses <strong>Hotmail</strong>,<strong>Caramail</strong>,<strong>Aol</strong> posent très souvent des <strong>problèmes</strong> préférez-en une autre dans la mesure du possible.
+		Attention, l'adresse doit être valide ! Surveillez vos spams si vous ne recevez pas le mail de confirmation.
 		</p>
 
 		<input type="hidden" name="mbr_parrain" value="{mbr_parrain}" />
@@ -102,7 +102,7 @@
 		<select id="question6" name="questions[]"><option value="0">oui</option><option value="1">non</option></select></p>
 
 		<!-- formulaire Are You a Human -->
-		{ayah_html_form}
+		<# commentaire tpl // {ayah_html_form} #>
 
 		<input type="submit" value="Envoyer" name="submit" />
 		</form>

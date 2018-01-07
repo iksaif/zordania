@@ -1,9 +1,13 @@
 /* Javascript pour afficher le village */
+var decX = 0;
+var decY = 0;
+
 var Vlg = {
 	w: 500,
 	h: 350,
 	VlgCoords: new Array(),
 	SrcCoords: new Array(),
+	
 	init: function(race, back) {
 		if(race < 1 || race > 7) race = 1;
 		/* initialiser les coordonnées par race */
@@ -12,13 +16,14 @@ var Vlg = {
 		/* mettre le fond de l'image */
 		$("#village").css('width', this.w + "px").css('height', this.h + "px")
 			.css('backgroundImage', "url(img/"+ race + "/vlg/back" + back + ".png)");
-
+			
 		/* positionner les recherches si y'a */
 		$.each(this.VlgCoords, function(index, value) { 
 		  if(value) {
+			console.log(value[0] + "-" + value[1]);
 			var img = $("#btc_"+index);
 			img.attr('src', "img/"+ race + "/vlg/" + back + "/" + index + ".png");
-			img.css('top', value[1]).css('left', value[0]).css('position', 'absolute');
+			img.css('top', value[1]+decX).css('left', value[0]+decY).css('position', 'absolute');
 		  }
 		});
 
@@ -27,12 +32,13 @@ var Vlg = {
 		  if(value) {
 			var img = $("#src_"+index);
 			img.attr('src', "img/"+ race + "/vlg/src/" + index + ".png");
-			img.css('top', value[1]).css('left', value[0]).css('position', 'absolute');
+			img.css('top', value[1] + decX).css('left', value[0] + decY).css('position', 'absolute');
 		  }
 		});
 
 	},
 
+	/* coordonnées de chaque bâtiment du village par race */
 	initCoord: function(race) {
 		switch(race) {
 		case 1:

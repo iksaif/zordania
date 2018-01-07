@@ -112,6 +112,7 @@ hr {
     float: left;
     /*width: 200px;*/
     margin-left: 40px;
+	padding-top:5px;
 }
 
 #module dt label, #module dd label {
@@ -218,7 +219,7 @@ td {
     width: 1100px;
     border: 1px solid #2F2A21;
     background: #E7DAC5 url("img/border.png") repeat-x;
-
+	overflow:hidden;
 }
 
 /* Boite de pub */
@@ -259,7 +260,7 @@ td {
     float: left;
     width: 700px;
     position: relative;
-    bottom: 47px;
+    margin-top: -47px;
 }
 
 #actbar {
@@ -324,7 +325,8 @@ margin: 2px;
 
 .menu_gauche{
     margin-bottom: 20px;
-	}
+	background: #E7DAC5
+}
 
 .menu_gauche h2{
 
@@ -353,13 +355,17 @@ margin: 2px;
     list-style-type: disc;
 }
 
+.menu_module a, .retour_module a {
+    border-left: solid 1px #635a45;
+    border-right: solid 1px #635a45;
+    border-radius: 4px;
+}
+
 .liste
 {
     width: 100%;
     margin-right: 5%;
 }
-
-
 /* Quand c'est un allié dans une liste */
 .allie
 {
@@ -418,7 +424,6 @@ margin: 2px;
     color: #226622;
 	background: #C5B397;
     font-weight:bold;
-	width: 420px;
 }
 
 .quote, .code
@@ -446,6 +451,23 @@ margin: 2px;
     border: 1px solid #292722;
     background: #C5B397;
     padding:5px;
+}
+
+/* Block de debug */
+.debug{
+	text-align: left;
+	background-color: #000000;
+	color: #fff;
+	border: #ffffff solid 1px;
+	padding: 5px;
+}
+.mysql{
+	background-color: #DDDDDD;
+	border: 1px #AAAAAA solid;
+	color: #000000;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0;
 }
 
 /* News */

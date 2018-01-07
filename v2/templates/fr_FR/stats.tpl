@@ -31,7 +31,6 @@
 <if cond='{ses_loged} && {_user[login]} != "guest"'>
 	<div class="menu_module">
 	<br />
-	[
 	<a href="notes.html" title="Gérez vos notes...">Notes</a>
 	-
 	<a href="histo.html" title="Événements importants ...">Événements</a>
@@ -45,6 +44,5 @@
 	<else>
 	 	<a href="msg.html" title="Envoyer/Recevoir des messages.">{_user[msg]}<img src="img/msg.png"/></a>
 	</else>
-	]
 	</div>
 </if>

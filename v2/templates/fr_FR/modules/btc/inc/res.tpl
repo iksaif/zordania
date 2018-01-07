@@ -30,7 +30,7 @@
 	<p class="infos">Les unités "disponibles" sont les unités formées qui ne travaillent pas dans un bâtiments, "Total" indique la somme des unités disponibles et de celles qui ne le sont pas.</p> 
 	
 	<p class="menu_module">
-	[ <a id="res_infos" href="#" class="toggle">Ressources Disponibles</a> ]</p>
+	<a id="res_infos" href="#" class="toggle">Ressources Disponibles</a></p>
 	<if cond='{res_utils}'>
 		<table id="res_infos_toggle" class="liste">
 			<tr>
@@ -96,9 +96,15 @@ $(document).ready(function()
 						<else>
 							{res_nb} <zimgres race="{_user[race]}" type="{res_type}" />
 						</else>
-					</foreach><br/>
+					</foreach>
 				</if>
 
+				<if cond='isset({res_array[conf][need_src]})'>
+					Recherche :
+					<foreach cond='{res_array[conf][need_src]} as {src_type}'>
+							<zimgsrc race="{_user[race]}" type="{src_type}" />
+					</foreach>
+				</if>
 
 				<div id="res_{res_id}_toggle">
 					<p>
@@ -107,7 +113,7 @@ $(document).ready(function()
 				</div>
 				<form action="btc-use.html?btc_type={btc_id}&amp;sub=add_res" method="post">
 					<input type="hidden" name="type" value="{res_id}" />
-					<input type="text" name="nb" size="1" maxlength="2"  />
+					<input type="number" name="nb" size="1" maxlength="2" style="width:3em" />
 					<input type="submit" value="{btcopt[{_user[race]}][{btc_id}][res]}" />
 				</form>
 			</td>

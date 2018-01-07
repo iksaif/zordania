@@ -147,9 +147,9 @@ function get_rand_map($rid) {
 	$sql.= "WHERE map_region = $rid ";
 	$sql.= "AND map_type = ".MAP_LIBRE." ";
 	$sql.= "ORDER BY RAND() LIMIT 1";
-	$res = $_sql->query($sql);
-	if(mysql_numrows($res))
-		$ncid = $_sql->result($res, 0, 'map_cid');
+	$res = $_sql->make_array($sql);
+	if(count($res) > 0)
+		$ncid = $res[0]['map_cid'];
 	else
 		$ncid = 0;
 
@@ -158,8 +158,8 @@ function get_rand_map($rid) {
 		$sql.= "WHERE map_type != ".MAP_VILLAGE." ";
 		$sql.= "AND map_region = $rid ";
 		$sql.= "ORDER BY RAND() LIMIT 1";
-		$res = $_sql->query($sql);
-		$ncid = $_sql->result($res, 0, 'map_cid');
+		$res = $_sql->make_array($sql);
+		$ncid = $res[0]['map_cid'];
 	}
 	return $ncid;
 }
@@ -202,6 +202,7 @@ function get_regions_infos($regions) {
 	$infos = $_sql->make_array($sql);
 
 	$sum = array('total' => 0);
+	// faire un TCD $sum[region_id][race] et $sum[total]
 	foreach($infos as $value) {
 		$sum['total'] += $value['mbr_nb'];
 
@@ -216,17 +217,17 @@ function get_regions_infos($regions) {
 			$sum[$value['map_region']][$value['mbr_race']] += $value['mbr_nb'];
 	}
 
-
 	$libre = array();
+	// TCD du nb de places libres par région / race
 	foreach($_regions as $rid => $val) {
 		$total = isset($sum[$rid]) ? $sum[$rid]['total'] : 0;
 		foreach($_races as $race => $visible) {
-			if(!$_regions[$rid][$race])
+			if(isset($_regions[$rid][$race]) and !$_regions[$rid][$race])
 				$libre[$rid][$race] = 0;
 			else if(!$total)
 				$libre[$rid][$race] = 1;
 			else
-				$libre[$rid][$race] = ceil($total * $_regions[$rid][$race] / 100);
+				$libre[$rid][$race] = isset($_regions[$rid][$race]) ? ceil($total * $_regions[$rid][$race] / 100) : 0;
 		}
 	}
 

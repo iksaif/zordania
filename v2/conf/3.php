@@ -216,7 +216,7 @@ var $comp = array();
 
 var $race_cfg = array();
 
-function config3()
+function __construct()
 
 {
 

@@ -72,7 +72,7 @@ class allyFactory {
 			else
 				$sql .= "LIMIT $limite1 ";
 		}
-
+		
 		self::$table = $_sql->make_array($sql);
 		$result = array();
 		foreach(self::$table as $row){
@@ -96,10 +96,10 @@ class allyFactory {
 	{
 		global $_sql;
 	
-		$sql="SELECT COUNT(*) FROM ".$_sql->prebdd."al";
+		$sql="SELECT COUNT(*) as nb FROM ".$_sql->prebdd."al";
 		if($all === false)
 			$sql.= " WHERE al_nb_mbr >= 3 ";
-		return $_sql->result($_sql->query($sql), 0);
+		return $_sql->result($_sql->query($sql), 0, 'nb');
 	}
 
 	static function getAlly($aid){

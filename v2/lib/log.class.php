@@ -25,7 +25,9 @@ class log
 	function open()
 	{
 		$file = $this->file;
-		$this->fp = fopen($file,"a+");;
+        // linux only: default mask if creating new log file: rw-rw-
+        if(!is_file($file)) umask(0117);
+		$this->fp = fopen($file,"a+");
 		if ($this->verbose) $this->text("Ouverture du fichier log");
 		$this->open = true;
 		return $this->fp;

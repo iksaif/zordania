@@ -1,11 +1,5 @@
 <?php
-/* === Configuration Serveur === */
-define('MYSQL_BASE', 'zordv2');
-define('MYSQL_HOST', 'localhost');
-define('MYSQL_USER', 'zordania');
-define('MYSQL_PASS', 'xxxxxx');
-define('MYSQL_PREBDD', 'zrd_');
-define('MYSQL_PREBDD_FRM', MYSQL_PREBDD.'frm_');
+require_once('secret_parameters.php');
 
 /* === Configuration Site === */
 define('ZORD_VERSION',"2.1.2");
@@ -13,31 +7,24 @@ define('ZORD_SPEED_VFAST', 0.16667); // 1 Tour toutes les 30sec
 define('ZORD_SPEED_FAST', 5); // 1 Tour toutes les 5 minutes
 define('ZORD_SPEED_NORMAL', 30); // 1 Tour par demie heure
 define('ZORD_SPEED_SLOW',60); // 1 Tour par heures
-define('ZORD_SPEED', ZORD_SPEED_NORMAL);
-
-/* === Configuration IRC === */
-define('IRC_SERVER','irc.quakenet.org');
-define('IRC_PORT',6667);
-define('IRC_CHAN', '#zordania');
-define('IRC_PSEUDO', 'Barnabe');
-define('IRC_PASS', 'xxxxxx');
-define('IRC_USER', 'zordania');
+define('ZORD_SPEED', ZORD_SPEED_VFAST);
 
 define('SITE_MAX_CONNECTED', 300);
 define('SITE_MAX_INSCRITS', 10000);
 
 $host = (isset($_SERVER['HTTP_HOST'])) ? $_SERVER['HTTP_HOST'] : "www.zordania.com";
 define('SITE_URL', "http://".$host."/");
-define('SITE_DIR', str_replace('conf','',dirname(__FILE__))."/");
+define('SITE_DIR', str_replace('conf','',dirname(__FILE__)));
 define('WWW_DIR', SITE_DIR . "www/");
 define('ZORDLOG_URL', 'archives.zordania.com'); // URL des archives
 
-define('SITE_WEBMASTER_MAIL','webmaster@zordania.com');
+define('SITE_WEBMASTER_MAIL', 'webmaster@zordania.com');
+define('SITE_CHARSET', 'utf-8'); // iso-8859-1, utf-8, ...
 
-define('GEN_LENGHT',6); /* Taille des chaines générées aléatoirement (pass, etc ...) */
+define('GEN_LENGHT', 6); /* Taille des chaines générées aléatoirement (pass, etc ...) */
 
 /* ==== Utilisateurs === */
-define('SITE_FLOOD_TIME',30); /* Temps en seconde pour écrire deux messages a la suite */
+define('SITE_FLOOD_TIME', 30); /* Temps en seconde pour écrire deux messages a la suite */
 define('TAILLE_MAX_LOGIN', 50); /* Nombre de caractères max d'un login : limité par les caractéristiques du champ correspondant dans la BDD */
 define('TAILLE_MAX_PSEUDO', 50); /* Nombre de caractères max d'un pseudo : limité par les caractéristiques du champ correspondant dans la BDD */
 define('TAILLE_MAX_MAIL', 50); /* Nombre de caractères max d'une adresse mail : limité par les caractéristiques du champ correspondant dans la BDD */
@@ -152,7 +139,7 @@ define('HISTO_DEL_LOG_ALLY', 15); // 15 jours
 
 /* Commerce */
 define('MCH_ACCEPT',4); //Nombre de tours avant acceptation (avec un petit rand() dans le cron)
-define('MCH_MAX',300); //Nombre de tours max
+define('MCH_MAX',30000); //Nombre de tours max
 define('MCH_COURS_MIN',1);
 define('MCH_OLD',30); //calcul des cours du marché sur NB jours (les ventes plus vieilles sont supprimées)
 
@@ -187,7 +174,7 @@ $cst_ratio_def = array(0 => 1, 1 => 0.5, 2 => 0.33);
 /* Langues disponibles */
 $_langues = array('unknown' => 'fr_FR', 'fr' => 'fr_FR');
 /* Races id => visible */
-$_races = array(1=>true, 2=>true, 3=>true, 4=>true, 5=>true, 6=>false, 7=>true, 8=>false, 10=>false);
+$_races = array(1=>true, 2=>true, 3=>true, 4=>true, 5=>true, 6=>false, 7=>true, 8=>false);
 /* quotas de race par alliances: race du chef => (race=>nb max) */
 $_races_aly = array(
 		1 => array(1 => 12, 2 => 12, 3 => 12, 4 => 12, 5 => 12, 7=> 12, 8=>12),
@@ -198,16 +185,24 @@ $_races_aly = array(
 		6 => array(6 => 12),
 		7 => array(1 => 12, 2 => 12, 3 => 12, 4 => 12, 5 => 12, 7=> 12, 8=>12),
 		8 => array(1 => 12, 2 => 12, 3 => 12, 4 => 12, 5 => 12, 7=> 12, 8=>12),
-		10 => array(10 => 12),
 );
 
-$_css = array(14,4,3,2,1,10,11,15,16);
-$_forum_css = array(1 => "marron", 2 => "metal", 3 => "classik", 4 => "zord2",
-		    10 => "elficnight", 11 => "elfpower", 14 => "brown_underground",
-		    15 => "last_hope");
+$_css = array(14,4,3,2,1,10,11,15,16,5,6);
+$_forum_css = array(
+	1 => "marron"
+	, 2 => "metal"
+	, 3 => "classik"
+	, 4 => "zord2"
+	, 5 => "mobile"
+	, 6 => "selendia"
+	, 10 => "elficnight"
+	, 11 => "elfpower"
+	, 14 => "brown_underground"
+	, 15 => "last_hope"
+);
 $_adsense_css = array(1 => '9107849390', 2 => '2158156650', 3 => '2158156650', 
-	4 => '2158156650', 10 => '2087210871', 11 => '2087210871', 14 => '0166103822', 
-	15 => '6454056819');
+	4 => '2158156650',5 => '9107849390', 10 => '2087210871', 11 => '2087210871', 14 => '0166103822', 
+	15 => '6454056819', 6 => '');
 
 
 $_regions = array(1=> array(1=>0, 2=>0, 3=>0, 4=>0, 5=>0, 6=>0, 7=>0, 8=>0),
@@ -258,7 +253,7 @@ $_votes[VOTES_RPG] = array('img' => 'http://www.rpg-paradize.com/vote.gif',
 $_votes[VOTES_TOP] = array('img' => 'http://www.xtremeTop100.com/votenew.jpg', 
 		'url' => 'http://www.xtremetop100.com/in.php?site=1132344203', 'delay' => 24);
 
-define('SITE_DEBUG',false);
+define('SITE_DEBUG',true);
 define('SITE_TRAVAUX',false);
 // CRON ou INTERNET ?
 define('CRON', substr(php_sapi_name(), 0, 3) == 'cli');

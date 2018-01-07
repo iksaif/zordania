@@ -142,7 +142,7 @@ function add_aly_msg($alid,$text,$mid)
 	$mid = protect($mid, "uint");
 	$text = protect($text, "bbcode");
 	
-	$sql="INSERT INTO ".$_sql->prebdd."al_shoot VALUES ('','$mid','$alid',NOW(),'$text')";
+	$sql="INSERT INTO ".$_sql->prebdd."al_shoot VALUES (NULL,'$mid','$alid',NOW(),'$text')";
 	return $_sql->query($sql);
 }
 	
@@ -169,7 +169,7 @@ function add_aly($mid,$nom)/* création nouvelle alliance */
 	$mid = protect($mid, "uint");
 	$nom = protect($nom, "string");
 	
-	$sql="INSERT INTO ".$_sql->prebdd."al VALUES ('','$nom','$mid','0','1','1','','', '')";
+	$sql="INSERT INTO ".$_sql->prebdd."al VALUES (NULL,'$nom','$mid','0','1','1','','', '')";
 	$_sql->query($sql);
 	
 	$aid = $_sql->insert_id();

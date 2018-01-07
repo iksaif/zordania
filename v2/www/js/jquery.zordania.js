@@ -2,6 +2,33 @@
 
 $(document).ready(  function()
 {
+
+	/* forcer les valeurs du menu avec celles du fond 
+	 * 	$('.menu_gauche').css('background-color', $('body').css('background-color'));
+	 * 	$('.menu_gauche ul').css('background-color', $('#module').css('background-color'));
+	 * */
+	 
+	var isMenuOpen = false;
+
+	$('#openmenulat').click(function()
+	{
+		if (isMenuOpen == false)
+		{
+			$("#menu").clearQueue().animate({
+				left : '2px'
+			})
+			isMenuOpen = true;
+		}
+		else
+		{
+			$("#menu").clearQueue().animate({
+				left : '-260px'
+			})
+			isMenuOpen = false;
+		}
+	});
+	
+
 	/* un élément avec id et classe 'toggle' permet
      * d'afficher / masquer un élément 'id_toggle'
 	 * tous sont masqués au chargement (fin du index.tpl)
@@ -29,19 +56,78 @@ $(document).ready(  function()
 			function(txt){ $("#preview").html(txt); }
 		);
 	});
+	
+    // réponse ajax dans la page
+	// module unt, formation des unités
+	$("table#showUntForm a").each(function(){
+		$(this).click(function(){
+            $(".jqBlock").remove(); // virer l'ancienne requete ajax
+            var url = $(this).attr('href');
+            var output = $(this).parents('tr');
+            var len = output.children('td').length;
+            output.after('<tr class="jqBlock"><td id="ajaxContent" colspan="' + len + '"></td></tr>');
+			jqShowMod(url, $('#ajaxContent'));
+			return false;
+		});
+	});
 
+    // Commerce - achat : module/fr/btc/inc/com.tpl - Lorsqu'un lien a.com est cliqué
+    $("table#showComForm a").each(function(){
+		$(this).click(function(){
+            var url = $(this).attr('href');
+            var output = $(this).parents('tr');
+            var len = output.children('td').length;
+            output.html('<td colspan="' + len + '"></td>');
+			jqShowMod(url, output.children());
+			return false;
+		});
+	});
+        
+        
+	traiterFormulaires();
+    
+    // réponse ajax dans une popup
+    traiterZrdPopUp();
+    
 });
+
+
+function traiterFormulaires(){
+	$("form.ajax").each(function(){
+		$(this).submit(function(event){
+			// Stop form from submitting normally
+			event.preventDefault();
+
+			// Get some values from elements on the page:
+			var $form = $( this ),
+			term = $form.serialize(),
+			url = "ajax--" + $form.attr( "action" );
+
+			$form.attr("action", url);
+			// Send the data using post
+			$.post( url, term, function(data){
+				$("#output").html(data);
+			});
+
+
+		});
+	});
+}
 
 /*
 * jQuery ajax get
 * variable globale = cfg_url
-* GET, pas de data, la réponse est renvoyée dans un id "output"
+* module = url cible de la requete ajax
+* GET, pas de data, la réponse est renvoyée dans le html du jquery ouput
 */
 function jqShowMod(module, output) {
 	$.ajax({
 		url: cfg_url+"ajax--"+module,
 		success: function(html) {
-			$("#"+output).html(html);
+            output.html(html);
+			// gérer les nouveaux formulaires & popup
+			traiterFormulaires();
+            traiterZrdPopUp();
 		}
 	});
 	return false;
@@ -66,7 +152,37 @@ function showMapInfo() {
 		var url = "carte-view.html?map_cid=" + cid;
 	}
 
-	jqShowMod(url,'carte_infos');
+	jqShowMod(url,$('#carte_infos'));
 	return false;
 }
 
+// ce script pilote les popup ajax
+// unt.html
+function traiterZrdPopUp() {
+    
+    $(".zrdPopUp").each(function(){
+        
+        $(this).click(function(){ // au clic sur le lien
+
+            var url = $(this).attr('href');
+            var title = $(this).attr('title');
+            console.log('popup ' + title + ' vers url=' + url);
+            var output = $("#dialog-modal");
+            $.ajax({
+                url: cfg_url+"ajax--"+url,
+                success: function(html) {
+                    output.html(html);
+                    output.dialog({ // popup
+                        buttons: [{
+                            text: "Fermer", // bouton annuler
+                            click: function() {
+                            $( this ).dialog( "close" );}
+                        }],
+                        title: title
+                    });
+                }
+            });
+            return false;
+        });
+    });
+}

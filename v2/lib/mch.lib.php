@@ -28,12 +28,12 @@ function list_mch($mid = 0,$valide = true)
 	$valide = protect($valide, "bool");
 	$etat = ($valide) ? COM_ETAT_OK : COM_ETAT_ATT;
 	
-	$sql="SELECT COUNT(*),mch_type FROM ".$_sql->prebdd."mch ";
+	$sql="SELECT COUNT(*) AS nb,mch_type FROM ".$_sql->prebdd."mch ";
 	$sql.=" WHERE ";
 	if($mid) $sql.= "mch_mid != $mid AND ";
 	$sql.=" mch_etat = $etat ";
 	$sql.=" GROUP BY mch_type ";
-	$sql.=" ORDER BY mch_type ASC,mch_nb DESC,mch_prix ASC ";
+	$sql.=" ORDER BY mch_type ASC,nb DESC";
 	return $_sql->make_array($sql);	
 }
 
@@ -141,7 +141,7 @@ function mch_vente($mid, $type, $nb , $prix)
 	$nb = protect($nb, "uint");
 	$prix = protect($prix, "uint");
 	
-	$sql="INSERT INTO ".$_sql->prebdd."mch VALUES ('','$mid','$type','$nb','$prix',NOW(),".COM_ETAT_ATT.")";
+	$sql="INSERT INTO ".$_sql->prebdd."mch VALUES (NULL,'$mid','$type','$nb','$prix',NOW(),".COM_ETAT_ATT.")";
 	return $_sql->query($sql);
 }
 	
@@ -193,7 +193,7 @@ function mch_get_cours_sem($res = 0, $jours) // cours entre J et J+7
 	if($res) $sql.=" WHERE msem_res = $res ";
 	if($debut) $sql.= ($res ? "AND" : "WHERE")." msem_date BETWEEN (NOW() - INTERVAL $fin DAY) AND (NOW() - INTERVAL $debut DAY)";
 	else	   $sql.= ($res ? "AND" : "WHERE")." msem_date BETWEEN (NOW() - INTERVAL 7 DAY) AND (NOW())";
-	$sql.=" ORDER BY msem_res ASC,msem_date ASC LIMIT 112";
+	$sql.=" ORDER BY msem_res ASC,msem_date ASC LIMIT 112";
 	return $_sql->make_array($sql);
 }
 	

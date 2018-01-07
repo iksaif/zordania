@@ -79,9 +79,11 @@ class ally {
 			$this->addMbr($this->mbrTmp);
 		}
 		// recalcul des membres
-		if($this->al_nb_mbr != count($this->mbrs)) // TODO : MAJ BDD?
-			echo 'echec nombre de membres d\'ally:'.$this->al_nb_mbr.'!='.
-				count($this->mbrs).'('.count($this->mbrsDem).')';
+		/*
+		 *if($this->al_nb_mbr != count($this->mbrs)) // TODO : MAJ BDD?
+		 *	echo 'echec nombre de membres d\'ally:'.$this->al_nb_mbr.'!='.
+		 *		count($this->mbrs).'('.count($this->mbrsDem).')';
+		 */
 		$this->isMbrLoaded = true;
 	}
 
@@ -214,7 +216,7 @@ class ally {
 
 			$sql = "UPDATE ".$_sql->prebdd."al_mbr ";
 			$sql.= "SET ambr_etat = CASE ambr_mid ".implode(' ',$arr_sql) ." ELSE ambr_etat END, ambr_date = NOW() ";
-			$sql.= "WHERE ambr_aid = $aid";
+			$sql.= "WHERE ambr_aid = $aid AND ambr_mid IN (".implode(array_keys( $edit), ',') .")";
 			$_sql->query($sql);
 
 			// recompter le nombre de membres parce que ça se met pas à jour

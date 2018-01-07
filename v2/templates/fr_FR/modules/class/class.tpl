@@ -3,38 +3,32 @@
 
 
 <p class="menu_module">
-[
-<a href="class.html?act=1&amp;race={class_race}&amp;region={class_region}" title="Top 50 Or">Or</a>
-] - [
-<a href="class.html?act=6&amp;race={class_race}&amp;region={class_region}" title="Top 50 Héros">Héros</a>
-] - [
-<a href="class.html?act=3&amp;race={class_race}&amp;region={class_region}" title="Top 50 Points">Points</a>
-] - [
-<a href="class.html?act=7&amp;race={class_race}&amp;region={class_region}" title="Top 50 Armées">Armées</a>
-] - [
-<a href="class.html?act=4&amp;race={class_race}&amp;region={class_region}" title="Top 50 Population">Population</a>
-] - [
-<a href="class.html?act=5&amp;race={class_race}&amp;region={class_region}" title="Top 50 Alliances">Alliances</a>
-]
-<br/>
+    <a href="class.html?act=1&amp;race={class_race}&amp;region={class_region}" title="Top 50 Or">Or</a>
+    <a href="class.html?act=6&amp;race={class_race}&amp;region={class_region}" title="Top 50 Héros">Héros</a>
+    <a href="class.html?act=3&amp;race={class_race}&amp;region={class_region}" title="Top 50 Points">Points</a>
+    <a href="class.html?act=7&amp;race={class_race}&amp;region={class_region}" title="Top 50 Armées">Armées</a>
+    <a href="class.html?act=4&amp;race={class_race}&amp;region={class_region}" title="Top 50 Population">Population</a>
+    <a href="class.html?act=5&amp;race={class_race}&amp;region={class_region}" title="Top 50 Alliances">Alliances</a>
+</p>
 
-<label for="class_region">Régions:</label>
-<select name="region" id="class_region" onChange="parent.location.href='class.html?act={class_type}&amp;race={class_race}&amp;region='+this.options[this.selectedIndex].value;">
-<if cond="{class_region}==0">
-	<option value="0" selected="selected">Toutes</option>
-</if>
-<else>
-	<option value="0">Toutes</option>
-</else>
-<foreach cond="{regions} as {region_id} =>{region_name}">
-	<if cond="{class_region}=={region_id}">
-             <option value="{region_id}" selected="selected">{region_name[name]}</option>
-	</if>
-	<else>
-             <option value="{region_id}">{region_name[name]}</option>
-	</else>
-</foreach>
-</select>
+<p class="menu_module">
+    <label for="class_region">Régions:</label>
+    <select name="region" id="class_region" onChange="parent.location.href='class.html?act={class_type}&amp;race={class_race}&amp;region='+this.options[this.selectedIndex].value;">
+    <if cond="{class_region}==0">
+        <option value="0" selected="selected">Toutes</option>
+    </if>
+    <else>
+        <option value="0">Toutes</option>
+    </else>
+    <foreach cond="{regions} as {region_id} =>{region_name}">
+        <if cond="{class_region}=={region_id}">
+                 <option value="{region_id}" selected="selected">{region_name[name]}</option>
+        </if>
+        <else>
+                 <option value="{region_id}">{region_name[name]}</option>
+        </else>
+    </foreach>
+    </select>
 </p>
 
 <set name="class_pos" value="0" />

@@ -66,15 +66,28 @@ if(!$type && is_numeric($page) && $page >= 0 && $page <= 26)
 } elseif($race) { /* detail d'une race (btc unt res src comp trn) */
 
 	$_tpl->set('mnl_tree', 0);
-	$_tpl->set('mnl_tpl','modules/manual/race.tpl');
 
 	$types = array("btc", "unt", "res", "src", "trn", "comp");
 
 	if(!in_array($type, $types))
 		$_tpl->set('man_act','liste');
 	else {
-		$cfg = $_conf[$race]->$type;
-		if ($type == 'unt') { /* filtre sous-type d'unites */
+        if($_display == "ajax")
+            $_tpl->set('module_tpl',"modules/manual/man_$type.tpl");
+        else
+            $_tpl->set('mnl_tpl','modules/manual/race.tpl');
+
+        $cfg = $_conf[$race]->$type;
+        // filtre pour avoir 1 seul élément
+        $value = request('value', 'uint', 'get');
+        if($value){
+            if(isset($cfg[$value])){
+                $cfg = array($value => $cfg[$value]);
+                $cfg[$value]['nid'] = $value;
+                $url = "manual.html?type=$type#{$type}_$value";
+            }
+        }
+        else if ($type == 'unt') { /* filtre sous-type d'unites */
 			$stype = request("stype", "uint", "get");
 			foreach ($cfg as $key => $unt)
 				if ($stype == TYPE_UNT_CIVIL) {
@@ -89,10 +102,12 @@ if(!$type && is_numeric($page) && $page >= 0 && $page <= 26)
 			else foreach($cfg as $key => $unt) $cfg[$key]['nid'] = $key;
 
 			$_tpl->set('man_stype',$stype);
-		}
+        }
+        $url = "manual.html?type=$type".(isset($stype)?"&amp;stype=$stype":"");
+
 		$_tpl->set('man_array',$cfg);
 		$_tpl->set('man_act',$type);
-		$_tpl->set('man_url',"manual.html?type=$type".($type=='unt'?"&amp;stype=$stype":""));
+		$_tpl->set('man_url',$url);
 	}
 }
 ?>

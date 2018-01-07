@@ -1,15 +1,15 @@
 <p class="menu_module">
-	[ <a href="msg.html" title="Voir la liste des messages que vous avez reçus">Boîte de réception</a> ]
-	- [ <a href="msg-env.html" title="Voir la liste des messages que vous avez envoyés">Boîte d'envoi</a> ]
-	- [ <a href="msg-new.html" title="Ecrire un message">Ecrire</a> ]
+	<a href="msg.html" title="Voir la liste des messages que vous avez reçus">Boîte de réception</a>
+	- <a href="msg-env.html" title="Voir la liste des messages que vous avez envoyés">Boîte d'envoi</a>
+	- <a href="msg-new.html" title="Ecrire un message">Ecrire</a>
 	<if cond='{msg_act} == "env"'>
-	- [ <a href="msg-del_env.html" title="Tout effacer"><img src="img/drop.png" alt="Effacer" /> Vider</a> ]
+	- <a href="msg-del_env.html" title="Tout effacer"><img src="img/drop.png" alt="Effacer" /> Vider</a>
 	</if>
 	<elseif cond='!{msg_act}'>
-	- [ <a href="msg-del_rec.html" title="Tout effacer"><img src="img/drop.png" alt="Effacer" /> Vider</a> ]
+	- <a href="msg-del_rec.html" title="Tout effacer"><img src="img/drop.png" alt="Effacer" /> Vider</a>
 	</elseif>
 	<if cond='can_d({DROIT_MMSG})'>
-	- [ <a href="msg-global.html" title="Ecrire un message à tout Zordania">Msg massif</a> ]
+	- <a href="msg-global.html" title="Ecrire un message à tout Zordania">Msg massif</a>
 	</if>
 
 	<hr />
@@ -37,8 +37,8 @@
 			{msg_infos[menv_texte]}
 			<div class="signature">{_user[sign]}</div>
 		</div>
-		[ <a href="msg-del_env.html?msg_id={msg_infos[menv_id]}" title="Effacer ce message">
-		<img src="img/drop.png" alt="Effacer" /> Effacer</a> ]
+		<a href="msg-del_env.html?msg_id={msg_infos[menv_id]}" title="Effacer ce message">
+		<img src="img/drop.png" alt="Effacer" /> Effacer</a>
 	</if>
 	<elseif cond='isset({msg_pas_tout})'>
 		<p class="infos">Il manque des infos.</p>

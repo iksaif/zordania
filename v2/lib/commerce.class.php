@@ -146,7 +146,7 @@ class commerce {
 		$nb = protect($nb, "uint");
 		$prix = protect($prix, "uint");
 	
-		$sql="INSERT INTO ".$_sql->prebdd."mch VALUES ('','$mid','$type','$nb','$prix',NOW(),".COM_ETAT_ATT.")";
+		$sql="INSERT INTO ".$_sql->prebdd."mch VALUES (NULL,'$mid','$type','$nb','$prix',NOW(),".COM_ETAT_ATT.")";
 		return $_sql->query($sql);
 	}
 

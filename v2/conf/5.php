@@ -112,7 +112,7 @@ var $src = array();
 var $comp = array();
 var $race_cfg = array();
 
-function config5()
+function __construct()
 {
 
 //<res>
@@ -423,6 +423,7 @@ $this->btc[B5_BIBLIOTHEQUE]=array(
 		"prix_unt"		=>	array(U5_SERVITEUR => 1),
 		"limite"		=>	1,
 		"prod_src"	=>	true,
+		"prod_unt"	=>	true,
 );
 
 //Demeure,

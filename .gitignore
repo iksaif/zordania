@@ -1,0 +1,17 @@
+# fichiers temporaires
+v2/tmp/*.compiled.php
+
+v1/**/*
+v2/www/img/mbr_logo/*.png
+v2/www/img/al_logo/*.png
+
+v2/conf/secret_parameters.php
+
+*.tmp
+*.log
+*.csv
+
+v2/scripts/cron.bat
+v2/scripts/cron.sh
+v2/cache/admin.cache.php
+v2/cache/global.cache.php

@@ -3,9 +3,9 @@
 	<load file="race/{race_id}.descr.config" />
 </foreach>
 <div class="menu_module">
-	[ <a href="war-histo.html" title="Historique de vos attaques et de celles de vos ennemis.">Journal de guerre</a> ] - 
-	[ <a href="leg.html" title="Créer, Modifier, Déplacer vos Légions">Gestion des Légions</a> ] -
-	[ <a href="leg-hero.html" title="Gérer les compétences de votre héro">Gestion du Héros</a> ]
+	<a href="war-histo.html" title="Historique de vos attaques et de celles de vos ennemis.">Journal de guerre</a> - 
+	<a href="leg.html" title="Créer, Modifier, Déplacer vos Légions">Gestion des Légions</a> -
+	<a href="leg-hero.html" title="Gérer les compétences de votre héro">Gestion du Héros</a>
 	<hr />
 </div>
 <if cond='{war_act} == "histo"'>

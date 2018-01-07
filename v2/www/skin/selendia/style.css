@@ -1,0 +1,136 @@
+/* selendia */
+
+*{
+	font-family: "DejaVu Sans", Verdana,Tahoma,Arial,sans-serif;
+    /*font-size: 16px;*/
+	margin:0;
+	padding:0;
+	border: none;
+}
+
+body {
+	background-color: #e7a22b;
+	background-image: url('img/bckgrnd.zordania.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+	background-size: contain;
+	color: #DFD9CD;
+	font-family: Dejavu, Verdana,Tahoma,Arial,sans-serif;
+	font-size: 80%;
+	margin: 0px;
+	text-align: center;
+}
+
+.haut, .bas { display:none;}
+
+#espace_stats_pub {display:none;}
+#pub {display:none;}
+/* div#logo {display:none;}*/
+div#stats {display:none;}
+div#espace_menu_centre {display:none;}
+div#skyscraper {display:none;}
+.cleaner {display:none;}
+
+/*
+ * #logo
+ */
+
+div#logo {
+	position:fixed;
+    top: 0px;
+    height: 34px;
+    text-align: left;
+	font-size: 60%;
+	opacity: 0.8;
+}
+div#logo .centre {
+	border: 1px solid #222;
+}
+
+/*
+ * #actbar et #menu sont la navigation du site
+ */
+
+div#actbar {
+	position:fixed;
+	border: 1px solid #222;
+	opacity: 0.8;
+    z-index: 99;
+    top: 0px;
+    height: 34px;
+	right:0px;
+    text-align: right;
+}
+div#actbar ul{
+	position:relative;
+	z-index:2; /* devant div#menu */
+}
+
+div#actbar li{
+	list-style: none;
+	display: inline;
+    margin: 0px;
+    padding:2px;
+}
+/* masquer le 1er icone */
+div#actbar li:nth-child(1){
+	display: none;
+}
+
+/*
+ * menu de gauche
+ */
+
+div#menu {
+	position:fixed;
+    top: 50px;
+    /*height: 34px;*/
+    text-align: left;
+	font-size: 90%;
+	opacity: 0.8;
+	margin-left:10px;
+	background-color: #e7a22b;
+}
+.menu_gauche{
+	/*border: 1px solid #222;*/
+	margin-bottom:10px;
+}
+.menu_gauche li{
+	border: 1px solid #222;
+	border-radius: 4px;
+	margin:5px;
+	padding-left:2px;
+	list-style-type: none; 
+}
+.menu_gauche li a{
+	text-decoration: none;
+}
+.menu_gauche input[type="radio"], .menu_gauche input[type="checkbox"] {
+    display: none
+}
+
+/*
+ * #module : le div central
+ */
+#module{
+	border: 1px solid #222;
+	margin:180px;
+	opacity: 0.8;
+	background-color: #e7a22b;
+}
+.menu_module a{
+	text-decoration: none;
+	border: 1px solid #222;
+	border-radius: 4px;
+	margin:5px;
+	padding-left:2px;
+}
+
+/*
+ * #footer : pied de page
+ */
+#footer li{
+	list-style-type: none; 
+	display: inline;
+}

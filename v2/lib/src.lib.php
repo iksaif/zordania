@@ -126,7 +126,7 @@ function cnl_src($mid, $type) {
 	$sql = "DELETE FROM ".$_sql->prebdd."src_todo WHERE stdo_type = $type AND stdo_mid = $mid";
 	$_sql->query($sql);
 
-	return mysql_affected_rows();
+	return $_sql->affected_rows();
 }
 
 /* Supprimer la recherche $type */
@@ -143,7 +143,7 @@ function del_src($mid, $type = 0) {
 	
 	$_sql->query($sql);
 
-	return mysql_affected_rows();
+	return $_sql->affected_rows();
 }
 
 /* Récupere les recherches de $mid [ et de type $type ] */
@@ -160,14 +160,7 @@ function get_src_done($mid, $src = array()) {
 	$sql.= " src_type NOT IN ";
 	$sql.= "(SELECT stdo_type FROM ".$_sql->prebdd."src_todo WHERE stdo_mid = $mid)";
 	if($src) {
-		$sql.= " AND src_type IN ( ";
-		foreach($src as $type) {
-			$type = protect($type, "uint");
-			$sql.= "$type,";
-		}
-		
-		$sql = substr($sql, 0, strlen($sql)-1); /* On vire le 'OR ' en trop */
-		$sql.= ")";
+		$sql.= " AND src_type IN ( ".implode(',', protect($src, array('uint'))).') ';
 	}
 
 	return $_sql->make_array($sql);
@@ -185,14 +178,7 @@ function get_src_todo($mid, $src = array()) {
 	$sql.= "WHERE stdo_mid = $mid ";
 	
 	if($src) {
-		$sql.= " AND stdo_type IN ( ";
-		foreach($src as $type) {
-			$type = protect($type, "uint");
-			$sql.= "$type,";
-		}
-		
-		$sql = substr($sql, 0, strlen($sql)-1); /* On vire le 'OR ' en trop */
-		$sql.= ")";
+		$sql.= " AND stdo_type IN ( ".implode(',', protect($src, array('uint'))).') ';
 	}
 	$sql.= " ORDER BY stdo_time ASC";
 	return $_sql->make_array($sql);

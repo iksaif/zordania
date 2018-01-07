@@ -128,7 +128,7 @@ class mysqliext
 		
 		$req = $this->parse_query($req);
 
-		//if ($explain) $this->log(count($this->queries)." | $req\n");
+		if ($explain) $this->log(count($this->queries)." | $req\n");
 		$res = $this->mysqli->query($req);
 		$this->errno = $this->mysqli->errno;
 		$this->err = $this->mysqli->error;
@@ -149,7 +149,8 @@ class mysqliext
 								'err'	=> $this->err,
 								'time'=> $this->getmicrotime()-$debut,
 								'infos' => $this->mysqli->info,
-								'num' => $num
+								'num' => $num,
+								'callstack'=>callstack()
 								);
 
 			if(strstr($req,'SELECT') && !strstr($req,'EXPLAIN') && !strstr($req,'INSERT') && !strstr($req,'UPDATE') && !strstr($req,'DELETE'))
@@ -159,7 +160,7 @@ class mysqliext
 			}
 		}
 		if($explain) $this->total_time += $this->getmicrotime()-$debut;
-		
+
 		return $res;
 	}
 	
@@ -172,8 +173,9 @@ class mysqliext
 		$text = '**** '.date("H:i:s d/m/Y").' '.$this->env." ***\n";
 		$text .= $this->errno." | ".$this->err."\n";
 		$text .= $this->errno." | ".$req."\n\n";
-		echo "$text";
 		$this->log($text);
+		if($this->debug)
+			$this->log("CALLSTACK:\n".implode("\n", callstack()));
 	}
 
 	function log($text) {
@@ -217,6 +219,11 @@ class mysqliext
 		return $var;
 	}
 
+	function escape($str)
+	{
+		return $this->mysqli->real_escape_string($str);
+	}
+	
 	function close()
 	{
 		if($this->con)

@@ -2,17 +2,353 @@
 
 
 /* mobile css */
+*{
+	font-family: "DejaVu Sans", Verdana,Tahoma,Arial,sans-serif;
+    font-size: 18px;
+	margin:0;
+	padding:0;
+	border: none;
+}
+#espace_stats_pub {display:none;}
+#pub {display:none;}
 div#logo {display:none;}
 div#stats {display:none;}
+div#espace_menu_centre {display:none;}
+div#skyscraper {display:none;}
+.cleaner {display:none;}
 
-div
-{
-  border: 1px solid #000;
+a{
+	text-decoration: none;
+	font-weight: bold;
 }
 
+/* 1er niveau de menu */
+div#menu {
+	width: 80%;
+	background-image:url(../../img/acts/gen.png);
+	background-repeat:no-repeat;
+	background-position:1px 1px;
+	border: none;
+	padding-top:38px;
+	position:fixed;
+	z-index:1; /* derrière div#actbar */
+	max-height:0px;
+	max-width:36px;
+	overflow: hidden;
+	transition: 1s max-height 0.3s;
+	transition: 1s max-width 0.3s;
+}
+
+div#menu:hover, div#menu:focus{
+	max-height:480px;
+	max-width:80%;
+}
+
+div#menu ul{
+	margin:0;
+	padding:2px;
+}
+div#menu li{
+	list-style: none;
+}
+
+.menu_gauche {
+	max-height:36px;
+	overflow: hidden;
+	transition: 1s max-height 0.3s;
+	background: #1ABC9C;
+}
+
+.menu_gauche a{
+  text-decoration: none;
+  color: #666;
+}
+
+.menu_gauche h2{
+  /* on définit la transition pour les navigateurs */
+  -webkit-transition: all .3s; /* Chrome/Safari */
+  -moz-transition: all .3s; /* Firefox (plus trop nécessaire) */
+  transition: all .3s; /* syntaxe officielle */
+}
+/* styles changeants au survol et focus */
+.menu_gauche h2:hover,
+.menu_gauche h2:focus {
+  background: #1ABC9C;
+  color: #FFF;
+  padding-left: 30px; /* décalage du contenu de 10px vers la droite (30-20 = 10) */
+}
+
+/* ici on change la valeur de max-height au :hover */
+.menu_gauche:hover {
+	/* à adapter, le minimum est le meilleur mais voyez large 😉 */
+	max-height: 380px;
+}
+
+
 /* Titres */
-h1 
+h2
 { 
-  color: #FFFFFF; 
-  font-size: 150%; 
+  color: #222; 
+  font-size: 20px;
+  padding:5px;
+  margin:0;
+  border: 1px solid #222;
+  background-color:#EEE;
+  
+}
+
+div.haut, div.bas{
+	display:none;
+}
+
+div#module {
+	margin-left: auto;
+	margin-right: auto;
+	padding-top:95px;
+	width:98%;
+}
+
+div#contenu{
+	margin:2px;
+	width:100%;
+	border:none;
+}
+div#contenu li{
+	margin-left:40px;
+	list-style:circle;
+}
+div#contenu li ul{
+	border: 1px solid #222;
+}
+div#contenu dt{
+	border: 1px solid #222;
+}
+div#contenu dd, div#contenu dd{
+  background-color:#EEE;
+  padding:5px;
+  margin:5px;
+}
+div#contenu dd, div#contenu dd *{
+  font-size: 12px;
+}
+div#contenu dt img{
+	vertical-align:middle;
+}
+
+
+/*
+ * #actbar et #menu sont la navigation du site
+ */
+
+div#actbar {
+	position:fixed;
+	padding-left:35px;
+	margin:1;
+	border: 1px solid #222;
+	background-color:#EEE;
+	width:92%;
+}
+div#actbar ul{
+	position:relative;
+	z-index:2; /* devant div#menu */
+}
+
+div#actbar li{
+	list-style: none;
+	display: inline;
+    margin-left: 4px;
+}
+div#actbar li > img{
+	display: none;
+}
+/* masquer les icones au dela de 8 */
+div#actbar li:nth-child(n+8){
+	display:none;
+}
+
+.block_forum{
+	border: 1px solid #222;
+	padding:2px;
+}
+div.block_forum p.edited, div.block_forum p.edited *{
+	font-size: 12px;
+	font-style: italic;
+}
+div.block_forum p.author, div.block_forum p.author *{
+	font-size: 12px;
+}
+.signature, .signature *{
+	font-size: 12px;
+	font-style: italic;
+}
+.menu_module{
+	margin:2px;
+	padding:2px;
+	text-align: center;
+	color: #DDD;
+}
+.menu_module a{
+	border: 1px solid #222;
+	text-decoration: none;
+	background-color:#DDD;
+}
+div.forum, form{
+	border: 1px solid #222;
+	background-color:#DDD;
+	margin:2px;
+	padding:2px;
+}
+div.forum .stat, div.forum .stat a{
+	font-size: 12px;
+	font-style: italic;
+	
+}
+
+/* Stats */
+.barre_rouge,.barre_verte,.barre_grisec,.barre_grisef {
+	color: #CCCCCC;
+	float: left;
+	height: 12px;
+}
+
+.barre_rouge {
+	background-color: #FF0000;
+}
+
+.barre_verte {
+	background-color: #226622;
+}
+.barres_grandes {
+	width: 300px;
+	border-radius: 5px;
+}
+.barres_moyennes {
+	width: 200px;
+	border-radius: 4px;
+}
+.barres_petites {
+	width: 100px;
+	border-radius: 2px;
+}
+.barres_grandes,.barres_moyennes,.barres_petites {
+	height: 10px;
+	text-align: center;
+}
+
+/* formulaires */
+input, button, textarea{
+	background-color:#EEE;
+	margin:2px;
+	padding:2px;
+	font-weight: bold;
+	border-radius: 4px;
+}
+ 
+textarea {
+	border: thin solid #533721;
+	width: 90%;
+}
+
+textarea:focus,input:focus { 
+    background-color: #DDD;
+}
+
+.error, .bad {
+	border: 1px solid #FF0000;
+    color: #FF0000;
+}
+.ok {
+	border: 1px solid #226622;
+    color: #226622;
+}
+
+.infos, .infos > *{
+	font-size: 12px;
+	font-style: italic;
+
+}
+
+.right{float: right;}
+
+table tr{
+	border: 1px solid #222;
+	margin:2px;
+	padding:2px;	
+}
+table tr:nth-child(even){
+	background-color:#DDD;
+	
+}
+table tr:nth-child(odd){
+	background-color:#EEE;
+
+}
+table *{
+	font-size: 14px;
+
+}
+
+/* footer */
+div#footer{
+	margin-top:10px;
+}
+div#footer ul{
+	display: none;
+}
+div#footer *{
+	font-size: 8px;
+}
+
+/* Pour le forum, mais pas seulement */
+.quote {
+	-moz-border-radius: 1%;
+	width: 90%;
+	text-align: left;
+	font-style: italic;
+	border: 1px solid;
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	padding: 5px;
+	margin: 10px;
+}
+/* debug zone */
+div.block{
+	max-width:100%;
+	border:none;
+}
+div.block dd,div.block dt,div.block ul{
+	overflow-x:scroll;
+	border: 1px solid #222;
+	font-size: 8px;
+}
+div.block, div.block *{
+	font-size: 10px;
+}
+.code {
+	width: 90%;
+	text-align: left;
+	font-style: italic;
+	border: 1px solid;
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	padding: 5px;
+	margin: 10px 0;
+	overflow: auto;
+}
+
+/* Block de debug */
+.debug{
+	text-align: left;
+	background-color: #000000;
+	color: #fff;
+	border: #ffffff solid 1px;
+	padding: 5px;
+}
+.mysql{
+	background-color: #DDDDDD;
+	border: 1px #AAAAAA solid;
+	color: #000000;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0;
 }

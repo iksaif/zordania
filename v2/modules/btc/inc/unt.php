@@ -41,109 +41,49 @@ if($_sub == "cancel_unt")
 } else if($_sub == "unt") {
 	$_tpl->set("btc_act","unt");
 	
-	$unt_todo = get_unt_todo($_user['mid']);// toutes les unités 'todo'
+	$unt_todo = $mbr->unt_todo();// toutes les unités 'todo'
 	
 	foreach($unt_todo as $id => $value) {// filtrer les unités du batiment concerné
-		if(!in_array($btc_type,get_conf("unt",$value['utdo_type'],"in_btc")))
+		if(!in_array($btc_type,$mbr->get_conf("unt",$value['utdo_type'],"in_btc")))
 			unset($unt_todo[$id]);
 	}
 
 	$_tpl->set("unt_todo",$unt_todo);
 	
-	$conf_unt = get_conf("unt");// toutes les unités de la race
-	$need_btc = array();// contiendra les bat requis pour les unités de ce batiment(?)
-	$need_src = array();// contiendra les recherches requises pour les unités de ce batiment
-	$need_unt = array();// contiendra les unités requises pour les unités de ce batiment
-	$need_res = array();// contiendra les ressources requises pour les unités de ce batiment
-	
-	foreach($conf_unt as $type => $value) { 
-		if(!in_array($btc_type, $value['in_btc']))// filtrer les unités du batiment
-			unset($conf_unt[$type]);
-		else { /* un peu de ménage */
-			if(isset($value['need_btc']))
-				$need_btc = array_merge($value['need_btc'], $need_btc);
-			if(isset($value['prix_res']))
-				$need_res = array_merge(array_keys($value['prix_res']), $need_res);
-			if(isset($value['prix_unt']))
-				$need_unt = array_merge(array_keys($value['prix_unt']), $need_unt);
-			if(isset($value['need_src']))
-				$need_src = array_merge($value['need_src'], $need_src);
-			array_push($need_unt,$type);
-		}
-	}
-	
-	$need_btc = array_unique($need_btc);
-	$need_res = array_unique($need_res);
-	$need_unt = array_unique($need_unt);
-	$need_src = array_unique($need_src);
-	asort($need_btc);
-	asort($need_res);
-	asort($need_unt);
-	asort($need_src);
+	$unt_tmp = array();
+    // conf de toutes les unités
+	$conf_unt = $mbr->get_conf('unt');
+    // si l'unité n'est pas dispo dans ce bat on filtre
+    $conf_unt = array_filter( $conf_unt, function($val) use ($btc_type){
+        return in_array($btc_type, $val['in_btc']);
+    });
 
-	$cache = array();// liste des res &  unt & bat ... disponibles (remplis les tables escamotables)
-	$cache['btc'] = get_nb_btc_done($_user['mid'], $need_btc);
-	$cache['btc'] = index_array($cache['btc'], "btc_type");
-	$cache['src'] = get_src_done($_user['mid'], $need_src);
-	$cache['src'] = index_array($cache['src'], "src_type");
-	$cache['res'] = clean_array_res(get_res_done($_user['mid'], $need_res));
-	$cache['res'] = $cache['res'][0];
-	$cache['unt_todo'] = get_unt_todo($_user['mid']);
-	$cache['unt_todo'] = index_array($cache['unt_todo'], "unt_todo");
-
-	$cond = array('mid' => $_user['mid'], 'unt' => $need_unt, 'leg' => true);// ici on compte les unités (total & dispo)
-	$unt_tmp = get_leg_gen($cond);
-	$unt_done = array();
-
-	$unt_done['vlg'] = $unt_done['btc'] = array();
-	foreach($unt_tmp as $value) {
-		if($value['leg_etat'] == LEG_ETAT_VLG) {
-			$unt_done['vlg'][$value['unt_type']] = $value['unt_nb'];
-		} else {
-			$unt_done['btc'][$value['unt_type']] = $value['unt_nb'];
-		}
-		
-		if(!isset($unt_done['tot'][$value['unt_type']]))
-			$unt_done['tot'][$value['unt_type']] = 0;
-		$unt_done['tot'][$value['unt_type']] += $value['unt_nb'];
-	}
-
-	$cache['unt'] = $unt_done['vlg'];
-	$cache['unt_leg'] = $unt_done['btc'];
-
-	foreach($unt_todo as $value) {
-		if(!isset($cache['unt_todo'][$value['utdo_type']]['utdo_nb']))
-			$cache['unt_todo'][$value['utdo_type']]['utdo_nb'] = 0;
-			
-		$cache['unt_todo'][$value['utdo_type']]['utdo_nb'] += $value['utdo_nb'];
-	}
-
-	$unt_tmp = array();// on va lister les unités qu'on peut former dans ce batiment
-	
-	foreach($conf_unt as $type => $value) { 
-		$unt_tmp[$type]['bad'] = can_unt($_user['mid'],  $type, 1, $cache);// vérifie qu'on peut faire 1 unité du $type, indique ce qui manque
+	foreach($conf_unt as $type => $value) {
+        // vérifie qu'on peut faire 1 unité du $type, indique ce qui manque
+		$unt_tmp[$type]['bad'] = $mbr->can_unt($type, 1);
 		$unt_tmp[$type]['conf'] = $value;
 	}
 	
 	$unt_array = array();
+    $unt_done = $mbr->nb_unt();
+	$vlg = $mbr->unt_leg(LEG_ETAT_VLG);
 	foreach($unt_tmp as $uid => $array) {
-		if($array['bad']['need_src'] || $array['bad']['need_btc']) continue;
-		$unt_array[$uid] = $array;// on ne garde que les unités dont on a tous les batiments et recherches
+		// on ne garde que les unités dont on a tous les batiments et recherches
+		if($array['bad']['need_src'] || $array['bad']['need_btc']) 
+			continue;
+		// regrouper par group (cf la conf)
+		$group = isset($array['conf']['group']) ? $array['conf']['group'] : 0;
+		$unt_array[$group][$uid] = $array;
+		// nb unt dispo et total
+		$unt_array[$group][$uid]['tot'] = $mbr->nb_unt($uid);
+		$unt_array[$group][$uid]['vlg'] = isset($vlg[$uid]) ? $vlg[$uid] : 0;
 	}
 	
 	unset($unt_tmp);
-
-	/* Sert a rien d'afficher les unités qu'ont peut former */
-	foreach($conf_unt as $type => $value) {// i.e: on enlève du cache les unités formées dans ce batiment
-		if(in_array($btc_type, $value['in_btc'])) {
-			unset($cache['unt'][$type]);
-		}
-	}
-
+	
 	$_tpl->set("unt_dispo", $unt_array);// unités possibles à former
-	$_tpl->set("res_utils", $cache['res']);
-	$_tpl->set("unt_utils", $cache['unt']);
-	$_tpl->set("unt_done", $unt_done);
+	$_tpl->set("res_utils", $mbr->res());
+	$_tpl->set("unt_utils", $mbr->nb_unt_done());
 	
 	$_tpl->set("unt_conf", $conf_unt);
 	$_tpl->set("btc_pop_used", $_user['population']);
@@ -159,7 +99,7 @@ elseif($_sub == "add_unt")
 	$nb = request("nb", "uint", "post");
 
 	if($type) { /* calcul pop y compris formation en cours */
-		$unt_todo = get_unt_todo($_user['mid']);
+		$unt_todo = $mbr->unt_todo();
 		$unt_todo_nb = 0;
 		foreach($unt_todo as $value)
 			$unt_todo_nb += $value['utdo_nb'];
@@ -184,7 +124,7 @@ elseif($_sub == "add_unt")
 	else if($unt_nb > TOTAL_MAX_UNT || $unt_nb > $_user['place'])
 		$_tpl->set("btc_unt_total_max",TOTAL_MAX_UNT);
 	else {
-			$array = can_unt($_user['mid'], $type, $nb);
+			$array = $mbr->can_unt( $type, $nb);
 
 			if(isset($array['do_not_exist']))
 				$_tpl->set("btc_no_type",true);

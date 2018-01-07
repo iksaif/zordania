@@ -7,14 +7,14 @@ function glob_leg() {
 
 	/* SELECT de toutes les légions sauf village et batiments */
 	$sql = "SELECT leg_id, leg_mid, leg_cid, SUM(unt_nb) as unt_nb, IFNULL(lres_nb,0) as lres_nb, 
-		mbr_mapcid, mbr_race, IFNULL(hro_bonus,0) AS hro_bonus ";
+		mbr_mapcid, mbr_race, IFNULL(hro_bonus,0) AS hro_bonus, leg_name ";
 	$sql.= "FROM ".$_sql->prebdd."leg ";
 	$sql.= "JOIN ".$_sql->prebdd."mbr ON mbr_mid = leg_mid AND mbr_etat = ".MBR_ETAT_OK." ";
 	$sql.= "LEFT JOIN ".$_sql->prebdd."leg_res ON leg_id = lres_lid AND lres_type = ".GAME_RES_BOUF." ";
 	$sql.= "LEFT JOIN ".$_sql->prebdd."hero ON leg_id = hro_lid ";
 	$sql.= "LEFT JOIN ".$_sql->prebdd."unt ON leg_id = unt_lid ";
 	$sql.= "WHERE leg_etat NOT IN (".LEG_ETAT_VLG.",".LEG_ETAT_BTC.") ";
-	$sql.= "GROUP BY leg_id ";
+	$sql.= "GROUP BY leg_id, leg_mid, leg_cid, IFNULL(lres_nb,0), mbr_mapcid, mbr_race, IFNULL(hro_bonus,0), leg_name ";
 
 	$leg_array = $_sql->make_array($sql);
 

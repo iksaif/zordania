@@ -1,7 +1,7 @@
 <?php
 //Verif
 if(!defined("_INDEX_")){ exit; }
-define('ZORD_NEWS_FID',30); // id du forum correspsondant aux news
+define('ZORD_NEWS_FID',25); // id du forum correspondant aux news
 
 //include de la classe
 require_once('lib/forum.lib.php');

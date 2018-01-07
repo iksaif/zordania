@@ -1,44 +1,26 @@
 <p class="menu_module">
-[<a href="forum.html" title="Sommaire du forum"> Sommaire </a>]
-- [<a href="forum-search.html" title="Rechercher"> Rechercher </a>]
-- [<a href="forum-search.html?action=show_new" title="Nouvaux messages depuis la dernière connexion"> Nouveaux </a>]
-- [<a href="forum-search.html?action=show_24h" title="Nouvaux messages depuis hier"> 24H </a>]
-- [<a href="a_propos.html" title="Equipe de modération"> Modérateurs </a>]
+<a href="forum.html" title="Sommaire du forum"> Sommaire </a>
+<a href="forum-search.html" title="Rechercher"> Rechercher </a>
+<a href="forum-search.html?action=show_new" title="Nouvaux messages depuis la dernière connexion"> Nouveaux </a>
+<a href="forum-search.html?action=show_24h" title="Nouvaux messages depuis hier"> 24H </a>
+<a href="a_propos.html" title="Equipe de modération"> Modérateurs </a>
 </p>
 
 
 <if cond='{frm_act} == "rep"'>
 	<if cond="isset({no_perm})"><p class="error">Catégorie introuvabe, ou permission refusée pour cette catégorie</p></if>
 	<else>
-	<h3 class="head_forum"><a href="forum.html">Forums</a> <img src="img/right.png" /> <a href="forum-cat.html?cid={frm[cid]}"> {frm[cat_name]} </a><img src="img/right.png" /><a href="forum-topic.html?fid={frm[fid]}".html>{frm[forum_name]}</a>
-		<if cond='{new} != "topic"'><img src="img/right.png" /> <a href="forum-<math oper="str2url({pst[subject]})"/>.html?tid={pst[tid]}">{pst[subject]}</a></if>
+	<h3 class="head_forum">
+		<a href="forum.html">Forums</a>
+		<img src="img/right.png" /> <a href="forum-cat.html?cid={frm[cid]}">{frm[cat_name]}</a>
+		<img src="img/right.png" /> <a href="forum-topic.html?fid={frm[fid]}".html>{frm[forum_name]}</a>
+		<if cond='{new} != "topic"'>
+			<img src="img/right.png" /> <a href="forum-<math oper="str2url({pst[subject]})"/>.html?tid={pst[tid]}">{pst[subject]}</a>
+		</if>
 	</h3>
 
 	<!-- formulaire de réponse / topic / édit -->
 
-<script type="text/javascript">
-<!--
-$(document).ready(function()
-{
-	// preview cf js/jquery.zordania.js
-	// citer un message précédent
-	$('a.jqquote').click(function ()
-	{
-		$.ajax({
-			url: cfg_url+"forum.xml",
-			data: "pid="+$(this).attr('pid'),
-			dataType: "xml",
-			success: function(xml){
-				var jqxml=$(xml);
-				emoticon('[quote='+jqxml.find('username')[0].firstChild.data+']'
-				+jqxml.find('message')[0].firstChild.data+'[/quote]', 'message');
-			}
-		});
-		return false;
-	});
-});
-// -->
-</script>
 	<form class="center" action="{form_url}" method="post" id="newpost">
 		<if cond='{new} == "topic"'>
 			<label for="pst_titre">Sujet : <input id="pst_titre" name="pst_titre" type="text" size="60" /></label>
@@ -88,10 +70,6 @@ $(document).ready(function()
 
 	<div id="preview"></div>
 
-	<p class="infos">
-		Merci de ne pas écrire en langage sms, d'éviter les fautes, de respecter l'ambiance médiévale du jeu (les téléphones portables n'existaient pas etc...), d'utiliser un langage courant ou soutenu, de rédiger vos phrases et d'utiliser la ponctuation à bon escient.<br/>
-		Merci de respecter ces quelques règles de rp. Plongez-vous dans le jeu, faites comme si vous y étiez.
-	</p>
 		<if cond='isset({messages})'>	
 		<h3>Derniers Posts :</h3>
 		<foreach cond='{messages} as {post}'>
@@ -213,7 +191,7 @@ $(document).ready(function()
 		</p>
 
 		<if cond="isset({arr_pge})">
-			<p>
+			<p class="pages">
 			<foreach cond="{arr_pge} as {i}">
 				<if cond='{i} == {pge} || {i} == "..."'> {i} </if>
 				<else> <a href="forum-post.html?tid={tpc[tid]}&p={i}" title="page {i}">{i}</a> </else>
@@ -228,10 +206,10 @@ $(document).ready(function()
 
 				<p class="post"><math oper="parse({post[message]})" /></p>
 				<if cond='{post[edited]}'>
-					<p><em>édité par {post[edited_by]} le {post[edited]}</em></p>
+					<p class="edited"><em>édité par {post[edited_by]} le {post[edited]}</em></p>
 				</if>
 
-				<p>
+				<p class="author">
 				<a href="forum-rep.html?tid={tpc[tid]}&qt={post[pid]}"><img src="img/forum/post.png"  title="citer"/></a>
 				<if cond='{is_modo} || ({mid} == {post[poster_id]})'>
 					<a href="forum-post.html?sub=conf&pid={post[pid]}">
@@ -425,7 +403,7 @@ $(document).ready(function()
 	<if cond="count({cat_array})>1">
 	<!-- ancres des catégories -->
 		<h3><foreach cond="{cat_array} as {cid} => {cat}">
-		[ <a href="#cid{cid}" title="{cat[cat_name]}">{cat[cat_name]}</a> ]
+		<a href="#cid{cid}" title="{cat[cat_name]}">{cat[cat_name]}</a>
 		</foreach></h3>
 	</if>
 
@@ -436,20 +414,22 @@ $(document).ready(function()
 		<div class="forum">
 			<h4><a href="forum-topic.html?fid={forum[fid]}" title="{forum[forum_name]}">{forum[forum_name]}</a></h4>
 			<p class="desc">{forum[forum_desc]}</p>
-			<p class="stat">{forum[num_topics]} sujets - {forum[num_posts]} messages<br/>
-			<if cond='{lu_forum_ldate} <= {forum[last_post_unformat]}'><img src='img/forum/non_lu.png' title='Nouveau' alt='Nouveau' /></if>
-			<else><img src='img/forum/lu.png' title='Nouveau' alt='Nouveau' /></else>
-			Dernier message : <a href="forum-<math oper="str2url({forum[last_subject]})"/>.html?pid={forum[last_post_id]}#{forum[last_post_id]}" title="Dernier message">{forum[last_subject]}</a> le {forum[last_post]} par 
-			<if cond="isset({forum[mbr_mid]})">
-				<zurlmbr gid="{forum[mbr_gid]}" mid="{forum[mbr_mid]}" pseudo="{forum[last_poster]}"/>
-			</if>
-			<else>{forum[last_poster]}</else></p>
+            <if cond="{forum[num_topics]}>0">
+                <p class="stat">{forum[num_topics]} sujets - {forum[num_posts]} messages<br/>
+                <if cond='{lu_forum_ldate} <= {forum[last_post_unformat]}'><img src='img/forum/non_lu.png' title='Nouveau' alt='Nouveau' /></if>
+                <else><img src='img/forum/lu.png' title='Nouveau' alt='Nouveau' /></else>
+                Dernier message : <a href="forum-<math oper="str2url({forum[last_subject]})"/>.html?pid={forum[last_post_id]}#{forum[last_post_id]}" title="Dernier message">{forum[last_subject]}</a> le {forum[last_post]} par 
+                <if cond="isset({forum[mbr_mid]})">
+                    <zurlmbr gid="{forum[mbr_gid]}" mid="{forum[mbr_mid]}" pseudo="{forum[last_poster]}"/>
+                </if>
+                <else>{forum[last_poster]}</else></p>
+            </if><else><p class="stat">aucun message</p></else>
 		</div>
 	</foreach>
 	</foreach>
 </else>
 
 <p class="menu_module">
-[<a href="forum.html"> Retour </a>]
-<if cond="{is_admin}">- [ <a href="/forums/admin_index.php" title="administrer le forum"> Administration </a> ]</if>
+<a href="forum.html"> Retour </a>
+<if cond="{is_admin}">- <a href="/forums/admin_index.php" title="administrer le forum"> Administration </a></if>
 </p>
